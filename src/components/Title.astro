@@ -1,0 +1,71 @@
+---
+import "../styles/style.css";
+const { title, left, right } = Astro.props;
+---
+
+<div class:list={["title", { left, right }]}>
+  <h2>{title}</h2>
+</div>
+
+<style>
+  .title {
+    display: grid;
+  }
+  .title h2 {
+    font-size: var(--font-size-fluid-2);
+    color: var(--text1);
+  }
+  @media (min-width: 950px) {
+    .title {
+      place-items: center;
+      position: relative;
+      z-index: var(--layer-3);
+    }
+    .title h2 {
+      width: 5ch;
+      color: var(--gray-1);
+    }
+    .left::before,
+    .left::after,
+    .right::before,
+    .right::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: var(--radius-3);
+    }
+    .left::before,
+    .right::before {
+      left: -2em;
+      background: var(--surface3);
+      background-image: var(--gradient-brand);
+      width: 15em;
+      height: 15em;
+      box-shadow: var(--shadow-3);
+    }
+    .left::before {
+      top: -4em;
+      transform: rotate(48deg);
+    }
+    .right::before {
+      top: -5em;
+      transform: rotate(42deg);
+    }
+    .left::after,
+    .right::after {
+      left: -3em;
+      border: var(--border-size-1) solid var(--brand);
+      width: 17em;
+      height: 17em;
+      box-shadow: var(--shadow-2);
+    }
+    .left::after {
+      top: -5em;
+      transform: rotate(42deg);
+    }
+    .right::after {
+      top: -6em;
+      transform: rotate(48deg);
+    }
+  }
+</style>

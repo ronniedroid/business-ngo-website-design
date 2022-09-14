@@ -1,0 +1,121 @@
+---
+import "../styles/style.css";
+import Title from "./Title.astro";
+
+const statsItems = [
+  {
+    title: "emplyees",
+    value: "+500",
+  },
+  {
+    title: "projects",
+    value: "8",
+  },
+  {
+    title: "partners",
+    value: "13",
+  },
+];
+---
+
+<div class="main-wrap surface1">
+  <div class="section-title">
+    <Title title="About us" left />
+  </div>
+  <div class="content">
+    <p class="content-title">
+      Through our large capacity we dare to say we are different.
+    </p>
+    <div class="stats">
+      {
+        statsItems.map((item) => (
+          <div class="stats-item">
+            <p class="stats-item--value">{item.value}</p>
+            <p class="stats-item--title">{item.title}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .main-wrap {
+    padding-top: var(--size-8);
+    padding-bottom: var(--size-10);
+    padding-inline: var(--size-4);
+    display: grid;
+    grid-template:
+      "title" 0.2fr
+      "content" 2fr / 1fr;
+    place-items: center;
+    gap: var(--size-4);
+    scroll-padding-top: 15rem;
+  }
+  @media (min-width: 950px) {
+    .main-wrap {
+      grid-template: "title content" / 1fr 2fr;
+      padding-block: var(--size-12);
+      gap: var(--size-8);
+      place-items: center;
+    }
+  }
+
+  .section-title {
+    grid-area: title;
+    place-self: start;
+  }
+
+  @media (min-width: 950px) {
+    .section-title {
+      place-self: center;
+    }
+  }
+
+  .content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-5);
+    justify-items: center;
+  }
+  .content-title {
+    font-size: var(--font-size-fluid-1);
+    font-weight: var(--font-weight-6);
+    max-inline-size: var(--size-content-2);
+  }
+  .stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .stats-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-6);
+  }
+  .stats-item--title {
+    font-size: var(--font-size-fluid-1);
+    align-self: center;
+    font-weight: var(--font-weight-6);
+    text-transform: capitalize;
+    position: relative;
+  }
+  .stats-item--title:before {
+    content: "";
+    position: absolute;
+    top: -1.2rem;
+    left: 25%;
+    right: 0;
+    border-top: var(--border-size-3) solid var(--brand);
+    width: 50%;
+    border-radius: var(--radius-2);
+  }
+  .stats-item--value {
+    font-size: var(--font-size-fluid-2);
+    font-weight: var(--font-weight-7);
+    align-self: center;
+  }
+</style>

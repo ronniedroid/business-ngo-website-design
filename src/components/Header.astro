@@ -1,0 +1,167 @@
+---
+import ToggleDark from "./ToggleDark.vue";
+import NotificationBell from "./NotificationBell.vue";
+
+const navItems = [
+  {
+    name: "about",
+    link: "/#about",
+  },
+  {
+    name: "projects",
+    link: "/#projects",
+  },
+  {
+    name: "expertise",
+    link: "/#expertise",
+  },
+  {
+    name: "partners",
+    link: "/#partners",
+  },
+];
+---
+
+<script>
+  let opened = false;
+  const openNav = () => {
+    opened = !opened;
+  };
+
+  const closeNav = () => {
+    opened === true ? (opened = false) : "";
+  };
+</script>
+
+<header>
+  <a href="/#home" class="logo">
+    <img
+      alt="Harikar NGO's logo"
+      src="/harikar-logo.svg"
+      width="40"
+      height="80"
+    />
+  </a>
+  <nav class="nav">
+    <ul class="main-nav" class="{opened}">
+      {
+        navItems.map((item) => (
+          <li>
+            <a href="item.link}">{item.name}</a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="/reports">reports</a>
+      </li>
+    </ul>
+  </nav>
+  <ul class="nav-buttons">
+    <li>
+      <ToggleDark client:load />
+    </li>
+    <li>
+      <NotificationBell client:load />
+    </li>
+  </ul>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--size-fluid-1);
+    box-shadow: var(--shadow-2);
+    position: sticky;
+    top: 0;
+    z-index: var(--layer-4);
+    background: var(--surface1);
+  }
+
+  .main-nav {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    box-shadow: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--size-fluid-2);
+    text-transform: capitalize;
+    font-size: var(--font-size-2);
+    line-height: var(--font-lineheight-5);
+    overflow-y: auto;
+  }
+
+  .main-nav li a {
+    font-weight: var(--font-weight-6);
+    text-decoration: none;
+    color: var(--text2);
+  }
+
+  .main-nav li a:hover {
+    color: var(--brand);
+  }
+
+  .logo {
+    object-fit: contain;
+    margin-inline-start: var(--size-11);
+    z-index: var(--layer-5);
+  }
+
+  @media (max-width: 950px) {
+    .main-nav {
+      background: var(--surface3);
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 70%;
+      bottom: 0;
+      z-index: var(--layer-4);
+      box-shadow: var(--shadow-3);
+      padding-block: var(--size-fluid-7);
+      padding-left: var(--size-8);
+      transform: translateX(-100%);
+      transition: transform 350ms var(--ease-out-1);
+    }
+    .opened {
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .main-nav {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 50%;
+    }
+    .logo {
+      object-fit: contain;
+      margin-inline-start: var(--size-10);
+      z-index: var(--layer-5);
+    }
+  }
+
+  .nav-buttons {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    margin-inline-end: var(--size-8);
+    gap: var(--size-4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn {
+    font-size: var(--font-size-5);
+    background: transparent;
+    color: var(--text2);
+  }
+
+  .btn:hover {
+    color: var(--brand);
+  }
+</style>

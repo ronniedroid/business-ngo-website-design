@@ -1,0 +1,200 @@
+---
+---
+
+<div class="hero-wrap">
+  <div class="hero">
+    <h1 class="hero-message animate-top-down">
+      <div>Harikar NGO</div>
+    </h1>
+    <p class="under-hero animate-top-down">
+      Harikar NGO is a neutral, non-governmental, non-profit humanitarian
+      organization.
+    </p>
+    <div class="button-list animate-top-down">
+      <button>
+        Write to us
+        <span>
+          <svg width="16" height="16" viewBox="0 0 20 18">
+            <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+            <title>send</title>
+            <desc>Created with Sketch.</desc>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Rounded" transform="translate(-374.000000, -1529.000000)">
+                <g id="Content" transform="translate(100.000000, 1428.000000)">
+                  <g
+                    id="-Round-/-Content-/-send"
+                    transform="translate(272.000000, 98.000000)"
+                  >
+                    <g>
+                      <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                      <path
+                        d="M3.4,20.4 L20.85,12.92 C21.66,12.57 21.66,11.43 20.85,11.08 L3.4,3.6 C2.74,3.31 2.01,3.8 2.01,4.51 L2,9.12 C2,9.62 2.37,10.05 2.87,10.11 L17,12 L2.87,13.88 C2.37,13.95 2,14.38 2,14.88 L2.01,19.49 C2.01,20.2 2.74,20.69 3.4,20.4 Z"
+                        id="send-icon"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <picture class="promo-art">
+    <img
+      src="https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/cover.webp"
+      alt="A mother with three young kids"
+      width="964"
+      height="723"
+    />
+  </picture>
+  <div class="triangle">
+    <svg
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .hero-wrap {
+    display: grid;
+    align-items: center;
+    grid-template:
+      "hero"
+      "image" 10rem;
+    background: var(--surface3);
+    background-image: var(--gradient-brand);
+    position: relative;
+  }
+
+  @media (min-width: 950px) {
+    .hero-wrap {
+      grid-template: "hero image" / 3fr 2fr;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .hero-wrap {
+      grid-template: "hero image ." / 3fr 2fr 1fr;
+    }
+  }
+
+  .hero {
+    grid-area: hero;
+    display: grid;
+    place-content: center;
+    gap: var(--size-5);
+    max-width: 100%;
+    padding-inline: var(--size-4);
+    padding-block: var(--size-8);
+  }
+
+  .hero-message {
+    display: grid;
+    grid-template-columns: max-content;
+    line-height: var(--font-lineheight-0);
+    color: var(--gray-1);
+    font-size: var(--font-size-fluid-3);
+  }
+
+  .under-hero {
+    color: var(--gray-3);
+    font-size: var(--font-size-fluid-);
+    margin-block-end: var(--size-3);
+    font-weight: var(--font-weight-6);
+  }
+
+  .button-list {
+    display: flex;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-top-down {
+      animation: var(--animation-slide-in-down);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-top-down {
+      animation: none;
+    }
+  }
+
+  .promo-art {
+    align-self: stretch;
+    grid-area: image;
+    max-width: 100%;
+  }
+
+  .promo-art > img {
+    block-size: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @media (min-width: 950px) {
+    .promo-art > img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .triangle {
+    display: none;
+  }
+
+  @media (min-width: 950px) {
+    .triangle {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+
+    .triangle svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 30px;
+      /* transform: rotateY(180deg); */
+    }
+
+    .triangle .shape-fill {
+      fill: var(--surface1);
+      stroke: var(--surface1);
+    }
+  }
+  button {
+    font-size: var(--font-size-0);
+    padding-inline: var(--size-fluid-2);
+    padding-block: var(--size-fluid-1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    background: var(--brand);
+    color: var(--gray-1);
+    font-weight: var(--font-weight-6);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: var(--size-3);
+    transition: all 150ms var(--ease-out-1);
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-2);
+  }
+
+  #send-icon {
+    fill: var(--gray-3);
+  }
+</style>

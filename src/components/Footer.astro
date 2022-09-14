@@ -1,0 +1,228 @@
+---
+---
+
+<footer>
+  <div class="info">
+    <div class="brand">
+      <img alt="" src="/public/harikar-logo.svg" width="40" height="80" />
+      <p>Harikar NGO</p>
+    </div>
+    <p class="info-text">
+      We have been working in the humanitarian sector for more than a decade,
+      helping people is in our name.
+    </p>
+  </div>
+  <div class="copyright">
+    <p>© Harikar NGO - All Rights Reserved 2021</p>
+  </div>
+  <div class="links">
+    <div class="list harikar">
+      <p class="list-title">harikar</p>
+      <ul class="list-items">
+        <li class="list-item">
+          <a href="/executive-board-members">executive board</a>
+        </li>
+        <li class="list-item">
+          <a href="/#profile">profile</a>
+        </li>
+        <li class="list-item"><a href="/legal-status">Legal Status</a></li>
+      </ul>
+    </div>
+    <div class="list ref">
+      <p class="list-title">references</p>
+      <ul class="list-items">
+        <li class="list-item"><a href="/policies">policies</a></li>
+      </ul>
+    </div>
+    <div class="list other">
+      <p class="list-title">other</p>
+      <ul class="list-items">
+        <li class="list-item"><a href="/contact">contact us</a></li>
+        <li class="list-item">
+          <a href="/#address">address</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="social">
+    <a href="https://www.facebook.com/Harikar2004/" target="__blank">
+      <img
+        alt="link to harikar's facebook page"
+        src="/public/icons8-facebook.svg"
+        width="35"
+        height="35"
+      />
+    </a>
+    <a
+      href="https://www.youtube.com/channel/UCfAUdyLGTADpz5yi7f3OFFg"
+      target="__blank"
+    >
+      <img
+        alt="link to harikar's youtube channel"
+        src="/public/icons8-youtube.svg"
+        width="35"
+        height="35"
+      />
+    </a>
+    <a href="https://www.instagram.com/harikarngo/" target="__blank">
+      <img
+        alt="link to harikar's instagram page"
+        src="/public/icons8-instagram.svg"
+        width="35"
+        height="35"
+      />
+    </a>
+  </div>
+</footer>
+
+<style>
+  footer {
+    display: grid;
+    padding-block: var(--size-6);
+    padding-inline: var(--size-4);
+    background: var(--surface1);
+    grid-template:
+      "info"
+      "links"
+      "social"
+      "copy" / 1fr;
+    gap: var(--size-8);
+    justify-items: center;
+    align-items: start;
+    justify-content: center;
+  }
+
+  @media (min-width: 950px) {
+    footer {
+      gap: var(--size-6);
+      padding-inline: var(--size-10);
+      grid-template:
+        "info links social"
+        "copy links social"/ 1fr 2fr 1fr;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    footer {
+      padding-inline: var(--size-13);
+    }
+  }
+
+  .info {
+    grid-area: info;
+    display: grid;
+    gap: var(--size-3);
+    place-items: center;
+  }
+
+  .brand {
+    display: flex;
+    place-items: center;
+    gap: var(--size-4);
+  }
+
+  .brand > p {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-6);
+  }
+
+  .info-text {
+    font-size: var(--font-size-0);
+    max-width: var(--size-content-2);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  @media (min-width: 950px) {
+    .info {
+      place-items: start;
+    }
+    .info-text {
+      max-width: 35;
+    }
+  }
+
+  @media (min-width: 950px) {
+    .copyright {
+      justify-self: start;
+    }
+  }
+
+  .copyright > p {
+    grid-area: copy;
+    font-size: var(--font-size-0);
+  }
+
+  .links {
+    grid-area: links;
+    display: grid;
+    grid-template: "harikar" "ref" "other";
+    grid-gap: var(--size-4);
+    align-items: start;
+  }
+
+  @media (min-width: 450px) {
+    .links {
+      grid-template: "harikar ref other";
+      grid-gap: var(--size-8);
+    }
+  }
+
+  .social {
+    grid-area: social;
+  }
+
+  .harikar {
+    grid-area: harikar;
+  }
+
+  .list {
+    display: grid;
+    gap: var(--size-3);
+  }
+
+  .list-title {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-6);
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+
+  .list-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-1);
+    display: flex;
+    gap: var(--size-3);
+    text-transform: capitalize;
+  }
+
+  @media (min-width: 450px) {
+    .list-items {
+      flex-direction: column;
+    }
+  }
+
+  .list-item > a {
+    color: var(--text2);
+    text-decoration: none;
+  }
+
+  .list-item > a:hover {
+    color: var(--brand);
+  }
+
+  .ref {
+    grid-area: ref;
+  }
+
+  .other {
+    grid-area: other;
+  }
+
+  .social {
+    display: flex;
+    gap: 1rem;
+  }
+</style>
