@@ -4,7 +4,7 @@ const { img, title, desc, date } = Astro.props;
 
 <div class="article-card">
   <figure>
-    <img src={img} alt={title} width="350" height="250" />
+    <img src={img} alt={title} />
   </figure>
   <div class="text">
     <p class="title">
@@ -35,7 +35,7 @@ const { img, title, desc, date } = Astro.props;
   }
 
   .title {
-    max-width: 33ch;
+    max-width: 32ch;
     color: var(--brand);
   }
   .article-card:hover .title {
