@@ -6,7 +6,10 @@ const { items } = Astro.props;
   {
     items.map((item) => (
       <li>
-        <a class={item.disabled} href={item.link ? item.link : ""}>
+        <a
+          class:list={[{ disabled: item.disabled }]}
+          href={item.link ? item.link : ""}
+        >
           {item.name}
         </a>
       </li>
@@ -50,5 +53,15 @@ const { items } = Astro.props;
     cursor: not-allowed;
     opacity: 0.5;
     text-decoration: none;
+  }
+  .breadcrumb {
+    display: none;
+  }
+  @media (min-width: 950px) {
+    .breadcrumb {
+      display: block;
+      margin-left: var(--size-8);
+      margin-top: var(--size-3);
+    }
   }
 </style>
