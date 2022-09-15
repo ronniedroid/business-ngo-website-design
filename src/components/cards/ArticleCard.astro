@@ -1,0 +1,56 @@
+---
+const { img, title, desc, date } = Astro.props;
+---
+
+<div class="article-card">
+  <figure>
+    <img src={img} alt={title} width="350" height="250" />
+  </figure>
+  <div class="text">
+    <p class="title">
+      {title}
+    </p>
+    <p class="desc">{desc}</p>
+    <p>
+      {date}
+    </p>
+  </div>
+</div>
+
+<style>
+  .article-card {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    gap: var(--size-2);
+  }
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .text {
+    display: grid;
+    gap: var(--size-1);
+  }
+
+  .title {
+    max-width: 33ch;
+    color: var(--brand);
+  }
+  .article-card:hover .title {
+    --brand: hsl(226 80% 20% / 1);
+    color: var(--brand);
+  }
+  .desc {
+    max-width: 32ch;
+    min-width: 32ch;
+    justify-self: start;
+  }
+
+  .date {
+    justify-self: start;
+    align-self: end;
+    max-width: max-content;
+  }
+</style>

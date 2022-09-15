@@ -1,0 +1,118 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Icon } from "astro-icon";
+---
+
+<script>
+  const sendButton = document.getElementById("send-button");
+  const subjectInput = document.getElementById("subject");
+  const messageInput = document.getElementById("message");
+  const emailForm = document.getElementById("email-form");
+
+  const subject = subjectInput.value;
+  const message = messageInput.value;
+
+  sendButton.href = `mailto:info@harikar.org?subject=${subject}&body=${message}`;
+</script>
+
+<MainLayout title="Contact us">
+  <div class="main-wrap">
+    <h2>Contact us</h2>
+    <p>If you have any questions, Please leave us a message.</p>
+    <form id="email-form">
+      <label for="subject">Subject</label>
+      <input
+        id="subject"
+        name="subject"
+        type="text"
+        value=""
+        place-holder="message"
+      />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" cols="60" value=""
+      ></textarea>
+      <a href="#" id="send-button"
+        >Send message <Icon pack="mdi" name="send" />
+      </a>
+    </form>
+  </div>
+</MainLayout>
+
+<style>
+  .main-wrap {
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: var(--size-8);
+    padding-block: var(--size-10);
+    padding-inline: var(--size-4);
+    overflow-x: hidden;
+  }
+
+  p {
+    max-width: var(--size-content-2);
+    text-align: center;
+  }
+
+  form {
+    display: grid;
+    gap: var(--size-4);
+  }
+
+  label {
+    color: var(--text1);
+    font-weight: var(--font-weight-6);
+  }
+
+  input {
+    max-width: 100%;
+    box-shadow: var(--shadow-2);
+    border: var(--border-size-1) solid var(--text2);
+    padding: var(--size-2);
+    color: var(--text2);
+    background: var(--surface3);
+    border-radius: var(--radius-2);
+  }
+
+  textarea {
+    width: 100%;
+    box-shadow: var(--shadow-2);
+    border: var(--border-size-1) solid var(--text2);
+    padding: var(--size-2);
+    color: var(--text2);
+    background: var(--surface3);
+    border-radius: var(--radius-2);
+  }
+
+  h2 {
+    color: var(--brand);
+  }
+
+  button {
+    font-size: var(--font-size-0);
+    padding-inline: var(--size-fluid-2);
+    padding-block: var(--size-fluid-1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    background: var(--brand);
+    color: var(--gray-1);
+    font-weight: var(--font-weight-6);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: var(--size-3);
+    transition: all 150ms var(--ease-out-1);
+    max-width: max-content;
+    justify-self: center;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-2);
+  }
+
+  [astro-icon] {
+    width: 20px;
+    height: 20px;
+  }
+</style>

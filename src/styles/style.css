@@ -35,7 +35,7 @@ html {
   --surface3-dark: var(--gray-7);
   --surface4-dark: var(--gray-6);
   --surface-shadow-dark: 200 50% 3%;
-  --shadow-strength-dark: 80%;
+  --shadow-strength-dark: 20%;
   --gradient-dark: linear-gradient(
     55deg,
     hsl(210deg 45% 45%) 20%,
