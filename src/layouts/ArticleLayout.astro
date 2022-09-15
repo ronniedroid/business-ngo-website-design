@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import MainLayout from "./MainLayout.astro";
-const { title, desc, date, author, language, location, slug } =
+const { title, desc, img, date, author, language, location, slug } =
   Astro.props.frontmatter;
 
 const response = await fetch(
@@ -40,28 +40,20 @@ const items = [
         {date} |
         {language}
       </p>
-      <div class="container">
-        <div class="media-scroller snaps-inline">
-          {
-            articlePhotos.map((photo) => (
-              <div class="media-element">
-                <img
-                  loading="lazy"
-                  alt={extractName(photo)}
-                  src={photo}
-                  width="500"
-                  height="400"
-                />
-                <p class="media-element__title">{extractName(photo)}</p>
-              </div>
-            ))
-          }
-        </div>
+      <div class="media-element">
+        <img
+          loading="lazy"
+          alt={extractName(img)}
+          src={img}
+          width="900"
+          height="200"
+        />
+        <p class="media-element__title">{extractName(img)}</p>
       </div>
-      <article class="article">
-        <slot />
-      </article>
     </div>
+    <article class="article">
+      <slot />
+    </article>
   </div>
 </MainLayout>
 
@@ -102,13 +94,15 @@ const items = [
 
   .meta {
     font-weight: var(--font-weight-6);
-    max-width: var(--size-content-1);
+    font-size: var(--size-3);
+    max-width: var(--size-content-2);
   }
 
   .article {
     text-align: justify;
     display: grid;
     gap: var(--size-4);
+    padding-top: var(--size-8);
   }
 
   .article :global(p) {
@@ -125,30 +119,7 @@ const items = [
     max-width: 70ch;
   }
 
-  .container {
-    grid-area: content;
-    overflow-x: hidden;
-    max-width: 40ch;
-  }
-
-  .media-scroller {
-    --_spacer: var(--size-3);
-    display: grid;
-    grid-auto-flow: column;
-    gap: var(--_spacer);
-    grid-auto-columns: 22rem;
-    padding-block: var(--_spacer);
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-  }
-
   @media (min-width: 450px) {
-    .container {
-      max-width: 70ch;
-    }
-    .media-scroller {
-      grid-auto-columns: 25rem;
-    }
     .title {
       max-width: var(--size-content-2);
     }
@@ -159,29 +130,14 @@ const items = [
       max-width: var(--size-content-2);
     }
   }
-  @media (min-width: 950px) {
-    .container {
-      max-width: 90ch;
-    }
-  }
+
   .media-element {
     display: grid;
-    grid-template-rows: min-content;
-    place-content: start;
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background-color: transparent;
-    transition: all 100ms var(--ease-in-1);
+    place-items: center;
     position: relative;
+    max-width: 100%;
   }
-
-  .media-element:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
-  }
-
   .media-element > img {
-    inline-size: 100%;
     aspect-ratio: var(--ratio-landscape);
     object-fit: cover;
     max-width: 100%;
@@ -199,8 +155,8 @@ const items = [
     display: grid;
     place-content: center;
     position: absolute;
-    bottom: 0;
-    background-color: var(--surface-3);
+    bottom: -4em;
+    font-style: italic;
   }
 
   .snaps-inline {
