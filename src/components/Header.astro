@@ -1,6 +1,6 @@
 ---
 import ToggleDark from "./ToggleDark.astro";
-import NotificationBell from "./NotificationBell.vue";
+import NotificationBell from "./NotificationBell.astro";
 import harikarLogo from "../assets/images/harikar-logo.svg";
 
 const navItems = [
@@ -92,10 +92,10 @@ const navItems = [
   </nav>
   <ul class="nav-buttons">
     <li>
-      <ToggleDark client:load />
+      <ToggleDark />
     </li>
     <li>
-      <NotificationBell client:load />
+      <NotificationBell />
     </li>
   </ul>
 </header>
