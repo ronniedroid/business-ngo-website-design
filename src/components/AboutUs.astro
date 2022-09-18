@@ -52,12 +52,18 @@ const statsItems = [
     gap: var(--size-4);
     scroll-padding-top: 15rem;
   }
-  @media (min-width: 950px) {
+  @media (min-width: 980px) {
     .main-wrap {
       grid-template: "title content" / 1fr 2fr;
       padding-block: var(--size-12);
+      padding-inline: var(--size-8);
       gap: var(--size-8);
       place-items: center;
+    }
+  }
+  @media (min-width: 1600px) {
+    .main-wrap {
+      padding-inline: var(--size-13);
     }
   }
 
