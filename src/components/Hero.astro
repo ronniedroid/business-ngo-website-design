@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import Tint from "./Tint.astro";
 ---
 
 <div class="hero-wrap">
@@ -20,60 +21,48 @@ import { Icon } from "astro-icon";
       </a>
     </div>
   </div>
-  <picture class="promo-art">
-    <img
-      src="https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/cover.webp"
-      alt="A mother with three young kids"
-      width="964"
-      height="723"
-    />
-  </picture>
-  <div class="triangle">
-    <svg
-      data-name="Layer 1"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1200 120"
-      preserveAspectRatio="none"
-    >
-      <path
-        d="M 1200,0 H 0 l 438.1552,73.927352 a 2822.3893,2822.3893 5.6150601 0 0 388.14598,38.161058 l 58.06813,1.67588 a 10.586796,10.586796 4.7746365 0 1 1.14897,0.096 A 609.63614,609.63614 160.09686 0 0 1200,0 Z"
-        class="shape-fill"></path>
-    </svg>
-  </div>
+  <Tint white />
 </div>
 
 <style>
   .hero-wrap {
     display: grid;
     align-items: center;
-    grid-template:
-      "hero"
-      "image" 10rem;
     background: var(--surface3);
-    background-image: var(--gradient-brand);
     position: relative;
   }
 
-  @media (min-width: 950px) {
-    .hero-wrap {
-      grid-template: "hero image" / 3fr 2fr;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    .hero-wrap {
-      grid-template: "hero image ." / 3fr 2fr 1fr;
-    }
-  }
-
   .hero {
-    grid-area: hero;
+    --bg-filter-color: var(--gray-8);
+    --bg-filter-opacity: 0.8;
     display: grid;
-    place-content: center;
+    align-content: center;
+    justify-content: center;
     gap: var(--size-5);
     max-width: 100%;
     padding-inline: var(--size-4);
-    padding-block: var(--size-8);
+    padding-block: var(--size-11);
+    background-image: url("../assets/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    isolation: isolate;
+  }
+
+  @media (min-width: 950px) {
+    .hero {
+      justify-content: left;
+      padding-block: var(--size-11);
+      padding-inline-start: var(--size-12);
+    }
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--bg-filter-color);
+    opacity: var(--bg-filter-opacity);
   }
 
   .hero-message {

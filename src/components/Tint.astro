@@ -2,7 +2,7 @@
 const { flipped, gray, white } = Astro.props;
 ---
 
-<div class="tint" class={flipped}>
+<div class:list={["tint", { flipped }]}>
   <svg
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
@@ -13,43 +13,43 @@ const { flipped, gray, white } = Astro.props;
       d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
       class:list={[{ white, gray }]}></path>
   </svg>
-</div>
 
-<style>
-  .tint {
-    display: none;
-  }
-
-  @media (min-width: 950px) {
+  <style>
     .tint {
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      transform: rotate(180deg);
+      display: none;
     }
 
-    .tint svg {
-      position: relative;
-      display: block;
-      width: calc(159% + 1.3px);
-      height: 50px;
-    }
+    @media (min-width: 950px) {
+      .tint {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+      }
 
-    .flipped svg {
-      transform: rotateY(180deg);
-    }
+      .tint svg {
+        position: relative;
+        display: block;
+        width: calc(159% + 1.3px);
+        height: 50px;
+      }
 
-    .tint .white {
-      fill: var(--surface1);
-      stroke: var(--surface1);
+      .flipped svg {
+        transform: rotateY(180deg);
+      }
+
+      .tint .white {
+        fill: var(--surface1);
+        stroke: var(--surface1);
+      }
+      .tint .gray {
+        fill: var(--surface3);
+        stroke: var(--surface3);
+      }
     }
-    .tint .gray {
-      fill: var(--surface3);
-      stroke: var(--surface3);
-    }
-  }
-</style>
+  </style>
+</div>
