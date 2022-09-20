@@ -31,7 +31,7 @@ import { Icon } from "astro-icon";
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="4" cols="60" value=""
       ></textarea>
-      <a href="#" id="send-button"
+      <a href="#" id="send-button" class="button"
         >Send message <Icon pack="mdi" name="send" />
       </a>
     </form>
@@ -88,7 +88,7 @@ import { Icon } from "astro-icon";
     color: var(--brand);
   }
 
-  button {
+  .button {
     font-size: var(--font-size-0);
     padding-inline: var(--size-fluid-2);
     padding-block: var(--size-fluid-1);
@@ -106,7 +106,7 @@ import { Icon } from "astro-icon";
     justify-self: center;
   }
 
-  button:hover {
+  .button:hover {
     transform: scale(1.1);
     box-shadow: var(--shadow-2);
   }

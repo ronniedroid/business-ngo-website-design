@@ -1,0 +1,40 @@
+.card {
+  display: grid;
+  gap: var(--size-1);
+  background-color: var(--surface3);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-2);
+  max-height: max-content;
+}
+.content {
+  padding-block: var(--size-3);
+  padding-inline: var(--size-4);
+  display: grid;
+  gap: var(--size-2);
+}
+.dates {
+  align-self: end;
+  padding-block: var(--size-2);
+  padding-inline: var(--size-3);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-self: end;
+  gap: var(--size-3);
+  background-color: var(--surface4);
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 var(--radius-3) var(--radius-3);
+  min-height: var(--size-8);
+  max-height: var(--size-8);
+}
+.button {
+  background-color: transparent;
+  padding: var(--size-2);
+}
+
+.button:hover {
+  color: var(--brand);
+}
