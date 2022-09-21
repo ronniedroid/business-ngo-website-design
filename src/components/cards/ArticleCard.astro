@@ -1,10 +1,11 @@
 ---
 const { img, title, desc, date } = Astro.props;
+import { Image } from "@astrojs/image/components";
 ---
 
 <div class="article-card">
   <figure>
-    <img src={img} alt={title} width="350" height="300" />
+    <Image src={img} alt={title} width="350" aspectRatio="4:3" loading="lazy" />
   </figure>
   <div class="text">
     <p class="title">

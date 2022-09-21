@@ -1,6 +1,8 @@
 ---
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import MainLayout from "./MainLayout.astro";
+import { Image } from "@astrojs/image/components";
+
 const { title, desc, img, date, author, language, location, slug } =
   Astro.props.frontmatter;
 
@@ -41,12 +43,11 @@ const items = [
         {language}
       </p>
       <div class="media-element">
-        <img
-          loading="lazy"
+        <Image
           alt={extractName(img)}
           src={img}
           width="900"
-          height="200"
+          aspectRatio="16:9"
         />
         <p class="media-element__title">{extractName(img)}</p>
       </div>
@@ -138,8 +139,7 @@ const items = [
     max-width: 100%;
   }
   .media-element > img {
-    aspect-ratio: var(--ratio-landscape);
-    object-fit: cover;
+    object-fit: contain;
     max-width: 100%;
     height: auto;
   }
