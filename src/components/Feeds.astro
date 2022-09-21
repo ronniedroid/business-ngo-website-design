@@ -1,9 +1,11 @@
 ---
 import { Icon } from "astro-icon";
-import { posts } from "../assets/posts.json";
 import ArticleCard from "./cards/ArticleCard.astro";
 import FacebookEmbed from "./cards/facebookEmbed.astro";
 import YoutubeEmbed from "./cards/youtubeEmbed.astro";
+
+const request = await fetch("https://harikar-reports-api.cyclic.app/v2/social");
+const posts = await request.json();
 
 const facebookPosts = posts.filter((post) => post.platform === "fb");
 const youtubePosts = posts.filter((post) => post.platform === "yt");
@@ -34,14 +36,13 @@ const facebookPostsSorted = facebookPosts
   .reverse();
 ---
 
-<!-- 
 <script
   async
   defer
   crossorigin="anonymous"
   src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
   nonce="VpMu8GFJ"
-></script> -->
+></script>
 <div class="main-wrap">
   <div class="section-title">
     <Icon pack="mdi" name="rss" />
@@ -49,9 +50,9 @@ const facebookPostsSorted = facebookPosts
   <div class="main-container">
     <div class="container facebook">
       <h2>latest posts</h2>
-      <!-- <div class="posts">
+      <div class="posts">
         {facebookPostsSorted.map((post) => <FacebookEmbed id={post.id} />)}
-      </div> -->
+      </div>
     </div>
     <div class="container articles">
       <h2>latest articles/stories</h2>
