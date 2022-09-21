@@ -4,7 +4,7 @@ const { img, title, desc, date } = Astro.props;
 
 <div class="article-card">
   <figure>
-    <img src={img} alt={title} />
+    <img src={img} alt={title} width="350" height="300" />
   </figure>
   <div class="text">
     <p class="title">
@@ -43,9 +43,16 @@ const { img, title, desc, date } = Astro.props;
     color: var(--brand);
   }
   .desc {
-    max-width: 32ch;
-    min-width: 32ch;
+    max-width: 30ch;
+    min-width: 30ch;
     justify-self: start;
+  }
+
+  @media (min-width: 980px) {
+    .desc {
+      max-width: 32ch;
+      min-width: 32ch;
+    }
   }
 
   .date {
