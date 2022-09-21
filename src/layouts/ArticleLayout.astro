@@ -8,7 +8,7 @@ const response = await fetch(
   `https://api.github.com/repos/Harikar-NGO/harikar-website-files/contents/articles/${slug}`
 );
 const data = await response.json();
-const articlePhotos = data.map((item) => item.download_url);
+const articlePhotos = await data.map((item) => item.download_url);
 const extractName = (path) => {
   const arrayFromPath = path.split("/");
   const unEditedName = arrayFromPath[arrayFromPath.length - 1].split(".")[0];
