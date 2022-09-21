@@ -1,6 +1,7 @@
 ---
 import Title from "./Title.astro";
 import Tint from "./Tint.astro";
+import { Image } from "@astrojs/image/components";
 
 const getImg = (id) => {
   return `https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp`;
@@ -21,17 +22,19 @@ const projects = await response.json();
       {
         projects.map((project) => (
           <div class="media-element">
-            <img
+            <Image
               loading="lazy"
               alt="an image from the project"
               src={getImg(project.id)}
               width="208"
-              height="125"
+              aspectRatio="16:9"
             />
-            <p class="media-element__title">
-              {project.name.substr(0, 80) + "..."}
-            </p>
-            <button class="media-element__btn">Learn More</button>
+            <div class="content">
+              <p class="media-element__title">
+                {project.name.substr(0, 80) + "..."}
+              </p>
+              <button class="media-element__btn">Learn More</button>
+            </div>
           </div>
         ))
       }
@@ -95,11 +98,19 @@ const projects = await response.json();
     display: grid;
     grid-template-rows: min-content;
     gap: var(--_spacer);
-    padding: var(--_spacer);
-    background: var(--surface4);
+    background: var(--surface1);
     border-radius: var(--radius-2);
     box-shadow: var(--shadow-3);
     transition: all 100ms var(--ease-in-1);
+    border-radius: var(--radius-2);
+  }
+
+  .content {
+    display: grid;
+    place-items: center;
+    padding-inline: var(--size-1);
+    padding-block-end: var(--size-1);
+    gap: var(--size-2);
   }
 
   .media-element:hover {
@@ -108,11 +119,10 @@ const projects = await response.json();
   }
 
   .media-element > img {
-    inline-size: 100%;
-    aspect-ratio: var(--ratio-landscape);
-    object-fit: cover;
+    object-fit: contain;
     max-width: 100%;
     height: auto;
+    border-radius: var(--radius-2) var(--radius-2) 0 0;
   }
   .media-element__title {
     font-size: var(--font-size-0);
@@ -131,6 +141,7 @@ const projects = await response.json();
     background: var(--brand);
     color: var(--gray-2);
     display: block;
+    width: 100%;
     max-height: var(--size-6);
     transition: all 100ms var(--ease-in-1);
   }
