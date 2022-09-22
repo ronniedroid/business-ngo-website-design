@@ -22,13 +22,15 @@ const expertiseList = [
     <ul class="container">
       {
         expertiseList.map((list) => (
-          <div class="expertise-list">
-            {list.map((item) => (
-              <li tabindex="-1" class="expertise-item">
-                {item}
-              </li>
-            ))}
-          </div>
+          <li class="expertise-list">
+            <ul class="expertise-list">
+              {list.map((item) => (
+                <li tabindex="-1" class="expertise-item">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </li>
         ))
       }
     </ul>
@@ -106,7 +108,7 @@ const expertiseList = [
     background: transparent;
     border: var(--border-size-1) solid var(--brand);
     border-radius: var(--radius-2);
-    color: var(--brand);
+    color: var(--text2);
     font-weight: var(--font-weight-6);
   }
 
