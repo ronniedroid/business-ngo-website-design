@@ -1,184 +1,145 @@
 ---
 import { Icon } from "astro-icon";
 import ArticleCard from "./cards/ArticleCard.astro";
-import FacebookEmbed from "./cards/facebookEmbed.astro";
-import YoutubeEmbed from "./cards/youtubeEmbed.astro";
+import Title from "./Title.astro";
+import Tint from "./Tint.astro";
 
-const request = await fetch("https://harikar-reports-api.cyclic.app/v2/social");
-const posts = await request.json();
-
-const facebookPosts = posts.filter((post) => post.platform === "fb");
-const youtubePosts = posts.filter((post) => post.platform === "yt");
 const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
-
-function compare(a, b) {
-  if (a.date < b.date) {
-    return -1;
-  }
-  if (a.date > b.date) {
-    return 1;
-  }
-  return 0;
-}
-
-const youtubePostsSorted = youtubePosts
-  .map((post) => {
-    return { ...post, date: post.date.split("-").join("") };
-  })
-  .sort(compare)
-  .reverse();
-
-const facebookPostsSorted = facebookPosts
-  .map((post) => {
-    return { ...post, date: post.date.split("-").join("") };
-  })
-  .sort(compare)
-  .reverse();
 ---
 
-<script
-  async
-  defer
-  crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=false&version=v15.0"
-  nonce="VpMu8GFJ"
-></script>
-
-<div class="main-wrap">
+<div class="main-wrap surface3">
   <div class="section-title">
-    <Icon pack="mdi" name="rss" />
+    <Title title="Latest Stories" right />
   </div>
-  <div class="main-container">
-    <div class="container facebook">
-      <h2>latest posts</h2>
-      <div class="posts">
-        {facebookPostsSorted.map((post) => <FacebookEmbed id={post.id} />)}
-      </div>
-    </div>
-    <div class="container articles">
-      <h2>latest articles/stories</h2>
-      <div class="posts">
-        {
-          articles.map((article) => (
-            <a class="link" href={article.url}>
-              <ArticleCard
-                title={article.frontmatter.title}
-                img={article.frontmatter.img}
-                desc={article.frontmatter.desc.substr(0, 150) + " ..."}
-                date={article.frontmatter.date}
-              />
-            </a>
-          ))
-        }
-      </div>
-    </div>
-    <div class="container youtube">
-      <h2>latest videos</h2>
-      <div class="posts">
-        {
-          youtubePostsSorted.map((post) => (
-            <YoutubeEmbed id={post.id} width={350} />
-          ))
-        }
-      </div>
+  <div class="container">
+    <div class="media-scroller snaps-inline">
+      {
+        articles.map((article) => (
+          <a class="link" href={article.url}>
+            <ArticleCard
+              title={article.frontmatter.title}
+              img={article.frontmatter.img}
+              date={article.frontmatter.date}
+            />
+          </a>
+        ))
+      }
     </div>
   </div>
+  <Tint white />
 </div>
 
 <style>
   .main-wrap {
-    padding-block-start: var(--size-8);
-    padding-block-end: var(--size-11);
-    padding-inline: var(--size-4);
+    padding-block: var(--size-8);
     display: grid;
     grid-template:
       "title" 0.2fr
       "content" 2fr / 1fr;
     place-items: start;
     position: relative;
+    gap: var(--size-4);
+  }
+
+  @media (min-width: 950px) {
+    .main-wrap {
+      grid-template: "content title" / 2fr 1fr;
+      padding-block: var(--size-8);
+      padding-right: var(--size-10);
+      gap: var(--size-8);
+      place-items: center;
+    }
   }
 
   .section-title {
     grid-area: title;
     padding-left: var(--size-4);
-    justify-self: start;
-  }
-
-  @media (min-width: 950px) {
-    .main-wrap {
-      padding-block-start: 0;
-      padding-block-end: var(--size-11);
-      padding-inline: var(--size-10);
-      gap: var(--size-8);
-      align-items: start;
-      justify-items: center;
-    }
-  }
-
-  .main-container {
-    grid-area: content;
-    display: grid;
-    gap: var(--size-8);
-    grid-template: "facebook" "articles" "youtube" / 1fr;
-    justify-items: center;
-  }
-
-  @media (min-width: 950px) {
-    .main-container {
-      gap: var(--size-8);
-      grid-template: "facebook articles youtube" / 1fr 1fr 1fr;
-    }
-  }
-
-  .facebook {
-    grid-area: facebook;
-  }
-
-  .articles {
-    grid-area: articles;
-  }
-
-  .youtube {
-    grid-area: youtube;
   }
 
   .container {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    align-content: start;
-    box-shadow: var(--shadow-2);
-    border: var(--border-size-1) solid var(--surface2);
-    border-radius: var(--radius-3);
-    max-height: var(--size-15);
-    overflow-y: auto;
-    gap: var(--size-2);
-  }
-  .container > h2 {
-    background-color: var(--surface2);
-    color: var(--text1);
-    font-size: var(--font-size-4);
-    padding-block: var(--size-4);
-    width: 100%;
-    display: grid;
-    place-content: center;
-    border-radius: var(--radius-3) var(--radius-3) 0 0;
+    grid-area: content;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
-  .posts {
+  .media-scroller {
+    --_spacer: var(--size-3);
     display: grid;
-    gap: var(--size-6);
-    place-content: center;
-    padding-inline: var(--size-2);
+    grid-auto-flow: column;
+    gap: var(--_spacer);
+    grid-auto-columns: 22rem;
+    padding-inline: var(--_spacer);
+    padding-block: var(--_spacer);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .media-element {
+    display: grid;
+    grid-template-rows: min-content;
+    gap: var(--_spacer);
+    background: var(--surface1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    transition: all 100ms var(--ease-in-1);
+    border-radius: var(--radius-2);
+  }
+
+  .content {
+    display: grid;
+    place-items: center;
+    padding-inline: var(--size-1);
+    padding-block-end: var(--size-1);
+    gap: var(--size-2);
+  }
+
+  .media-element:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-2);
+  }
+
+  .media-element > img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-2) var(--radius-2) 0 0;
+  }
+  .media-element__title {
+    font-size: var(--font-size-0);
+    color: var(--text1);
+    font-weight: var(--font-weight-6);
+  }
+
+  .media-element__btn {
+    align-self: end;
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-6);
+    padding-inline: var(--size-1);
+    padding-block: var(--size-1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    background: var(--brand);
+    color: var(--gray-2);
+    display: block;
+    width: 100%;
+    max-height: var(--size-6);
+    transition: all 100ms var(--ease-in-1);
+  }
+
+  .media-element__btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-2);
+  }
+
+  .snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--_spacer);
+  }
+  .snaps-inline > * {
+    scroll-snap-align: start;
   }
 
   .link {
     text-decoration: none;
-  }
-
-  [astro-icon] {
-    width: 60px;
-    height: 60px;
-    color: var(--orange-7);
   }
 </style>

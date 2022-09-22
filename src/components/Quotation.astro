@@ -13,12 +13,27 @@
 
 <style>
   .main-wrap {
+    --bg-filter-color: var(--gray-8);
+    --bg-filter-opacity: 0.8;
     padding-block: var(--size-8);
     padding-inline: var(--size-8);
     display: grid;
     place-items: center;
     background: var(--surface3);
-    background-image: var(--gradient-brand);
+    background-image: url("../assets/images/quote.webp");
+    background-position: top;
+    background-size: cover;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .main-wrap::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--bg-filter-color);
+    opacity: var(--bg-filter-opacity);
   }
 
   .quote {
@@ -28,7 +43,7 @@
     padding-inline: var(--size-4);
     line-height: var(--font-lineheight-2);
     max-width: var(--size-content-3);
-    color: var(--text1);
+    color: var(--gray-1);
   }
 
   .quote::before {
@@ -56,6 +71,6 @@
     text-align: right;
     font-size: var(--font-size-fluid-1);
     font-style: italic;
-    color: var(--text2);
+    color: var(--gray-2);
   }
 </style>

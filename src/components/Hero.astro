@@ -9,8 +9,7 @@ import Tint from "./Tint.astro";
       <div>Harikar NGO</div>
     </h1>
     <p class="under-hero animate-top-down">
-      Harikar NGO is a neutral, non-governmental, non-profit humanitarian
-      organization.
+      Harikar NGO is a neutral, non-governmental,<br /> non-profit humanitarian organization.
     </p>
     <div class="button-list animate-top-down">
       <a href="/contact-us" class="button">
@@ -21,7 +20,7 @@ import Tint from "./Tint.astro";
       </a>
     </div>
   </div>
-  <Tint white />
+  <Tint gray flipped />
 </div>
 
 <style>
@@ -71,11 +70,12 @@ import Tint from "./Tint.astro";
     line-height: var(--font-lineheight-0);
     color: var(--gray-1);
     font-size: var(--font-size-fluid-3);
+    width: var(--size-content-1);
   }
 
   .under-hero {
     color: var(--gray-3);
-    font-size: var(--font-size-fluid-);
+    font-size: var(--font-size-fluid-1);
     margin-block-end: var(--size-3);
     font-weight: var(--font-weight-6);
   }
