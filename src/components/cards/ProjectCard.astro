@@ -1,0 +1,87 @@
+---
+import { Image } from "@astrojs/image/components";
+const getImg = (id) => {
+  return `https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp`;
+};
+
+const { id, name } = Astro.props;
+---
+
+<div class="card project-card">
+  <Image
+    loading="lazy"
+    alt="an image from the project"
+    src={getImg(id)}
+    width="208"
+    aspectRatio="16:9"
+  />
+  <div class="content">
+    <p>
+      {name.substr(0, 80) + "..."}
+    </p>
+    <button>Learn More</button>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    display: grid;
+    grid-template-rows: min-content;
+    gap: var(--_spacer);
+    background: var(--surface1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    transition: all 100ms var(--ease-in-1);
+    border-radius: var(--radius-2);
+    height: var(--size-13);
+    width: var(--size-12);
+    padding: var(--size-1);
+  }
+
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-2);
+  }
+
+  .project-card > img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2) var(--radius-2) 0 0;
+  }
+
+  .content {
+    display: grid;
+    place-items: center;
+    padding-inline: var(--size-1);
+    padding-block-end: var(--size-1);
+    gap: var(--size-2);
+  }
+
+  .content > p {
+    font-size: var(--font-size-0);
+    color: var(--text1);
+    font-weight: var(--font-weight-6);
+  }
+
+  .content > button {
+    align-self: end;
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-6);
+    padding-inline: var(--size-1);
+    padding-block: var(--size-1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    background: var(--brand);
+    color: var(--gray-2);
+    display: block;
+    width: 100%;
+    max-height: var(--size-6);
+    transition: all 100ms var(--ease-in-1);
+  }
+
+  .content > button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-2);
+  }
+</style>

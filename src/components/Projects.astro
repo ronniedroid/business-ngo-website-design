@@ -1,11 +1,8 @@
 ---
 import Title from "./Title.astro";
 import Tint from "./Tint.astro";
-import { Image } from "@astrojs/image/components";
-
-const getImg = (id) => {
-  return `https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp`;
-};
+import ProjectCard from "./cards/ProjectCard.astro";
+import MediaScroller from "./MediaScroller.astro";
 
 const response = await fetch(
   "https://harikar-reports-api.cyclic.app/v2/projectsmini"
@@ -17,28 +14,16 @@ const projects = await response.json();
   <div class="section-title">
     <Title title="Our Projects" right />
   </div>
-  <div class="container">
-    <div class="media-scroller snaps-inline">
+  <div class="projects-slider">
+    <MediaScroller>
       {
         projects.map((project) => (
           <div class="media-element">
-            <Image
-              loading="lazy"
-              alt="an image from the project"
-              src={getImg(project.id)}
-              width="208"
-              aspectRatio="16:9"
-            />
-            <div class="content">
-              <p class="media-element__title">
-                {project.name.substr(0, 80) + "..."}
-              </p>
-              <button class="media-element__btn">Learn More</button>
-            </div>
+            <ProjectCard id={project.id} name={project.name} />
           </div>
         ))
       }
-    </div>
+    </MediaScroller>
   </div>
   <Tint white />
 </div>
@@ -47,11 +32,11 @@ const projects = await response.json();
   .main-wrap {
     padding-block: var(--size-8);
     display: grid;
+    position: relative;
     grid-template:
       "title" 0.2fr
       "content" 2fr / 1fr;
     place-items: start;
-    position: relative;
     gap: var(--size-4);
   }
 
@@ -70,92 +55,9 @@ const projects = await response.json();
     padding-left: var(--size-4);
   }
 
-  .container {
+  .projects-slider {
     grid-area: content;
+    max-width: 100%;
     overflow-x: hidden;
-    max-width: 100%;
-  }
-
-  .media-scroller {
-    --_spacer: var(--size-3);
-    display: grid;
-    grid-auto-flow: column;
-    gap: var(--_spacer);
-    grid-auto-columns: 10rem;
-    padding-inline: var(--_spacer);
-    padding-block: var(--_spacer);
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-  }
-
-  @media (min-width: 450px) {
-    .media-scroller {
-      grid-auto-columns: 12rem;
-    }
-  }
-
-  .media-element {
-    display: grid;
-    grid-template-rows: min-content;
-    gap: var(--_spacer);
-    background: var(--surface1);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    transition: all 100ms var(--ease-in-1);
-    border-radius: var(--radius-2);
-  }
-
-  .content {
-    display: grid;
-    place-items: center;
-    padding-inline: var(--size-1);
-    padding-block-end: var(--size-1);
-    gap: var(--size-2);
-  }
-
-  .media-element:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
-  }
-
-  .media-element > img {
-    object-fit: contain;
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius-2) var(--radius-2) 0 0;
-  }
-  .media-element__title {
-    font-size: var(--font-size-0);
-    color: var(--text1);
-    font-weight: var(--font-weight-6);
-  }
-
-  .media-element__btn {
-    align-self: end;
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-6);
-    padding-inline: var(--size-1);
-    padding-block: var(--size-1);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background: var(--brand);
-    color: var(--gray-2);
-    display: block;
-    width: 100%;
-    max-height: var(--size-6);
-    transition: all 100ms var(--ease-in-1);
-  }
-
-  .media-element__btn:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
-  }
-
-  .snaps-inline {
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: var(--_spacer);
-  }
-  .snaps-inline > * {
-    scroll-snap-align: start;
   }
 </style>

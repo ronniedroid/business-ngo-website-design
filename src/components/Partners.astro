@@ -1,5 +1,7 @@
 ---
 import Title from "./Title.astro";
+import PartnerCard from "./cards/PartnerCard.astro";
+import MediaScroller from "./MediaScroller.astro";
 
 const partners = [
   {
@@ -84,25 +86,18 @@ const partners = [
   <div class="section-title">
     <Title title="Our Partners" right />
   </div>
-  <div class="container">
-    <div class="media-scroller snaps-inline">
+  <div class="partners-slider">
+    <MediaScroller>
       {
         partners.map((partner) => (
-          <div class="media-element">
-            <a href={"https://" + partner.link} target="_blank">
-              <img
-                loading="lazy"
-                class="partner-logo"
-                src={partner.img}
-                alt={partner.title + " logo"}
-                max-width="100%"
-                max-height="100%"
-              />
-            </a>
-          </div>
+          <PartnerCard
+            title={partner.title}
+            link={partner.link}
+            img={partner.img}
+          />
         ))
       }
-    </div>
+    </MediaScroller>
   </div>
 </div>
 
@@ -133,56 +128,9 @@ const partners = [
     padding-inline: var(--size-4);
   }
 
-  .container {
+  .partners-slider {
     grid-area: content;
     overflow: hidden;
     max-width: 100%;
-  }
-
-  .media-scroller {
-    --_spacer: var(--size-2);
-    display: grid;
-    grid-auto-flow: column;
-    gap: var(--size-3);
-    grid-auto-columns: 10;
-    padding-inline: var(--_spacer);
-    padding-block: var(--_spacer);
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    place-items: center;
-    padding-block: var(--size-4);
-  }
-
-  .snaps-inline {
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: var(--_spacer);
-  }
-  .snaps-inline > * {
-    scroll-snap-align: start;
-  }
-
-  .media-element {
-    display: grid;
-    place-content: center;
-    grid-template-rows: min-content;
-    gap: var(--_spacer);
-    padding: var(--_spacer);
-    min-height: 10rem;
-    max-height: 10rem;
-    min-width: 10rem;
-    box-shadow: var(--shadow-3);
-    background: var(--surface4);
-    transition: all 100ms var(--ease-in-1);
-  }
-
-  .media-element:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
-  }
-
-  .partner-logo {
-    object-fit: cover;
-    max-width: 9rem;
-    max-height: 9rem;
   }
 </style>

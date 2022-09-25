@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon";
 import ArticleCard from "./cards/ArticleCard.astro";
 import Title from "./Title.astro";
 import Tint from "./Tint.astro";
+import MediaScroller from "./MediaScroller.astro";
 
 const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
 ---
@@ -12,7 +12,7 @@ const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
     <Title title="Latest Stories" right />
   </div>
   <div class="container">
-    <div class="media-scroller snaps-inline">
+    <MediaScroller>
       {
         articles.map((article) => (
           <a class="link" href={article.url}>
@@ -24,7 +24,7 @@ const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
           </a>
         ))
       }
-    </div>
+    </MediaScroller>
   </div>
   <Tint white />
 </div>
@@ -72,63 +72,6 @@ const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
     padding-block: var(--_spacer);
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-  }
-
-  .media-element {
-    display: grid;
-    grid-template-rows: min-content;
-    gap: var(--_spacer);
-    background: var(--surface1);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    transition: all 100ms var(--ease-in-1);
-    border-radius: var(--radius-2);
-  }
-
-  .content {
-    display: grid;
-    place-items: center;
-    padding-inline: var(--size-1);
-    padding-block-end: var(--size-1);
-    gap: var(--size-2);
-  }
-
-  .media-element:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
-  }
-
-  .media-element > img {
-    object-fit: contain;
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius-2) var(--radius-2) 0 0;
-  }
-  .media-element__title {
-    font-size: var(--font-size-0);
-    color: var(--text1);
-    font-weight: var(--font-weight-6);
-  }
-
-  .media-element__btn {
-    align-self: end;
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-6);
-    padding-inline: var(--size-1);
-    padding-block: var(--size-1);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background: var(--brand);
-    color: var(--gray-2);
-    display: block;
-    width: 100%;
-    max-height: var(--size-6);
-    transition: all 100ms var(--ease-in-1);
-  }
-
-  .media-element__btn:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
   }
 
   .snaps-inline {

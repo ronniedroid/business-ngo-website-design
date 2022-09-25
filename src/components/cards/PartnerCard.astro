@@ -1,0 +1,43 @@
+---
+const { title, img, link } = Astro.props;
+---
+
+<div class="partner-card">
+  <a href={"https://" + link} target="_blank">
+    <img
+      loading="lazy"
+      class="partner-logo"
+      src={img}
+      alt={title + " logo"}
+      max-width="100%"
+      max-height="100%"
+    />
+  </a>
+</div>
+
+<style>
+  .partner-card {
+    display: grid;
+    place-content: center;
+    grid-template-rows: min-content;
+    gap: var(--_spacer);
+    padding: var(--_spacer);
+    min-height: 10rem;
+    max-height: 10rem;
+    min-width: 10rem;
+    box-shadow: var(--shadow-3);
+    background: var(--gray-1);
+    transition: all 100ms var(--ease-in-1);
+  }
+
+  .partner-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-2);
+  }
+
+  .partner-logo {
+    object-fit: cover;
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+</style>
