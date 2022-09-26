@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 const items = [
   {
@@ -15,29 +14,26 @@ const items = [
 ];
 ---
 
-<MainLayout title="Legal status">
-  <div>
-    <Breadcrumbs class="breadcrumbs" items={items} />
-    <div class="main-wrap">
-      <div class="content-wrap">
-        <div class="cert">
-          <p>GOI NGO license</p>
-          <img
-            alt="GOI NGO license"
-            src="https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/legal/GOI-NGO-license.webp"
-            width="500"
-            height="auto"
-          />
-        </div>
-        <div class="cert">
-          <p>KRI NGO license</p>
-          <img
-            alt="KRI NGO license"
-            src="https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/legal/KRI-NGO-license.webp"
-            width="500"
-            height="auto"
-          />
-        </div>
+<MainLayout title="Legal status" crumbs={items}>
+  <div class="main-wrap">
+    <div class="content-wrap">
+      <div class="cert">
+        <p>GOI NGO license</p>
+        <img
+          alt="GOI NGO license"
+          src="https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/legal/GOI-NGO-license.webp"
+          width="500"
+          height="auto"
+        />
+      </div>
+      <div class="cert">
+        <p>KRI NGO license</p>
+        <img
+          alt="KRI NGO license"
+          src="https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/legal/KRI-NGO-license.webp"
+          width="500"
+          height="auto"
+        />
       </div>
     </div>
   </div>

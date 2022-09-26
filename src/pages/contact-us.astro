@@ -1,13 +1,23 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { Icon } from "astro-icon";
+const items = [
+  {
+    name: "home",
+    link: "/",
+    disabled: false,
+  },
+  {
+    name: "contact us",
+    disabled: true,
+  },
+];
 ---
 
 <script>
   const sendButton = document.getElementById("send-button");
   const subjectInput = document.getElementById("subject");
   const messageInput = document.getElementById("message");
-  const emailForm = document.getElementById("email-form");
 
   const subject = subjectInput.value;
   const message = messageInput.value;
@@ -15,7 +25,7 @@ import { Icon } from "astro-icon";
   sendButton.href = `mailto:info@harikar.org?subject=${subject}&body=${message}`;
 </script>
 
-<MainLayout title="Contact us">
+<MainLayout title="Contact us" crumbs={items}>
   <div class="main-wrap">
     <h2>Contact us</h2>
     <p>If you have any questions, Please leave us a message.</p>

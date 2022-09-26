@@ -19,8 +19,8 @@ const { id, name } = Astro.props;
     <p>
       {name.substr(0, 80) + "..."}
     </p>
-    <button>Learn More</button>
   </div>
+  <a class="button" href={`/projects/${id}`}>Learn More</a>
 </div>
 
 <style>
@@ -64,8 +64,9 @@ const { id, name } = Astro.props;
     font-weight: var(--font-weight-6);
   }
 
-  .content > button {
+  .button {
     align-self: end;
+    text-align: center;
     font-size: var(--font-size-0);
     font-weight: var(--font-weight-6);
     padding-inline: var(--size-1);
@@ -78,9 +79,10 @@ const { id, name } = Astro.props;
     width: 100%;
     max-height: var(--size-6);
     transition: all 100ms var(--ease-in-1);
+    cursor: pointer;
   }
 
-  .content > button:hover {
+  .button:hover {
     transform: scale(1.05);
     box-shadow: var(--shadow-2);
   }

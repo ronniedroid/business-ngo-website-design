@@ -30,28 +30,25 @@ const getTime = (dl) => {
 };
 ---
 
-<MainLayout title="Job Opportunities">
-  <div>
-    <Breadcrumbs class="breadcrumbs" items={items} />
-    <div class="main-wrap">
-      <div class="content-wrap">
-        <BidsCard
-          eng="this is the title english for this card"
-          ara="هذا بللغة العربية ة انانا نحن الذين لسنا ان كنا نحن في هااااا"
-          kurd="هذا بللغة العربية ة انانا نحن الذين لسنا ان كنا نحن في هااااا"
-          date="20/06/2022"
-          deadline="12/07/2022"
-          dl={getTime("2022-09-29")}
-          refNum="ITB-HD-Harikar-2022_005"
-        />
-      </div>
+<MainLayout title="Job Opportunities" crumbs={items}>
+  <div class="main-wrap">
+    <div class="content-wrap">
+      <BidsCard
+        eng="this is the title english for this card"
+        ara="هذا بللغة العربية ة انانا نحن الذين لسنا ان كنا نحن في هااااا"
+        kurd="هذا بللغة العربية ة انانا نحن الذين لسنا ان كنا نحن في هااااا"
+        date="20/06/2022"
+        deadline="12/07/2022"
+        dl={getTime("2022-09-29")}
+        refNum="ITB-HD-Harikar-2022_005"
+      />
     </div>
-    <ul class="legend">
-      <li class="mt7">More than 7 days left</li>
-      <li class="lt7">Less than 7 days left</li>
-      <li class="lt3">Less than 3 days left</li>
-    </ul>
   </div>
+  <ul class="legend">
+    <li class="mt7">More than 7 days left</li>
+    <li class="lt7">Less than 7 days left</li>
+    <li class="lt3">Less than 3 days left</li>
+  </ul>
 </MainLayout>
 
 <style>

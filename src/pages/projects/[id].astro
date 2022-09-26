@@ -1,0 +1,157 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+
+export function getStaticPaths() {
+  return [
+    { params: { id: "12" } },
+    { params: { id: "13" } },
+    { params: { id: "16" } },
+    { params: { id: "17" } },
+    { params: { id: "19" } },
+    { params: { id: "20" } },
+  ];
+}
+
+const { id } = Astro.params;
+
+const request = await fetch(
+  `https://harikar-reports-api.cyclic.app/v2/projects/${id}`
+);
+const project = await request.json();
+
+const items = [
+  {
+    name: "home",
+    link: "/",
+    disabled: false,
+  },
+  {
+    name: "projects",
+    disabled: true,
+  },
+  {
+    name: "now viewing",
+    disabled: true,
+  },
+];
+
+// const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
+const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)`;
+---
+
+<div class="main-wrap">
+  <div class="content-wrap">
+    <div class="pane info">
+      <a href="/"><Icon pack="mdi" name="home" /></a>
+      <p class="title">
+        {project.name}
+      </p>
+      <ul class="clusters">
+        {project.clusters.map((cluster) => <li>{cluster}</li>)}
+      </ul>
+      <div class="contact">
+        <p>{project.contact.name}</p>
+        <p>{project.contact.email}</p>
+      </div>
+    </div>
+    <div class="pane summary">
+      <p>{project.summary}</p>
+    </div>
+    <div class="pane numbers">
+      <ul class="partners">
+        <span>partners:</span>
+        {project.partners.map((partner) => <li>{partner}</li>)}
+      </ul>
+      <p><span>Employees:</span> {project.employees.total}</p>
+      <p>
+        <span>Target beneficiaries:</span>
+        {project.beneficiaries.target}
+      </p>
+    </div>
+    <div class="pane objectives">
+      <ul>
+        <span>Project Objectives:</span>
+        {project.objectives.list.map((objective) => <li>{objective}</li>)}
+      </ul>
+    </div>
+    <div class="pane activities">
+      <ul>
+        <span>Project activities:</span>
+        {project.activities.list.map((activity) => <li>{activity}</li>)}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style define:vars={{ projectImg }}>
+  .main-wrap {
+    background-color: var(--surface-1);
+    padding: var(--size-10);
+  }
+  .content-wrap {
+    display: grid;
+    grid-template: "title" "summary" "numbers" "objectives" "activities" / 1fr;
+    background-image: var(--projectImg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media (min-width: 1200px) {
+    .content-wrap {
+      grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
+      height: 80vh;
+    }
+  }
+
+  .pane {
+    display: grid;
+    place-items: center;
+    padding-inline: var(--size-4);
+    position: relative;
+    isolation: isolate;
+  }
+
+  .pane > * {
+    color: var(--gray-2);
+  }
+
+  .info {
+    background-color: var(--surface2);
+  }
+
+  .info .title {
+    font-size: var(--size-fluid-2);
+    align-self: start;
+  }
+
+  .summary {
+    --bg-filter-color: var(--gray-9);
+    --bg-filter-opacity: 0.7;
+  }
+
+  .numbers {
+    --bg-filter-color: var(--gray-9);
+    --bg-filter-opacity: 0.6;
+  }
+
+  .objectives {
+    --bg-filter-color: var(--gray-9);
+    --bg-filter-opacity: 0.9;
+  }
+
+  .activities {
+    --bg-filter-color: var(--gray-9);
+    --bg-filter-opacity: 0.8;
+  }
+
+  .pane::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--bg-filter-color);
+    opacity: var(--bg-filter-opacity);
+  }
+</style>

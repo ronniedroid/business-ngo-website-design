@@ -1,7 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import ArticleCard from "../../components/cards/ArticleCard.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
 
 const items = [
   {
@@ -18,24 +17,21 @@ const items = [
 const articles = await Astro.glob("./*.mdx");
 ---
 
-<MainLayout title="Events and Stories">
-  <div>
-    <Breadcrumbs class="breadcrumbs" items={items} />
-    <div class="main-wrap">
-      <div class="content-wrap">
-        {
-          articles.map((article) => (
-            <a class="link" href={article.url}>
-              <ArticleCard
-                title={article.frontmatter.title}
-                img={article.frontmatter.img}
-                desc={article.frontmatter.desc.substr(0, 150) + " ..."}
-                date={article.frontmatter.date}
-              />
-            </a>
-          ))
-        }
-      </div>
+<MainLayout title="Events and Stories" crumbs={items}>
+  <div class="main-wrap">
+    <div class="content-wrap">
+      {
+        articles.map((article) => (
+          <a class="link" href={article.url}>
+            <ArticleCard
+              title={article.frontmatter.title}
+              img={article.frontmatter.img}
+              desc={article.frontmatter.desc.substr(0, 150) + " ..."}
+              date={article.frontmatter.date}
+            />
+          </a>
+        ))
+      }
     </div>
   </div>
 </MainLayout>

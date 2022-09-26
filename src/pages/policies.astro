@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 const response = await fetch(
   "https://harikar-reports-api.cyclic.app/v2/policies"
@@ -20,39 +19,36 @@ const items = [
 ];
 ---
 
-<MainLayout title="Harikar policies">
-  <div>
-    <Breadcrumbs class="breadcrumbs" items={items} />
-    <div class="main-wrap">
-      <table>
-        <caption> Policies are available upon request</caption>
-        <thead>
-          <tr>
-            <th scope="col">Policy</th>
-            <th scope="col">Version</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
+<MainLayout title="Harikar policies" crumbs={items}>
+  <div class="main-wrap">
+    <table>
+      <caption> Policies are available upon request</caption>
+      <thead>
+        <tr>
+          <th scope="col">Policy</th>
+          <th scope="col">Version</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          {
-            policies.map((item) => (
-              <tr>
-                <td data-label="Policy" scope="row">
-                  {item.policy}
-                </td>
-                <td data-label="Version" scope="row">
-                  {item.version}
-                </td>
-                <td data-label="Date" scope="row">
-                  {item.year}
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
+      <tbody>
+        {
+          policies.map((item) => (
+            <tr>
+              <td data-label="Policy" scope="row">
+                {item.policy}
+              </td>
+              <td data-label="Version" scope="row">
+                {item.version}
+              </td>
+              <td data-label="Date" scope="row">
+                {item.year}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
   </div>
 </MainLayout>
 
