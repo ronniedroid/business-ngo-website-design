@@ -3,16 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import "../styles/style.css";
-const {
-  title = "page",
-  crumbs = [
-    {
-      name: "home",
-      link: "/",
-      disabled: false,
-    },
-  ],
-} = Astro.props;
+const { title = "page", crumbs = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -25,7 +16,7 @@ const {
   <body>
     <Header />
     <main>
-      <Breadcrumbs class="breadcrumbs" items={crumbs} />
+      {!crumbs ? "" : <Breadcrumbs class="breadcrumbs" items={crumbs} />}
       <slot />
       <!-- your content is injected here -->
       <Footer />

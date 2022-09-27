@@ -1,7 +1,8 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
+import "../../styles/style.css";
+import ToggleDark from "../../components/ToggleDark.astro";
+import harikarLogo from "../../assets/images/harikar-logo.svg";
 
 export function getStaticPaths() {
   return [
@@ -21,39 +22,34 @@ const request = await fetch(
 );
 const project = await request.json();
 
-const items = [
-  {
-    name: "home",
-    link: "/",
-    disabled: false,
-  },
-  {
-    name: "projects",
-    disabled: true,
-  },
-  {
-    name: "now viewing",
-    disabled: true,
-  },
-];
-
 // const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
-const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)`;
+const projectImg =
+  "url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)";
 ---
 
 <div class="main-wrap">
   <div class="content-wrap">
     <div class="pane info">
-      <a href="/"><Icon pack="mdi" name="home" /></a>
-      <p class="title">
-        {project.name}
-      </p>
-      <ul class="clusters">
-        {project.clusters.map((cluster) => <li>{cluster}</li>)}
-      </ul>
+      <div class="theme">
+        <ToggleDark />
+      </div>
+      <a href="/" class="logo">
+        <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
+      </a>
+      <div class="middle">
+        <p class="title">
+          {project.name}
+        </p>
+        <ul class="clusters">
+          {project.clusters.map((cluster) => <li>{cluster}</li>)}
+        </ul>
+      </div>
       <div class="contact">
-        <p>{project.contact.name}</p>
-        <p>{project.contact.email}</p>
+        <p>
+          <span><strong>Project Manager:</strong></span>
+          {project.contact.name}
+        </p>
+        <p><span><strong>Email:</strong></span> {project.contact.email}</p>
       </div>
     </div>
     <div class="pane summary">
@@ -87,8 +83,7 @@ const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-we
 
 <style define:vars={{ projectImg }}>
   .main-wrap {
-    background-color: var(--surface-1);
-    padding: var(--size-10);
+    background-color: var(--surface4);
   }
   .content-wrap {
     display: grid;
@@ -96,19 +91,30 @@ const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-we
     background-image: var(--projectImg);
     background-size: cover;
     background-position: center;
+    height: 100vh;
   }
 
   @media (min-width: 1200px) {
     .content-wrap {
       grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
-      height: 80vh;
+      height: 100vh;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .main-wrap {
+      padding-block: 5rem;
+      padding-inline: var(--size-12);
+      height: 100vh;
+    }
+    .content-wrap {
+      grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
+      height: calc(100vh - 10rem);
+      box-shadow: var(--shadow-2);
     }
   }
 
   .pane {
-    display: grid;
-    place-items: center;
-    padding-inline: var(--size-4);
     position: relative;
     isolation: isolate;
   }
@@ -118,12 +124,69 @@ const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-we
   }
 
   .info {
+    position: relative;
+    display: grid;
     background-color: var(--surface2);
+    justify-items: center;
+    padding-inline: var(--size-3);
+    padding-block: var(--size-4);
+  }
+
+  .info > * {
+    color: var(--text2);
+  }
+
+  .info .theme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--size-4);
+  }
+
+  .info .logo {
+    align-self: start;
+  }
+
+  .info .middle {
+    padding-block: var(--size-4);
   }
 
   .info .title {
-    font-size: var(--size-fluid-2);
-    align-self: start;
+    font-size: var(--font-size-4);
+    max-width: var(--size-content-1);
+    padding-block: var(--size-4);
+  }
+
+  .info .clusters {
+    display: flex;
+    place-content: center;
+    gap: var(--size-2);
+    list-style: none;
+  }
+
+  .info .clusters > li {
+    font-size: var(--font-size-1);
+    padding-inline: var(--size-4);
+    border: var(--border-size-1) solid var(--red-6);
+    border-radius: var(--radius-round);
+  }
+
+  .info .contact {
+    padding-block-start: var(--size-4);
+    align-self: end;
+  }
+
+  .info .contact > p {
+    font-size: var(--font-size-0);
+  }
+
+  @media (min-width: 1200px) {
+    .info {
+      padding-block: var(--size-8);
+    }
+    .info .title {
+      font-size: var(--font-size-4);
+    }
   }
 
   .summary {
