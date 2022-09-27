@@ -1,88 +1,4 @@
----
-import { Icon } from "astro-icon";
-import "../../styles/style.css";
-import ToggleDark from "../../components/ToggleDark.astro";
-import harikarLogo from "../../assets/images/harikar-logo.svg";
-
-export function getStaticPaths() {
-  return [
-    { params: { id: "12" } },
-    { params: { id: "13" } },
-    { params: { id: "16" } },
-    { params: { id: "17" } },
-    { params: { id: "19" } },
-    { params: { id: "20" } },
-  ];
-}
-
-const { id } = Astro.params;
-
-const request = await fetch(
-  `https://harikar-reports-api.cyclic.app/v2/projects/${id}`
-);
-const project = await request.json();
-
-// const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
-const projectImg =
-  "url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)";
----
-
-<div class="main-wrap">
-  <div class="content-wrap">
-    <div class="pane info">
-      <div class="theme">
-        <ToggleDark />
-      </div>
-      <a href="/" class="logo">
-        <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
-      </a>
-      <div class="middle">
-        <p class="title">
-          {project.name}
-        </p>
-        <ul class="clusters">
-          {project.clusters.map((cluster) => <li>{cluster}</li>)}
-        </ul>
-      </div>
-      <div class="contact">
-        <p>
-          <span><strong>Project Manager:</strong></span>
-          {project.contact.name}
-        </p>
-        <p><span><strong>Email:</strong></span> {project.contact.email}</p>
-      </div>
-    </div>
-    <div class="pane summary">
-      <p>{project.summary}</p>
-    </div>
-    <div class="pane numbers">
-      <ul class="partners">
-        <span>partners:</span>
-        {project.partners.map((partner) => <li>{partner}</li>)}
-      </ul>
-      <p><span>Employees:</span> {project.employees.total}</p>
-      <p>
-        <span>Target beneficiaries:</span>
-        {project.beneficiaries.target}
-      </p>
-    </div>
-    <div class="pane objectives">
-      <ul>
-        <span>Project Objectives:</span>
-        {project.objectives.list.map((objective) => <li>{objective}</li>)}
-      </ul>
-    </div>
-    <div class="pane activities">
-      <ul>
-        <span>Project activities:</span>
-        {project.activities.list.map((activity) => <li>{activity}</li>)}
-      </ul>
-    </div>
-  </div>
-</div>
-
-<style define:vars={{ projectImg }}>
-  .main-wrap {
+.main-wrap {
     background-color: var(--surface4);
   }
   .content-wrap {
@@ -91,6 +7,7 @@ const projectImg =
     background-image: var(--projectImg);
     background-size: cover;
     background-position: center;
+    height: 100vh;
   }
 
   @media (min-width: 1200px) {
@@ -216,4 +133,3 @@ const projectImg =
     background: var(--bg-filter-color);
     opacity: var(--bg-filter-opacity);
   }
-</style>
