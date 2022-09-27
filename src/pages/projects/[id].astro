@@ -27,59 +27,69 @@ const projectImg =
   "url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)";
 ---
 
-<div class="main-wrap">
-  <div class="content-wrap">
-    <div class="pane info">
-      <div class="theme">
-        <ToggleDark />
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Harikar Astro Website - {project.name}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Harikar NGO test Astro website" />
+  </head>
+  <body>
+    <div class="main-wrap">
+      <div class="content-wrap">
+        <div class="pane info">
+          <div class="theme">
+            <ToggleDark />
+          </div>
+          <a href="/" class="logo">
+            <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
+          </a>
+          <div class="middle">
+            <p class="title">
+              {project.name}
+            </p>
+            <ul class="clusters">
+              {project.clusters.map((cluster) => <li>{cluster}</li>)}
+            </ul>
+          </div>
+          <div class="contact">
+            <p>
+              <span><strong>Project Manager:</strong></span>
+              {project.contact.name}
+            </p>
+            <p><span><strong>Email:</strong></span> {project.contact.email}</p>
+          </div>
+        </div>
+        <div class="pane summary">
+          <p>{project.summary}</p>
+        </div>
+        <div class="pane numbers">
+          <ul class="partners">
+            <span>partners:</span>
+            {project.partners.map((partner) => <li>{partner}</li>)}
+          </ul>
+          <p><span>Employees:</span> {project.employees.total}</p>
+          <p>
+            <span>Target beneficiaries:</span>
+            {project.beneficiaries.target}
+          </p>
+        </div>
+        <div class="pane objectives">
+          <ul>
+            <span>Project Objectives:</span>
+            {project.objectives.list.map((objective) => <li>{objective}</li>)}
+          </ul>
+        </div>
+        <div class="pane activities">
+          <ul>
+            <span>Project activities:</span>
+            {project.activities.list.map((activity) => <li>{activity}</li>)}
+          </ul>
+        </div>
       </div>
-      <a href="/" class="logo">
-        <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
-      </a>
-      <div class="middle">
-        <p class="title">
-          {project.name}
-        </p>
-        <ul class="clusters">
-          {project.clusters.map((cluster) => <li>{cluster}</li>)}
-        </ul>
-      </div>
-      <div class="contact">
-        <p>
-          <span><strong>Project Manager:</strong></span>
-          {project.contact.name}
-        </p>
-        <p><span><strong>Email:</strong></span> {project.contact.email}</p>
-      </div>
     </div>
-    <div class="pane summary">
-      <p>{project.summary}</p>
-    </div>
-    <div class="pane numbers">
-      <ul class="partners">
-        <span>partners:</span>
-        {project.partners.map((partner) => <li>{partner}</li>)}
-      </ul>
-      <p><span>Employees:</span> {project.employees.total}</p>
-      <p>
-        <span>Target beneficiaries:</span>
-        {project.beneficiaries.target}
-      </p>
-    </div>
-    <div class="pane objectives">
-      <ul>
-        <span>Project Objectives:</span>
-        {project.objectives.list.map((objective) => <li>{objective}</li>)}
-      </ul>
-    </div>
-    <div class="pane activities">
-      <ul>
-        <span>Project activities:</span>
-        {project.activities.list.map((activity) => <li>{activity}</li>)}
-      </ul>
-    </div>
-  </div>
-</div>
+  </body>
+</html>
 
 <style define:vars={{ projectImg }}>
   .main-wrap {
