@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import { Image } from "@astrojs/image/components";
 import "../../styles/style.css";
 import ToggleDark from "../../components/ToggleDark.astro";
 import harikarLogo from "../../assets/images/harikar-logo.svg";
@@ -25,6 +26,14 @@ const project = await request.json();
 // const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
 const projectImg =
   "url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)";
+
+const formatter = Intl.NumberFormat("en", { notation: "compact" });
+function formatDate(date) {
+  return new Date(date).toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+  });
+}
 ---
 
 <html lang="en">
@@ -45,11 +54,25 @@ const projectImg =
             <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
           </a>
           <div class="middle">
-            <p class="title">
+            <h1 class="title">
               {project.name}
-            </p>
+            </h1>
+            <div class="dates">
+              <p class="start">
+                <span><Icon pack="mdi" name="clock-start" /></span>
+                {formatDate(project.start)}
+              </p>
+              <p class="end">
+                <span><Icon pack="mdi" name="clock-end" /></span>
+                {formatDate(project.end)}
+              </p>
+            </div>
             <ul class="clusters">
-              {project.clusters.map((cluster) => <li>{cluster}</li>)}
+              {
+                project.clusters.map((cluster) => (
+                  <li class={cluster}>{cluster}</li>
+                ))
+              }
             </ul>
           </div>
           <div class="contact">
@@ -61,28 +84,32 @@ const projectImg =
           </div>
         </div>
         <div class="pane summary">
+          <h2>Project Summary</h2>
           <p>{project.summary}</p>
         </div>
         <div class="pane numbers">
-          <ul class="partners">
-            <span>partners:</span>
-            {project.partners.map((partner) => <li>{partner}</li>)}
-          </ul>
-          <p><span>Employees:</span> {project.employees.total}</p>
-          <p>
-            <span>Target beneficiaries:</span>
-            {project.beneficiaries.target}
-          </p>
+          <div class="partners">
+            <h2>Partners:</h2>
+            <ul>
+              {project.partners.map((partner) => <li>{partner}</li>)}
+            </ul>
+          </div>
+          <div class="bens">
+            <h2>Target beneficiaries:</h2>
+            <p>
+              {formatter.format(project.beneficiaries.target)}
+            </p>
+          </div>
         </div>
         <div class="pane objectives">
+          <h2>Project Objectives:</h2>
           <ul>
-            <span>Project Objectives:</span>
             {project.objectives.list.map((objective) => <li>{objective}</li>)}
           </ul>
         </div>
         <div class="pane activities">
+          <h2>Project activities:</h2>
           <ul>
-            <span>Project activities:</span>
             {project.activities.list.map((activity) => <li>{activity}</li>)}
           </ul>
         </div>
@@ -106,7 +133,7 @@ const projectImg =
   @media (min-width: 1200px) {
     .content-wrap {
       grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
-      height: 100vh;
+      min-height: 100vh;
     }
   }
 
@@ -118,7 +145,7 @@ const projectImg =
     }
     .content-wrap {
       grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
-      height: calc(100vh - 10rem);
+      min-height: calc(100vh - 10rem);
       box-shadow: var(--shadow-2);
     }
   }
@@ -126,10 +153,20 @@ const projectImg =
   .pane {
     position: relative;
     isolation: isolate;
+    min-height: var(--size-14);
   }
 
   .pane > * {
     color: var(--gray-2);
+  }
+
+  .pane::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--bg-filter-color);
+    opacity: var(--bg-filter-opacity);
   }
 
   .info {
@@ -137,8 +174,9 @@ const projectImg =
     display: grid;
     background-color: var(--surface2);
     justify-items: center;
-    padding-inline: var(--size-3);
-    padding-block: var(--size-4);
+    padding-inline: var(--size-6);
+    padding-block: var(--size-6);
+    min-height: var(--size-15);
   }
 
   .info > * {
@@ -164,6 +202,24 @@ const projectImg =
     font-size: var(--font-size-4);
     max-width: var(--size-content-1);
     padding-block: var(--size-4);
+    text-align: justify;
+    text-justify: distribute;
+    text-align-last: left;
+    hyphens: auto;
+  }
+
+  .info .dates {
+    display: flex;
+    place-content: center;
+    gap: var(--size-3);
+    padding-block-end: var(--size-4);
+  }
+
+  .info .dates > p {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-6);
+    display: flex;
+    gap: var(--size-2);
   }
 
   .info .clusters {
@@ -175,9 +231,35 @@ const projectImg =
 
   .info .clusters > li {
     font-size: var(--font-size-1);
+    font-weight: var(--font-weight-6);
     padding-inline: var(--size-4);
-    border: var(--border-size-1) solid var(--red-6);
+    background-color: var(--color);
     border-radius: var(--radius-round);
+    color: var(--gray-2);
+  }
+
+  .Protection {
+    --color: var(--blue-8);
+  }
+
+  .GBV {
+    --color: var(--orange-7);
+  }
+
+  .CP {
+    --color: var(--red-8);
+  }
+
+  .Health {
+    --color: var(--green-8);
+  }
+
+  .Livelihood {
+    --color: var(--lime-7);
+  }
+
+  .WASH {
+    --color: var(--blue-4);
   }
 
   .info .contact {
@@ -193,37 +275,114 @@ const projectImg =
     .info {
       padding-block: var(--size-8);
     }
-    .info .title {
-      font-size: var(--font-size-4);
-    }
   }
 
   .summary {
     --bg-filter-color: var(--gray-9);
-    --bg-filter-opacity: 0.7;
+    --bg-filter-opacity: 0.8;
+    padding-block: var(--size-6);
+    padding-inline: var(--size-6);
+    display: grid;
+    place-content: center;
+    gap: var(--size-4);
+  }
+
+  .summary > h2 {
+    font-size: var(--font-size-4);
+    color: var(--gray-2);
+  }
+
+  .summary > p {
+    font-size: var(--font-size-2);
+    text-align: justify;
+    text-justify: distribute;
+    text-align-last: left;
+    hyphens: auto;
   }
 
   .numbers {
     --bg-filter-color: var(--gray-9);
-    --bg-filter-opacity: 0.6;
+    --bg-filter-opacity: 0.7;
+    padding-block: var(--size-6);
+    padding-inline: var(--size-6);
+    display: grid;
+    place-content: center;
+    gap: var(--size-6);
+    text-align: center;
+  }
+
+  .numbers > * > h2 {
+    font-size: var(--font-size-4);
+    color: var(--gray-2);
+  }
+
+  .numbers > * > p {
+    font-size: var(--font-size-7);
+    font-weight: var(--font-weight-9);
+    color: var(--gray-3);
+  }
+
+  .numbers .partners > ul {
+    list-style: none;
+    display: grid;
+    justify-content: center;
+  }
+
+  .numbers .partners > ul li {
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-9);
+    color: var(--gray-3);
   }
 
   .objectives {
     --bg-filter-color: var(--gray-9);
     --bg-filter-opacity: 0.9;
+    padding-block: var(--size-6);
+    padding-inline: var(--size-6);
+    display: grid;
+    place-content: center;
+    gap: var(--size-4);
+  }
+
+  .objectives > h2 {
+    font-size: var(--font-size-4);
+    color: var(--gray-2);
+  }
+
+  .objectives > ul > li {
+    font-size: var(--font-size-1);
+    text-align: justify;
+    text-justify: distribute;
+    text-align-last: left;
+    hyphens: auto;
   }
 
   .activities {
     --bg-filter-color: var(--gray-9);
     --bg-filter-opacity: 0.8;
+    padding-block: var(--size-6);
+    padding-inline: var(--size-6);
+    display: grid;
+    place-content: center;
+    gap: var(--size-4);
   }
 
-  .pane::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: var(--bg-filter-color);
-    opacity: var(--bg-filter-opacity);
+  .activities > h2 {
+    font-size: var(--font-size-4);
+    color: var(--gray-2);
+  }
+
+  .activities > ul > li {
+    font-size: var(--font-size-1);
+    text-align: justify;
+    text-justify: distribute;
+    text-align-last: left;
+    hyphens: auto;
+  }
+
+  [astro-icon] {
+    width: 20px;
+    height: 20px;
+    color: var(--text1);
   }
 </style>
