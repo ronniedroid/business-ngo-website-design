@@ -89,26 +89,26 @@ function formatDate(date) {
         </div>
         <div class="pane numbers">
           <div class="partners">
-            <h2>Partners:</h2>
+            <h2>Partners</h2>
             <ul>
               {project.partners.map((partner) => <li>{partner}</li>)}
             </ul>
           </div>
           <div class="bens">
-            <h2>Target beneficiaries:</h2>
+            <h2>Target beneficiaries</h2>
             <p>
               {formatter.format(project.beneficiaries.target)}
             </p>
           </div>
         </div>
         <div class="pane objectives">
-          <h2>Project Objectives:</h2>
+          <h2>Project Objectives</h2>
           <ul>
             {project.objectives.list.map((objective) => <li>{objective}</li>)}
           </ul>
         </div>
         <div class="pane activities">
-          <h2>Project activities:</h2>
+          <h2>Project activities</h2>
           <ul>
             {project.activities.list.map((activity) => <li>{activity}</li>)}
           </ul>
@@ -124,7 +124,7 @@ function formatDate(date) {
   }
   .content-wrap {
     display: grid;
-    grid-template: "title" "summary" "numbers" "objectives" "activities";
+    grid-template: "info" "summary" "numbers" "objectives" "activities";
     background-image: var(--projectImg);
     background-size: cover;
     background-position: center;
@@ -132,7 +132,9 @@ function formatDate(date) {
 
   @media (min-width: 1200px) {
     .content-wrap {
-      grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
+      grid-template:
+        "info summary summary objectives activities"
+        "info numbers numbers objectives activities" / 2fr 1fr 1fr 2fr 2fr;
       min-height: 100vh;
     }
   }
@@ -144,7 +146,6 @@ function formatDate(date) {
       height: 100vh;
     }
     .content-wrap {
-      grid-template: "title summary numbers objectives activities" / 1fr 1fr 1fr 1fr 1fr;
       min-height: calc(100vh - 10rem);
       box-shadow: var(--shadow-2);
     }
@@ -169,7 +170,18 @@ function formatDate(date) {
     opacity: var(--bg-filter-opacity);
   }
 
+  .pane > h2,
+  .pane > * > h2 {
+    --font-size: var(--font-size-4);
+    --color: var(--orange-1);
+    --text-transform: uppercase;
+    font-size: var(--font-size);
+    color: var(--color);
+    text-transform: var(--text-transform);
+  }
+
   .info {
+    grid-area: info;
     position: relative;
     display: grid;
     background-color: var(--surface2);
@@ -177,6 +189,9 @@ function formatDate(date) {
     padding-inline: var(--size-6);
     padding-block: var(--size-6);
     min-height: var(--size-15);
+    border: var(--border-size-4) solid var(--orange-1);
+    border-right: none;
+    border-bottom: none;
   }
 
   .info > * {
@@ -192,6 +207,10 @@ function formatDate(date) {
 
   .info .logo {
     align-self: start;
+    background-color: var(--gray-1);
+    border-radius: var(--radius-round);
+    padding-block: var(--size-4);
+    padding-inline: var(--size-4);
   }
 
   .info .middle {
@@ -202,10 +221,7 @@ function formatDate(date) {
     font-size: var(--font-size-4);
     max-width: var(--size-content-1);
     padding-block: var(--size-4);
-    text-align: justify;
-    text-justify: distribute;
-    text-align-last: left;
-    hyphens: auto;
+    text-align: center;
   }
 
   .info .dates {
@@ -278,6 +294,7 @@ function formatDate(date) {
   }
 
   .summary {
+    grid-area: summary;
     --bg-filter-color: var(--gray-9);
     --bg-filter-opacity: 0.8;
     padding-block: var(--size-6);
@@ -287,13 +304,9 @@ function formatDate(date) {
     gap: var(--size-4);
   }
 
-  .summary > h2 {
-    font-size: var(--font-size-4);
-    color: var(--gray-2);
-  }
-
   .summary > p {
     font-size: var(--font-size-2);
+    font-weight: var(--font-weight-6);
     text-align: justify;
     text-justify: distribute;
     text-align-last: left;
@@ -301,8 +314,10 @@ function formatDate(date) {
   }
 
   .numbers {
+    grid-area: numbers;
     --bg-filter-color: var(--gray-9);
     --bg-filter-opacity: 0.7;
+    --numbers-color: var(--gray-1);
     padding-block: var(--size-6);
     padding-inline: var(--size-6);
     display: grid;
@@ -311,15 +326,10 @@ function formatDate(date) {
     text-align: center;
   }
 
-  .numbers > * > h2 {
-    font-size: var(--font-size-4);
-    color: var(--gray-2);
-  }
-
   .numbers > * > p {
     font-size: var(--font-size-7);
     font-weight: var(--font-weight-9);
-    color: var(--gray-3);
+    color: var(--numbers-color);
   }
 
   .numbers .partners > ul {
@@ -331,10 +341,11 @@ function formatDate(date) {
   .numbers .partners > ul li {
     font-size: var(--font-size-6);
     font-weight: var(--font-weight-9);
-    color: var(--gray-3);
+    color: var(--numbers-color);
   }
 
   .objectives {
+    grid-area: objectives;
     --bg-filter-color: var(--gray-9);
     --bg-filter-opacity: 0.9;
     padding-block: var(--size-6);
@@ -344,13 +355,14 @@ function formatDate(date) {
     gap: var(--size-4);
   }
 
-  .objectives > h2 {
-    font-size: var(--font-size-4);
-    color: var(--gray-2);
+  .objectives > ul {
+    display: grid;
+    gap: var(--size-3);
   }
 
   .objectives > ul > li {
     font-size: var(--font-size-1);
+    font-weight: var(--font-weight-6);
     text-align: justify;
     text-justify: distribute;
     text-align-last: left;
@@ -358,6 +370,7 @@ function formatDate(date) {
   }
 
   .activities {
+    grid-area: activities;
     --bg-filter-color: var(--gray-9);
     --bg-filter-opacity: 0.8;
     padding-block: var(--size-6);
@@ -365,15 +378,19 @@ function formatDate(date) {
     display: grid;
     place-content: center;
     gap: var(--size-4);
+    border: var(--border-size-4) solid var(--orange-1);
+    border-left: none;
+    border-top: none;
   }
 
-  .activities > h2 {
-    font-size: var(--font-size-4);
-    color: var(--gray-2);
+  .activities > ul {
+    display: grid;
+    gap: var(--size-3);
   }
 
   .activities > ul > li {
     font-size: var(--font-size-1);
+    font-weight: var(--font-weight-6);
     text-align: justify;
     text-justify: distribute;
     text-align-last: left;
