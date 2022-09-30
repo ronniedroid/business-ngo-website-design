@@ -7,85 +7,121 @@ const getImg = (id) => {
 const { id, name } = Astro.props;
 ---
 
-<div class="card project-card">
-  <Image
-    loading="lazy"
-    alt="an image from the project"
-    src={getImg(id)}
-    width="208"
-    aspectRatio="16:9"
-  />
-  <div class="content">
-    <p>
-      {name}
-    </p>
+<a href={`/projects/${id}`}>
+  <div class="project-card">
+    <div class="project-card__content">
+      <p>
+        {name}
+      </p>
+    </div>
+    <div class="project-card__img">
+      <Image
+        loading="lazy"
+        alt="an image from the project"
+        src={getImg(id)}
+        width="208"
+        aspectRatio="1:1"
+      />
+    </div>
   </div>
-  <a class="button" href={`/projects/${id}`}>Learn More</a>
-</div>
+</a>
 
 <style>
+  a {
+    text-decoration: none;
+  }
   .project-card {
-    display: grid;
-    grid-template-rows: min-content;
-    gap: var(--_spacer);
+    --border-color: var(--surface4);
     background: var(--surface1);
     border-radius: var(--radius-2);
     box-shadow: var(--shadow-3);
-    transition: all 100ms var(--ease-in-1);
-    border-radius: var(--radius-2);
-    height: 18rem;
-    width: 14rem;
-    padding: var(--size-1);
-  }
-
-  .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
-  }
-
-  .project-card > img {
-    object-fit: contain;
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-2) var(--radius-2) 0 0;
-  }
-
-  .content {
     display: grid;
-    justify-items: center;
+    grid-template-columns: 5rem 5rem 5rem;
+    min-height: var(--size-12);
+    isolation: isolate;
+    transition: all 1s linear;
+    animation-iteration-count: infinite;
+  }
+
+  .project-card__content,
+  .project-card__img {
+    grid-row: 1/2;
+  }
+
+  .project-card__content {
+    grid-column: 1/3;
+    display: grid;
+    place-content: center;
     padding-inline: var(--size-1);
     padding-block-end: var(--size-1);
     gap: var(--size-2);
-  }
-
-  .content > p {
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-7);
-    color: var(--text1);
-  }
-
-  .button {
-    align-self: end;
-    text-align: center;
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-7);
-    text-transform: uppercase;
-    padding-inline: var(--size-1);
-    padding-block: var(--size-1);
+    background-color: var(--surface2);
+    border: var(--border-size-4) solid var(--border-color);
     border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background: var(--brand);
-    color: var(--gray-2);
-    display: block;
-    width: 100%;
-    max-height: var(--size-6);
-    transition: all 100ms var(--ease-in-1);
-    cursor: pointer;
-    text-decoration: none;
+    border-right: none;
   }
 
-  .button:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-2);
+  .project-card__content > p {
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-6);
+    color: var(--text1);
+    text-align: center;
+  }
+
+  .project-card__img {
+    grid-column: 2/-1;
+    border-radius: var(--radius-2);
+    border: var(--border-size-4) solid var(--border-color);
+    border-left: none;
+  }
+
+  .project-card:hover > .project-card__img {
+    animation-name: start;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
+
+  .project-card:not(:hover) > .project-card__img {
+    animation-name: end;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
+
+  .project-card__img > img {
+    object-fit: cover;
+    width: auto;
+    height: 100%;
+  }
+
+  @keyframes start {
+    from {
+      transform: translate(0);
+    }
+    33% {
+      transform: translate(30%);
+    }
+    66% {
+      transform: rotate(50%);
+    }
+    to {
+      transform: translate(0);
+      z-index: 1;
+    }
+  }
+
+  @keyframes end {
+    from {
+      transform: translate(0);
+    }
+    33% {
+      transform: translate(30%);
+    }
+    66% {
+      transform: rotate(50%);
+    }
+    to {
+      transform: translate(0);
+      z-index: -1;
+    }
   }
 </style>
