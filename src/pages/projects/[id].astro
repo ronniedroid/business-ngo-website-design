@@ -129,6 +129,7 @@ function formatDate(date) {
         </ul>
       </div>
       <div class="pane border"></div>
+      <div class="background-cover-image"></div>
     </div>
   </div>
   <style define:vars={{ projectImg }}>
@@ -138,10 +139,10 @@ function formatDate(date) {
     .content-wrap {
       display: grid;
       grid-template: "info" "summary" "numbers" "objectives" "activities";
+      position: relative;
       background-image: var(--projectImg);
       background-size: cover;
       background-position: center;
-      position: relative;
     }
 
     .page {
@@ -179,6 +180,9 @@ function formatDate(date) {
           "info summary summary objectives activities"
           "info numbers numbers objectives activities" / 2fr 1fr 1fr 2fr 2fr;
         min-height: 100vh;
+        background-image: none;
+        background-size: cover;
+        background-position: center;
       }
       .border {
         grid-area: activities;
@@ -212,6 +216,19 @@ function formatDate(date) {
         transition: transform 1s cubic-bezier(0.26, 0.52, 0.42, 0.98);
         transform: translateX(150%);
       }
+      .background-cover-image {
+        left: 37.5%;
+        top: 0;
+        bottom: 0;
+        width: 25%;
+        position: absolute;
+        z-index: 0;
+        background-image: var(--projectImg);
+        background-size: cover;
+        background-position: center;
+        transition: all 1s cubic-bezier(.26,.52,.42,.98);
+        box-shadow: var(--shadow-2);
+      }
     }
 
     @media (min-width: 1600px) {
@@ -222,13 +239,17 @@ function formatDate(date) {
       }
       .content-wrap {
         min-height: calc(100vh - 10rem);
-        box-shadow: var(--shadow-2);
       }
     }
 
     .pane {
       isolation: isolate;
       min-height: var(--size-14);
+    }
+
+    .expand .background-cover-image {
+      inset: 0;
+      width: 100%;
     }
 
     .expand .pane {
