@@ -20,7 +20,7 @@ const { id, name } = Astro.props;
         alt="an image from the project"
         src={getImg(id)}
         width="208"
-        aspectRatio="1:1"
+        aspectRatio="16:9"
       />
     </div>
   </div>
@@ -36,8 +36,8 @@ const { id, name } = Astro.props;
     border-radius: var(--radius-2);
     box-shadow: var(--shadow-3);
     display: grid;
-    grid-template-columns: 5rem 5rem 5rem;
-    min-height: var(--size-12);
+    grid-template-columns: 5rem 10rem 5rem;
+    min-height: 12rem;
     isolation: isolate;
     transition: all 1s linear;
     animation-iteration-count: infinite;
@@ -73,18 +73,21 @@ const { id, name } = Astro.props;
     border-radius: var(--radius-2);
     border: var(--border-size-4) solid var(--border-color);
     border-left: none;
+    z-index: -1;
   }
 
-  .project-card:hover > .project-card__img {
-    animation-name: start;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
-  }
+  @media (min-width: 1200px) {
+    .project-card:hover > .project-card__img {
+      animation-name: start;
+      animation-duration: 600ms;
+      animation-fill-mode: forwards;
+    }
 
-  .project-card:not(:hover) > .project-card__img {
-    animation-name: end;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
+    .project-card:not(:hover) > .project-card__img {
+      animation-name: end;
+      animation-duration: 500ms;
+      animation-fill-mode: forwards;
+    }
   }
 
   .project-card__img > img {
@@ -98,10 +101,10 @@ const { id, name } = Astro.props;
       transform: translate(0);
     }
     33% {
-      transform: translate(30%);
+      transform: translate(50%);
     }
     66% {
-      transform: rotate(50%);
+      transform: rotate(100%);
     }
     to {
       transform: translate(0);
@@ -114,10 +117,10 @@ const { id, name } = Astro.props;
       transform: translate(0);
     }
     33% {
-      transform: translate(30%);
+      transform: translate(50%);
     }
     66% {
-      transform: rotate(50%);
+      transform: rotate(100%);
     }
     to {
       transform: translate(0);
