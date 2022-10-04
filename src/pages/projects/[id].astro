@@ -145,7 +145,7 @@ function formatDate(date) {
       background-position: center;
     }
 
-    .page {
+    .pane {
       transform: translateX(0);
       transition: none;
     }
@@ -226,7 +226,7 @@ function formatDate(date) {
         background-image: var(--projectImg);
         background-size: cover;
         background-position: center;
-        transition: all 1s cubic-bezier(.26,.52,.42,.98);
+        transition: all 1s cubic-bezier(0.26, 0.52, 0.42, 0.98);
         box-shadow: var(--shadow-2);
       }
     }
@@ -419,20 +419,22 @@ function formatDate(date) {
       grid-area: summary;
       --bg-filter-color: var(--gray-9);
       --bg-filter-opacity: 0.8;
-      padding-block: var(--size-6);
-      padding-inline: var(--size-6);
+      padding-block-start: var(--size-6);
+      padding-block-end: var(--size-6);
+      padding-inline: var(--size-8);
       display: grid;
-      place-content: center;
+      justify-content: center;
+      align-content: start;
       gap: var(--size-4);
     }
 
     .summary > p {
       font-size: var(--font-size-1);
       font-weight: var(--font-weight-6);
-      text-align: justify;
+      /* text-align: justify;
       text-justify: distribute;
       text-align-last: left;
-      hyphens: auto;
+      hyphens: auto; */
     }
 
     .numbers {
@@ -471,7 +473,7 @@ function formatDate(date) {
       --bg-filter-color: var(--gray-9);
       --bg-filter-opacity: 0.9;
       padding-block: var(--size-6);
-      padding-inline: var(--size-6);
+      padding-inline: var(--size-8);
       display: grid;
       justify-content: center;
       align-content: start;
@@ -486,10 +488,10 @@ function formatDate(date) {
     .objectives > ul > li {
       font-size: var(--font-size-1);
       font-weight: var(--font-weight-6);
-      text-align: justify;
+      /* text-align: justify;
       text-justify: distribute;
       text-align-last: left;
-      hyphens: auto;
+      hyphens: auto; */
     }
 
     .activities {
@@ -497,7 +499,7 @@ function formatDate(date) {
       --bg-filter-color: var(--gray-9);
       --bg-filter-opacity: 0.8;
       padding-block: var(--size-6);
-      padding-inline: var(--size-6);
+      padding-inline: var(--size-8);
       display: grid;
       justify-content: center;
       align-content: start;
@@ -512,10 +514,10 @@ function formatDate(date) {
     .activities > ul > li {
       font-size: var(--font-size-1);
       font-weight: var(--font-weight-6);
-      text-align: justify;
+      /* text-align: justify;
       text-justify: distribute;
       text-align-last: left;
-      hyphens: auto;
+      hyphens: auto; */
     }
 
     [astro-icon] {
