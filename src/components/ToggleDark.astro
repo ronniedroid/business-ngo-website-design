@@ -1,4 +1,18 @@
-<script>
+---
+---
+
+<div class="btn nav-button-dark">
+  <input
+    aria-hidden="true"
+    type="checkbox"
+    id="toggleButton"
+    class="toggle"
+    tabindex="-1"
+  />
+  <label hidden for="toggle">toggle dark mode</label>
+</div>
+
+<script lang="js">
   const toggleButton = document.getElementById("toggleButton");
 
   let userTheme = "light";
@@ -34,17 +48,6 @@
   const initUserTheme = getTheme() || getMediaPreference();
   setTheme(initUserTheme);
 </script>
-
-<div class="btn nav-button-dark">
-  <input
-    aria-hidden="true"
-    type="checkbox"
-    id="toggleButton"
-    class="toggle"
-    tabindex="-1"
-  />
-  <label hidden for="toggle">toggle dark mode</label>
-</div>
 
 <style scoped>
   .btn {

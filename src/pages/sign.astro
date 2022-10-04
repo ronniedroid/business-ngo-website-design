@@ -1,0 +1,485 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const logoUrl =
+  "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/harikar-logo-sign.png";
+
+const imgStyle = {
+  display: "block",
+  "image-rendering": "-webkit-optimize-contrast",
+  "min-width": "100%",
+  height: "auto",
+};
+
+const nameStyle = {
+  "font-weight": 700,
+  "font-size": "16px",
+  "line-height": "19px",
+  color: "#4b60a5",
+  whitespace: "nowrap",
+  padding: "0px 0px 4px 0px",
+  "text-transform": "capitalize",
+};
+
+const jobTitleStyle = {
+  "font-weight": 700,
+  "font-size": "10px",
+  "line-height": "12px",
+  color: "#000000",
+  whitespace: "nowrap",
+  padding: "0px 0px 4px 0px",
+  "text-transform": "uppercase",
+};
+
+const fieldStyle = {
+  padding: "0px",
+  "font-weight": 500,
+  "font-size": "10px",
+  color: "#000000",
+  "line-height": "12px",
+  whitespace: "nowrap",
+};
+
+const emailStyle = {
+  padding: "0px",
+  "font-size": "10px",
+  "line-height": "12px",
+};
+
+const emailAnchorStyle = {
+  "font-weight": 700,
+  color: "#ff7f26",
+  "text-decoration": "none",
+};
+
+const addressStyle = {
+  padding: "0px",
+  "font-size": "10px",
+  "line-height": "12px",
+  color: "#4b60a5",
+};
+---
+
+<MainLayout title="email signature page">
+  <div class="main-wrap">
+    <div class="form">
+      <h2>Enter Details</h2>
+      <form>
+        <div class="form-item">
+          <label for="name">Name*</label>
+          <input
+            type="text"
+            name="name"
+            id="nameInput"
+            required
+            placeholder="John Doe"
+          />
+        </div>
+        <div class="form-item">
+          <label for="job">Job Title*</label>
+          <input
+            type="text"
+            name="job"
+            id="jobInput"
+            required
+            placeholder="Reporting Officer"
+          />
+        </div>
+        <div class="form-item">
+          <label for="email">Email*</label>
+          <p class="help">Enter your harikar email.</p>
+          <input
+            type="text"
+            name="email"
+            placeholder="@harikar.org"
+            id="emailInput"
+            pattern="[0-9A-Za-z-._]+@harikar.org"
+            required
+          />
+        </div>
+        <div class="form-item">
+          <label for="phone">Mobile Number*</label>
+          <p class="help">Enter valid phone number, example: 750-000-0000.</p>
+          <input
+            type="text"
+            name="phone"
+            placeholder="750-000-0000"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            id="mobileInput"
+            required
+          />
+        </div>
+        <div class="form-item">
+          <label for="skype">Skype ID*</label>
+          <input
+            type="text"
+            name="skype"
+            id="skypeInput"
+            required
+            placeholder="john.doe"
+          />
+        </div>
+        <div class="btns">
+          <button class="btn primary-btn" id="textButton">Copy Signature</button
+          >
+          <button class="btn secondary-btn" id="htmlButton">Copy HTML</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="preview" id="preview">
+      <h2>Signature Preview</h2>
+      <div class="preview-card" id="preview-card">
+        <table cellspacing="0" cellpadding="0">
+          <tr>
+            <td style={{ "vertical-align": "middle" }}>
+              <img
+                src={logoUrl}
+                width="50"
+                height="88"
+                class="img"
+                style={imgStyle}
+              />
+            </td>
+            <td>
+              <table
+                cellspacing="0"
+                cellpadding="0"
+                style={{ margin: "1.5px 0px" }}
+              >
+                <tr>
+                  <td style={{ width: "24px" }}> &nbsp;</td>
+                  <td style={{ "border-left": "1px solid #d1dbe5" }}></td>
+                  <td style={{ width: "24px" }}> &nbsp;</td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tr>
+                  <td id="nameField" style={nameStyle}>Name</td>
+                </tr>
+                <tr>
+                  <td id="jobField" style={jobTitleStyle}>Job Title</td>
+                </tr>
+                <tr>
+                  <td id="mobileField" style={fieldStyle}>
+                    <strong style={{ color: "#4b60a5" }}>Mobile:</strong>
+                    +964-773-000-0000
+                  </td>
+                </tr>
+                <tr>
+                  <td id="emailField" style={fieldStyle}>
+                    <strong style={{ color: "#4b60a5" }}>Email:</strong>
+                    email@harikar.org
+                  </td>
+                </tr>
+                <tr>
+                  <td id="skypeField" style={fieldStyle}>
+                    <strong style={{ color: "#4b60a5" }}>Skype ID:</strong>
+                    skypeId
+                  </td>
+                </tr>
+                <tr>
+                  <td style={emailStyle}>
+                    <a href="https://www.harikar.org" style={emailAnchorStyle}
+                      >www.harikar.org</a
+                    >
+                  </td>
+                </tr>
+                <tr style={addressStyle}>
+                  <td>Australia Streat/Media Quarter, 99448 Duhok, KRI-Iraq</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="integrations">
+      <h2>Add signature in Outlook</h2>
+      <ol>
+        <li>Click on Copy Signature and open Outlook.</li>
+        <li>Select file / Options.</li>
+        <li>Select Mail then signature</li>
+        <li>Click new, and give the signature a name.</li>
+        <li>paste the signature and click ok</li>
+        <li>
+          Choose your new default signature for New messages and
+          Replies/forwards.
+        </li>
+      </ol>
+      <h2>Add signature in Gmail</h2>
+      <ol>
+        <li>Click on Copy Signature and go to your work Gmail account.</li>
+        <li>Select the Settings gear in your Gmail toolbar.</li>
+        <li>Select See All Settings / General / Signature.</li>
+        <li>Select + Create New button.</li>
+        <li>Give this signature a name and select Create.</li>
+        <li>
+          Paste the signature in the box on the right and set siganture
+          defaults.
+        </li>
+        <li>Select your new default signature under Signature defaults.</li>
+        <li>Scroll to bottom and select Save Changes.</li>
+      </ol>
+      <div class="note">
+        <p>
+          <em
+            >Depending on the version of outlook you have installed, some steps
+            might be different for you</em
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script lang="js" is:inline>
+  const nameInput = document.getElementById("nameInput");
+  const nameField = document.getElementById("nameField");
+  const jobInput = document.getElementById("jobInput");
+  const jobField = document.getElementById("jobField");
+  const emailInput = document.getElementById("emailInput");
+  const emailField = document.getElementById("emailField");
+  const mobileInput = document.getElementById("mobileInput");
+  const mobileField = document.getElementById("mobileField");
+  const skypeInput = document.getElementById("skypeInput");
+  const skypeField = document.getElementById("skypeField");
+  const preview = document.getElementById("preview-card");
+  const textButton = document.getElementById("textButton");
+  const htmlButton = document.getElementById("htmlButton");
+
+  [("keyup", "change", "input")].forEach((evt) =>
+    nameInput.addEventListener(
+      evt,
+      () => (nameField.textContent = nameInput.value)
+    )
+  );
+
+  ["keyup", "change", "input"].forEach((evt) =>
+    jobInput.addEventListener(
+      evt,
+      () => (jobField.textContent = jobInput.value)
+    )
+  );
+
+  ["keyup", "change", "input"].forEach((evt) =>
+    emailInput.addEventListener(
+      evt,
+      () => (emailField.lastChild.nodeValue = " " + emailInput.value)
+    )
+  );
+
+  ["keyup", "change", "input"].forEach((evt) =>
+    mobileInput.addEventListener(
+      evt,
+      () => (mobileField.lastChild.nodeValue = " +964-" + mobileInput.value)
+    )
+  );
+
+  ["keyup", "change", "input"].forEach((evt) =>
+    skypeInput.addEventListener(
+      evt,
+      () => (skypeField.lastChild.nodeValue = " " + skypeInput.value)
+    )
+  );
+
+  textButton.addEventListener("click", () => {
+    let element = preview;
+
+    if (!element) {
+      alert("Preview element not yet ready");
+      return false;
+    }
+
+    if (document.body.createTextRange) {
+      let range = document.body.createTextRange();
+      range.moveToElementText(element.value);
+      range.select();
+      document.execCommand("copy");
+    } else if (window.getSelection) {
+      let selection = window.getSelection();
+      let range = document.createRange();
+      range.selectNodeContents(element);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand("copy");
+      selection.removeAllRanges();
+    }
+  });
+
+  htmlButton.addEventListener("click", () => {
+    let element = preview;
+
+    if (!element) {
+      alert("Preview element not yet ready");
+      return false;
+    }
+
+    const el = document.createElement("textarea");
+
+    el.value = element.innerHTML;
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
+    document.body.appendChild(el);
+
+    const selected =
+      document.getSelection().rangeCount > 0
+        ? document.getSelection().getRangeAt(0)
+        : false;
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    if (selected) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(selected);
+    }
+  });
+</script>
+
+<style>
+  .main-wrap {
+    padding-inline: var(--size-2);
+    padding-block: var(--size-4);
+    display: grid;
+    gap: var(--size-2);
+    grid-template:
+      "form"
+      "preview"
+      "integrations" / 1fr;
+  }
+
+  @media (min-width: 950px) {
+    .main-wrap {
+      padding-inline: var(--size-12);
+      gap: var(--size-1);
+      grid-template:
+        "form preview" 11rem
+        "form integrations" / 1fr 1fr;
+    }
+  }
+
+  h2 {
+    font-size: var(--font-size-2);
+    padding-block: var(--size-4);
+    color: var(--brand);
+  }
+
+  .form {
+    grid-area: form;
+    padding-inline: var(--size-8);
+    padding-block: var(--size-2);
+  }
+
+  form {
+    display: grid;
+    gap: var(--size-4);
+  }
+  .form-item {
+    display: grid;
+    gap: var(--size-2);
+  }
+
+  label {
+    color: var(--text1);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-6);
+  }
+
+  input {
+    max-width: 100%;
+    box-shadow: var(--shadow-2);
+    border: var(--border-size-1) solid var(--text2);
+    padding: var(--size-2);
+    color: var(--text2);
+    background: var(--surface3);
+    border-radius: var(--radius-2);
+  }
+
+  .error,
+  .help {
+    font-size: var(--font-size-0);
+  }
+
+  .error {
+    color: var(--red-7);
+  }
+
+  .preview {
+    padding-inline: var(--size-8);
+    padding-block: var(--size-2);
+    background: var(--surface1);
+    grid-area: preview;
+  }
+
+  .preview-card {
+    background: var(--gray-1);
+    padding: var(--size-2);
+    max-width: max-content;
+    border-radius: var(--radius-2);
+  }
+
+  .integrations {
+    grid-area: integrations;
+    padding-inline: var(--size-8);
+    padding-top: var(--size-1);
+    padding-bottom: var(--size-3);
+    background: var(--surface3);
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius-2);
+    margin-top: var(--size-6);
+  }
+
+  .integrations ol > li {
+    font-size: var(--font-size-0);
+    margin-left: var(--size-4);
+    color: var(--text2);
+  }
+
+  .note {
+    padding-inline: var(--size-4);
+    margin-top: var(--size-4);
+    border-left: 5px solid var(--brand);
+  }
+
+  .note > p {
+    font-size: var(--font-size-0);
+  }
+
+  .btns {
+    display: flex;
+    gap: var(--size-2);
+  }
+
+  .btn {
+    font-size: var(--size-fluid-1);
+    color: var(--brand);
+    font-weight: var(--font-weight-6);
+    padding-inline: var(--size-2);
+    padding-block: var(--size-2);
+    border-radius: var(--radius-2);
+    background: var(--surface1);
+    text-transform: uppercase;
+    border: var(--border-size-1) solid var(--brand);
+  }
+  .btn:hover,
+  .btn:active {
+    outline: none;
+    cursor: pointer;
+  }
+  .btn:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
+  .primary-btn {
+    color: var(--gray-1);
+    background: var(--brand);
+  }
+  .secondary-btn {
+    color: var(--v-primary-base);
+    background: var(--surface3);
+  }
+</style>

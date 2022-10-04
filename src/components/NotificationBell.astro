@@ -1,28 +1,5 @@
-<script>
-  const menu = document.getElementById("menu");
-  const notificaitonButton = document.getElementById("notification-button");
-  let droped = false;
-
-  const toggleMenu = () => {
-    droped = !droped;
-    if (!droped) {
-      menu.classList.add("dropped");
-    } else if (droped) {
-      menu.classList.remove("dropped");
-    }
-  };
-
-  notificaitonButton.addEventListener("click", () => toggleMenu());
-
-  window.addEventListener("click", function (e) {
-    if (
-      !notificaitonButton.contains(e.target) &&
-      menu.classList.contains("dropped")
-    ) {
-      toggleMenu();
-    }
-  });
-</script>
+---
+---
 
 <div class="notification" id="notification-button">
   <svg width="25" height="25" viewBox="0 0 166 197">
@@ -72,6 +49,32 @@
     </div>
   </div>
 </div>
+
+<script lang="js">
+  const menu = document.getElementById("menu");
+  const notificaitonButton = document.getElementById("notification-button");
+  let droped = false;
+
+  const toggleMenu = () => {
+    droped = !droped;
+    if (!droped) {
+      menu.classList.add("dropped");
+    } else if (droped) {
+      menu.classList.remove("dropped");
+    }
+  };
+
+  notificaitonButton.addEventListener("click", () => toggleMenu());
+
+  window.addEventListener("click", function (e) {
+    if (
+      !notificaitonButton.contains(e.target) &&
+      menu.classList.contains("dropped")
+    ) {
+      toggleMenu();
+    }
+  });
+</script>
 
 <style scoped>
   .notification {

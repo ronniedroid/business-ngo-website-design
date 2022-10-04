@@ -23,34 +23,6 @@ const navItems = [
 ];
 ---
 
-<script>
-  let opened = false;
-
-  const menuButton = document.getElementById("menu-button");
-  const mainNav = document.getElementById("main-nav");
-
-  const openNav = () => {
-    mainNav.classList.add("opened");
-    menuButton.classList.add("opened");
-  };
-
-  const closeNav = () => {
-    mainNav.classList.remove("opened");
-    menuButton.classList.remove("opened");
-  };
-
-  const toggleNav = () => {
-    opened = !opened;
-    if (opened === false) {
-      openNav();
-    } else if (opened === true) {
-      closeNav();
-    }
-  };
-
-  menuButton.addEventListener("click", toggleNav);
-</script>
-
 <header>
   <button
     id="menu-button"
@@ -99,6 +71,33 @@ const navItems = [
     </li>
   </ul>
 </header>
+
+<script>
+  let opened = false;
+
+  const menuButton = document.getElementById("menu-button");
+  const mainNav = document.getElementById("main-nav");
+  const openNav = () => {
+    mainNav.classList.add("opened");
+    menuButton.classList.add("opened");
+  };
+
+  const closeNav = () => {
+    mainNav.classList.remove("opened");
+    menuButton.classList.remove("opened");
+  };
+
+  const toggleNav = () => {
+    opened = !opened;
+    if (opened === false) {
+      openNav();
+    } else if (opened === true) {
+      closeNav();
+    }
+  };
+
+  menuButton.addEventListener("click", toggleNav);
+</script>
 
 <style>
   header {

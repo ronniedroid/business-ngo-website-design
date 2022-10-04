@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.7.1",
-    "@astrojs/mdx": "^0.11.1",
+    "@astrojs/mdx": "^0.11.3",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/vue": "^1.0.2",
-    "astro": "^1.2.2",
+    "@astrojs/vue": "^1.1.0",
+    "astro": "^1.4.2",
     "astro-icon": "^0.7.3",
-    "open-props": "^1.4.14",
+    "open-props": "^1.4.16",
     "vue": "^3.2.39"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.4"
+    "prettier-plugin-astro": "^0.5.5"
   }
 }
