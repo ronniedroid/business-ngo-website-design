@@ -14,17 +14,6 @@ const items = [
 ];
 ---
 
-<script>
-  const sendButton = document.getElementById("send-button");
-  const subjectInput = document.getElementById("subject");
-  const messageInput = document.getElementById("message");
-
-  const subject = subjectInput.value;
-  const message = messageInput.value;
-
-  sendButton.href = `mailto:info@harikar.org?subject=${subject}&body=${message}`;
-</script>
-
 <MainLayout title="Contact us" crumbs={items}>
   <div class="main-wrap">
     <h2>Contact us</h2>
@@ -47,6 +36,17 @@ const items = [
     </form>
   </div>
 </MainLayout>
+
+<script lang="js" is:inline>
+  const sendButton = document.getElementById("send-button");
+  const subjectInput = document.getElementById("subject");
+  const messageInput = document.getElementById("message");
+
+  const subject = subjectInput.value;
+  const message = messageInput.value;
+
+  sendButton.href = `mailto:info@harikar.org?subject=${subject}&body=${message}`;
+</script>
 
 <style>
   .main-wrap {
