@@ -1,0 +1,34 @@
+---
+import "../../../../styles/style.css";
+import ToggleDark from "../../../../components/ToggleDark.astro";
+export function getStaticPaths() {
+  return [
+    { params: { month: "january" } },
+    { params: { month: "february" } },
+    { params: { month: "march" } },
+    { params: { month: "april" } },
+    { params: { month: "may" } },
+    { params: { month: "june" } },
+    { params: { month: "july" } },
+    { params: { month: "august" } },
+  ];
+}
+
+const { month } = Astro.params;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <title>Harikar NGO - activity reports dashboard - 2022/${month}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harikar NGO main website" />
+</head>
+
+<body>
+  <ToggleDark />
+  <div class="main-wrap">
+    <div class="content-wrap" id="content-wrap">
+      <div>{month}</div>
+    </div>
+  </div>
+</body>

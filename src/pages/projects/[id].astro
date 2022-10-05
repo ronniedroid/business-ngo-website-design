@@ -35,495 +35,503 @@ function formatDate(date) {
 }
 ---
 
-<script is:inline>
-  if (document.readyState === "ready" || document.readyState === "complete") {
-    paneAnimation();
-  } else {
-    document.onreadystatechange = function () {
-      if (document.readyState == "complete") {
-        paneAnimation();
-      }
-    };
-  }
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Harikar NGO - {project.name}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Harikar NGO main website" />
+  </head>
 
-  function paneAnimation() {
-    setTimeout(() => {
-      document.getElementById("content-wrap").classList.add("expand");
-    }, 500);
-  }
-</script>
-
-<meta charset="utf-8" />
-<title>Harikar Astro Website - {project.name}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Harikar NGO test Astro website" />
-
-<body>
-  <div class="main-wrap">
-    <div class="content-wrap" id="content-wrap">
-      <div class="pane info">
-        <div class="theme">
-          <ToggleDark />
-        </div>
-        <a href="/" class="logo">
-          <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
-        </a>
-        <div class="middle">
-          <h1 class="title">
-            {project.name}
-          </h1>
-          <div class="dates">
-            <p class="start">
-              <span><Icon pack="mdi" name="clock-start" /></span>
-              {formatDate(project.start)}
+  <body>
+    <div class="main-wrap">
+      <div class="content-wrap" id="content-wrap">
+        <div class="pane info">
+          <div class="theme">
+            <ToggleDark />
+          </div>
+          <a href="/" class="logo">
+            <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
+          </a>
+          <div class="middle">
+            <h1 class="title">
+              {project.name}
+            </h1>
+            <div class="dates">
+              <p class="start">
+                <span><Icon pack="mdi" name="clock-start" /></span>
+                {formatDate(project.start)}
+              </p>
+              <p class="end">
+                <span><Icon pack="mdi" name="clock-end" /></span>
+                {formatDate(project.end)}
+              </p>
+            </div>
+            <ul class="clusters">
+              {
+                project.clusters.map((cluster) => (
+                  <li class={cluster}>{cluster}</li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="contact">
+            <p>
+              <span><strong>Project Manager:</strong></span>
+              {project.contact.name}
             </p>
-            <p class="end">
-              <span><Icon pack="mdi" name="clock-end" /></span>
-              {formatDate(project.end)}
+            <p><span><strong>Email:</strong></span> {project.contact.email}</p>
+          </div>
+        </div>
+        <div class="pane summary">
+          <h2>Project Summary</h2>
+          <p>{project.summary}</p>
+        </div>
+        <div class="pane numbers">
+          <div class="partners">
+            <h2>Partners</h2>
+            <ul>
+              {project.partners.map((partner) => <li>{partner}</li>)}
+            </ul>
+          </div>
+          <div class="bens">
+            <h2>Target beneficiaries</h2>
+            <p>
+              {formatter.format(project.beneficiaries.target)}
             </p>
           </div>
-          <ul class="clusters">
-            {
-              project.clusters.map((cluster) => (
-                <li class={cluster}>{cluster}</li>
-              ))
-            }
-          </ul>
         </div>
-        <div class="contact">
-          <p>
-            <span><strong>Project Manager:</strong></span>
-            {project.contact.name}
-          </p>
-          <p><span><strong>Email:</strong></span> {project.contact.email}</p>
-        </div>
-      </div>
-      <div class="pane summary">
-        <h2>Project Summary</h2>
-        <p>{project.summary}</p>
-      </div>
-      <div class="pane numbers">
-        <div class="partners">
-          <h2>Partners</h2>
+        <div class="pane objectives">
+          <h2>Project Objectives</h2>
           <ul>
-            {project.partners.map((partner) => <li>{partner}</li>)}
+            {project.objectives.list.map((objective) => <li>{objective}</li>)}
           </ul>
         </div>
-        <div class="bens">
-          <h2>Target beneficiaries</h2>
-          <p>
-            {formatter.format(project.beneficiaries.target)}
-          </p>
+        <div class="pane activities">
+          <h2>Project activities</h2>
+          <ul>
+            {project.activities.list.map((activity) => <li>{activity}</li>)}
+          </ul>
         </div>
+        <div class="pane border"></div>
+        <div class="background-cover-image"></div>
       </div>
-      <div class="pane objectives">
-        <h2>Project Objectives</h2>
-        <ul>
-          {project.objectives.list.map((objective) => <li>{objective}</li>)}
-        </ul>
-      </div>
-      <div class="pane activities">
-        <h2>Project activities</h2>
-        <ul>
-          {project.activities.list.map((activity) => <li>{activity}</li>)}
-        </ul>
-      </div>
-      <div class="pane border"></div>
-      <div class="background-cover-image"></div>
     </div>
-  </div>
-  <style define:vars={{ projectImg }}>
-    .main-wrap {
-      background-color: var(--surface4);
-    }
-    .content-wrap {
-      display: grid;
-      grid-template: "info" "summary" "numbers" "objectives" "activities";
-      position: relative;
-      background-image: var(--projectImg);
-      background-size: cover;
-      background-position: center;
-    }
 
-    .pane {
-      transform: translateX(0);
-      transition: none;
-    }
-    .pane:nth-child(2) {
-      transform: translateX(0);
-      z-index: 4;
-    }
-    .pane:nth-child(3) {
-      transform: translateX(0);
-      z-index: 3;
-    }
-    .pane:nth-child(4) {
-      transform: translateX(0);
-      z-index: 2;
-    }
-    .pane:nth-child(5) {
-      transform: translateX(0);
-      z-index: 1;
-    }
-    .pane:nth-child(6) {
-      transform: translateX(0);
-      z-index: 1;
-    }
+    <script is:inline>
+      if (
+        document.readyState === "ready" ||
+        document.readyState === "complete"
+      ) {
+        paneAnimation();
+      } else {
+        document.onreadystatechange = function () {
+          if (document.readyState == "complete") {
+            paneAnimation();
+          }
+        };
+      }
 
-    .border {
-      display: none;
-    }
+      function paneAnimation() {
+        setTimeout(() => {
+          document.getElementById("content-wrap").classList.add("expand");
+        }, 500);
+      }
+    </script>
 
-    @media (min-width: 1200px) {
+    <style define:vars={{ projectImg }}>
+      .main-wrap {
+        background-color: var(--surface4);
+      }
       .content-wrap {
-        grid-template:
-          "info summary summary objectives activities"
-          "info numbers numbers objectives activities" / 2fr 1fr 1fr 2fr 2fr;
-        min-height: 100vh;
-        background-image: none;
-        background-size: cover;
-        background-position: center;
-      }
-      .border {
-        grid-area: activities;
         display: grid;
-        border: var(--border-size-4) solid var(--orange-1);
-        border-left: none;
-        border-top: none;
-      }
-      .pane:nth-child(2) {
-        transform: translateX(50%);
-        z-index: 4;
-      }
-      .pane:nth-child(3) {
-        transform: translateX(50%);
-        z-index: 3;
-      }
-      .pane:nth-child(4) {
-        transform: translateX(-50%);
-        z-index: 2;
-      }
-      .pane:nth-child(5) {
-        transform: translateX(-150%);
-        z-index: 1;
-      }
-      .pane:nth-child(6) {
-        transform: translateX(-150%);
-        z-index: 6;
-      }
-      .pane {
-        z-index: 5;
-        transition: transform 1s cubic-bezier(0.26, 0.52, 0.42, 0.98);
-        transform: translateX(150%);
-      }
-      .background-cover-image {
-        left: 37.5%;
-        top: 0;
-        bottom: 0;
-        width: 25%;
-        position: absolute;
-        z-index: 0;
+        grid-template: "info" "summary" "numbers" "objectives" "activities";
+        position: relative;
         background-image: var(--projectImg);
         background-size: cover;
         background-position: center;
-        transition: all 1s cubic-bezier(0.26, 0.52, 0.42, 0.98);
-        box-shadow: var(--shadow-2);
       }
-    }
 
-    @media (min-width: 1600px) {
-      .main-wrap {
-        padding-block: 5rem;
-        padding-inline: var(--size-12);
-        height: 100vh;
+      .pane {
+        transform: translateX(0);
+        transition: none;
       }
-      .content-wrap {
-        min-height: calc(100vh - 10rem);
+      .pane:nth-child(2) {
+        transform: translateX(0);
+        z-index: 4;
       }
-    }
+      .pane:nth-child(3) {
+        transform: translateX(0);
+        z-index: 3;
+      }
+      .pane:nth-child(4) {
+        transform: translateX(0);
+        z-index: 2;
+      }
+      .pane:nth-child(5) {
+        transform: translateX(0);
+        z-index: 1;
+      }
+      .pane:nth-child(6) {
+        transform: translateX(0);
+        z-index: 1;
+      }
 
-    .pane {
-      isolation: isolate;
-      min-height: var(--size-14);
-    }
+      .border {
+        display: none;
+      }
 
-    .expand .background-cover-image {
-      inset: 0;
-      width: 100%;
-    }
+      @media (min-width: 1200px) {
+        .content-wrap {
+          grid-template:
+            "info summary summary objectives activities"
+            "info numbers numbers objectives activities" / 2fr 1fr 1fr 2fr 2fr;
+          min-height: 100vh;
+          background-image: none;
+          background-size: cover;
+          background-position: center;
+        }
+        .border {
+          grid-area: activities;
+          display: grid;
+          border: var(--border-size-4) solid var(--orange-1);
+          border-left: none;
+          border-top: none;
+        }
+        .pane:nth-child(2) {
+          transform: translateX(50%);
+          z-index: 4;
+        }
+        .pane:nth-child(3) {
+          transform: translateX(50%);
+          z-index: 3;
+        }
+        .pane:nth-child(4) {
+          transform: translateX(-50%);
+          z-index: 2;
+        }
+        .pane:nth-child(5) {
+          transform: translateX(-150%);
+          z-index: 1;
+        }
+        .pane:nth-child(6) {
+          transform: translateX(-150%);
+          z-index: 6;
+        }
+        .pane {
+          z-index: 5;
+          transition: transform 1s cubic-bezier(0.26, 0.52, 0.42, 0.98);
+          transform: translateX(150%);
+        }
+        .background-cover-image {
+          left: 37.5%;
+          top: 0;
+          bottom: 0;
+          width: 25%;
+          position: absolute;
+          z-index: 0;
+          background-image: var(--projectImg);
+          background-size: cover;
+          background-position: center;
+          transition: all 1s cubic-bezier(0.26, 0.52, 0.42, 0.98);
+          box-shadow: var(--shadow-2);
+        }
+      }
 
-    .expand .pane {
-      transform: translateX(0);
-    }
+      @media (min-width: 1600px) {
+        .main-wrap {
+          padding-block: 5rem;
+          padding-inline: var(--size-12);
+          height: 100vh;
+        }
+        .content-wrap {
+          min-height: calc(100vh - 10rem);
+        }
+      }
 
-    .expand .pane:nth-child(2) {
-      transform: translateX(0);
-      z-index: 4;
-    }
-    .expand .pane:nth-child(3) {
-      transform: translateX(0);
-      z-index: 4;
-    }
-    .expand .pane:nth-child(4) {
-      transform: translateX(0);
-      z-index: 2;
-    }
-    .expand .pane:nth-child(5) {
-      transform: translateX(0);
-      z-index: 1;
-    }
+      .pane {
+        isolation: isolate;
+        min-height: var(--size-14);
+      }
 
-    .pane > * {
-      color: var(--gray-2);
-    }
+      .expand .background-cover-image {
+        inset: 0;
+        width: 100%;
+      }
 
-    .pane::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      background: var(--bg-filter-color);
-      opacity: var(--bg-filter-opacity);
-      overflow-y: hidden;
-    }
+      .expand .pane {
+        transform: translateX(0);
+      }
 
-    .pane > h2,
-    .pane > * > h2 {
-      --font-size: var(--font-size-4);
-      --color: var(--orange-1);
-      --text-transform: uppercase;
-      font-size: var(--font-size);
-      color: var(--color);
-      text-transform: var(--text-transform);
-    }
+      .expand .pane:nth-child(2) {
+        transform: translateX(0);
+        z-index: 4;
+      }
+      .expand .pane:nth-child(3) {
+        transform: translateX(0);
+        z-index: 4;
+      }
+      .expand .pane:nth-child(4) {
+        transform: translateX(0);
+        z-index: 2;
+      }
+      .expand .pane:nth-child(5) {
+        transform: translateX(0);
+        z-index: 1;
+      }
 
-    .info {
-      grid-area: info;
-      position: relative;
-      display: grid;
-      background-color: var(--surface2);
-      justify-items: center;
-      padding-inline: var(--size-6);
-      padding-block: var(--size-6);
-      min-height: var(--size-15);
-    }
+      .pane > * {
+        color: var(--gray-2);
+      }
 
-    @media (min-width: 1200px) {
+      .pane::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background: var(--bg-filter-color);
+        opacity: var(--bg-filter-opacity);
+        overflow-y: hidden;
+      }
+
+      .pane > h2,
+      .pane > * > h2 {
+        --font-size: var(--font-size-4);
+        --color: var(--orange-1);
+        --text-transform: uppercase;
+        font-size: var(--font-size);
+        color: var(--color);
+        text-transform: var(--text-transform);
+      }
+
       .info {
-        border: var(--border-size-4) solid var(--orange-1);
-        border-right: none;
-        border-bottom: none;
+        grid-area: info;
+        position: relative;
+        display: grid;
+        background-color: var(--surface2);
+        justify-items: center;
+        padding-inline: var(--size-6);
+        padding-block: var(--size-6);
+        min-height: var(--size-15);
       }
-    }
 
-    .info > * {
-      color: var(--text2);
-    }
-
-    .info .theme {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: var(--size-4);
-    }
-
-    .info .logo {
-      align-self: start;
-      background-color: var(--gray-1);
-      border-radius: var(--radius-round);
-      padding-block: var(--size-4);
-      padding-inline: var(--size-4);
-    }
-
-    .info .middle {
-      padding-block: var(--size-4);
-    }
-
-    .info .title {
-      font-size: var(--font-size-4);
-      max-width: var(--size-content-1);
-      padding-block: var(--size-4);
-      text-align: center;
-    }
-
-    .info .dates {
-      display: flex;
-      place-content: center;
-      gap: var(--size-3);
-      padding-block-end: var(--size-4);
-    }
-
-    .info .dates > p {
-      font-size: var(--font-size-1);
-      font-weight: var(--font-weight-6);
-      display: flex;
-      gap: var(--size-2);
-    }
-
-    .info .clusters {
-      display: flex;
-      place-content: center;
-      gap: var(--size-2);
-      list-style: none;
-    }
-
-    .info .clusters > li {
-      font-size: var(--font-size-1);
-      font-weight: var(--font-weight-6);
-      padding-inline: var(--size-4);
-      background-color: var(--color);
-      border-radius: var(--radius-round);
-      color: var(--gray-2);
-    }
-
-    .Protection {
-      --color: var(--blue-8);
-    }
-
-    .GBV {
-      --color: var(--orange-7);
-    }
-
-    .CP {
-      --color: var(--red-8);
-    }
-
-    .Health {
-      --color: var(--green-8);
-    }
-
-    .Livelihood {
-      --color: var(--lime-7);
-    }
-
-    .WASH {
-      --color: var(--blue-4);
-    }
-
-    .info .contact {
-      padding-block-start: var(--size-4);
-      align-self: end;
-    }
-
-    .info .contact > p {
-      font-size: var(--font-size-0);
-    }
-
-    @media (min-width: 1200px) {
-      .info {
-        padding-block: var(--size-8);
+      @media (min-width: 1200px) {
+        .info {
+          border: var(--border-size-4) solid var(--orange-1);
+          border-right: none;
+          border-bottom: none;
+        }
       }
-    }
 
-    .summary {
-      grid-area: summary;
-      --bg-filter-color: var(--gray-9);
-      --bg-filter-opacity: 0.8;
-      padding-block-start: var(--size-6);
-      padding-block-end: var(--size-6);
-      padding-inline: var(--size-8);
-      display: grid;
-      justify-content: center;
-      align-content: start;
-      gap: var(--size-4);
-    }
+      .info > * {
+        color: var(--text2);
+      }
 
-    .summary > p {
-      font-size: var(--font-size-1);
-      font-weight: var(--font-weight-6);
-      /* text-align: justify;
+      .info .theme {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: var(--size-4);
+      }
+
+      .info .logo {
+        align-self: start;
+        background-color: var(--gray-1);
+        border-radius: var(--radius-round);
+        padding-block: var(--size-4);
+        padding-inline: var(--size-4);
+      }
+
+      .info .middle {
+        padding-block: var(--size-4);
+      }
+
+      .info .title {
+        font-size: var(--font-size-4);
+        max-width: var(--size-content-1);
+        padding-block: var(--size-4);
+        text-align: center;
+      }
+
+      .info .dates {
+        display: flex;
+        place-content: center;
+        gap: var(--size-3);
+        padding-block-end: var(--size-4);
+      }
+
+      .info .dates > p {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-6);
+        display: flex;
+        gap: var(--size-2);
+      }
+
+      .info .clusters {
+        display: flex;
+        place-content: center;
+        gap: var(--size-2);
+        list-style: none;
+      }
+
+      .info .clusters > li {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-6);
+        padding-inline: var(--size-4);
+        background-color: var(--color);
+        border-radius: var(--radius-round);
+        color: var(--gray-2);
+      }
+
+      .Protection {
+        --color: var(--blue-8);
+      }
+
+      .GBV {
+        --color: var(--orange-7);
+      }
+
+      .CP {
+        --color: var(--red-8);
+      }
+
+      .Health {
+        --color: var(--green-8);
+      }
+
+      .Livelihood {
+        --color: var(--lime-7);
+      }
+
+      .WASH {
+        --color: var(--blue-4);
+      }
+
+      .info .contact {
+        padding-block-start: var(--size-4);
+        align-self: end;
+      }
+
+      .info .contact > p {
+        font-size: var(--font-size-0);
+      }
+
+      @media (min-width: 1200px) {
+        .info {
+          padding-block: var(--size-8);
+        }
+      }
+
+      .summary {
+        grid-area: summary;
+        --bg-filter-color: var(--gray-9);
+        --bg-filter-opacity: 0.8;
+        padding-block-start: var(--size-6);
+        padding-block-end: var(--size-6);
+        padding-inline: var(--size-8);
+        display: grid;
+        justify-content: center;
+        align-content: start;
+        gap: var(--size-4);
+      }
+
+      .summary > p {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-6);
+        /* text-align: justify;
       text-justify: distribute;
       text-align-last: left;
       hyphens: auto; */
-    }
+      }
 
-    .numbers {
-      grid-area: numbers;
-      --bg-filter-color: var(--gray-9);
-      --bg-filter-opacity: 0.8;
-      --numbers-color: var(--gray-1);
-      padding-block: var(--size-6);
-      padding-inline: var(--size-6);
-      display: grid;
-      place-content: center;
-      gap: var(--size-6);
-      text-align: center;
-    }
+      .numbers {
+        grid-area: numbers;
+        --bg-filter-color: var(--gray-9);
+        --bg-filter-opacity: 0.8;
+        --numbers-color: var(--gray-1);
+        padding-block: var(--size-6);
+        padding-inline: var(--size-6);
+        display: grid;
+        place-content: center;
+        gap: var(--size-6);
+        text-align: center;
+      }
 
-    .numbers > * > p {
-      font-size: var(--font-size-7);
-      font-weight: var(--font-weight-9);
-      color: var(--numbers-color);
-    }
+      .numbers > * > p {
+        font-size: var(--font-size-7);
+        font-weight: var(--font-weight-9);
+        color: var(--numbers-color);
+      }
 
-    .numbers .partners > ul {
-      list-style: none;
-      display: grid;
-      justify-content: center;
-    }
+      .numbers .partners > ul {
+        list-style: none;
+        display: grid;
+        justify-content: center;
+      }
 
-    .numbers .partners > ul li {
-      font-size: var(--font-size-6);
-      font-weight: var(--font-weight-9);
-      color: var(--numbers-color);
-    }
+      .numbers .partners > ul li {
+        font-size: var(--font-size-6);
+        font-weight: var(--font-weight-9);
+        color: var(--numbers-color);
+      }
 
-    .objectives {
-      grid-area: objectives;
-      --bg-filter-color: var(--gray-9);
-      --bg-filter-opacity: 0.9;
-      padding-block: var(--size-6);
-      padding-inline: var(--size-8);
-      display: grid;
-      justify-content: center;
-      align-content: start;
-      gap: var(--size-4);
-    }
+      .objectives {
+        grid-area: objectives;
+        --bg-filter-color: var(--gray-9);
+        --bg-filter-opacity: 0.9;
+        padding-block: var(--size-6);
+        padding-inline: var(--size-8);
+        display: grid;
+        justify-content: center;
+        align-content: start;
+        gap: var(--size-4);
+      }
 
-    .objectives > ul {
-      display: grid;
-      gap: var(--size-3);
-    }
+      .objectives > ul {
+        display: grid;
+        gap: var(--size-3);
+      }
 
-    .objectives > ul > li {
-      font-size: var(--font-size-1);
-      font-weight: var(--font-weight-6);
-      /* text-align: justify;
+      .objectives > ul > li {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-6);
+        /* text-align: justify;
       text-justify: distribute;
       text-align-last: left;
       hyphens: auto; */
-    }
+      }
 
-    .activities {
-      grid-area: activities;
-      --bg-filter-color: var(--gray-9);
-      --bg-filter-opacity: 0.8;
-      padding-block: var(--size-6);
-      padding-inline: var(--size-8);
-      display: grid;
-      justify-content: center;
-      align-content: start;
-      gap: var(--size-4);
-    }
+      .activities {
+        grid-area: activities;
+        --bg-filter-color: var(--gray-9);
+        --bg-filter-opacity: 0.8;
+        padding-block: var(--size-6);
+        padding-inline: var(--size-8);
+        display: grid;
+        justify-content: center;
+        align-content: start;
+        gap: var(--size-4);
+      }
 
-    .activities > ul {
-      display: grid;
-      gap: var(--size-3);
-    }
+      .activities > ul {
+        display: grid;
+        gap: var(--size-3);
+      }
 
-    .activities > ul > li {
-      font-size: var(--font-size-1);
-      font-weight: var(--font-weight-6);
-      /* text-align: justify;
+      .activities > ul > li {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-6);
+        /* text-align: justify;
       text-justify: distribute;
       text-align-last: left;
       hyphens: auto; */
-    }
+      }
 
-    [astro-icon] {
-      width: 20px;
-      height: 20px;
-      color: var(--text1);
-    }
-  </style>
-</body>
+      [astro-icon] {
+        width: 20px;
+        height: 20px;
+        color: var(--text1);
+      }
+    </style>
+  </body>
+</html>

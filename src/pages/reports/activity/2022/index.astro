@@ -1,0 +1,54 @@
+---
+import "../../../../styles/style.css";
+import ToggleDark from "../../../../components/ToggleDark.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Harikar NGO - activity reports dashboard - 2022</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Harikar NGO main website" />
+  </head>
+
+  <body>
+    <div class="main-wrap">
+      <div class="content-wrap" id="content-wrap">
+        <div class="side"><ToggleDark /></div>
+        <div class="main">this is main</div>
+      </div>
+    </div>
+    <script></script>
+
+    <style>
+      .main-wrap {
+        background-color: var(--surface4);
+      }
+      .content-wrap {
+        display: grid;
+        grid-template: "side main" / 1fr 6fr;
+        position: relative;
+        background-color: var(--surface1);
+        background-size: cover;
+        background-position: center;
+        border-radius: var(--radius-3);
+      }
+
+      .main {
+        background-color: var(--surface2);
+        border-radius: 0 var(--radius-3) var(--radius-3) 0;
+      }
+
+      @media (min-width: 1600px) {
+        .main-wrap {
+          padding-block: 5rem;
+          padding-inline: var(--size-12);
+          height: 100vh;
+        }
+        .content-wrap {
+          min-height: calc(100vh - 10rem);
+        }
+      }
+    </style>
+  </body>
+</html>
