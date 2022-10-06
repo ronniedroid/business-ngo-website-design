@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 48 44"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="Chart.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="10.681818"
+     inkscape:cx="24.2"
+     inkscape:cy="22"
+     inkscape:window-width="1366"
+     inkscape:window-height="699"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4" />
+  <g
+     fill="#418fde"
+     data-name="Layer 2"
+     id="g4">
+    <path
+       d="M2.012 22h7.976A2.012 2.012 0 0 1 12 24.012v17.976A2.012 2.012 0 0 1 9.988 44H2.012A2.012 2.012 0 0 1 0 41.988V24.012A2.012 2.012 0 0 1 2.012 22zM20.115 11h7.873A2.012 2.012 0 0 1 30 13.012v28.976A2.012 2.012 0 0 1 27.988 44h-7.873a2.012 2.012 0 0 1-2.011-2.012V13.012A2.012 2.012 0 0 1 20.115 11zM38.012 0h7.976A2.012 2.012 0 0 1 48 2.012v39.976A2.012 2.012 0 0 1 45.988 44h-7.976A2.012 2.012 0 0 1 36 41.988V2.012A2.012 2.012 0 0 1 38.012 0z"
+       id="path2"
+       style="stroke:none;fill:#f1f3f5;fill-opacity:1" />
+  </g>
+</svg>

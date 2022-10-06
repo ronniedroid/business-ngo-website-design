@@ -1,6 +1,8 @@
 ---
 import "../../../../styles/style.css";
 import ToggleDark from "../../../../components/ToggleDark.astro";
+import harikarLogo from "../../../../assets/images/harikar-logo.svg";
+import { Icon } from "astro-icon";
 ---
 
 <html lang="en">
@@ -14,8 +16,112 @@ import ToggleDark from "../../../../components/ToggleDark.astro";
   <body>
     <div class="main-wrap">
       <div class="content-wrap" id="content-wrap">
-        <div class="side"><ToggleDark /></div>
-        <div class="main">this is main</div>
+        <div class="side">
+          <div class="theme">
+            <ToggleDark />
+          </div>
+          <a href="/" class="logo">
+            <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
+          </a>
+          <div class="calendar">
+            <ul class="calendar__list">
+              <div class="calendar__icon">
+                <Icon pack="mdi" name="calendar" />
+              </div>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/january">Jan</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/february">Feb</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/march">Mar</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/april">Apr</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/may">May</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/june">Jun</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/july">Jul</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/august">Aug</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/september">Sep</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/october">Oct</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/november">Nov</a>
+              </li>
+              <li class="calendar__item">
+                <a href="/reports/activity/2022/december">Dec</a>
+              </li>
+            </ul>
+          </div>
+          <div class="clusters">
+            <ul class="clusters__list">
+              <div class="clusters__icon">
+                <Icon name="Cluster" />
+              </div>
+              <li class="cluster">
+                <button id="general">
+                  <div class="cluster__icon">
+                    <Icon name="Chart" />
+                  </div> All Clusters
+                </button>
+              </li>
+              <li class="cluster">
+                <button id="Proteciton">
+                  <div class="cluster__icon">
+                    <Icon name="Protection" />
+                  </div> Protection</button
+                >
+              </li>
+              <li class="cluster">
+                <button id="GBV">
+                  <div class="cluster__icon">
+                    <Icon name="GBV" />
+                  </div> GBV
+                </button>
+              </li>
+              <li class="cluster">
+                <button id="CP">
+                  <div class="cluster__icon">
+                    <Icon name="CP" />
+                  </div> CP
+                </button>
+              </li>
+              <li class="cluster">
+                <button id="Livelihood">
+                  <div class="cluster__icon">
+                    <Icon name="Livelihood" />
+                  </div> Livelihood
+                </button>
+              </li>
+              <li class="cluster">
+                <button id="WASH">
+                  <div class="cluster__icon">
+                    <Icon name="WASH" />
+                  </div> WASH
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main">
+          <div class="types section">the types</div>
+          <div class="trends section">the Chart</div>
+          <div class="cards section">the cards</div>
+          <div class="locations section">The Locations</div>
+        </div>
       </div>
     </div>
     <script></script>
@@ -26,17 +132,216 @@ import ToggleDark from "../../../../components/ToggleDark.astro";
       }
       .content-wrap {
         display: grid;
-        grid-template: "side main" / 1fr 6fr;
+        grid-template: "side main" / 1fr 5fr;
         position: relative;
         background-color: var(--surface1);
         background-size: cover;
         background-position: center;
+        max-height: 100vh;
+      }
+
+      .side {
+        grid-area: side;
+        position: relative;
+        display: grid;
+        justify-items: center;
+        padding-inline: var(--size-4);
+        padding-block: var(--size-6);
+        min-height: var(--size-15);
+        background-color: var(--surface2);
+      }
+
+      .side .theme {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: var(--size-4);
+      }
+
+      .side .logo {
+        align-self: start;
+        background-color: var(--gray-1);
+        border-radius: var(--radius-round);
+        padding-block: var(--size-4);
+        padding-inline: var(--size-4);
+        margin-bottom: var(--size-4);
+      }
+
+      .calendar {
+        display: grid;
+        justify-items: center;
+        align-content: start;
+      }
+
+      .calendar__list {
+        list-style: none;
+        display: grid;
+        place-items: center;
+        place-content: center;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: var(--size-1);
+        column-gap: var(--size-4);
+        background-color: var(--surface1);
+        box-shadow: var(--shadow-2);
+        padding-inline: var(--size-2);
+        padding-block-end: var(--size-2);
+        padding-block-start: var(--size-6);
         border-radius: var(--radius-3);
+        position: relative;
+      }
+
+      .calendar__icon {
+        display: grid;
+        place-items: center;
+        place-content: center;
+        background-color: var(--brand);
+        padding: var(--size-2);
+        color: var(--gray-1);
+        border-radius: var(--radius-3);
+        position: absolute;
+        top: -1.2em;
+        left: 1em;
+        width: 36px;
+        height: 36px;
+        box-shadow: var(--shadow-2);
+      }
+
+      .calendar__item {
+        width: 100%;
+        text-align: center;
+        display: grid;
+        place-items: center;
+      }
+
+      .calendar__item > a {
+        text-decoration: none;
+        color: var(--text2);
+        padding-inline: var(--size-2);
+        padding-block: var(--size-1);
+        width: 100%;
+        font-size: var(--font-size-0);
+        font-weight: var(--font-weight-6);
+      }
+
+      .calendar__item:hover {
+        background-color: var(--brand);
+        color: var(--gray-0);
+        border-radius: var(--radius-2);
+        box-shadow: var(--shadow-2);
+      }
+
+      .calendar__item:hover > a {
+        color: var(--gray-0);
+      }
+
+      .clusters {
+        display: grid;
+        justify-items: center;
+        align-content: start;
+        margin-top: var(--size-8);
+      }
+
+      .clusters__list {
+        list-style: none;
+        display: grid;
+        place-items: center;
+        place-content: center;
+        gap: var(--size-1);
+        background-color: var(--surface1);
+        box-shadow: var(--shadow-2);
+        padding-inline: var(--size-2);
+        padding-block-end: var(--size-2);
+        padding-block-start: var(--size-6);
+        border-radius: var(--radius-3);
+        position: relative;
+      }
+
+      .clusters__icon {
+        display: grid;
+        place-items: center;
+        place-content: center;
+        background-color: var(--brand);
+        padding: var(--size-2);
+        color: var(--gray-1);
+        border-radius: var(--radius-3);
+        position: absolute;
+        top: -1.2em;
+        left: 1em;
+        width: 36px;
+        height: 36px;
+        box-shadow: var(--shadow-2);
+      }
+
+      .cluster > button {
+        display: flex;
+        gap: var(--size-3);
+        align-items: center;
+        width: 10rem;
+        font-size: var(--font-size-0);
+        font-weight: var(--font-weight-6);
+        background-color: transparent;
+        padding-inline: var(--size-2);
+        padding-block: var(--size-1);
+        border-radius: var(--radius-2);
+      }
+
+      .cluster:hover > button {
+        background-color: var(--brand);
+        color: var(--gray-0);
+        box-shadow: var(--shadow-2);
+      }
+
+      .cluster__icon {
+        padding: var(--size-2);
+        background-color: var(--brand);
+        color: var(--gray-0);
+        border-radius: var(--radius-2);
       }
 
       .main {
-        background-color: var(--surface2);
-        border-radius: 0 var(--radius-3) var(--radius-3) 0;
+        grid-area: main;
+        background-color: var(--surface1);
+        max-height: 100vh;
+        overflow-y: auto;
+        padding: var(--size-4);
+        display: grid;
+        border-radius: var(--radius-3) 0 0 0;
+        grid-template:
+          "types trends" 2fr
+          "cards cards" 1fr
+          "locations locations" 1fr / 1fr 3fr;
+        gap: var(--size-4);
+      }
+
+      .section {
+        border-radius: var(--radius-3);
+        display: grid;
+        place-content: center;
+        box-shadow: var(--shadow-1);
+      }
+
+      .types {
+        grid-area: types;
+        background-color: var(--surface4);
+        padding-block: var(--size-12);
+      }
+
+      .trends {
+        grid-area: trends;
+        background-color: var(--surface3);
+        padding-block: var(--size-12);
+      }
+
+      .cards {
+        grid-area: cards;
+        background-color: var(--surface3);
+        padding-block: var(--size-10);
+      }
+
+      .locations {
+        grid-area: locations;
+        padding-block: var(--size-12);
+        background-color: var(--surface3);
       }
 
       @media (min-width: 1600px) {
@@ -46,8 +351,27 @@ import ToggleDark from "../../../../components/ToggleDark.astro";
           height: 100vh;
         }
         .content-wrap {
+          border-radius: var(--radius-3);
           min-height: calc(100vh - 10rem);
         }
+        .main {
+          border-radius: 0 var(--radius-3) var(--radius-3) 0;
+        }
+      }
+
+      [astro-icon] {
+        width: 10px;
+        height: 10px;
+      }
+
+      [astro-icon="mdi:calendar"] {
+        width: 24px;
+        height: 24px;
+      }
+
+      [astro-icon="Cluster"] {
+        width: 24px;
+        height: 24px;
       }
     </style>
   </body>
