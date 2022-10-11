@@ -1,8 +1,9 @@
 ---
 import "../../../../styles/style.css";
-import ToggleDark from "../../../../components/ToggleDark.astro";
-import harikarLogo from "../../../../assets/images/harikar-logo.svg";
+import ToggleDark from "@components/ToggleDark.astro";
+import harikarLogo from "@assets/images/harikar-logo.svg";
 import { Icon } from "astro-icon";
+import MyChartComponent from "@components/MyChartComponent";
 ---
 
 <html lang="en">
@@ -71,44 +72,44 @@ import { Icon } from "astro-icon";
               <div class="clusters__icon">
                 <Icon name="Cluster" />
               </div>
-              <li class="cluster">
+              <li class="cluster cluster--general">
                 <button id="general">
-                  <div class="cluster__icon">
+                  <div class="cluster__icon cluster__icon-general">
                     <Icon name="Chart" />
                   </div> All Clusters
                 </button>
               </li>
-              <li class="cluster">
-                <button id="Proteciton">
-                  <div class="cluster__icon">
+              <li class="cluster cluster--protection">
+                <button id="proteciton">
+                  <div class="cluster__icon cluster__icon-protection">
                     <Icon name="Protection" />
                   </div> Protection</button
                 >
               </li>
-              <li class="cluster">
-                <button id="GBV">
-                  <div class="cluster__icon">
+              <li class="cluster cluster--gbv">
+                <button id="gbv">
+                  <div class="cluster__icon cluster__icon-gbv">
                     <Icon name="GBV" />
                   </div> GBV
                 </button>
               </li>
-              <li class="cluster">
-                <button id="CP">
-                  <div class="cluster__icon">
+              <li class="cluster cluster--cp">
+                <button id="cp">
+                  <div class="cluster__icon cluster__icon-cp">
                     <Icon name="CP" />
                   </div> CP
                 </button>
               </li>
-              <li class="cluster">
-                <button id="Livelihood">
-                  <div class="cluster__icon">
+              <li class="cluster cluster--livelihood">
+                <button id="livelihood">
+                  <div class="cluster__icon cluster__icon-livelihood">
                     <Icon name="Livelihood" />
                   </div> Livelihood
                 </button>
               </li>
-              <li class="cluster">
-                <button id="WASH">
-                  <div class="cluster__icon">
+              <li class="cluster cluster--wash">
+                <button id="wash">
+                  <div class="cluster__icon cluster__icon-wash">
                     <Icon name="WASH" />
                   </div> WASH
                 </button>
@@ -117,7 +118,9 @@ import { Icon } from "astro-icon";
           </div>
         </div>
         <div class="main">
-          <div class="types section">the types</div>
+          <div class="types section">
+            <MyChartComponent client:only="preact" />
+          </div>
           <div class="trends section">the Chart</div>
           <div class="cards section">the cards</div>
           <div class="locations section">The Locations</div>
@@ -145,9 +148,9 @@ import { Icon } from "astro-icon";
         position: relative;
         display: grid;
         justify-items: center;
+        align-content: start;
         padding-inline: var(--size-4);
         padding-block: var(--size-6);
-        min-height: var(--size-15);
         background-color: var(--surface2);
       }
 
@@ -291,11 +294,66 @@ import { Icon } from "astro-icon";
         box-shadow: var(--shadow-2);
       }
 
+      .cluster--selected > button {
+        background-color: var(--brand);
+        color: var(--gray-0);
+        box-shadow: var(--shadow-2);
+      }
+
+      .cluster--protection:hover > button,
+      .cluster--selected > button {
+        background-color: var(--blue-8);
+      }
+
+      .cluster--gbv:hover > button {
+        background-color: var(--orange-7);
+      }
+
+      .cluster--cp:hover > button {
+        background-color: var(--red-8);
+      }
+
+      .cluster--health:hover > button {
+        background-color: var(--green-8);
+      }
+
+      .cluster--livelihood:hover > button {
+        background-color: var(--lime-7);
+      }
+
+      .cluster--wash:hover > button {
+        background-color: var(--blue-4);
+      }
+
       .cluster__icon {
         padding: var(--size-2);
         background-color: var(--brand);
         color: var(--gray-0);
         border-radius: var(--radius-2);
+      }
+
+      .cluster__icon-protection {
+        background-color: var(--blue-8);
+      }
+
+      .cluster__icon-gbv {
+        background-color: var(--orange-7);
+      }
+
+      .cluster__icon-cp {
+        background-color: var(--red-8);
+      }
+
+      .cluster__icon-health {
+        background-color: var(--green-8);
+      }
+
+      .cluster__icon-livelihood {
+        background-color: var(--lime-7);
+      }
+
+      .cluster__icon-wash {
+        background-color: var(--blue-4);
       }
 
       .main {
@@ -346,22 +404,28 @@ import { Icon } from "astro-icon";
 
       @media (min-width: 1600px) {
         .main-wrap {
-          padding-block: 5rem;
+          padding-block: 2rem;
           padding-inline: var(--size-12);
           height: 100vh;
         }
         .content-wrap {
           border-radius: var(--radius-3);
-          min-height: calc(100vh - 10rem);
+          height: calc(100vh - 4rem);
+          box-shadow: var(--shadow-2);
+        }
+        .side {
+          max-height: 100%;
+          border-radius: var(--radius-3) 0 0 var(--radius-3);
         }
         .main {
           border-radius: 0 var(--radius-3) var(--radius-3) 0;
+          max-height: 100%;
         }
       }
 
       [astro-icon] {
-        width: 10px;
-        height: 10px;
+        width: 14px;
+        height: 14px;
       }
 
       [astro-icon="mdi:calendar"] {

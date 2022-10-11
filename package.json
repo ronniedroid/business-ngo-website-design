@@ -12,15 +12,21 @@
   "dependencies": {
     "@astrojs/image": "^0.7.1",
     "@astrojs/mdx": "^0.11.3",
+    "@astrojs/preact": "^1.1.1",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/vue": "^1.1.0",
+    "apexcharts": "^3.35.5",
     "astro": "^1.4.2",
     "astro-icon": "^0.7.3",
     "open-props": "^1.4.16",
-    "vue": "^3.2.39"
+    "preact": "^10.11.1",
+    "react-apexcharts": "^1.4.0"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.5"
+  },
+  "overrides": {
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest"
   }
 }
