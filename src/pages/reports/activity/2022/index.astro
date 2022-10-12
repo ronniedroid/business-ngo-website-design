@@ -4,6 +4,7 @@ import ToggleDark from "@components/ToggleDark.astro";
 import harikarLogo from "@assets/images/harikar-logo.svg";
 import { Icon } from "astro-icon";
 import MyChartComponent from "@components/MyChartComponent";
+import UpdateSeries from "@components/UpdateSeries";
 ---
 
 <html lang="en">
@@ -121,7 +122,9 @@ import MyChartComponent from "@components/MyChartComponent";
           <div class="types section">
             <MyChartComponent client:only="preact" />
           </div>
-          <div class="trends section">the Chart</div>
+          <div class="trends section">
+            <UpdateSeries client:only="preact" />
+          </div>
           <div class="cards section">the cards</div>
           <div class="locations section">The Locations</div>
         </div>

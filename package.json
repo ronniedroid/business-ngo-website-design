@@ -14,9 +14,11 @@
     "@astrojs/mdx": "^0.11.3",
     "@astrojs/preact": "^1.1.1",
     "@astrojs/sitemap": "^1.0.0",
+    "@nanostores/preact": "^0.3.1",
     "apexcharts": "^3.35.5",
     "astro": "^1.4.2",
     "astro-icon": "^0.7.3",
+    "nanostores": "^0.7.0",
     "open-props": "^1.4.16",
     "preact": "^10.11.1",
     "react-apexcharts": "^1.4.0"
