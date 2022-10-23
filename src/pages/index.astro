@@ -9,6 +9,7 @@ import Partners from "../components/Partners.astro";
 import Quotation from "../components/Quotation.astro";
 import Address from "../components/Address.astro";
 import Feeds from "../components/Feeds.astro";
+import Feed from "@components/Feed/Feed";
 ---
 
 <MainLayout title="Home">
@@ -34,6 +35,9 @@ import Feeds from "../components/Feeds.astro";
     <Partners />
   </div>
   <Quotation />
+  <div id="feed">
+    <Feed client:idle />
+  </div>
   <div id="address">
     <Address />
   </div>
