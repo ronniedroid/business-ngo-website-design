@@ -36,7 +36,9 @@ function Feed() {
       .then((response) => response.json())
       .then((data) => data.filter((post) => post.platform === "fb"))
       .then((data) => sortByDate(data))
-      .then((data) => setPosts(data));
+      .then((data) => {
+        console.log(data), setPosts(data);
+      });
   }, []);
 
   return (
