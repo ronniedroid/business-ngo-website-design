@@ -12,7 +12,7 @@ import Tint from "./Tint.astro";
       Harikar NGO is a neutral, non-governmental,<br /> non-profit humanitarian organization.
     </p>
     <div class="button-list animate-top-down">
-      <a href="/contact-us" class="button">
+      <a href="/contact-us" class="send-button">
         Write to us
         <span>
           <Icon pack="mdi" name="send" />
@@ -116,36 +116,8 @@ import Tint from "./Tint.astro";
     }
   }
 
-  .triangle {
-    display: none;
-  }
-
-  @media (min-width: 950px) {
-    .triangle {
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      transform: rotate(180deg);
-    }
-
-    .triangle svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: 30px;
-      /* transform: rotateY(180deg); */
-    }
-
-    .triangle .shape-fill {
-      fill: var(--surface1);
-      stroke: var(--surface1);
-    }
-  }
-  .button {
+  .send-button {
+    --link-visited: var(--gray-1);
     font-size: var(--font-size-0);
     padding-inline: var(--size-fluid-2);
     padding-block: var(--size-fluid-1);
@@ -159,9 +131,10 @@ import Tint from "./Tint.astro";
     align-items: center;
     gap: var(--size-3);
     transition: all 150ms var(--ease-out-1);
+    text-decoration: none;
   }
 
-  .button:hover {
+  .send-button:hover {
     transform: scale(1.1);
     box-shadow: var(--shadow-2);
   }
