@@ -41,6 +41,7 @@ function Feed() {
       <div class="content">
         {facebookPosts.map((post) => (
           <iframe
+            title="facebook post"
             src={post.url}
             width="350"
             height={post.height}
