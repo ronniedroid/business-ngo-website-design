@@ -1,7 +1,19 @@
-import {atom} from 'nanostores'
+import {map, atom} from 'nanostores'
 
-export const dataSeries = atom([14, 50, 70])
+// export const store = map({})
 
-export function update() {
-    dataSeries.set([Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)])
+export const series = atom([1, 5, 9])
+
+export function setCurrentCluster() {
+    series.set([1,2,3])
 }
+
+// export async function fetchYearData(year) {
+//     const response = await fetch(`https://harikar-reports-api.cyclic.app/v2/dashboard/${year}`)
+//     if (!response.ok) {
+//         console.log(response.statues)
+//     } else {
+//     const data = await response.json()
+//     store.set(data)
+//     }
+// }

@@ -4,6 +4,7 @@ import ToggleDark from "@components/ToggleDark.astro";
 import harikarLogo from "@assets/images/harikar-logo.svg";
 import { Icon } from "astro-icon";
 import DistrictsChart from "@components/Charts/DistrictsChart";
+import Clusters from "@components/Clusters/Clusters";
 ---
 
 <html lang="en">
@@ -67,55 +68,7 @@ import DistrictsChart from "@components/Charts/DistrictsChart";
               </li>
             </ul>
           </div>
-          <div class="clusters">
-            <ul class="clusters__list">
-              <div class="clusters__icon">
-                <Icon name="Cluster" />
-              </div>
-              <li class="cluster cluster--general">
-                <button id="general">
-                  <div class="cluster__icon cluster__icon-general">
-                    <Icon name="Chart" />
-                  </div> All Clusters
-                </button>
-              </li>
-              <li class="cluster cluster--protection">
-                <button id="proteciton">
-                  <div class="cluster__icon cluster__icon-protection">
-                    <Icon name="Protection" />
-                  </div> Protection</button
-                >
-              </li>
-              <li class="cluster cluster--gbv">
-                <button id="gbv">
-                  <div class="cluster__icon cluster__icon-gbv">
-                    <Icon name="GBV" />
-                  </div> GBV
-                </button>
-              </li>
-              <li class="cluster cluster--cp">
-                <button id="cp">
-                  <div class="cluster__icon cluster__icon-cp">
-                    <Icon name="CP" />
-                  </div> CP
-                </button>
-              </li>
-              <li class="cluster cluster--livelihood">
-                <button id="livelihood">
-                  <div class="cluster__icon cluster__icon-livelihood">
-                    <Icon name="Livelihood" />
-                  </div> Livelihood
-                </button>
-              </li>
-              <li class="cluster cluster--wash">
-                <button id="wash">
-                  <div class="cluster__icon cluster__icon-wash">
-                    <Icon name="WASH" />
-                  </div> WASH
-                </button>
-              </li>
-            </ul>
-          </div>
+          <Clusters client:only="preact" year={2022} />
         </div>
         <div class="main">
           <div class="types section"></div>
@@ -235,125 +188,6 @@ import DistrictsChart from "@components/Charts/DistrictsChart";
 
       .calendar__item:hover > a {
         color: var(--gray-0);
-      }
-
-      .clusters {
-        display: grid;
-        justify-items: center;
-        align-content: start;
-        margin-top: var(--size-8);
-      }
-
-      .clusters__list {
-        list-style: none;
-        display: grid;
-        place-items: center;
-        place-content: center;
-        gap: var(--size-1);
-        background-color: var(--surface1);
-        box-shadow: var(--shadow-2);
-        padding-inline: var(--size-2);
-        padding-block-end: var(--size-2);
-        padding-block-start: var(--size-6);
-        border-radius: var(--radius-3);
-        position: relative;
-      }
-
-      .clusters__icon {
-        display: grid;
-        place-items: center;
-        place-content: center;
-        background-color: var(--brand);
-        padding: var(--size-2);
-        color: var(--gray-1);
-        border-radius: var(--radius-3);
-        position: absolute;
-        top: -1.2em;
-        left: 1em;
-        width: 36px;
-        height: 36px;
-        box-shadow: var(--shadow-2);
-      }
-
-      .cluster > button {
-        display: flex;
-        gap: var(--size-3);
-        align-items: center;
-        width: 10rem;
-        font-size: var(--font-size-0);
-        font-weight: var(--font-weight-6);
-        background-color: transparent;
-        padding-inline: var(--size-2);
-        padding-block: var(--size-1);
-        border-radius: var(--radius-2);
-      }
-
-      .cluster:hover > button {
-        background-color: var(--brand);
-        color: var(--gray-0);
-        box-shadow: var(--shadow-2);
-      }
-
-      .cluster--selected > button {
-        background-color: var(--brand);
-        color: var(--gray-0);
-        box-shadow: var(--shadow-2);
-      }
-
-      .cluster--protection:hover > button,
-      .cluster--selected > button {
-        background-color: var(--blue-8);
-      }
-
-      .cluster--gbv:hover > button {
-        background-color: var(--orange-7);
-      }
-
-      .cluster--cp:hover > button {
-        background-color: var(--red-8);
-      }
-
-      .cluster--health:hover > button {
-        background-color: var(--green-8);
-      }
-
-      .cluster--livelihood:hover > button {
-        background-color: var(--lime-7);
-      }
-
-      .cluster--wash:hover > button {
-        background-color: var(--blue-4);
-      }
-
-      .cluster__icon {
-        padding: var(--size-2);
-        background-color: var(--brand);
-        color: var(--gray-0);
-        border-radius: var(--radius-2);
-      }
-
-      .cluster__icon-protection {
-        background-color: var(--blue-8);
-      }
-
-      .cluster__icon-gbv {
-        background-color: var(--orange-7);
-      }
-
-      .cluster__icon-cp {
-        background-color: var(--red-8);
-      }
-
-      .cluster__icon-health {
-        background-color: var(--green-8);
-      }
-
-      .cluster__icon-livelihood {
-        background-color: var(--lime-7);
-      }
-
-      .cluster__icon-wash {
-        background-color: var(--blue-4);
       }
 
       .main {

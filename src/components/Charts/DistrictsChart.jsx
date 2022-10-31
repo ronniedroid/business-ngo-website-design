@@ -1,7 +1,10 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
+import { useStore } from "@nanostores/preact";
+import { series } from "../../stores/store";
 
 const DistrictsChart = () => {
+  const $series = useStore(series);
   const options = {
     chart: {
       stacked: false,
@@ -38,22 +41,7 @@ const DistrictsChart = () => {
     },
     colors: "var(--brand)",
     xaxis: {
-      categories: [
-        "Akre",
-        "Al-Hadar",
-        "Al-Hamdaniya",
-        "Al-Mosul",
-        "Amedi",
-        "Bardarash",
-        "Duhok",
-        "Erbil",
-        "Shekhan",
-        "Sinjar",
-        "Sumel",
-        "Tel Afer",
-        "Tel Kaif",
-        "Zakho",
-      ],
+      categories: ["a", "b", "c"],
       labels: { rotate: -30 },
     },
     yaxis: {
@@ -83,10 +71,7 @@ const DistrictsChart = () => {
   const dataSeries = [
     {
       name: "Benefciaries",
-      data: [
-        2323, 278, 2659, 30315, 1023, 21279, 46734, 265, 9390, 982, 49007, 3544,
-        644, 32698,
-      ],
+      data: [1, 3, 4],
     },
   ];
   return (
@@ -98,6 +83,7 @@ const DistrictsChart = () => {
         height={250}
         width="100%"
       />
+      <p>{$series}</p>
     </div>
   );
 };
