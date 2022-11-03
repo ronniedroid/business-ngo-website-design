@@ -10,6 +10,8 @@
 
 .clusters__list {
   list-style: none;
+  height: auto;
+  width: 10em;
   display: grid;
   place-items: center;
   place-content: center;
@@ -29,7 +31,6 @@
   place-content: center;
   background-color: var(--brand);
   padding: var(--size-2);
-  color: var(--gray-1);
   border-radius: var(--radius-3);
   position: absolute;
   top: -1.2em;
@@ -41,8 +42,10 @@
 
 .cluster>button {
   display: flex;
-  gap: var(--size-3);
+  gap: var(--size-2);
   align-items: center;
+  justify-items: start;
+  text-align: start;
   width: 10rem;
   font-size: var(--font-size-0);
   font-weight: var(--font-weight-6);
@@ -123,7 +126,7 @@
 }
 
 .cluster__icon {
-  padding: var(--size-2);
+  padding: var(--size-1);
   background-color: var(--brand);
   color: var(--gray-0);
   border-radius: var(--radius-2);

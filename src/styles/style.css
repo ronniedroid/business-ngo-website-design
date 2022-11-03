@@ -20,11 +20,9 @@ html {
   --surface4-light: var(--gray-3);
   --surface-shadow-light: 200 10% 20%;
   --shadow-strength-light: 5%;
-  --gradient-light: linear-gradient(
-    55deg,
-    hsl(210deg 54% 55%) 20%,
-    hsl(210deg 50% 64%) 100%
-  );
+  --gradient-light: linear-gradient(55deg,
+      hsl(210deg 54% 55%) 20%,
+      hsl(210deg 50% 64%) 100%);
 
   /* dark */
   --brand-dark: hsl(226 38% 47% / 1);
@@ -36,11 +34,9 @@ html {
   --surface4-dark: var(--gray-6);
   --surface-shadow-dark: 200 50% 3%;
   --shadow-strength-dark: 20%;
-  --gradient-dark: linear-gradient(
-    55deg,
-    hsl(210deg 45% 45%) 20%,
-    hsl(210deg 40% 42%) 100%
-  );
+  --gradient-dark: linear-gradient(55deg,
+      hsl(210deg 45% 45%) 20%,
+      hsl(210deg 40% 42%) 100%);
 }
 
 :root {
@@ -103,6 +99,13 @@ html {
 }
 
 html {
+  --protection: var(--blue-8);
+  --gbv: var(--orange-7);
+  --cp: var(--red-8);
+  --health: var(--green-8);
+  --livelihood: var(--lime-7);
+  --wash: var(--blue-4);
+  --general: var(--brand);
   background-color: var(--surface1);
   color: var(--text1);
   accent-color: var(--brand);

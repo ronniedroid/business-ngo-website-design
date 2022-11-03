@@ -2,9 +2,9 @@
 import "../../../../styles/style.css";
 import ToggleDark from "@components/ToggleDark.astro";
 import harikarLogo from "@assets/images/harikar-logo.svg";
-import { Icon } from "astro-icon";
-import DistrictsChart from "@components/Charts/DistrictsChart";
+import Districts from "@components/Charts/districts/Districts";
 import Clusters from "@components/Clusters/Clusters";
+import Calendar from "@components/Calendar.astro";
 ---
 
 <html lang="en">
@@ -25,49 +25,7 @@ import Clusters from "@components/Clusters/Clusters";
           <a href="/" class="logo">
             <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
           </a>
-          <div class="calendar">
-            <ul class="calendar__list">
-              <div class="calendar__icon">
-                <Icon pack="mdi" name="calendar" />
-              </div>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/january">Jan</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/february">Feb</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/march">Mar</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/april">Apr</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/may">May</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/june">Jun</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/july">Jul</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/august">Aug</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/september">Sep</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/october">Oct</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/november">Nov</a>
-              </li>
-              <li class="calendar__item">
-                <a href="/reports/activity/2022/december">Dec</a>
-              </li>
-            </ul>
-          </div>
+          <Calendar year={2022} />
           <Clusters client:only="preact" year={2022} />
         </div>
         <div class="main">
@@ -75,7 +33,7 @@ import Clusters from "@components/Clusters/Clusters";
           <div class="trends section"></div>
           <div class="cards section">the cards</div>
           <div class="locations section">
-            <DistrictsChart client:only="preact" />
+            <Districts client:only="preact" />
           </div>
         </div>
       </div>
@@ -123,73 +81,6 @@ import Clusters from "@components/Clusters/Clusters";
         margin-bottom: var(--size-4);
       }
 
-      .calendar {
-        display: grid;
-        justify-items: center;
-        align-content: start;
-      }
-
-      .calendar__list {
-        list-style: none;
-        display: grid;
-        place-items: center;
-        place-content: center;
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: var(--size-1);
-        column-gap: var(--size-4);
-        background-color: var(--surface1);
-        box-shadow: var(--shadow-2);
-        padding-inline: var(--size-2);
-        padding-block-end: var(--size-2);
-        padding-block-start: var(--size-6);
-        border-radius: var(--radius-3);
-        position: relative;
-      }
-
-      .calendar__icon {
-        display: grid;
-        place-items: center;
-        place-content: center;
-        background-color: var(--brand);
-        padding: var(--size-2);
-        color: var(--gray-1);
-        border-radius: var(--radius-3);
-        position: absolute;
-        top: -1.2em;
-        left: 1em;
-        width: 36px;
-        height: 36px;
-        box-shadow: var(--shadow-2);
-      }
-
-      .calendar__item {
-        width: 100%;
-        text-align: center;
-        display: grid;
-        place-items: center;
-      }
-
-      .calendar__item > a {
-        text-decoration: none;
-        color: var(--text2);
-        padding-inline: var(--size-2);
-        padding-block: var(--size-1);
-        width: 100%;
-        font-size: var(--font-size-0);
-        font-weight: var(--font-weight-6);
-      }
-
-      .calendar__item:hover {
-        background-color: var(--brand);
-        color: var(--gray-0);
-        border-radius: var(--radius-2);
-        box-shadow: var(--shadow-2);
-      }
-
-      .calendar__item:hover > a {
-        color: var(--gray-0);
-      }
-
       .main {
         grid-area: main;
         background-color: var(--surface1);
@@ -233,11 +124,11 @@ import Clusters from "@components/Clusters/Clusters";
       .locations {
         grid-area: locations;
         padding-block-start: var(--size-6);
-        background-color: var(--surface3);
+        /* background-color: var(--surface3); */
       }
 
       .locations :global(.chart) {
-        width: 60rem;
+        width: 100%;
       }
 
       @media (min-width: 1600px) {

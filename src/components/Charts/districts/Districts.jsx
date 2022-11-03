@@ -1,10 +1,11 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
-import { series } from "../../stores/store";
+import { currentCluster } from "../../../stores/store";
+import "./Districts.css";
 
-const DistrictsChart = () => {
-  const $series = useStore(series);
+const Districts = () => {
+  const $currentCluster = useStore(currentCluster);
   const options = {
     chart: {
       stacked: false,
@@ -28,10 +29,9 @@ const DistrictsChart = () => {
     },
     dataLabels: {
       enabled: true,
-      position: top,
       offsetY: -30,
       style: {
-        colors: ["#00000090"],
+        colors: ["var(--text1)"],
       },
       formatter(val, opts) {
         return new Intl.NumberFormat().format(
@@ -39,10 +39,14 @@ const DistrictsChart = () => {
         );
       },
     },
-    colors: "var(--brand)",
+    colors: $currentCluster.name
+      ? `var(--${$currentCluster.name.toLowerCase()})`
+      : "var(--brand)",
     xaxis: {
-      categories: ["a", "b", "c"],
-      labels: { rotate: -30 },
+      categories: $currentCluster.districts
+        ? $currentCluster.districts.category
+        : [],
+      labels: { rotate: -20 },
     },
     yaxis: {
       show: false,
@@ -71,7 +75,7 @@ const DistrictsChart = () => {
   const dataSeries = [
     {
       name: "Benefciaries",
-      data: [1, 3, 4],
+      data: $currentCluster.districts ? $currentCluster.districts.series : [],
     },
   ];
   return (
@@ -83,9 +87,8 @@ const DistrictsChart = () => {
         height={250}
         width="100%"
       />
-      <p>{$series}</p>
     </div>
   );
 };
 
-export default DistrictsChart;
+export default Districts;

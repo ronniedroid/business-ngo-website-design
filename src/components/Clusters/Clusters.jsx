@@ -1,24 +1,33 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import { setCurrentCluster } from "src/stores/store";
+import { fetchYearData, setCurrentCluster } from "../../stores/store";
 import "./Clusters.css";
+import ClusterIcon from "./Icons/ClusterIcon";
+import CPIcon from "./Icons/CPIcon";
+import GBVIcon from "./Icons/GBVIcon";
+import GeneralIcon from "./Icons/GeneralIcon";
+import LivelihoodIcon from "./Icons/LivelihoodIcon";
+import ProtectionIcon from "./Icons/ProtectionIcon";
+import WASHIcon from "./Icons/WASHIcon";
 
 function Clusters(props) {
   const [active, setActive] = useState("general");
 
   function handleClick(cluster) {
     setActive(cluster);
-    setCurrentCluster();
+    setCurrentCluster(cluster);
   }
 
-  // useEffect(() => {
-  //   fetchYearData(props.year);
-  // }, []);
+  useEffect(() => {
+    fetchYearData(props.year);
+  }, []);
 
   return (
     <div class="clusters">
       <ul class="clusters__list">
-        <div class="clusters__icon">{/* <Icon name="Cluster" /> */}</div>
+        <div class="clusters__icon">
+          <ClusterIcon width={36} height={36} />
+        </div>
         <li
           class={
             "cluster " +
@@ -28,8 +37,8 @@ function Clusters(props) {
         >
           <button id="general" onClick={() => handleClick("general")}>
             <div class="cluster__icon cluster__icon-general">
-              {/* <Icon name="Chart" /> */}
-            </div>{" "}
+              <GeneralIcon />
+            </div>
             All Clusters
           </button>
         </li>
@@ -42,9 +51,9 @@ function Clusters(props) {
         >
           <button id="protection" onClick={() => handleClick("Protection")}>
             <div class="cluster__icon cluster__icon-protection">
-              {/* <Icon name="Protection" /> */}
-            </div>{" "}
-            Protection
+              <ProtectionIcon />
+            </div>
+            General Protection
           </button>
         </li>
         <li
@@ -56,9 +65,9 @@ function Clusters(props) {
         >
           <button id="gbv" onClick={() => handleClick("GBV")}>
             <div class="cluster__icon cluster__icon-gbv">
-              {/* <Icon name="GBV" /> */}
-            </div>{" "}
-            GBV
+              <GBVIcon />
+            </div>
+            Gender Based Violance
           </button>
         </li>
         <li
@@ -70,9 +79,9 @@ function Clusters(props) {
         >
           <button id="cp" onClick={() => handleClick("CP")}>
             <div class="cluster__icon cluster__icon-cp">
-              {/* <Icon name="CP" /> */}
-            </div>{" "}
-            CP
+              <CPIcon />
+            </div>
+            Child Protection
           </button>
         </li>
         <li
@@ -84,8 +93,8 @@ function Clusters(props) {
         >
           <button id="livelihood" onClick={() => handleClick("Livelihood")}>
             <div class="cluster__icon cluster__icon-livelihood">
-              {/* <Icon name="Livelihood" /> */}
-            </div>{" "}
+              <LivelihoodIcon />
+            </div>
             Livelihood
           </button>
         </li>
@@ -98,9 +107,9 @@ function Clusters(props) {
         >
           <button id="wash" onClick={() => handleClick("WASH")}>
             <div class="cluster__icon cluster__icon-wash">
-              {/* <Icon name="WASH" /> */}
-            </div>{" "}
-            WASH
+              <WASHIcon />
+            </div>
+            Water, Sanitation and Hygiene
           </button>
         </li>
       </ul>
