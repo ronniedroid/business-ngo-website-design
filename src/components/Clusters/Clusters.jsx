@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect } from "preact/hooks";
 import { fetchYearData, setCurrentCluster } from "../../stores/store";
 import "./Clusters.css";
 import ClusterIcon from "./Icons/ClusterIcon";
@@ -9,18 +9,23 @@ import GeneralIcon from "./Icons/GeneralIcon";
 import LivelihoodIcon from "./Icons/LivelihoodIcon";
 import ProtectionIcon from "./Icons/ProtectionIcon";
 import WASHIcon from "./Icons/WASHIcon";
+import { currentCluster, currentMonth } from "../../stores/store";
+import { useStore } from "@nanostores/preact";
 
 function Clusters(props) {
-  const [active, setActive] = useState("general");
-
   function handleClick(cluster) {
-    setActive(cluster);
     setCurrentCluster(cluster);
   }
 
   useEffect(() => {
     fetchYearData(props.year);
   }, []);
+
+  const $currentCluster = useStore(currentCluster);
+  const $currentMonth = useStore(currentMonth);
+  const active = $currentCluster?.name;
+
+  console.log($currentMonth?.clusters);
 
   return (
     <div class="clusters">
