@@ -17,7 +17,9 @@ export function getStaticPaths() {
 
 const { id } = Astro.params;
 
-const request = await fetch(`http://localhost:8000/v2/projects/${id}`);
+const request = await fetch(
+  `https://harikar-reports-api.cyclic.app/v2/projects/${id}`
+);
 const project = await request.json();
 
 // const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
