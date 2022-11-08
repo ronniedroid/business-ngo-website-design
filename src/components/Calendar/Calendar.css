@@ -9,13 +9,12 @@
 
 .calendar__list {
     list-style: none;
-    height: 10em;
+    /* height: 10em; */
     width: 10em;
     display: grid;
     place-items: center;
     place-content: center;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
     gap: var(--size-2);
     background-color: var(--surface1);
     box-shadow: var(--shadow-2);
@@ -41,6 +40,27 @@
     width: 36px;
     height: 36px;
     box-shadow: var(--shadow-2);
+    cursor: pointer;
+}
+
+.calendar__icon .tooltip {
+    visibility: hidden;
+    background-color: var(--surface4);
+    color: var(--text1);
+    text-align: center;
+    padding-inline: var(--size-2);
+    border-radius: var(--radius-2);
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    right: -9rem;
+    z-index: 1;
+    opacity: 0;
+    transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
+.calendar__icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .calendar__item {

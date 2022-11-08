@@ -7,19 +7,17 @@ import harikarLogo from "../../assets/images/harikar-logo.svg";
 export function getStaticPaths() {
   return [
     { params: { id: "12" } },
-    { params: { id: "13" } },
     { params: { id: "16" } },
     { params: { id: "17" } },
-    { params: { id: "19" } },
     { params: { id: "20" } },
+    { params: { id: "21" } },
+    { params: { id: "22" } },
   ];
 }
 
 const { id } = Astro.params;
 
-const request = await fetch(
-  `https://harikar-reports-api.cyclic.app/v2/projects/${id}`
-);
+const request = await fetch(`http://localhost:8000/v2/projects/${id}`);
 const project = await request.json();
 
 // const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
@@ -104,13 +102,13 @@ function formatDate(date) {
         <div class="pane objectives">
           <h2>Project Objectives</h2>
           <ul>
-            {project.objectives.list.map((objective) => <li>{objective}</li>)}
+            {project.objectives.map((objective) => <li>{objective}</li>)}
           </ul>
         </div>
         <div class="pane activities">
           <h2>Project activities</h2>
           <ul>
-            {project.activities.list.map((activity) => <li>{activity}</li>)}
+            {project.activities.map((activity) => <li>{activity}</li>)}
           </ul>
         </div>
         <div class="pane border"></div>
@@ -237,18 +235,6 @@ function formatDate(date) {
           box-shadow: var(--shadow-2);
         }
       }
-
-      @media (min-width: 1600px) {
-        .main-wrap {
-          padding-block: 5rem;
-          padding-inline: var(--size-12);
-          height: 100vh;
-        }
-        .content-wrap {
-          min-height: calc(100vh - 10rem);
-        }
-      }
-
       .pane {
         isolation: isolate;
         min-height: var(--size-14);

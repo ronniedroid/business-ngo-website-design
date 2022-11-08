@@ -2,15 +2,16 @@ import { h } from "preact";
 import { useEffect } from "preact/hooks";
 import { fetchYearData, setCurrentCluster } from "../../stores/store";
 import "./Clusters.css";
-import ClusterIcon from "./Icons/ClusterIcon";
-import CPIcon from "./Icons/CPIcon";
-import GBVIcon from "./Icons/GBVIcon";
-import GeneralIcon from "./Icons/GeneralIcon";
-import LivelihoodIcon from "./Icons/LivelihoodIcon";
-import ProtectionIcon from "./Icons/ProtectionIcon";
-import WASHIcon from "./Icons/WASHIcon";
+import ClusterIcon from "@components/Icons/ClusterIcon";
+import CPIcon from "@components/Icons/CPIcon";
+import GBVIcon from "@components/Icons/GBVIcon";
+import GeneralIcon from "@components/Icons/GeneralIcon";
+import LivelihoodIcon from "@components/Icons/LivelihoodIcon";
+import ProtectionIcon from "@components/Icons/ProtectionIcon";
+import WASHIcon from "@components/Icons/WASHIcon";
 import { currentCluster, currentMonth } from "../../stores/store";
 import { useStore } from "@nanostores/preact";
+import HealthIcon from "@components/Icons/HealthIcon";
 
 function Clusters(props) {
   function handleClick(cluster) {
@@ -25,7 +26,7 @@ function Clusters(props) {
   const $currentMonth = useStore(currentMonth);
   const active = $currentCluster?.name;
 
-  console.log($currentMonth?.clusters);
+  const clusters = $currentMonth?.clusters;
 
   return (
     <div class="clusters">
@@ -47,76 +48,48 @@ function Clusters(props) {
             All Clusters
           </button>
         </li>
-        <li
-          class={
-            "cluster " +
-            "cluster--protection " +
-            (active === "Protection" ? "cluster--protection-selected " : "")
-          }
-        >
-          <button id="protection" onClick={() => handleClick("Protection")}>
-            <div class="cluster__icon cluster__icon-protection">
-              <ProtectionIcon />
-            </div>
-            General Protection
-          </button>
-        </li>
-        <li
-          class={
-            "cluster " +
-            "cluster--gbv " +
-            (active === "GBV" ? "cluster--gbv-selected " : "")
-          }
-        >
-          <button id="gbv" onClick={() => handleClick("GBV")}>
-            <div class="cluster__icon cluster__icon-gbv">
-              <GBVIcon />
-            </div>
-            Gender Based Violance
-          </button>
-        </li>
-        <li
-          class={
-            "cluster " +
-            "cluster--cp " +
-            (active === "CP" ? "cluster--cp-selected " : "")
-          }
-        >
-          <button id="cp" onClick={() => handleClick("CP")}>
-            <div class="cluster__icon cluster__icon-cp">
-              <CPIcon />
-            </div>
-            Child Protection
-          </button>
-        </li>
-        <li
-          class={
-            "cluster " +
-            "cluster--livelihood " +
-            (active === "Livelihood" ? "cluster--livelihood-selected " : "")
-          }
-        >
-          <button id="livelihood" onClick={() => handleClick("Livelihood")}>
-            <div class="cluster__icon cluster__icon-livelihood">
-              <LivelihoodIcon />
-            </div>
-            Livelihood
-          </button>
-        </li>
-        <li
-          class={
-            "cluster " +
-            "cluster--wash " +
-            (active === "WASH" ? "cluster--wash-selected " : "")
-          }
-        >
-          <button id="wash" onClick={() => handleClick("WASH")}>
-            <div class="cluster__icon cluster__icon-wash">
-              <WASHIcon />
-            </div>
-            Water, Sanitation and Hygiene
-          </button>
-        </li>
+        {clusters
+          ? clusters.map((cluster) => (
+              <li
+                class={
+                  "cluster " +
+                  `cluster--${cluster.abbr.toLowerCase()} ` +
+                  (active === cluster.abbr
+                    ? `cluster--${cluster.abbr.toLowerCase()}-selected `
+                    : "")
+                }
+              >
+                <button
+                  id="protection"
+                  onClick={() => handleClick(cluster.abbr)}
+                >
+                  <div
+                    class={
+                      "cluster__icon " +
+                      `cluster__icon-${cluster.abbr.toLowerCase()}`
+                    }
+                  >
+                    {cluster.abbr === "Protection" ? (
+                      <ProtectionIcon />
+                    ) : cluster.abbr === "GBV" ? (
+                      <GBVIcon />
+                    ) : cluster.abbr === "Health" ? (
+                      <HealthIcon />
+                    ) : cluster.abbr === "CP" ? (
+                      <CPIcon />
+                    ) : cluster.abbr === "Livelihood" ? (
+                      <LivelihoodIcon />
+                    ) : cluster.abbr === "WASH" ? (
+                      <WASHIcon />
+                    ) : (
+                      "Cluster is unknown"
+                    )}
+                  </div>
+                  {cluster.name}
+                </button>
+              </li>
+            ))
+          : ""}
       </ul>
     </div>
   );

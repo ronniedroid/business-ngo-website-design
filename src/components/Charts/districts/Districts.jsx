@@ -80,7 +80,6 @@ const Districts = () => {
   ];
   return (
     <div class="chart">
-      <p>{$currentCluster?.bens?.total}</p>
       <Chart
         options={options}
         series={dataSeries}
