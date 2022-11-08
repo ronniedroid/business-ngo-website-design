@@ -7,7 +7,7 @@ export const currentMonth = map({})
 export const currentCluster = atom({})
 
 export function setCurrentMonth(month) {
-    currentMonth.set(store.get()[month])
+    currentMonth.set({...store.get()[month], name: month, ...store.get().months})
     currentCluster.set({...currentMonth.get().general, name: "general"})
 }
 
@@ -23,7 +23,7 @@ export async function fetchYearData(year) {
     } else {
     const data = await response.json()
     store.set(data)
-    currentMonth.set(store.get().year)
+    currentMonth.set({...store.get().year, name: "year", ...store.get().months})
     currentCluster.set({...currentMonth.get().general, name: "general"})
     }
 }

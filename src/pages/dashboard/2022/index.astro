@@ -1,5 +1,5 @@
 ---
-import "../../../../styles/style.css";
+import "../../../styles/style.css";
 import ToggleDark from "@components/ToggleDark.astro";
 import harikarLogo from "@assets/images/harikar-logo.svg";
 import Districts from "@components/Charts/districts/Districts";
@@ -129,27 +129,6 @@ import Calendar from "@components/Calendar/Calendar";
 
       .locations :global(.chart) {
         width: 100%;
-      }
-
-      @media (min-width: 1600px) {
-        .main-wrap {
-          padding-block: 2rem;
-          padding-inline: var(--size-12);
-          height: 100vh;
-        }
-        .content-wrap {
-          border-radius: var(--radius-3);
-          height: calc(100vh - 4rem);
-          box-shadow: var(--shadow-2);
-        }
-        .side {
-          max-height: 100%;
-          border-radius: var(--radius-3) 0 0 var(--radius-3);
-        }
-        .main {
-          border-radius: 0 var(--radius-3) var(--radius-3) 0;
-          max-height: 100%;
-        }
       }
 
       [astro-icon] {

@@ -79,7 +79,14 @@
     display: grid;
 }
 
-.calendar__item:hover {
+.calendar__item:hover>button {
+    background-color: var(--brand);
+    color: var(--gray-0);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-2);
+}
+
+.calendar__item-selected>button {
     background-color: var(--brand);
     color: var(--gray-0);
     border-radius: var(--radius-2);

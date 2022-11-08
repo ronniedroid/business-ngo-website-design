@@ -2,7 +2,7 @@ import { h } from "preact";
 import "./Calendar.css";
 import { setCurrentMonth } from "@stores/store";
 import { useStore } from "@nanostores/preact";
-import { store } from "@stores/store";
+import { currentMonth } from "@stores/store";
 import CalendarIcon from "@components/Icons/CalendarIcon";
 
 function handleClick(month) {
@@ -10,8 +10,8 @@ function handleClick(month) {
 }
 
 function Calendar() {
-  const $store = useStore(store);
-  const months = $store?.year?.months;
+  const $currentMonth = useStore(currentMonth);
+  const months = $currentMonth?.months;
   return (
     <div class="calendar">
       <ul class="calendar__list">
@@ -21,7 +21,14 @@ function Calendar() {
         </div>
         {months
           ? months.map((month) => (
-              <li class="calendar__item">
+              <li
+                class={
+                  "calendar__item " +
+                  (month === $currentMonth?.name
+                    ? "calendar__item-selected"
+                    : "")
+                }
+              >
                 <button onClick={() => handleClick(month)}>
                   {month.toUpperCase().slice(0, 3)}
                 </button>
