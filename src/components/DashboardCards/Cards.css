@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    gap: var(--size-8);
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container__title>p {
+    max-width: var(--size-content-1);
+}
+
+.container__cards {
+    display: flex;
+    gap: var(--size-8);
+}

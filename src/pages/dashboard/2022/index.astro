@@ -5,6 +5,7 @@ import harikarLogo from "@assets/images/harikar-logo.svg";
 import Districts from "@components/Charts/districts/Districts";
 import Clusters from "@components/Clusters/Clusters";
 import Calendar from "@components/Calendar/Calendar";
+import Cards from "@components/DashboardCards/Cards";
 ---
 
 <html lang="en">
@@ -33,7 +34,9 @@ import Calendar from "@components/Calendar/Calendar";
           <div class="locations section">
             <Districts client:only="preact" />
           </div>
-          <div class="cards section">the cards</div>
+          <div class="cards section">
+            <Cards client:only="preact" />
+          </div>
           <div class="trends section"></div>
         </div>
       </div>
@@ -120,6 +123,10 @@ import Calendar from "@components/Calendar/Calendar";
         background-color: var(--surface3);
         padding-block: var(--size-10);
         box-shadow: var(--shadow-1);
+      }
+
+      .cards :global(.container) {
+        width: 100%;
       }
 
       .locations {
