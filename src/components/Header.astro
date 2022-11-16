@@ -55,10 +55,10 @@ const navItems = [
         ))
       }
       <li>
-        <a href="/reports">reports</a>
+        <a href="/reports">reports/publications</a>
       </li>
       <li>
-        <a href="/events-and-stories">events and stories</a>
+        <a href="/events-and-stories">Dashboard</a>
       </li>
     </ul>
   </nav>
@@ -126,6 +126,7 @@ const navItems = [
     font-size: var(--font-size-2);
     line-height: var(--font-lineheight-5);
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .main-nav li a {
@@ -156,7 +157,7 @@ const navItems = [
       z-index: var(--layer-4);
       box-shadow: var(--shadow-3);
       padding-block: var(--size-fluid-7);
-      padding-left: var(--size-8);
+      padding-inline-start: var(--size-7);
       transform: translateX(-100%);
       transition: transform 350ms var(--ease-out-1);
     }
@@ -171,6 +172,7 @@ const navItems = [
       bottom: 0;
       left: 0;
       right: 50%;
+      padding-inline-start: var(--size-5);
     }
     .logo {
       object-fit: contain;

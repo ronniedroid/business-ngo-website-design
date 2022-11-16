@@ -106,6 +106,10 @@ html {
   --livelihood: var(--lime-7);
   --wash: var(--blue-4);
   --general: var(--brand);
+  --male: var(--blue-6);
+  --female: var(--grape-6);
+  --camp: #9aa38c;
+  --urban: #a26549;
   background-color: var(--surface1);
   color: var(--text1);
   accent-color: var(--brand);

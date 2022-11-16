@@ -1,157 +1,109 @@
 ---
-import "../../../styles/style.css";
-import ToggleDark from "@components/ToggleDark.astro";
-import harikarLogo from "@assets/images/harikar-logo.svg";
 import Districts from "@components/Charts/districts/Districts";
 import Clusters from "@components/Clusters/Clusters";
 import Calendar from "@components/Calendar/Calendar";
 import Cards from "@components/DashboardCards/Cards";
+import MainLayout from "@layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Harikar NGO - activity reports dashboard - 2022</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Harikar NGO main website" />
-  </head>
-
-  <body>
-    <div class="main-wrap">
-      <div class="content-wrap" id="content-wrap">
-        <div class="side">
-          <div class="theme">
-            <ToggleDark />
-          </div>
-          <a href="/" class="logo">
-            <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
-          </a>
-          <Calendar client:load />
-          <Clusters client:load year={2022} />
+<MainLayout title="Project Activity Dashboard 2022">
+  <div class="main-wrap">
+    <div class="content-wrap" id="content-wrap">
+      <div class="side">
+        <Calendar client:load />
+        <Clusters client:load year={2022} />
+      </div>
+      <div class="main">
+        <div class="types section"></div>
+        <div class="locations section">
+          <Districts client:only="preact" />
         </div>
-        <div class="main">
-          <div class="types section"></div>
-          <div class="locations section">
-            <Districts client:only="preact" />
-          </div>
-          <div class="cards section">
-            <Cards client:only="preact" />
-          </div>
-          <div class="trends section"></div>
+        <div class="cards section">
+          <Cards client:only="preact" />
         </div>
+        <div class="trends section"></div>
       </div>
     </div>
-    <script></script>
+  </div>
+</MainLayout>
 
-    <style>
-      .main-wrap {
-        background-color: var(--surface4);
-      }
-      .content-wrap {
-        display: grid;
-        grid-template: "side main" / 1fr 5fr;
-        position: relative;
-        background-color: var(--surface1);
-        background-size: cover;
-        background-position: center;
-        max-height: 100vh;
-      }
+<script></script>
 
-      .side {
-        grid-area: side;
-        position: relative;
-        display: grid;
-        justify-items: center;
-        align-content: start;
-        padding-inline: var(--size-4);
-        padding-block: var(--size-6);
-        background-color: var(--surface2);
-      }
+<style>
+  .main-wrap {
+    background-color: var(--surface4);
+  }
+  .content-wrap {
+    display: grid;
+    grid-template: "side main" / 1fr 5fr;
+    position: relative;
+    background-color: var(--surface1);
+    background-size: cover;
+    background-position: center;
+    max-height: 100vh;
+  }
 
-      .side .theme {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: var(--size-4);
-      }
+  .side {
+    grid-area: side;
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    padding-inline: var(--size-4);
+    padding-block-start: var(--size-10);
+    background-color: var(--surface2);
+  }
 
-      .side .logo {
-        align-self: start;
-        background-color: var(--gray-1);
-        border-radius: var(--radius-round);
-        padding-block: var(--size-4);
-        padding-inline: var(--size-4);
-        margin-bottom: var(--size-4);
-      }
+  .main {
+    grid-area: main;
+    background-color: var(--surface1);
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: var(--size-4);
+    display: grid;
+    border-radius: var(--radius-3) 0 0 0;
+    grid-template:
+      "types locations" 2fr
+      "cards cards" 1fr
+      "trends trends" 1fr / 1fr 3fr;
+    gap: var(--size-4);
+  }
 
-      .main {
-        grid-area: main;
-        background-color: var(--surface1);
-        max-height: 100vh;
-        overflow-y: auto;
-        padding: var(--size-4);
-        display: grid;
-        border-radius: var(--radius-3) 0 0 0;
-        grid-template:
-          "types locations" 2fr
-          "cards cards" 1fr
-          "trends trends" 1fr / 1fr 3fr;
-        gap: var(--size-4);
-      }
+  .section {
+    border-radius: var(--radius-3);
+    display: grid;
+    justify-content: center;
+  }
 
-      .section {
-        border-radius: var(--radius-3);
-        display: grid;
-        justify-content: center;
-      }
+  .types {
+    grid-area: types;
+    background-color: var(--surface4);
+    padding-block: var(--size-12);
+    box-shadow: var(--shadow-1);
+  }
 
-      .types {
-        grid-area: types;
-        background-color: var(--surface4);
-        padding-block: var(--size-12);
-        box-shadow: var(--shadow-1);
-      }
+  .trends {
+    grid-area: trends;
+    background-color: var(--surface3);
+    padding-block: var(--size-12);
+  }
 
-      .trends {
-        grid-area: trends;
-        background-color: var(--surface3);
-        padding-block: var(--size-12);
-      }
+  .cards {
+    grid-area: cards;
+    background-color: var(--surface3);
+    padding-block: var(--size-8);
+    box-shadow: var(--shadow-1);
+  }
 
-      .cards {
-        grid-area: cards;
-        background-color: var(--surface3);
-        padding-block: var(--size-10);
-        box-shadow: var(--shadow-1);
-      }
+  .cards :global(.container) {
+    width: 100%;
+  }
 
-      .cards :global(.container) {
-        width: 100%;
-      }
+  .locations {
+    grid-area: locations;
+    padding-block-start: var(--size-6);
+  }
 
-      .locations {
-        grid-area: locations;
-        padding-block-start: var(--size-6);
-      }
-
-      .locations :global(.chart) {
-        width: 100%;
-      }
-
-      [astro-icon] {
-        width: 14px;
-        height: 14px;
-      }
-
-      [astro-icon="mdi:calendar"] {
-        width: 24px;
-        height: 24px;
-      }
-
-      [astro-icon="Cluster"] {
-        width: 24px;
-        height: 24px;
-      }
-    </style>
-  </body>
-</html>
+  .locations :global(.chart) {
+    width: 100%;
+  }
+</style>

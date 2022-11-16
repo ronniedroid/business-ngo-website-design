@@ -3,6 +3,12 @@
     gap: var(--size-8);
     width: 100%;
     justify-content: space-between;
+    align-items: end;
+}
+
+.container__title>h2 {
+    font-size: var(--font-size-5);
+    padding-bottom: 1rem;
 }
 
 .container__title>p {
@@ -11,5 +17,54 @@
 
 .container__cards {
     display: flex;
-    gap: var(--size-8);
+    gap: var(--size-4);
+}
+
+.card {
+    display: grid;
+    position: relative;
+    background-color: var(--surface1);
+    width: var(--size-11);
+    height: var(--size-11);
+    padding: var(--size-6);
+    border-radius: var(--radius-3);
+}
+
+.card__icon {
+    position: absolute;
+    padding: var(--size-2);
+    border-radius: 0.7rem;
+    top: 0;
+    left: 1em;
+    transform: translateY(-50%);
+}
+
+.total {
+    background-color: var(--brand);
+}
+
+.male {
+    background-color: var(--male);
+}
+
+.female {
+    background-color: var(--female);
+}
+
+.camp {
+    background-color: var(--camp);
+}
+
+.urban {
+    background-color: var(--urban);
+}
+
+.card__name {
+    text-transform: capitalize;
+    font-size: var(--font-size-2);
+}
+
+.card__num {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-6);
 }

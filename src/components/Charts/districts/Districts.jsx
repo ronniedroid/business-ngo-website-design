@@ -34,7 +34,7 @@ const Districts = () => {
         colors: ["var(--text1)"],
       },
       formatter(val, opts) {
-        return new Intl.NumberFormat().format(
+        return new Intl.NumberFormat("en", { notation: "compact" }).format(
           opts.w.globals.series[0][opts.dataPointIndex]
         );
       },
