@@ -92,6 +92,8 @@
     font-size: var(--font-size-0);
     font-weight: var(--font-weight-6);
     display: grid;
+    border: var(--border-size-1) solid var(--text1);
+    border-radius: var(--radius-2);
 }
 
 .calendar__item:hover>button {
