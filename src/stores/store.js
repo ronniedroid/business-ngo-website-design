@@ -16,7 +16,8 @@ function clusterSelected(list, name) {
 
 export function setCurrentMonth(month) {
     currentMonth.set({...store.get()[month], name: month})
-    currentCluster.set({...currentMonth.get().general, name: clusterSelected(currentMonth.get().clusters, currentCluster.get().name)})
+    const cluster = currentCluster.get().name
+    currentCluster.set({...currentMonth.get()[cluster], name: clusterSelected(currentMonth.get().clusters, currentCluster.get().name)})
 }
 
 export function setCurrentCluster(cluster) {
