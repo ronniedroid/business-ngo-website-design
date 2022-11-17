@@ -16,8 +16,8 @@
   place-items: center;
   place-content: center;
   gap: var(--size-1);
-  background-color: var(--surface1);
-  box-shadow: var(--shadow-2);
+  background-color: transparent;
+  /* box-shadow: var(--shadow-2); */
   padding-inline: var(--size-2);
   padding-block-end: var(--size-2);
   padding-block-start: var(--size-6);
@@ -38,6 +38,21 @@
   width: 36px;
   height: 36px;
   box-shadow: var(--shadow-2);
+}
+
+.cluster__title {
+  position: absolute;
+  top: -1.2em;
+  left: 3.5em;
+  height: 36px;
+  display: grid;
+  align-items: center;
+}
+
+.cluster__title>p {
+  font-size: var(--font-size-0);
+  font-weight: var(--font-weight-6);
+  text-transform: uppercase;
 }
 
 .cluster>button {

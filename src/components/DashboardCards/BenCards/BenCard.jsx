@@ -4,15 +4,15 @@ import MaleIcon from "@components/Icons/MaleIcon";
 import FemaleIcon from "@components/Icons/FemaleIcon";
 import CampIcon from "@components/Icons/CampIcon";
 import UrbanIcon from "@components/Icons/UrbanIcon";
-import "./Cards.css";
+import "./BenCards.css";
 
-function Card({ name, num }) {
+function BenCard({ name, num }) {
   const width = 20;
   const height = 20;
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
   return (
-    <div class="card">
-      <div class={"card__icon " + name}>
+    <div class="ben-card">
+      <div class={"ben-card__icon " + name}>
         {name === "total" ? (
           <TotalIcon width={width} height={height} />
         ) : name === "male" ? (
@@ -27,10 +27,10 @@ function Card({ name, num }) {
           ""
         )}
       </div>
-      <div class="card__name">{name}</div>
-      <div class="card__num">{formatter.format(num)}</div>
+      <div class="ben-card__name">{name}</div>
+      <div class="ben-card__num">{formatter.format(num)}</div>
     </div>
   );
 }
 
-export default Card;
+export default BenCard;

@@ -44,7 +44,7 @@ const Districts = () => {
       : "var(--brand)",
     xaxis: {
       categories: $currentCluster.districts
-        ? $currentCluster.districts.category
+        ? $currentCluster.districts.map((item) => item.name)
         : [],
       labels: { rotate: -20 },
     },
@@ -53,12 +53,12 @@ const Districts = () => {
       logarithmic: false,
     },
     title: {
-      text: "People Reached by District",
+      show: false,
       align: "center",
       margin: 0,
       style: {
-        fontSize: "16px",
-        fontWeight: "300",
+        fontSize: "18px",
+        fontWeight: "600",
       },
     },
     grid: {
@@ -75,7 +75,9 @@ const Districts = () => {
   const dataSeries = [
     {
       name: "Benefciaries",
-      data: $currentCluster.districts ? $currentCluster.districts.series : [],
+      data: $currentCluster.districts
+        ? $currentCluster.districts.map((item) => item.total)
+        : [],
     },
   ];
   return (
@@ -84,7 +86,7 @@ const Districts = () => {
         options={options}
         series={dataSeries}
         type="bar"
-        height={250}
+        height="100%"
         width="100%"
       />
     </div>

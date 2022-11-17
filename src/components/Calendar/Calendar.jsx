@@ -19,6 +19,9 @@ function Calendar() {
           <CalendarIcon width={36} height={36} />
           <span class="tooltip">Unselect month</span>
         </div>
+        <div class="calendar__title">
+          <p>list of months</p>
+        </div>
         {$months
           ? $months.map((month) => (
               <li

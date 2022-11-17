@@ -16,8 +16,8 @@
     place-content: center;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--size-2);
-    background-color: var(--surface1);
-    box-shadow: var(--shadow-2);
+    background-color: transparent;
+    /* box-shadow: var(--shadow-2); */
     padding-inline-start: var(--size-4);
     padding-inline-end: var(--size-6);
     padding-block-end: var(--size-4);
@@ -43,9 +43,24 @@
     cursor: pointer;
 }
 
+.calendar__title {
+    position: absolute;
+    top: -1.2em;
+    left: 3.5em;
+    height: 36px;
+    display: grid;
+    align-items: center;
+}
+
+.calendar__title>p {
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-6);
+    text-transform: uppercase;
+}
+
 .calendar__icon .tooltip {
     visibility: hidden;
-    background-color: var(--surface4);
+    background-color: var(--surface1);
     color: var(--text1);
     text-align: center;
     padding-inline: var(--size-2);

@@ -34,6 +34,9 @@ function Clusters(props) {
         <div class="clusters__icon">
           <ClusterIcon width={36} height={36} />
         </div>
+        <div class="cluster__title">
+          <p>list of clusters</p>
+        </div>
         <li
           class={
             "cluster " +
