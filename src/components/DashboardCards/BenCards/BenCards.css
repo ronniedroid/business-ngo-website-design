@@ -2,10 +2,10 @@
     display: flex;
     gap: var(--size-8);
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: end;
     padding-block: var(--size-8);
-    padding-inline: var(--size-6);
+    padding-inline: var(--size-8);
 }
 
 .ben-cards__title>h2 {

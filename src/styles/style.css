@@ -166,3 +166,13 @@ dd {
   background-color: var(--surface4);
   color: var(--text1);
 }
+
+.surface5 {
+  background-color: var(--surface5);
+  color: var(--text1);
+}
+
+.surface6 {
+  background-color: var(--surface6);
+  color: var(--text1);
+}

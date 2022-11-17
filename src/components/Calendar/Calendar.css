@@ -84,7 +84,7 @@
 }
 
 .calendar__item>button {
-    color: var(--text2);
+    color: var(--text1);
     padding-block: var(--size-1);
     padding-inline: var(--size-2);
     background-color: transparent;
