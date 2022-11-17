@@ -9,7 +9,7 @@ const response = await fetch(
 );
 let projects = [];
 if (!response.ok) {
-  console.log(response.status, response.statusText);
+  projects = [];
 } else {
   projects = await response.json();
 }
