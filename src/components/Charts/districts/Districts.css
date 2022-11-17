@@ -7,13 +7,13 @@
 }
 
 .apexcharts-tooltip {
-    background-color: var(--surface1);
+    background-color: var(--surface6);
     color: var(--text1);
     border: var(--border-size-1) solid var(--text1);
 }
 
 .apexcharts-tooltip-title {
-    background-color: var(--surface6);
+    background-color: var(--surface1);
     color: var(--text1);
     font-weight: var(--font-weight-6);
 }

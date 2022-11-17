@@ -20,7 +20,7 @@ html {
   --surface3-light: var(--gray-2);
   --surface4-light: var(--gray-3);
   --surface5-light: hsl(206 100% 91%);
-  --surface6-light: hsl(257 100% 93%);
+  --surface6-light: hsl(257 100% 90%);
   --surface-shadow-light: 200 10% 20%;
   --shadow-strength-light: 5%;
   --gradient-light: linear-gradient(55deg,

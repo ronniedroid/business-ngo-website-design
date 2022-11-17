@@ -31,9 +31,9 @@ const { id, name } = Astro.props;
     text-decoration: none;
   }
   .project-card {
-    --border-color: var(--surface1);
+    --border-color: var(--text1);
     background: var(--surface2);
-    border-radius: var(--radius-2);
+    border-radius: var(--radius-3);
     box-shadow: var(--shadow-3);
     display: grid;
     grid-template-columns: 5rem 10rem 5rem;
@@ -55,9 +55,8 @@ const { id, name } = Astro.props;
     padding-inline: var(--size-1);
     padding-block-end: var(--size-1);
     gap: var(--size-2);
-    background-color: var(--surface4);
-    border: var(--border-size-4) solid var(--border-color);
-    border-radius: var(--radius-2);
+    background-color: var(--surface1);
+    border-radius: var(--radius-3) 0 0 var(--radius-3);
     border-right: none;
   }
 
@@ -70,8 +69,7 @@ const { id, name } = Astro.props;
 
   .project-card__img {
     grid-column: 2/-1;
-    border-radius: var(--radius-2);
-    border: var(--border-size-4) solid var(--border-color);
+    border-radius: var(--radius-3);
     border-left: none;
     z-index: -1;
   }
@@ -94,6 +92,7 @@ const { id, name } = Astro.props;
     object-fit: cover;
     width: auto;
     height: 100%;
+    border-radius: 0 var(--radius-3) var(--radius-3) 0;
   }
 
   @keyframes start {
