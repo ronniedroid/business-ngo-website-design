@@ -8,7 +8,7 @@ import "./TypeCards.css";
 function TypeCard({ name, num }) {
   const width = 24;
   const height = 24;
-  const fill = "var(--brand)";
+  const fill = "var(--text1)";
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
   return (
     <div class="type-card">

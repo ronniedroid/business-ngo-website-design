@@ -33,10 +33,10 @@
     background-color: var(--brand);
     padding: var(--size-2);
     color: var(--gray-1);
-    border-radius: var(--radius-3);
+    border-radius: var(--radius-2);
     position: absolute;
     top: -1.2em;
-    left: 1em;
+    left: 0.8em;
     width: 36px;
     height: 36px;
     box-shadow: var(--shadow-2);
@@ -46,7 +46,7 @@
 .calendar__title {
     position: absolute;
     top: -1.2em;
-    left: 3.5em;
+    left: 3.3em;
     height: 36px;
     display: grid;
     align-items: center;

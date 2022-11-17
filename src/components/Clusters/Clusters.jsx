@@ -41,7 +41,7 @@ function Clusters(props) {
           class={
             "cluster " +
             "cluster--general " +
-            (active === "general" ? "cluster--general-selected " : "")
+            (active === "general" ? "cluster--selected" : "")
           }
         >
           <button id="general" onClick={() => handleClick("general")}>
@@ -57,9 +57,7 @@ function Clusters(props) {
                 class={
                   "cluster " +
                   `cluster--${cluster.abbr.toLowerCase()} ` +
-                  (active === cluster.abbr
-                    ? `cluster--${cluster.abbr.toLowerCase()}-selected `
-                    : "")
+                  (active === cluster.abbr ? `cluster--selected` : "")
                 }
               >
                 <button

@@ -15,7 +15,7 @@
   display: grid;
   place-items: center;
   place-content: center;
-  gap: var(--size-1);
+  gap: var(--size-2);
   background-color: transparent;
   /* box-shadow: var(--shadow-2); */
   padding-inline: var(--size-2);
@@ -31,10 +31,10 @@
   place-content: center;
   background-color: var(--brand);
   padding: var(--size-2);
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-2);
   position: absolute;
   top: -1.2em;
-  left: 1em;
+  left: 0.8em;
   width: 36px;
   height: 36px;
   box-shadow: var(--shadow-2);
@@ -43,7 +43,7 @@
 .cluster__title {
   position: absolute;
   top: -1.2em;
-  left: 3.5em;
+  left: 3.3em;
   height: 36px;
   display: grid;
   align-items: center;
@@ -63,88 +63,34 @@
   text-align: start;
   width: 10rem;
   font-size: var(--font-size-0);
-  font-weight: var(--font-weight-6);
+  font-weight: var(--font-weight-7);
   background-color: transparent;
-  padding-inline: var(--size-2);
-  padding-block: var(--size-1);
   border-radius: var(--radius-2);
+  height: 3em;
 }
 
 .cluster:hover>button {
-  background-color: var(--brand);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
+  background-color: var(--surface1);
+  color: var(--text1);
+  box-shadow: var(--shadow-3);
 }
 
-.cluster--general-selected>button {
-  background-color: var(--brand);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
-
-.cluster--protection:hover>button {
-  background-color: var(--blue-8);
-}
-
-.cluster--gbv:hover>button {
-  background-color: var(--orange-7);
-}
-
-.cluster--cp:hover>button {
-  background-color: var(--red-8);
-}
-
-.cluster--health:hover>button {
-  background-color: var(--green-8);
-}
-
-.cluster--livelihood:hover>button {
-  background-color: var(--lime-7);
-}
-
-.cluster--wash:hover>button {
-  background-color: var(--blue-4);
-}
-
-.cluster--protection-selected>button {
-  background-color: var(--blue-8);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
-
-.cluster--gbv-selected>button {
-  background-color: var(--orange-7);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
-
-.cluster--cp-selected>button {
-  background-color: var(--red-8);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
-
-.cluster--health-selected>button {
-  background-color: var(--green-8);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
-
-.cluster--livelihood-selected>button {
-  background-color: var(--lime-7);
-  color: var(--gray-0);
-  box-shadow: var(--shadow-2);
-}
-
-.cluster--wash-selected>button {
-  background-color: var(--blue-4);
+.cluster--selected>button {
+  background-color: var(--surface1);
+  color: var(--text1);
+  box-shadow: var(--shadow-3);
 }
 
 .cluster__icon {
-  padding: var(--size-1);
+  padding: var(--size-2);
   background-color: var(--brand);
   color: var(--gray-0);
-  border-radius: var(--radius-2);
+  border-radius: var(--radius-2) 0 0 var(--radius-2);
+  box-shadow: var(--shadow-2);
+  height: 100%;
+  min-width: 3em;
+  display: grid;
+  place-content: center;
 }
 
 .cluster__icon-protection {
