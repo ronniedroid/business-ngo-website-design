@@ -5,6 +5,7 @@ import Calendar from "@components/Calendar/Calendar";
 import BenCards from "@components/DashboardCards/BenCards/BenCards";
 import TypeCards from "@components/DashboardCards/TypeCards/TypeCards";
 import MainLayout from "@layouts/MainLayout.astro";
+import TrendCards from "@components/DashboardCards/TrendCards/TrendCards";
 ---
 
 <MainLayout title="Project Activity Dashboard 2022">
@@ -24,7 +25,10 @@ import MainLayout from "@layouts/MainLayout.astro";
         <div class="cards section">
           <BenCards client:only="preact" />
         </div>
-        <div class="trends section"></div>
+        <div class="trends section">
+          <TrendCards />
+        </div>
+        <div class="activities"></div>
       </div>
     </div>
   </div>

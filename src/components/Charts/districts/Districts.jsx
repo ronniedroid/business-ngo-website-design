@@ -32,7 +32,7 @@ const Districts = () => {
       offsetY: -30,
       style: {
         colors: ["var(--text1)"],
-        fontWeight: 300,
+        fontSize: "var(--font-size-1)",
       },
       formatter(val, opts) {
         return new Intl.NumberFormat("en", { notation: "compact" }).format(
@@ -49,8 +49,7 @@ const Districts = () => {
         rotate: -20,
         style: {
           colors: ["var(--text1)"],
-          fontWeight: 300,
-          fontSize: "var(--font-size-0)",
+          fontSize: "var(--font-size-1)",
         },
       },
     },
@@ -60,6 +59,8 @@ const Districts = () => {
     },
     grid: {
       show: true,
+      borderColor: "var(--text1)",
+      strokeDashArray: 2,
     },
     tooltip: {
       enabled: true,
