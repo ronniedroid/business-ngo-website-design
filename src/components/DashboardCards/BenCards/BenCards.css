@@ -2,10 +2,10 @@
     display: flex;
     gap: var(--size-8);
     width: 100%;
-    justify-content: center;
+    justify-content: start;
     align-items: end;
     padding-block: var(--size-8);
-    padding-inline: var(--size-8);
+    padding-inline-start: var(--size-8);
 }
 
 .ben-cards__title>h2 {
@@ -15,6 +15,7 @@
 
 .ben-cards__title>p {
     max-width: var(--size-content-1);
+    min-width: var(--size-content-1);
     font-size: var(--font-size-0);
     font-weight: var(--font-weight-6);
 }

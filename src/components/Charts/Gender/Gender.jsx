@@ -1,8 +1,16 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
-import { useState } from "preact/hooks";
+import { useStore } from "@nanostores/preact";
+import { currentCluster, currentMonth } from "@stores/store";
+import "./Gender.css";
 
 function Gender() {
+  const $currentCluster = useStore(currentCluster);
+  const $currentMonth = useStore(currentMonth);
+  const maleSeries =
+    $currentMonth.name === "year" ? $currentCluster?.gender?.male : [];
+  const femaleSeries =
+    $currentMonth.name === "year" ? $currentCluster?.gender?.female : [];
   const options = {
     chart: {
       fontFamily: "Roboto, sans-serif",
@@ -11,31 +19,36 @@ function Gender() {
         show: false,
       },
     },
-    theme: { mode: this.setTheme },
     colors: ["#4c4cff", "#a64ca6"],
     dataLabels: {
       enabled: true,
       formatter: (val) => {
-        return new Intl.NumberFormat().format(val);
+        return new Intl.NumberFormat("en", { notation: "compact" }).format(val);
+      },
+      style: {
+        fontSize: "var(--font-size-1)",
+        fontWeight: 300,
+        colors: ["var(--surface2)"],
       },
       background: {
         enabled: true,
-        opacity: 0.8,
+        opacity: 1,
         borderWidth: 0,
         borderRadius: 5,
+        foreColor: "var(--text1)",
+        dropShadow: {
+          enabled: true,
+          top: 1,
+          left: 1,
+          blur: 1,
+          color: "#000",
+          opacity: 0.45,
+        },
       },
     },
 
     stroke: {
       curve: "smooth",
-    },
-    title: {
-      text: "People Reached by Gender",
-      align: "center",
-      style: {
-        fontSize: "16px",
-        fontWeight: "300",
-      },
     },
     grid: {
       show: false,
@@ -59,6 +72,17 @@ function Gender() {
     yaxis: {
       show: false,
     },
+    tooltip: {
+      enabled: true,
+      theme: false,
+      marker: {
+        show: false,
+      },
+      x: {
+        show: true,
+        format: "dd MMM",
+      },
+    },
     legend: {
       show: false,
       position: "bottom",
@@ -68,11 +92,11 @@ function Gender() {
   const dataSeries = [
     {
       name: "Male",
-      data: this.maleSeries.map((item) => item.total),
+      data: maleSeries.map((item) => item.total),
     },
     {
       name: "Female",
-      data: this.femaleSeries.map((item) => item.total),
+      data: femaleSeries.map((item) => item.total),
     },
   ];
   return (

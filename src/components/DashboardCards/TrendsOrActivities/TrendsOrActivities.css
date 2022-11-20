@@ -1,8 +1,10 @@
 .trend-cards {
     width: 100%;
     display: grid;
+    grid-template-columns: 1fr 3fr;
     align-content: start;
-    padding-inline: var(--size-6);
+    justify-content: start;
+    padding-inline: var(--size-8);
     padding-block: var(--size-4);
     gap: var(--size-4);
 }
@@ -14,6 +16,11 @@
 
 .trend-cards__title>p {
     max-width: var(--size-content-1);
+    min-width: var(--size-content-1);
     font-size: var(--font-size-0);
     font-weight: var(--font-weight-6);
+}
+
+.trend-cards__cards {
+    max-width: 100%;
 }
