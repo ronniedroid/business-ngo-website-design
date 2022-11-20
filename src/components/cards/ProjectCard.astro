@@ -56,6 +56,7 @@ const { id, name } = Astro.props;
     padding-block-end: var(--size-1);
     gap: var(--size-2);
     background-color: var(--surface1);
+    border: var(--border-size-1) solid var(--text1);
     border-radius: var(--radius-3) 0 0 var(--radius-3);
     border-right: none;
   }
@@ -93,6 +94,8 @@ const { id, name } = Astro.props;
     width: auto;
     height: 100%;
     border-radius: 0 var(--radius-3) var(--radius-3) 0;
+    border: var(--border-size-1) solid var(--text1);
+    border-left: none;
   }
 
   @keyframes start {

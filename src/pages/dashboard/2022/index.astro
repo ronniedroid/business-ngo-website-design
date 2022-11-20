@@ -87,18 +87,23 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   .types {
     grid-area: types;
     background-color: var(--surface6);
-    box-shadow: var(--shadow-1);
+    box-shadow: var(--shadow-2);
     max-width: 18rem;
   }
   .trends {
     grid-area: trends;
-    background-color: var(--surface3);
+    background-color: var(--surface2);
+    box-shadow: var(--shadow-2);
+  }
+
+  .trends :global(trend-cards) {
+    width: 100%;
   }
 
   .cards {
     grid-area: cards;
     background-color: var(--surface5);
-    box-shadow: var(--shadow-1);
+    box-shadow: var(--shadow-2);
   }
 
   .cards :global(.container) {

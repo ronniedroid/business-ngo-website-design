@@ -32,6 +32,7 @@
     padding-block: var(--size-2);
     border-radius: var(--radius-3);
     align-items: center;
+    box-shadow: var(--shadow-2);
 }
 
 .type-card__name {
