@@ -27,8 +27,10 @@ function TypeCards() {
   return (
     <div className="type-cards">
       <div className="type-cards__title">
-        <h2>Type</h2>
-        <p>Beneficiary statistics based on type of beneficiary</p>
+        <h2>Displacement status</h2>
+        <p>
+          Beneficiary statistics based on the displacement status of beneficiary
+        </p>
       </div>
       <div class="type-cards__cards">
         {items

@@ -3,7 +3,6 @@
 
 .clusters {
   display: grid;
-  justify-items: center;
   align-content: start;
   margin-top: var(--size-8);
 }
@@ -11,7 +10,6 @@
 .clusters__list {
   list-style: none;
   height: auto;
-  width: 10em;
   display: grid;
   place-items: center;
   place-content: center;
@@ -22,6 +20,37 @@
   padding-block-start: var(--size-6);
   border-radius: var(--radius-3);
   position: relative;
+  max-width: 10em;
+}
+
+@media (min-width: 700px) {
+  .clusters {
+    margin-top: var(--size-8);
+  }
+
+  .clusters__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .clusters__list {
+    list-style: none;
+    height: auto;
+    max-width: 10em;
+    display: grid;
+    grid-template-columns: unset;
+    place-items: center;
+    place-content: center;
+    gap: var(--size-2);
+    background-color: transparent;
+    padding-inline: var(--size-2);
+    padding-block-end: var(--size-2);
+    padding-block-start: var(--size-6);
+    border-radius: var(--radius-3);
+    position: relative;
+  }
 }
 
 .clusters__icon {
@@ -60,7 +89,7 @@
   align-items: center;
   justify-items: start;
   text-align: start;
-  width: 10rem;
+  min-width: 10rem;
   font-size: var(--font-size-0);
   font-weight: var(--font-weight-7);
   background-color: transparent;

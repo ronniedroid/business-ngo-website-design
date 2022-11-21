@@ -9,16 +9,14 @@
 
 .calendar__list {
   list-style: none;
-  /* height: 10em; */
-  width: 10em;
   display: grid;
   place-items: center;
   place-content: center;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--size-2);
   background-color: transparent;
-  padding-inline-start: var(--size-4);
-  padding-inline-end: var(--size-6);
+  padding-inline-start: 0;
+  padding-inline-end: var(--size-4);
   padding-block-end: var(--size-4);
   padding-block-start: var(--size-6);
   border-radius: var(--radius-3);

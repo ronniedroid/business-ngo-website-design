@@ -14,7 +14,7 @@ function TrendsOrActivities() {
     return (
       <div class="container">
         <div class="container__title">
-          <h2>Trends</h2>
+          <h2>Monthly segregation</h2>
           <p>
             Distriution of beneficiaries based on gender and governorates for
             the passed months

@@ -12,8 +12,13 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   <div class="main-wrap">
     <div class="content-wrap" id="content-wrap">
       <div class="side">
-        <Calendar client:load />
-        <Clusters client:load year={2022} />
+        <div class="side-btn">
+          <button id="side-btn">Menu &#8595</button>
+        </div>
+        <div class="side-contents" id="side-contents">
+          <Calendar client:load />
+          <Clusters client:load year={2022} />
+        </div>
       </div>
       <div class="main">
         <div class="types section">
@@ -34,7 +39,25 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   </div>
 </MainLayout>
 
-<script></script>
+<script lang="js" is:inline>
+  const btn = document.getElementById("side-btn");
+  const contents = document.getElementById("side-contents");
+
+  let open = false;
+  function handleClick() {
+    if (!open) {
+      contents.classList.add("open");
+      btn.innerHTML = "Menu &#8593";
+      open = !open;
+    } else {
+      contents.classList.remove("open");
+      open = !open;
+      btn.innerHTML = "Menu &#8595";
+    }
+  }
+
+  btn.addEventListener("click", () => handleClick());
+</script>
 
 <style>
   .main-wrap {
@@ -42,37 +65,98 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   }
   .content-wrap {
     display: grid;
-    grid-template: "side main" / 1fr 5fr;
+    grid-template: "side" "main" / 1fr;
     position: relative;
     background-color: var(--surface1);
-    max-height: 100vh;
   }
 
   .side {
     grid-area: side;
-    display: grid;
-    justify-items: center;
-    align-content: start;
-    padding-inline: var(--size-4);
-    padding-block-start: var(--size-8);
+    padding-block: var(--size-4);
     background-color: var(--surface4);
     box-shadow: var(--surface-shadow1);
-    clip-path: inset(0px -15px 0px 0px);
+    clip-path: inset(0px 0px -15px 0px);
+    position: sticky;
+    top: 6rem;
+    z-index: 1000;
+    width: 100%;
+    display: grid;
+  }
+
+  .side-contents {
+    display: none;
+    padding-block-start: var(--size-8);
+    padding-block-end: var(--size-4);
+    place-content: center;
+  }
+
+  .open {
+    display: grid;
+  }
+
+  .side-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-block: var(--size-2);
+    padding-inline: var(--size-4);
+  }
+
+  .side-btn > button {
+    background-color: transparent;
   }
 
   .main {
     grid-area: main;
     background-color: var(--surface1);
-    max-height: 100vh;
-    overflow-y: auto;
-    padding: var(--size-4);
+    padding-block: var(--size-8);
+    padding-inline: var(--size-4);
     display: grid;
-    border-radius: var(--radius-3) 0 0 0;
     grid-template:
-      "types locations" 1fr
-      "cards cards" 1fr
-      "trends trends" 1fr / 1fr 5fr;
+      "types"
+      "locations" 400px
+      "cards"
+      "trends" / 1fr;
     gap: var(--size-4);
+  }
+
+  @media (min-width: 1200px) {
+    .side {
+      clip-path: inset(0px -15px 0 0px);
+      position: unset;
+      top: unset;
+      z-index: unset;
+      width: 100%;
+      display: grid;
+    }
+    .content-wrap {
+      display: grid;
+      grid-template: "side main" / 1fr 5fr;
+      position: relative;
+      background-color: var(--surface1);
+      max-height: 100vh;
+    }
+
+    .side-btn {
+      display: none;
+    }
+
+    .side-contents {
+      display: grid;
+      grid-template-columns: unset;
+      align-content: start;
+      padding-inline: var(--size-4);
+      padding-block: var(--size-8);
+    }
+
+    .main {
+      max-height: 100vh;
+      overflow-y: auto;
+      grid-template:
+        "types locations" 1fr
+        "cards cards" 1fr
+        "trends trends" 1fr / 1fr 5fr;
+    }
   }
 
   @media (min-width: 1600px) {
@@ -89,16 +173,18 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
     grid-area: types;
     background-color: var(--surface6);
     box-shadow: var(--surface-shadow1);
-    max-width: 18rem;
   }
+
+  @media (min-width: 1200px) {
+    .types {
+      max-width: 18rem;
+    }
+  }
+
   .trends {
     grid-area: trends;
     background-color: var(--surface2);
     box-shadow: var(--surface-shadow1);
-  }
-
-  .trends :global(trend-cards) {
-    width: 100%;
   }
 
   .cards {
@@ -107,15 +193,7 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
     box-shadow: var(--surface-shadow1);
   }
 
-  .cards :global(.container) {
-    width: 100%;
-  }
-
   .locations {
     grid-area: locations;
-  }
-
-  .locations :global(.chart) {
-    width: 100%;
   }
 </style>
