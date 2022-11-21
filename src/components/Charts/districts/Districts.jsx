@@ -40,7 +40,7 @@ const Districts = () => {
         );
       },
     },
-    colors: ["var(--brand)"],
+    colors: ["var(--text1)"],
     xaxis: {
       categories: $currentCluster.districts
         ? $currentCluster.districts.map((item) => item.name)
