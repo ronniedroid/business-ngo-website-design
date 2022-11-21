@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     align-content: start;
     justify-content: start;
     padding-inline: var(--size-8);
@@ -34,7 +34,8 @@
     padding-block-end: var(--size-2);
     padding-inline: var(--size-8);
     border-radius: var(--radius-3);
-    margin-bottom: var(--size-2);
+    margin-bottom: var(--size-3);
+    box-shadow: var(--surface-shadow1);
 }
 
 .governorate {
@@ -42,6 +43,7 @@
     padding-block-end: var(--size-2);
     padding-inline: var(--size-8);
     border-radius: var(--radius-3);
+    box-shadow: var(--surface-shadow1);
 }
 
 table {
@@ -68,10 +70,7 @@ table th {
     font-size: 0.85em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    background: var(--surface5);
-    position: sticky;
-    top: 0;
-    border: var(--border-size-2) solid var(--text1);
+    background: var(--surface3);
 }
 
 @media screen and (max-width: 600px) {

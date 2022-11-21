@@ -13,13 +13,13 @@ function TypeCard({ name, num }) {
   return (
     <div class="type-card">
       <div class="type-card__icon">
-        {name === "idps" ? (
+        {name === "IDPs" ? (
           <IDPIcon width={width} height={height} fill={fill} />
-        ) : name === "refugees" ? (
+        ) : name === "Refugees" ? (
           <RefugeeIcon width={width} height={height} fill={fill} />
-        ) : name === "returnees" ? (
+        ) : name === "Returnees" ? (
           <ReturneeIcon width={width} height={height} fill={fill} />
-        ) : name === "host" ? (
+        ) : name === "Host Community" ? (
           <HostIcon width={width} height={height} fill={fill} />
         ) : (
           ""

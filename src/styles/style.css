@@ -20,8 +20,9 @@ html {
   --surface3-light: var(--gray-2);
   --surface4-light: var(--gray-3);
   --surface5-light: var(--blue-0);
-  --surface6-light: var(--violet-0);
-  --surface-shadow-light: 200 10% 20%;
+  --surface6-light: var(--stone-2);
+  --surface-shadow-light: var(--gray-8-hsl);
+  --shadow-values-light: 0 1px 5px;
   --shadow-strength-light: 5%;
   --gradient-light: linear-gradient(55deg,
       hsl(210deg 54% 55%) 20%,
@@ -35,9 +36,11 @@ html {
   --surface2-dark: var(--gray-8);
   --surface3-dark: var(--gray-7);
   --surface4-dark: var(--gray-6);
-  --surface5-dark: hsl(206 15% 10%);
-  --surface6-dark: hsl(257 20% 20%);
-  --surface-shadow-dark: 200 50% 3%;
+  --surface5-dark: var(--gray-11);
+  --surface6-dark: var(--gray-10);
+  /* --surface6-dark: hsl(257 20% 20%); */
+  --surface-shadow-dark: var(--gray-12-hsl);
+  --shadow-values-dark: 0 3px 10px;
   --shadow-strength-dark: 40%;
   --gradient-dark: linear-gradient(55deg,
       hsl(210deg 45% 45%) 20%,
@@ -58,6 +61,7 @@ html {
   --surface5: var(--surface5-light);
   --surface6: var(--surface6-light);
   --surface-shadow: var(--surface-shadow-light);
+  --shadow-values: var(--shadow-values-light);
   --shadow-strength: var(--shadow-strength-light);
   --gradient-brand: var(--gradient-light);
 }
@@ -76,6 +80,7 @@ html {
     --surface5: var(--surface5-dark);
     --surface6: var(--surface6-dark);
     --surface-shadow: var(--surface-shadow-dark);
+    --shadow-values: var(--shadow-values-dark);
     --shadow-strength: var(--shadow-strength-dark);
     --gradient-brand: var(--gradient-dark);
   }
@@ -93,6 +98,7 @@ html {
   --surfac5: var(--surface5-light);
   --surface6: var(--surface6-light);
   --surface-shadow: var(--surface-shadow-light);
+  --shadow-values: var(--shadow-values-light);
   --shadow-strength: var(--shadow-strength-light);
 }
 
@@ -108,6 +114,7 @@ html {
   --surface5: var(--surface5-dark);
   --surface6: var(--surface6-dark);
   --surface-shadow: var(--surface-shadow-dark);
+  --shadow-values: var(--shadow-values-dark);
   --shadow-strength: var(--shadow-strength-dark);
 }
 
@@ -120,9 +127,11 @@ html {
   --wash: var(--blue-4);
   --general: var(--brand);
   --male: var(--blue-6);
-  --female: var(--grape-6);
+  --female: var(--purple-6);
   --camp: #9aa38c;
   --urban: #a26549;
+  --surface-shadow1: var(--shadow-values) hsl(var(--surface-shadow));
+  --surface-shadow2: 1px 1px 5px hsl(var(--surface-shadow));
   background-color: var(--surface1);
   color: var(--text1);
   accent-color: var(--brand);

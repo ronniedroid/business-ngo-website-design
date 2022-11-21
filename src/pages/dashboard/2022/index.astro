@@ -56,7 +56,8 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
     padding-inline: var(--size-4);
     padding-block-start: var(--size-8);
     background-color: var(--surface5);
-    border-radius: 0 0 var(--radius-3) 0;
+    box-shadow: var(--surface-shadow1);
+    clip-path: inset(0px -15px 0px 0px);
   }
 
   .main {
@@ -87,13 +88,13 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   .types {
     grid-area: types;
     background-color: var(--surface6);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--surface-shadow1);
     max-width: 18rem;
   }
   .trends {
     grid-area: trends;
     background-color: var(--surface2);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--surface-shadow1);
   }
 
   .trends :global(trend-cards) {
@@ -103,7 +104,7 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   .cards {
     grid-area: cards;
     background-color: var(--surface5);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--surface-shadow1);
   }
 
   .cards :global(.container) {

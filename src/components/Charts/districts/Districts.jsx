@@ -48,7 +48,7 @@ const Districts = () => {
       labels: {
         rotate: -20,
         style: {
-          colors: ["var(--text1)"],
+          colors: "var(--text1)",
           fontSize: "var(--font-size-1)",
         },
       },

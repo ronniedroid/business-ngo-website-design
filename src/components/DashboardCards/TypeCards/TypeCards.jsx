@@ -8,19 +8,19 @@ function TypeCards() {
   const $currentCluster = useStore(currentCluster);
   const items = [
     {
-      name: "idps",
+      name: "IDPs",
       num: $currentCluster?.types?.idps,
     },
     {
-      name: "refugees",
+      name: "Refugees",
       num: $currentCluster?.types?.refugees,
     },
     {
-      name: "returnees",
+      name: "Returnees",
       num: $currentCluster?.types?.returnees,
     },
     {
-      name: "host",
+      name: "Host Community",
       num: $currentCluster?.types?.host,
     },
   ];

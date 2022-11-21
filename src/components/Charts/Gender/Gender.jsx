@@ -24,7 +24,7 @@ function Gender({ month }) {
       },
       style: {
         fontSize: "var(--font-size-1)",
-        fontWeight: 300,
+        fontWeight: 500,
         colors: ["var(--surface2)"],
       },
       background: {
@@ -65,6 +65,12 @@ function Gender({ month }) {
         "Nov",
         "Dec",
       ],
+      labels: {
+        style: {
+          fontSize: "var(--font-size-1)",
+          colors: "var(--text1)",
+        },
+      },
     },
     yaxis: {
       show: false,

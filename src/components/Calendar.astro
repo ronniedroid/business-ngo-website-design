@@ -53,40 +53,40 @@ import { Icon } from "astro-icon";
     align-content: start;
   }
 
-  .calendar__list {
-    list-style: none;
-    height: 10em;
-    width: 10em;
-    display: grid;
-    place-items: center;
-    place-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--size-2);
-    background-color: var(--surface1);
-    box-shadow: var(--shadow-2);
-    padding-inline-start: var(--size-4);
-    padding-inline-end: var(--size-6);
-    padding-block-end: var(--size-4);
-    padding-block-start: var(--size-6);
-    border-radius: var(--radius-3);
-    position: relative;
-  }
+ .calendar__list {
+   list-style: none;
+   height: 10em;
+   width: 10em;
+   display: grid;
+   place-items: center;
+   place-content: center;
+   grid-template-columns: repeat(3, 1fr);
+   gap: var(--size-2);
+   background-color: var(--surface1);
+   box-shadow: var(--surface-shadow1);
+   padding-inline-start: var(--size-4);
+   padding-inline-end: var(--size-6);
+   padding-block-end: var(--size-4);
+   padding-block-start: var(--size-6);
+   border-radius: var(--radius-3);
+   position: relative;
+ }
 
-  .calendar__icon {
-    display: grid;
-    place-items: center;
-    place-content: center;
-    background-color: var(--brand);
-    padding: var(--size-2);
-    color: var(--gray-1);
-    border-radius: var(--radius-3);
-    position: absolute;
-    top: -1.2em;
-    left: 1em;
-    width: 36px;
-    height: 36px;
-    box-shadow: var(--shadow-2);
-  }
+ .calendar__icon {
+   display: grid;
+   place-items: center;
+   place-content: center;
+   background-color: var(--brand);
+   padding: var(--size-2);
+   color: var(--gray-1);
+   border-radius: var(--radius-3);
+   position: absolute;
+   top: -1.2em;
+   left: 1em;
+   width: 36px;
+   height: 36px;
+   box-shadow: var(--surface-shadow1);
+ }
 
   .calendar__item {
     width: 100%;
@@ -103,12 +103,12 @@ import { Icon } from "astro-icon";
     font-weight: var(--font-weight-6);
   }
 
-  .calendar__item:hover {
-    background-color: var(--brand);
-    color: var(--gray-0);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-2);
-  }
+ .calendar__item:hover {
+   background-color: var(--brand);
+   color: var(--gray-0);
+   border-radius: var(--radius-2);
+   box-shadow: var(--surface-shadow1);
+ }
 
   .calendar__item:hover > a {
     color: var(--gray-0);

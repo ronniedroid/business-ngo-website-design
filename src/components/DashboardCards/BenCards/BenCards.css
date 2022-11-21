@@ -35,7 +35,7 @@
     height: var(--size-11);
     padding: var(--size-4);
     border-radius: var(--radius-3);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--surface-shadow1);
 }
 
 .ben-card__icon {

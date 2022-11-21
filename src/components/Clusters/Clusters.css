@@ -17,7 +17,6 @@
   place-content: center;
   gap: var(--size-2);
   background-color: transparent;
-  /* box-shadow: var(--shadow-2); */
   padding-inline: var(--size-2);
   padding-block-end: var(--size-2);
   padding-block-start: var(--size-6);
@@ -37,7 +36,7 @@
   left: 0.8em;
   width: 36px;
   height: 36px;
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--surface-shadow1);
 }
 
 .cluster__title {
@@ -72,13 +71,13 @@
 .cluster:hover>button {
   background-color: var(--surface1);
   color: var(--text1);
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--surface-shadow1);
 }
 
 .cluster--selected>button {
   background-color: var(--surface1);
   color: var(--text1);
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--surface-shadow1);
 }
 
 .cluster__icon {
@@ -86,7 +85,7 @@
   background-color: var(--brand);
   color: var(--gray-0);
   border-radius: var(--radius-2) 0 0 var(--radius-2);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--surface-shadow1);
   height: 100%;
   min-width: 3em;
   display: grid;
