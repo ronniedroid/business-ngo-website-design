@@ -22,19 +22,19 @@ function Activities({ month }) {
         {activities
           ? activities.map((item) => (
               <tr>
-                <td data-label="Policy" scope="row">
+                <td data-label="Activity" scope="row">
                   {item?.name}
                 </td>
-                <td data-label="Version" scope="row">
+                <td data-label="Cluster" scope="row">
                   {item?.cluster}
                 </td>
-                <td data-label="Date" scope="row">
+                <td data-label="Male" scope="row">
                   {item?.male}
                 </td>
-                <td data-label="Date" scope="row">
+                <td data-label="Female" scope="row">
                   {item?.female}
                 </td>
-                <td data-label="Date" scope="row">
+                <td data-label="Total" scope="row">
                   {item?.total}
                 </td>
               </tr>

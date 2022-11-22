@@ -11,12 +11,20 @@
     padding-bottom: 1rem;
 }
 
+@media (min-width: 1200px) {}
+
 .container__title>p {
-    max-width: var(--size-content-1);
-    min-width: var(--size-content-1);
+    max-width: var(--size-content-2);
     font-size: var(--font-size-0);
     font-weight: var(--font-weight-6);
 }
+
+@media (min-width: 1200px) {
+    .container__title>p {
+        max-width: var(--size-content-1);
+    }
+}
+
 
 .container__title>p>span {
     text-transform: capitalize;

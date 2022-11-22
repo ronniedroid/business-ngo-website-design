@@ -12,13 +12,8 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   <div class="main-wrap">
     <div class="content-wrap" id="content-wrap">
       <div class="side">
-        <div class="side-btn">
-          <button id="side-btn">Menu &#8595</button>
-        </div>
-        <div class="side-contents" id="side-contents">
-          <Calendar client:load />
-          <Clusters client:load year={2022} />
-        </div>
+        <Calendar client:load />
+        <Clusters client:load year={2022} />
       </div>
       <div class="main">
         <div class="types section">
@@ -76,34 +71,10 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
     background-color: var(--surface4);
     box-shadow: var(--surface-shadow1);
     clip-path: inset(0px 0px -15px 0px);
-    position: sticky;
-    top: 6rem;
-    z-index: 1000;
-    width: 100%;
     display: grid;
-  }
-
-  .side-contents {
-    display: none;
     padding-block-start: var(--size-8);
     padding-block-end: var(--size-4);
     place-content: center;
-  }
-
-  .open {
-    display: grid;
-  }
-
-  .side-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding-block: var(--size-2);
-    padding-inline: var(--size-4);
-  }
-
-  .side-btn > button {
-    background-color: transparent;
   }
 
   .main {
@@ -128,6 +99,8 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
       z-index: unset;
       width: 100%;
       display: grid;
+      padding-inline: var(--size-4);
+      padding-block: var(--size-8);
     }
     .content-wrap {
       display: grid;
@@ -135,18 +108,6 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
       position: relative;
       background-color: var(--surface1);
       max-height: 100vh;
-    }
-
-    .side-btn {
-      display: none;
-    }
-
-    .side-contents {
-      display: grid;
-      grid-template-columns: unset;
-      align-content: start;
-      padding-inline: var(--size-4);
-      padding-block: var(--size-8);
     }
 
     .main {

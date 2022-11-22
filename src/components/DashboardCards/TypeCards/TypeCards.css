@@ -7,15 +7,22 @@
   gap: var(--size-4);
 }
 
-.type-cards__title > h2 {
+.type-cards__title>h2 {
   font-size: var(--font-size-4);
   padding-bottom: 1rem;
 }
 
-.type-cards__title > p {
-  max-width: var(--size-content-1);
+.type-cards__title>p {
+  max-width: var(--size-content-2);
   font-size: var(--font-size-0);
   font-weight: var(--font-weight-6);
+}
+
+
+@media (min-width: 1200px) {
+  .type-cards__title>p {
+    max-width: var(--size-content-1);
+  }
 }
 
 .type-cards__cards {
