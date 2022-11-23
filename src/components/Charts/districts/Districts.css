@@ -7,7 +7,7 @@
 }
 
 .apexcharts-tooltip {
-    background-color: var(--surface6);
+    background-color: var(--surface5);
     color: var(--text1);
     border: var(--border-size-1) solid var(--text1);
 }
