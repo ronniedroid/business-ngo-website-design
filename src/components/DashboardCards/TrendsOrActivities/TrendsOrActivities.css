@@ -36,7 +36,7 @@
     padding-inline: var(--size-8);
     border-radius: var(--radius-3);
     margin-bottom: var(--size-3);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-3);
 }
 
 .governorate {
@@ -44,12 +44,12 @@
     padding-block-end: var(--size-2);
     padding-inline: var(--size-8);
     border-radius: var(--radius-3);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-3);
 }
 
 .container__cards {
-    max-width: 350px;
-    min-width: 350px;
+    max-width: 340px;
+    min-width: 340px;
 }
 
 @media (min-width: 700px) {

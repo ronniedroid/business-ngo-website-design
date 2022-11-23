@@ -24,9 +24,11 @@ html {
   --surface-shadow-light: var(--gray-8-hsl);
   --shadow-values-light: 0 1px 5px;
   --shadow-strength-light: 5%;
-  --gradient-light: linear-gradient(55deg,
-      hsl(210deg 54% 55%) 20%,
-      hsl(210deg 50% 64%) 100%);
+  --gradient-light: linear-gradient(
+    55deg,
+    hsl(210deg 54% 55%) 20%,
+    hsl(210deg 50% 64%) 100%
+  );
 
   /* dark */
   --brand-dark: hsl(226 38% 55% / 1);
@@ -41,9 +43,11 @@ html {
   --surface-shadow-dark: var(--gray-12-hsl);
   --shadow-values-dark: 0 3px 10px;
   --shadow-strength-dark: 40%;
-  --gradient-dark: linear-gradient(55deg,
-      hsl(210deg 45% 45%) 20%,
-      hsl(210deg 40% 42%) 100%);
+  --gradient-dark: linear-gradient(
+    55deg,
+    hsl(210deg 45% 45%) 20%,
+    hsl(210deg 40% 42%) 100%
+  );
 }
 
 :root {
@@ -129,8 +133,6 @@ html {
   --female: var(--purple-6);
   --camp: #9aa38c;
   --urban: #a26549;
-  --surface-shadow1: var(--shadow-values) hsl(var(--surface-shadow));
-  --surface-shadow2: 1px 1px 5px hsl(var(--surface-shadow));
   background-color: var(--surface1);
   color: var(--text1);
   accent-color: var(--brand);

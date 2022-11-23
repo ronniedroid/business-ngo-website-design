@@ -31,7 +31,6 @@
   .clusters__list {
     grid-template-columns: repeat(3, 1fr);
   }
-
 }
 
 @media (min-width: 1200px) {
@@ -65,7 +64,7 @@
   left: 0.8em;
   width: 36px;
   height: 36px;
-  box-shadow: var(--surface-shadow1);
+  box-shadow: var(--shadow-2);
 }
 
 .cluster__title {
@@ -77,13 +76,13 @@
   align-items: center;
 }
 
-.cluster__title>p {
+.cluster__title > p {
   font-size: var(--font-size-0);
   font-weight: var(--font-weight-6);
   text-transform: uppercase;
 }
 
-.cluster>button {
+.cluster > button {
   display: flex;
   gap: var(--size-2);
   align-items: center;
@@ -97,16 +96,16 @@
   height: 3em;
 }
 
-.cluster:hover>button {
+.cluster:hover > button {
   background-color: var(--surface1);
   color: var(--text1);
-  box-shadow: var(--surface-shadow1);
+  box-shadow: var(--shadow-2);
 }
 
-.cluster--selected>button {
+.cluster--selected > button {
   background-color: var(--surface1);
   color: var(--text1);
-  box-shadow: var(--surface-shadow1);
+  box-shadow: var(--shadow-2);
 }
 
 .cluster__icon {
@@ -114,7 +113,7 @@
   background-color: var(--brand);
   color: var(--gray-0);
   border-radius: var(--radius-2) 0 0 var(--radius-2);
-  box-shadow: var(--surface-shadow1);
+  box-shadow: var(--shadow-2);
   height: 100%;
   min-width: 3em;
   display: grid;

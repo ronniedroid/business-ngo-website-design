@@ -41,7 +41,7 @@
     height: var(--size-11);
     padding: var(--size-4);
     border-radius: var(--radius-3);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-3);
 }
 
 @media (min-width: 700px) {
@@ -83,19 +83,6 @@
     .ben-cards__cards {
         display: flex;
         gap: var(--size-4);
-    }
-
-    .ben-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        position: relative;
-        background-color: var(--surface1);
-        width: var(--size-11);
-        height: var(--size-11);
-        padding: var(--size-4);
-        border-radius: var(--radius-3);
-        box-shadow: var(--surface-shadow1);
     }
 }
 

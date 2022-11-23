@@ -39,7 +39,7 @@
   padding-block: var(--size-2);
   border-radius: var(--radius-3);
   align-items: center;
-  box-shadow: var(--surface-shadow1);
+  box-shadow: var(--shadow-3);
 }
 
 .type-card__name {

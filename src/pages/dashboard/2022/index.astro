@@ -69,12 +69,13 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
     grid-area: side;
     padding-block: var(--size-4);
     background-color: var(--surface4);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-2);
     clip-path: inset(0px 0px -15px 0px);
     display: grid;
     padding-block-start: var(--size-8);
     padding-block-end: var(--size-4);
-    place-content: center;
+    justify-content: center;
+    align-content: start;
   }
 
   .main {
@@ -100,7 +101,8 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
       width: 100%;
       display: grid;
       padding-inline: var(--size-4);
-      padding-block: var(--size-8);
+      padding-block-start: var(--size-12);
+      padding-block-end: var(--size-8);
     }
     .content-wrap {
       display: grid;
@@ -133,7 +135,7 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   .types {
     grid-area: types;
     background-color: var(--surface6);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-1);
   }
 
   @media (min-width: 1200px) {
@@ -145,13 +147,13 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   .trends {
     grid-area: trends;
     background-color: var(--surface2);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-1);
   }
 
   .cards {
     grid-area: cards;
     background-color: var(--surface5);
-    box-shadow: var(--surface-shadow1);
+    box-shadow: var(--shadow-1);
   }
 
   .locations {
