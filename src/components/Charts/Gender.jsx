@@ -2,7 +2,7 @@ import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
 import { currentCluster, currentMonth } from "@stores/store";
-import "./Gender.css";
+import "./Charts.css";
 
 function Gender({ month }) {
   const $currentCluster = useStore(currentCluster);

@@ -9,9 +9,27 @@ function handleClick(month) {
   setCurrentMonth(month);
 }
 
+const allMonths = [
+  { name: "january", abbr: "Jan", isDisabled: false },
+  { name: "february", abbr: "Feb", isDisabled: false },
+  { name: "march", abbr: "Mar", isDisabled: false },
+  { name: "april", abbr: "Apr", isDisabled: false },
+  { name: "may", abbr: "May", isDisabled: false },
+  { name: "june", abbr: "Jun", isDisabled: false },
+  { name: "july", abbr: "Jul", isDisabled: false },
+  { name: "august", abbr: "Aug", isDisabled: false },
+  { name: "september", abbr: "Sep", isDisabled: false },
+  { name: "october", abbr: "Oct", isDisabled: false },
+  { name: "november", abbr: "Nov", isDisabled: false },
+  { name: "december", abbr: "Dec", isDisabled: false },
+];
+
 function Calendar() {
   const $currentMonth = useStore(currentMonth);
   const $months = useStore(months);
+  const filteredMonths = allMonths.map((item) =>
+    $months.includes(item.name) ? item : { ...item, isDisabled: true }
+  );
   return (
     <div class="calendar">
       <ul class="calendar__list">
@@ -22,22 +40,23 @@ function Calendar() {
         <div class="calendar__title">
           <p>list of months</p>
         </div>
-        {$months
-          ? $months.map((month) => (
-              <li
-                class={
-                  "calendar__item " +
-                  (month === $currentMonth?.name
-                    ? "calendar__item-selected"
-                    : "")
-                }
-              >
-                <button onClick={() => handleClick(month)}>
-                  {month.toUpperCase().slice(0, 3)}
-                </button>
-              </li>
-            ))
-          : ""}
+        {filteredMonths.map((month) => (
+          <li
+            class={
+              "calendar__item " +
+              (month.name === $currentMonth?.name
+                ? "calendar__item-selected"
+                : "")
+            }
+          >
+            <button
+              disabled={month.isDisabled}
+              onClick={() => handleClick(month.name)}
+            >
+              {month.abbr}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );

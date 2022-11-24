@@ -2,7 +2,7 @@ import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
 import { currentCluster } from "@stores/store";
-import "./Governorate.css";
+import "./Charts.css";
 
 function Governorates({ month }) {
   const $currentCluster = useStore(currentCluster);

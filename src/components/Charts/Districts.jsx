@@ -1,8 +1,8 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
-import { currentCluster } from "../../../stores/store";
-import "./Districts.css";
+import { currentCluster } from "@stores/store";
+import "./Charts.css";
 
 const Districts = () => {
   const $currentCluster = useStore(currentCluster);

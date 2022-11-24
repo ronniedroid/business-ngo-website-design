@@ -2,8 +2,8 @@ import { h } from "preact";
 import "./TrendsOrActivities.css";
 import { useStore } from "@nanostores/preact";
 import { currentMonth } from "@stores/store";
-import Gender from "@components/Charts/Gender/Gender";
-import Governorates from "@components/Charts/Governorates/Governorate";
+import Gender from "@components/Charts/Gender";
+import Governorates from "@components/Charts/Governorate";
 import Activities from "@components/DashboardCards/TrendsOrActivities/Activities";
 
 function TrendsOrActivities() {
