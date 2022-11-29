@@ -62,7 +62,6 @@ const reports = [
     url: annualReportLink + "2021.pdf",
   },
 ];
-console.log([...cleanedArticles, ...reports]);
 function reportsAndArticles() {
   const posts = [...cleanedArticles, ...reports]
     .sort(function compare(a, b) {
@@ -85,7 +84,7 @@ const combinedPosts = reportsAndArticles();
 
 <div class="main-wrap surface1">
   <div class="section-title">
-    <Title title="Latest Stories" left />
+    <Title title="Reports/ Publications" left />
   </div>
   <div class="container">
     <MediaScroller>
