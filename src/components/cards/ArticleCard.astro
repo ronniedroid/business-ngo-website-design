@@ -11,7 +11,6 @@ import { Image } from "@astrojs/image/components";
     <p class="title">
       {title}
     </p>
-    <p class="desc">{desc}</p>
     <p>
       {date}
     </p>
@@ -21,9 +20,16 @@ import { Image } from "@astrojs/image/components";
 <style>
   .article-card {
     display: grid;
-    place-items: center;
-    place-content: center;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-content: start;
     gap: var(--size-2);
+    padding: var(--size-3);
+    border-radius: var(--radius-3);
+    width: 20rem;
+    height: 25rem;
+    background-color: var(--surface3);
+    box-shadow: var(--shadow-2);
   }
   img {
     width: 100%;
@@ -33,28 +39,19 @@ import { Image } from "@astrojs/image/components";
 
   .text {
     display: grid;
+    grid-template-rows: 2fr 1fr;
     gap: var(--size-1);
   }
 
   .title {
     max-width: 32ch;
     color: var(--text1);
+    align-self: start;
+    /* height: calc(3 * 2em); */
   }
   .article-card:hover .title {
     --brand: hsl(226 80% 60% / 1);
     color: var(--brand);
-  }
-  .desc {
-    max-width: 30ch;
-    min-width: 30ch;
-    justify-self: start;
-  }
-
-  @media (min-width: 980px) {
-    .desc {
-      max-width: 32ch;
-      min-width: 32ch;
-    }
   }
 
   .date {

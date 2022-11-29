@@ -5,22 +5,94 @@ import Tint from "./Tint.astro";
 import MediaScroller from "./MediaScroller.astro";
 
 const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
+const cleanedArticles = await articles.map((article) => {
+  return { url: article.url, ...article.frontmatter };
+});
+
+const annualReportLink =
+  "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/annual-reports/harikar-annual-report-";
+
+const reports = [
+  {
+    title:
+      "Harikar/Unicef Juvenile Justice Quarter Three Narrative Progress Report",
+    createdAt: "2022-10-05",
+    date: "5th Oct, 2022",
+    img: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/enhance-justice-for-children-system-and-services-in-duhok-and-erbil-governorates-kr-iraq/harikar-unicef-juvenile-justice-quarter-three-narrative-progress-report.webp",
+    url: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/enhance-justice-for-children-system-and-services-in-duhok-and-erbil-governorates-kr-iraq/harikar-unicef-juvenile-justice-quarter-three-narrative-progress-report.pdf",
+  },
+  {
+    title: "Harikar Annual Report 2017",
+    createdAt: "2018-02-25",
+    date: "25th Feb, 2018",
+    isAnnual: true,
+    img: annualReportLink + "2017.webp",
+    url: annualReportLink + "2017.pdf",
+  },
+  {
+    title: "Harikar Annual Report 2018",
+    createdAt: "2019-02-25",
+    date: "25th Feb, 2019",
+    isAnnual: true,
+    img: annualReportLink + "2018.webp",
+    url: annualReportLink + "2018.pdf",
+  },
+  {
+    title: "Harikar Annual Report 2019",
+    createdAt: "2020-03-02",
+    date: "2nd Mar, 2020",
+    isAnnual: true,
+    img: annualReportLink + "2019.webp",
+    url: annualReportLink + "2019.pdf",
+  },
+  {
+    title: "Harikar Annual Report 2020",
+    createdAt: "2021-03-03",
+    date: "3rd Mar, 2021",
+    isAnnual: true,
+    img: annualReportLink + "2020.webp",
+    url: annualReportLink + "2020.pdf",
+  },
+  {
+    title: "Harikar Annual Report 2021",
+    createdAt: "2022-02-20",
+    date: "20th Feb, 2022",
+    isAnnual: true,
+    img: annualReportLink + "2021.webp",
+    url: annualReportLink + "2021.pdf",
+  },
+];
+console.log([...cleanedArticles, ...reports]);
+function reportsAndArticles() {
+  const posts = [...cleanedArticles, ...reports]
+    .sort(function compare(a, b) {
+      const dateA = a.createdAt;
+      const dateB = b.createdAt;
+      if (dateA < dateB) {
+        return -1;
+      }
+      if (dateA > dateB) {
+        return 1;
+      }
+      return 0;
+    })
+    .reverse();
+  return posts;
+}
+
+const combinedPosts = reportsAndArticles();
 ---
 
-<div class="main-wrap surface3">
+<div class="main-wrap surface1">
   <div class="section-title">
-    <Title title="Latest Stories" right />
+    <Title title="Latest Stories" left />
   </div>
   <div class="container">
     <MediaScroller>
       {
-        articles.map((article) => (
-          <a class="link" href={article.url}>
-            <ArticleCard
-              title={article.frontmatter.title}
-              img={article.frontmatter.img}
-              date={article.frontmatter.date}
-            />
+        combinedPosts.map((post) => (
+          <a class="link" href={post.url}>
+            <ArticleCard title={post.title} img={post.img} date={post.date} />
           </a>
         ))
       }
@@ -43,9 +115,10 @@ const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
 
   @media (min-width: 950px) {
     .main-wrap {
-      grid-template: "content title" / 2fr 1fr;
-      padding-block: var(--size-8);
-      padding-right: var(--size-10);
+      grid-template: "title content" / 1fr 2fr;
+      padding-block-start: var(--size-8);
+      padding-block-end: var(--size-12);
+      padding-end: var(--size-10);
       gap: var(--size-8);
       place-items: center;
     }

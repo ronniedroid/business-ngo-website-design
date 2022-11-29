@@ -5,10 +5,10 @@
 }
 
 .title {
-    padding-block-end: var(--size-4);
-    display: flex;
-    gap: var(--size-2);
-    align-items: end;
+  padding-block-end: var(--size-4);
+  display: flex;
+  gap: var(--size-2);
+  align-items: end;
 }
 
 .rss-icon {
@@ -17,37 +17,37 @@
 }
 
 .title__text {
-    text-transform: capitalize;
-    font-weight: bold;
-  }
-  
-  .content {
-    margin: auto auto;
-    display: column;
-    columns: 3;
-  }
-  
-  .content > * {
-    margin-bottom: 1em;
-  }
+  text-transform: capitalize;
+  font-weight: bold;
+}
 
-  @media (min-width: 1200px) {
-    .wrap {
-      display: grid;
-      justify-content: center;
-      padding-block-start: var(--size-6);
-      padding-block-end: var(--size-10);
-      padding-inline: var(--size-4);
-  }
-  }
+.content {
+  margin: auto auto;
+  display: column;
+  columns: 3;
+}
 
-  @media (min-width: 1700px) {
-    .wrap {
-        padding-inline: var(--size-14);
-    }
+.content>* {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 1200px) {
+  .wrap {
+    display: grid;
+    justify-content: center;
+    padding-block-start: var(--size-10);
+    padding-block-end: var(--size-10);
+    padding-inline: var(--size-4);
   }
-  
-  @supports (grid-template-rows: masonry) {
+}
+
+@media (min-width: 1700px) {
+  .wrap {
+    padding-inline: var(--size-14);
+  }
+}
+
+@supports (grid-template-rows: masonry) {
   .content {
     display: grid;
     justify-items: center;
@@ -56,7 +56,8 @@
     grid-template-rows: masonry;
     gap: 1em;
   }
-  .content > * {
+
+  .content>* {
     margin-bottom: 0;
   }
-  }
+}

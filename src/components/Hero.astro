@@ -20,7 +20,7 @@ import Tint from "./Tint.astro";
       </a>
     </div>
   </div>
-  <Tint gray flipped />
+  <Tint white flipped />
 </div>
 
 <style>
@@ -51,7 +51,7 @@ import Tint from "./Tint.astro";
   @media (min-width: 950px) {
     .hero {
       justify-content: left;
-      padding-block: var(--size-11);
+      padding-block: var(--size-12);
       padding-inline-start: var(--size-12);
     }
   }
@@ -134,10 +134,10 @@ import Tint from "./Tint.astro";
     text-decoration: none;
   }
 
- .send-button:hover {
-   transform: scale(1.1);
-   box-shadow: var(--shadow-2);
- }
+  .send-button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-2);
+  }
 
   [astro-icon] {
     width: 20px;
