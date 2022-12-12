@@ -6,14 +6,23 @@ import MediaScroller from "./MediaScroller.astro";
 
 const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
 const cleanedArticles = await articles.map((article) => {
-  return { url: article.url, ...article.frontmatter };
+return { url: article.url, ...article.frontmatter };
 });
 
 const annualReportLink =
-  "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/annual-reports/harikar-annual-report-";
+"https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/annual-reports/harikar-annual-report-";
 
 const reports = [
-  {
+{
+title: 'Harikar/UNHCR World Refugee Day Open Space Event',
+project:
+'Protection and Assistance Program for Refugees and IDPs in Duhok Iraq',
+createdAt: '2022-10-27',
+date: '27th Oct, 2022',
+img: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/protection-and-assistance-program-for-refugees-and-idps-in-duhok-iraq/harikar-unhcr-world-refugee-day-open-space-event.pdf",
+url: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/protection-and-assistance-program-for-refugees-and-idps-in-duhok-iraq/harikar-unhcr-world-refugee-day-open-space-event.webp",
+},
+{
     title:
       "Harikar/Unicef Juvenile Justice Quarter Three Narrative Progress Report",
     createdAt: "2022-10-05",
