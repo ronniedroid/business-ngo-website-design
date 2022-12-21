@@ -1,6 +1,7 @@
 ---
 import ToggleDark from "./ToggleDark.astro";
 import NotificationBell from "./NotificationBell.astro";
+import DashboardMenu from "./DashboardMenu.astro";
 import harikarLogo from "../assets/images/harikar-logo.svg";
 
 const navItems = [
@@ -59,7 +60,7 @@ const navItems = [
         ))
       }
       <li>
-        <a href="/events-and-stories">Dashboard</a>
+        <DashboardMenu />
       </li>
     </ul>
   </nav>
@@ -127,8 +128,8 @@ const navItems = [
     text-transform: capitalize;
     font-size: var(--font-size-2);
     line-height: var(--font-lineheight-5);
-    overflow-y: auto;
-    overflow-x: hidden;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
   }
 
   .main-nav li a {

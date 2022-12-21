@@ -24,7 +24,7 @@ const allMonths = [
   { name: "december", abbr: "Dec", isDisabled: false },
 ];
 
-function Calendar() {
+function Calendar({ year }) {
   const $currentMonth = useStore(currentMonth);
   const $months = useStore(months);
   const filteredMonths = allMonths.map((item) =>
@@ -38,7 +38,7 @@ function Calendar() {
           <span class="tooltip">Unselect month</span>
         </div>
         <div class="calendar__title">
-          <p>list of months</p>
+          <p>{year}</p>
         </div>
         {filteredMonths.map((month) => (
           <li
