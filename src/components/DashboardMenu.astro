@@ -3,7 +3,7 @@ import { Icon } from "astro-icon";
 ---
 
 <div class="dashboard-menu" id="dashboard-menu-button">
-  <p dashboard-menu-title>Dashboards</p>
+  <p class="dashboard-menu-title">Dashboards</p>
   <div class="dash-menu" id="dash-menu">
     <div class="dash-menu-items">
       <a href="/dashboard/2020" class="dash-menu-item">
@@ -49,6 +49,15 @@ import { Icon } from "astro-icon";
   .dashboard-menu {
     position: relative;
     cursor: pointer;
+  }
+
+  .dashboard-menu-title {
+    font-weight: var(--font-weight-6);
+    color: var(--text2);
+  }
+
+  .dashboard-menu-title:hover {
+    color: var(--brand);
   }
 
   .dash-menu {
