@@ -4,7 +4,7 @@ import MainLayout from "./MainLayout.astro";
 import { Image } from "@astrojs/image/components";
 import MediaScroller from "../components/MediaScroller.astro";
 
-const { title, desc, img, date, author, language, location, slug } =
+const { title, desc, date, author, language, location, slug } =
   Astro.props.frontmatter;
 
 const response = await fetch(
@@ -60,6 +60,7 @@ const items = [
                   width="900"
                   aspectRatio="16:9"
                   class="media-element__img"
+                  format="webp"
                 />
                 <p class="media-element__title">{extractName(photo)}</p>
               </div>

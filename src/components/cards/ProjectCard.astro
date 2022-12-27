@@ -17,10 +17,11 @@ const { id, name } = Astro.props;
     <div class="project-card__img">
       <Image
         loading="lazy"
-        alt="an image from the project"
+        alt=""
         src={getImg(id)}
         width="208"
         aspectRatio="16:9"
+        format="webp"
       />
     </div>
   </div>
