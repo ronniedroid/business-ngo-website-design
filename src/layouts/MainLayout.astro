@@ -14,12 +14,25 @@ const { title = "page", crumbs = false } = Astro.props;
     <meta name="description" content="Harikar NGO test Astro website" />
   </head>
   <body>
+    <div class="main-layout">
     <Header />
     <main>
       {!crumbs ? "" : <Breadcrumbs class="breadcrumbs" items={crumbs} />}
       <slot />
       <!-- your content is injected here -->
-      <Footer />
     </main>
+    <Footer />
+    </div>
   </body>
 </html>
+
+<style>
+  .main-layout {
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+</style>

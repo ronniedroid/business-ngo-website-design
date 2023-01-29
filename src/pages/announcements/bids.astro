@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BidsCard from "../../components/cards/BidsCard.astro";
 const items = [
   {
@@ -10,7 +9,8 @@ const items = [
   },
   {
     name: "Announcements",
-    disabled: true,
+    link: "/announcements",
+    disabled: false,
   },
   {
     name: "Bids",

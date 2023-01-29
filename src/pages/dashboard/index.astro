@@ -1,0 +1,68 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+const items = [
+  {
+    name: "home",
+    link: "/",
+    disabled: false,
+  },
+  {
+    name: "Activities Dashboards",
+    link: "/dashboard",
+    disabled: false,
+  },
+];
+
+const years = ["2022", "2021", "2020"]
+---
+
+<MainLayout title="Activities dashboard" crumbs={items}>
+  <div class="main-wrap">
+    {years.map(year => (
+      <a href={"/dashboard/" + year} class="year-card">
+        <p>Activity Dashboard</p>
+        <p class="year">{year}</p>
+      </a>
+      ))}
+  </div>
+</MainLayout>
+
+<style>
+    .main-wrap {
+        height: 100%;
+        display: grid;
+        align-content: start;
+        justify-content: center;
+        gap: var(--size-6);
+        padding-inline: var(--size-4);
+        padding-block-start: var(--size-8);
+        padding-block-end: var(--size-10);
+    }
+
+    .year-card {
+        text-decoration: none;
+        display: grid;
+        min-height: var(--size-10);
+        max-width: 100%;
+        padding: var(--size-6);
+        gap: var(--size-6);
+        border-left: var(--border-size-4) solid var(--brand);
+        border-radius: var(--radius-3);
+        background-color: var(--surface2);
+    }
+
+    .year-card:hover {
+        background-color: var(--surface3);
+    }
+
+    .year-card > .year {
+        font-size: var(--font-size-fluid-3);
+        font-weight: var(--font-weight-6);
+        color: var(--brand);
+    }
+
+    .year-card > p {
+        font-size: var(--font-size-fluid-2);
+        font-weight: var(--font-weight-6);
+    }
+</style>
