@@ -25,14 +25,14 @@ const navItems = [
     name: "partners",
     link: "/#partners",
   },
-  {
-    name: "dashboard",
-    link: "/dashboard",
-  },
-  {
-    name: "announcements",
-    link: "/announcements",
-  },
+  // {
+  //   name: "dashboard",
+  //   link: "/dashboard",
+  // },
+  // {
+  //   name: "announcements",
+  //   link: "/announcements",
+  // },
 ];
 ---
 
@@ -67,6 +67,9 @@ const navItems = [
           </li>
         ))
       }
+      <li>
+        <button data-open-dashboard-menu>Dashboard</button>
+      </li>
     </ul>
   </nav>
   <ul class="nav-buttons">
@@ -79,7 +82,25 @@ const navItems = [
   </ul>
 </header>
 
+<dialog data-dashboard-menu class="dashboard-menu">
+  this is the dashboard menu
+  <button data-close-dashboard-menu>Close</button>
+</dialog>
+
 <script>
+
+  const openDashboardMenuBtn = document.querySelector("[data-open-dashboard-menu]")
+  const closeDashboardMenuBtn = document.querySelector("[data-close-dashboard-menu]")
+  const dashboardMenu = document.querySelector("[data-dashboard-menu]")
+
+  openDashboardMenuBtn.addEventListener("click", () => {
+    dashboardMenu.showModal()
+  })
+
+  closeDashboardMenuBtn.addEventListener("click", () => {
+    dashboardMenu.close()
+  })
+
   let opened = false;
 
   const menuButton = document.getElementById("menu-button");
