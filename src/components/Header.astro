@@ -1,8 +1,12 @@
 ---
 import ToggleDark from "./ToggleDark.astro";
-import NotificationBell from "./NotificationBell.astro";
-import DashboardMenu from "./DashboardMenu.astro";
 import harikarLogo from "../assets/images/harikar-logo.svg";
+import { Image } from '@astrojs/image/components';
+import { Icon } from "astro-icon";
+import DashboardMenu from "@components/Menus/DashboardMenu.astro"
+import AnnouncementsMenu from "@components/Menus/AnnouncementsMenu"
+
+
 
 const navItems = [
   {
@@ -25,14 +29,6 @@ const navItems = [
     name: "partners",
     link: "/#partners",
   },
-  // {
-  //   name: "dashboard",
-  //   link: "/dashboard",
-  // },
-  // {
-  //   name: "announcements",
-  //   link: "/announcements",
-  // },
 ];
 ---
 
@@ -56,7 +52,7 @@ const navItems = [
     </svg>
   </button>
   <a href="/#home" class="logo">
-    <img alt="Harikar NGO's logo" src={harikarLogo} width="40" height="80" />
+    <Image alt="Harikar NGO's logo" src={harikarLogo} width=40 height=80 />
   </a>
   <nav class="nav">
     <ul class="main-nav" id="main-nav">
@@ -68,39 +64,19 @@ const navItems = [
         ))
       }
       <li>
-        <button data-open-dashboard-menu>Dashboard</button>
+        <DashboardMenu />
       </li>
+      <li><AnnouncementsMenu client:idle/></li>
     </ul>
   </nav>
   <ul class="nav-buttons">
     <li>
       <ToggleDark />
     </li>
-    <li>
-      <NotificationBell />
-    </li>
   </ul>
 </header>
 
-<dialog data-dashboard-menu class="dashboard-menu">
-  this is the dashboard menu
-  <button data-close-dashboard-menu>Close</button>
-</dialog>
-
 <script>
-
-  const openDashboardMenuBtn = document.querySelector("[data-open-dashboard-menu]")
-  const closeDashboardMenuBtn = document.querySelector("[data-close-dashboard-menu]")
-  const dashboardMenu = document.querySelector("[data-dashboard-menu]")
-
-  openDashboardMenuBtn.addEventListener("click", () => {
-    dashboardMenu.showModal()
-  })
-
-  closeDashboardMenuBtn.addEventListener("click", () => {
-    dashboardMenu.close()
-  })
-
   let opened = false;
 
   const menuButton = document.getElementById("menu-button");
@@ -294,4 +270,5 @@ const navItems = [
       display: none;
     }
   }
+
 </style>

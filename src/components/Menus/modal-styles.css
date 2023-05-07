@@ -1,0 +1,80 @@
+.modal-menu[open] {
+    display: grid;
+    background: var(--surface1);
+    color: inherit;
+    /* safari */
+    max-inline-size: min(90vw, var(--size-content-3));
+    max-block-size: min(80vh, 100%);
+    max-block-size: min(80dvb, 100%);
+    margin: auto;
+    padding: 0;
+    inset: 0;
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-6);
+    z-index: var(--layer-important);
+    overflow: hidden;
+}
+
+.modal-open-btn {
+    font-weight: var(--font-weight-6);
+    color: var(--text2);
+    background-color: transparent;
+}
+
+.modal-open-btn:hover {
+    color: var(--brand);
+}
+
+.modal-close-btn {
+    font-weight: var(--font-weight-6);
+    color: var(--text2);
+    padding-block: var(--size-2);
+    font-size: var(--font-size-3);
+}
+
+.modal-menu-title {
+    font-weight: var(--font-weight-6);
+    color: var(--text2);
+    padding-block: var(--size-2);
+    padding-inline: var(--size-3);
+    background-color: var(--surface5);
+}
+
+.modal-menu-items {
+    display: grid;
+    gap: var(--size-1);
+    place-content: center;
+    padding: var(--size-2);
+    border-radius: var(--radius-2);
+    list-style: none;
+    overflow: scroll;
+    max-height: var(--size-14);
+}
+
+.modal-menu-item>a {
+    display: flex;
+    gap: var(--size-3);
+    color: var(--text2);
+    text-decoration: none;
+    font-size: var(--font-size-7);
+    font-weight: var(--font-weight-5);
+}
+
+.modal-menu-item>a:hover {
+    color: var(--brand);
+}
+
+[astro-icon] {
+    color: var(--brand);
+    width: 2.5rem;
+}
+
+sup {
+    font-size: var(--font-size-0);
+    background-color: var(--red-6);
+    padding-block: var(--size-1);
+    padding-inline: var(--size-2);
+    border-radius: var(--radius-round);
+    color: var(--text2-dark);
+
+}

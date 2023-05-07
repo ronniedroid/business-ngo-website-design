@@ -3,12 +3,13 @@ import facebookLogo from "../assets/images/facebook.svg";
 import instagramLogo from "../assets/images/instagram.svg";
 import youtubeLogo from "../assets/images/youtube.svg";
 import harikarLogo from "../assets/images/harikar-logo.svg";
+import { Image } from '@astrojs/image/components';
 ---
 
 <footer>
   <div class="info">
     <div class="brand">
-      <img alt="" src={harikarLogo} width="40" height="80" />
+      <Image alt="Harikar NGOs logo" src={harikarLogo} width=40 height=80 />
       <p>Harikar NGO</p>
     </div>
     <p class="info-text">
@@ -50,30 +51,30 @@ import harikarLogo from "../assets/images/harikar-logo.svg";
   </div>
   <div class="social">
     <a href="https://www.facebook.com/Harikar2004/" target="__blank">
-      <img
+      <Image
         alt="link to harikar's facebook page"
         src={facebookLogo}
-        width="35"
-        height="35"
+        width=35
+        height=35
       />
     </a>
     <a
       href="https://www.youtube.com/channel/UCfAUdyLGTADpz5yi7f3OFFg"
       target="__blank"
     >
-      <img
+      <Image
         alt="link to harikar's youtube channel"
         src={youtubeLogo}
-        width="35"
-        height="35"
+        width=35
+        height=35
       />
     </a>
     <a href="https://www.instagram.com/harikarngo/" target="__blank">
-      <img
+      <Image
         alt="link to harikar's instagram page"
         src={instagramLogo}
-        width="35"
-        height="35"
+        width=35
+        height=35
       />
     </a>
   </div>
