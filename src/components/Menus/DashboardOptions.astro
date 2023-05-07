@@ -1,14 +1,15 @@
 ---
 import Clusters from "@components/Clusters/Clusters";
 import Calendar from "@components/Calendar/Calendar";
+const { year = "" } = Astro.props;
 ---
 
 <button data-open-dashboard-options class="modal-open-btn">Change Options</button>
 <dialog data-dashboard-options class="modal-menu-options">
   <h2 class="options-menu-title">Change options</h2>
   <div class="menu-options">
-    <Calendar client:load year={2022} />
-    <Clusters client:load year={2022} />
+    <Calendar client:load year={year} />
+    <Clusters client:load year={year} />
   </div>
   <button data-close-dashboard-options class="options-close-btn">Done</button>
 </dialog>
