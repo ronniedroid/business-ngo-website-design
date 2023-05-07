@@ -6,6 +6,7 @@ import BenCards from "@components/DashboardCards/BenCards/BenCards";
 import TypeCards from "@components/DashboardCards/TypeCards/TypeCards";
 import MainLayout from "@layouts/MainLayout.astro";
 import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/TrendsOrActivities";
+import DashboardOptions from "@components/Menus/DashboardOptions.astro"
 ---
 
 <MainLayout title="Project Activity Dashboard 2022">
@@ -14,6 +15,9 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
       <div class="side">
         <Calendar client:load year={2022} />
         <Clusters client:load year={2022} />
+      </div>
+      <div class="options">
+        <DashboardOptions />
       </div>
       <div class="main">
         <div class="types section">
@@ -34,26 +38,6 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   </div>
 </MainLayout>
 
-<script lang="js" is:inline>
-  const btn = document.getElementById("side-btn");
-  const contents = document.getElementById("side-contents");
-
-  let open = false;
-  function handleClick() {
-    if (!open) {
-      contents.classList.add("open");
-      btn.innerHTML = "Menu &#8593";
-      open = !open;
-    } else {
-      contents.classList.remove("open");
-      open = !open;
-      btn.innerHTML = "Menu &#8595";
-    }
-  }
-
-  btn.addEventListener("click", () => handleClick());
-</script>
-
 <style>
   .main-wrap {
     background-color: var(--surface4);
@@ -71,11 +55,23 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
     background-color: var(--surface4);
     box-shadow: var(--shadow-2);
     clip-path: inset(0px 0px -15px 0px);
-    display: grid;
+    display: none;
     padding-block-start: var(--size-8);
     padding-block-end: var(--size-4);
     justify-content: center;
     align-content: start;
+  }
+
+  .options {
+    grid-area: side;
+    background-color: var(--surface4);
+    box-shadow: var(--shadow-2);
+    display: grid;
+    padding-block-start: var(--size-4);
+    padding-block-end: var(--size-4);
+    place-content: center;
+    font-size: var(--font-size-3);
+    max-width: 100%;
   }
 
   .main {
@@ -93,6 +89,9 @@ import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/Tr
   }
 
   @media (min-width: 1200px) {
+    .options {
+      display: none;
+    }
     .side {
       clip-path: inset(0px -15px 0 0px);
       position: unset;
