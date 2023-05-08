@@ -74,7 +74,7 @@ function ExpertiseList() {
     <>
       <dialog ref={expertiseDialog} class="expertise-menu">
         <h2 class="expertise-menu-title">{currentExp.title}</h2>
-        <p expertise-menu-content>{currentExp.desc}</p>
+        <p class="expertise-menu-content">{currentExp.desc}</p>
         <button onClick={closeExpertiseDialog} class="expertise-close-btn">
           Close
         </button>
