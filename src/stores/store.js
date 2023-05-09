@@ -8,6 +8,9 @@ export const currentCluster = atom({})
 
 export const months = atom([])
 
+export const jobs = atom([])
+export const currentJobs = atom([])
+
 function clusterSelected(list, name) {
     const clusters = list.map((i) => i.abbr)
     const clusterExists = clusters.includes(name)
@@ -35,5 +38,17 @@ export async function fetchYearData(year) {
     months.set([...data.months])
     currentMonth.set({...data.year, name: "year"})
     currentCluster.set({...currentMonth.get().general, name: "general"})
+    }
+}
+
+export async function fetchCurrentJobs() {
+    const url = 'http://212.237.126.116:8080/harikarngo/jobs_api.php'
+    const response = await fetch(url)
+    if (!response.ok) {
+        console.log(response.status)
+    } else {
+        const data = await response.json()
+        jobs.set(data)
+        currentJobs.set(data.filter((item) => item.isActive === 'active'))
     }
 }

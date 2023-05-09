@@ -46,7 +46,6 @@ function Feed() {
             width="350"
             height={post.height}
             style="border: none; overflow: hidden"
-            scrolling="no"
             frameborder="0"
             allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"

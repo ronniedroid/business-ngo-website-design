@@ -1,21 +1,32 @@
-import { createRef, h } from "preact";
+import { h } from "preact";
+import { useStore } from "@nanostores/preact";
+import { useRef, useEffect } from "preact/hooks";
+import { fetchCurrentJobs, currentJobs } from "@stores/store";
 import "./modal-styles.css";
 
-const modal = createRef()
-
-function openModal() {
-  modal.current.showModal()
-}
-
-function closeModal() {
-  modal.current.close()
-}
-
 function AnnouncementsMenu() {
+
+  useEffect(() => {
+    fetchCurrentJobs()
+  }, []);
+
+  const $currentJobs = useStore(currentJobs)
+  const numberOfJobs = $currentJobs.length
+
+  const modal = useRef(null);
+
+  function openModal() {
+    modal.current.showModal();
+  }
+
+  function closeModal() {
+    modal.current.close();
+  }
+
   return (
     <>
       <button onClick={openModal} class="modal-open-btn">
-        Announcements <sup class="number">0</sup>
+        Announcements <sup class="number">{numberOfJobs}</sup>
       </button>
       <dialog ref={modal} class="modal-menu">
         <h2 class="modal-menu-title">Announcements</h2>
@@ -28,7 +39,7 @@ function AnnouncementsMenu() {
                   <path d="M29,12a5.006,5.006,0,0,0-5-5H21V6a3,3,0,0,0-3-3H14a3,3,0,0,0-3,3V7H8a5.006,5.006,0,0,0-5,5v1.613a4.973,4.973,0,0,0,1,2.979V24a5.006,5.006,0,0,0,5,5H23a5.006,5.006,0,0,0,5-5V16.592a4.973,4.973,0,0,0,1-2.979ZM13,6a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1V7H13ZM5,12A3,3,0,0,1,8,9H24a3,3,0,0,1,3,3v1.613a2.991,2.991,0,0,1-2.507,2.959l-4.614.768A2,2,0,0,0,18,16H14a2,2,0,0,0-1.879,1.34l-4.614-.768A2.991,2.991,0,0,1,5,13.613Zm13,6v2H14V18Zm5,9H9a3,3,0,0,1-3-3V18.178a5.04,5.04,0,0,0,1.179.367l4.821.8V20a2,2,0,0,0,2,2h4a2,2,0,0,0,2-2v-.653l4.821-.8A5.04,5.04,0,0,0,26,18.178V24A3,3,0,0,1,23,27Z"></path>
                 </g>
               </svg>
-              Jobs: 0
+              Jobs: {numberOfJobs}
             </a>
           </li>
           <li class="modal-menu-item">
@@ -57,4 +68,4 @@ function AnnouncementsMenu() {
   );
 }
 
-export default AnnouncementsMenu
+export default AnnouncementsMenu;
