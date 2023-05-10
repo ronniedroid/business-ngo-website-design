@@ -17,7 +17,7 @@ function Feed() {
       </div>
       <div class="smAndDown">
         <iframe
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHarikar2004%2F&tabs=timeline&width=350&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHarikar2004%2F&width=350&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
           width="350"
           height="200"
           style="border:none;overflow:hidden"
