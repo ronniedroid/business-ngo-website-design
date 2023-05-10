@@ -1,63 +1,50 @@
 @import "../../styles/style.css";
 
-.wrap {
-  display: none;
+.feeds-main-wrap {
+  padding-block: var(--size-8);
+  padding-inline: var(--size-4);
+  display: grid;
+  grid-template:
+      "title" 0.2fr
+      "content" 2fr / 1fr;
+  place-items: center;
+  place-content: center;
+  position: relative;
+  gap: var(--size-4);
 }
 
-.title {
-  padding-block-end: var(--size-4);
-  display: flex;
-  gap: var(--size-2);
-  align-items: end;
-}
-
-.rss-icon {
-  width: 50px;
-  fill: var(--orange-6);
-}
-
-.title__text {
-  text-transform: capitalize;
-  font-weight: bold;
-}
-
-.content {
-  margin: auto auto;
-  display: column;
-  columns: 3;
-}
-
-.content>* {
-  margin-bottom: 1em;
-}
-
-@media (min-width: 1200px) {
-  .wrap {
-    display: grid;
-    justify-content: center;
-    padding-block-start: var(--size-10);
-    padding-block-end: var(--size-10);
-    padding-inline: var(--size-4);
+@media (min-width: 950px) {
+  .feeds-main-wrap {
+      grid-template: "title content" / 1fr 2fr;
+      padding-block: var(--size-10);
+      padding-inline: var(--size-8);
+      gap: var(--size-8);
+      place-items: center;
   }
 }
 
-@media (min-width: 1700px) {
-  .wrap {
-    padding-inline: var(--size-14);
+@media (min-width: 1600px) {
+  .feeds-main-wrap {
+      padding-inline: var(--size-13);
   }
 }
 
-@supports (grid-template-rows: masonry) {
-  .content {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
-    grid-template-rows: masonry;
-    gap: 1em;
-  }
+.feeds-section-title {
+  grid-area: title;
+  place-self: start;
+}
 
-  .content>* {
-    margin-bottom: 0;
+@media (min-width: 950px) {
+  .feeds-section-title {
+      place-self: center;
   }
+}
+
+.feeds-content-title {
+  max-width: var(--size-content-2);
+}
+
+.feeds-content {
+  display: grid;
+  place-content: center;
 }

@@ -1,0 +1,20 @@
+---
+import Tint from "@components/Tint.astro";
+import Title from "@components/Title.astro";
+import Feed from "@components/Feed/Feed"
+
+---
+
+<div class="feeds-main-wrap surface1">
+  <div class="feeds-section-title">
+    <Title title="Feeds" left />
+  </div>
+  <div class="feeds-content">
+    <Feed client:only="preact" />
+  </div>
+  <Tint flipped gray />
+</div>
+
+<style>
+  @import "./feed-styles.css"
+</style>
