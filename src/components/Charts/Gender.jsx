@@ -4,10 +4,11 @@ import { useStore } from "@nanostores/preact";
 import { currentCluster, currentMonth } from "@stores/store";
 import "./Charts.css";
 
-function Gender({ month }) {
+function Gender() {
   const $currentCluster = useStore(currentCluster);
-  const maleSeries = month === "year" ? $currentCluster?.gender?.male : [];
-  const femaleSeries = month === "year" ? $currentCluster?.gender?.female : [];
+  const $currentMonth = useStore(currentMonth)
+  const maleSeries = $currentMonth.name != undefined ? $currentCluster?.gender?.male : [];
+  const femaleSeries = $currentMonth.name != undefined  ? $currentCluster?.gender?.female : [];
   const options = {
     chart: {
       fontFamily: "Roboto, sans-serif",

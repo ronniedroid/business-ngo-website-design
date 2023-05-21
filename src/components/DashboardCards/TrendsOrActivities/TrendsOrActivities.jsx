@@ -22,29 +22,30 @@ function TrendsOrActivities() {
         </div>
         <div class="container__cards">
           <div class="gender">
-            <Gender month={month} />
+            <Gender />
           </div>
           <div class="governorate">
-            <Governorates month={month} />
+            <Governorates />
           </div>
         </div>
       </div>
     );
+  } else {
+    return (
+      <div class="container">
+        <div class="container__title">
+          <h2>Activities</h2>
+          <p>
+            List of activities carried out by Harikar's project's for the month
+            of <span>{month}</span>
+          </p>
+        </div>
+        <div class="container__table">
+          <Activities month={month} />
+        </div>
+      </div>
+    );
   }
-  return (
-    <div class="container">
-      <div class="container__title">
-        <h2>Activities</h2>
-        <p>
-          List of activities carried out by Harikar's project's for the month of{" "}
-          <span>{month}</span>
-        </p>
-      </div>
-      <div class="container__table">
-        <Activities month={month} />
-      </div>
-    </div>
-  );
 }
 
 export default TrendsOrActivities;

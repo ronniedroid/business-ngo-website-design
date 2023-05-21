@@ -1,14 +1,15 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
-import { currentCluster } from "@stores/store";
+import { currentCluster, currentMonth } from "@stores/store";
 import "./Charts.css";
 
-function Governorates({ month }) {
+function Governorates() {
   const $currentCluster = useStore(currentCluster);
-  const duhokSeries = month === "year" ? $currentCluster?.govs?.duhok : [];
-  const ninevehSeries = month === "year" ? $currentCluster?.govs?.nineveh : [];
-  const erbilSeries = month === "year" ? $currentCluster?.govs?.erbil : [];
+  const $currentMonth = useStore(currentMonth)
+  const duhokSeries = $currentMonth.name != undefined ? $currentCluster?.govs?.duhok : [];
+  const ninevehSeries = $currentMonth.name != undefined ? $currentCluster?.govs?.nineveh : [];
+  const erbilSeries = $currentMonth.name != undefined ? $currentCluster?.govs?.erbil : [];
   const options = {
     chart: {
       fontFamily: "Roboto, sans-serif",
