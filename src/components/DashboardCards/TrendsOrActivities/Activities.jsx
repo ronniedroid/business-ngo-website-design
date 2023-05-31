@@ -6,11 +6,14 @@ import "./TrendsOrActivities.css";
 function Activities({ month }) {
   const $currentCluster = useStore(currentCluster);
   const activities = month === "year" ? [] : $currentCluster?.activities;
+  const hasNameOfProject =
+    activities && activities[0]?.nameOfProject ? true : false;
 
   return (
     <table>
       <thead>
         <tr>
+          {hasNameOfProject ? <th scope="col">Project</th> : ""}
           <th scope="col">Activity</th>
           <th scope="col">Cluster</th>
           <th scope="col">Male</th>
@@ -22,6 +25,13 @@ function Activities({ month }) {
         {activities
           ? activities.map((item) => (
               <tr>
+                {hasNameOfProject ? (
+                  <td data-label="Project" scope="row">
+                    {item?.nameOfProject}
+                  </td>
+                ) : (
+                  ""
+                )}
                 <td data-label="Activity" scope="row">
                   {item?.name}
                 </td>

@@ -29,7 +29,7 @@
   place-content: center;
   background-color: var(--brand);
   padding: var(--size-2);
-  color: var(--gray-1);
+  color: var(--brand);
   border-radius: var(--radius-2);
   position: absolute;
   top: -1.2em;

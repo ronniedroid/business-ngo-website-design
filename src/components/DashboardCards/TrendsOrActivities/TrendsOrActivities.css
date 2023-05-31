@@ -86,7 +86,7 @@ table {
     margin: 0;
     padding: 0;
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
 }
 
 table tr {
@@ -137,10 +137,6 @@ table th {
     }
 
     table td::before {
-        /*
-          * aria-label has no advantage, it won't be read inside a table
-            content: attr(aria-label);
-          */
         content: attr(data-label);
         float: left;
         font-weight: bold;

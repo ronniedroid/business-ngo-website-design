@@ -5,34 +5,41 @@ import { Icon } from "astro-icon";
 <button data-open-dashboard-menu class="modal-open-btn">Dashboards</button>
 <dialog data-dashboard-menu class="modal-menu">
   <h2 class="modal-menu-title">Dashboards</h2>
-    <ul class="modal-menu-items">
-      <li class="modal-menu-item">
-        <a href="/dashboard/2022"><Icon pack="mdi" name="calendar" />2022</a>
-        </li>
-      <li class="modal-menu-item">
-        <a href="/dashboard/2021"><Icon pack="mdi" name="calendar" />2021</a>
-        </li>
-      <li class="modal-menu-item">
-        <a href="/dashboard/2020"><Icon pack="mdi" name="calendar" />2020</a>
-      </li>
-    </ul>
+  <ul class="modal-menu-items">
+    <li class="modal-menu-item">
+      <a href="/dashboard/2023"><Icon pack="mdi" name="calendar" />2023</a>
+    </li>
+    <li class="modal-menu-item">
+      <a href="/dashboard/2022"><Icon pack="mdi" name="calendar" />2022</a>
+    </li>
+    <li class="modal-menu-item">
+      <a href="/dashboard/2021"><Icon pack="mdi" name="calendar" />2021</a>
+    </li>
+    <li class="modal-menu-item">
+      <a href="/dashboard/2020"><Icon pack="mdi" name="calendar" />2020</a>
+    </li>
+  </ul>
   <button data-close-dashboard-menu class="modal-close-btn">Close</button>
 </dialog>
 
 <script lang="js">
-  const openDashboardMenuBtn = document.querySelector("[data-open-dashboard-menu]")
-  const closeDashboardMenuBtn = document.querySelector("[data-close-dashboard-menu]")
-  const dashboardMenu = document.querySelector("[data-dashboard-menu]")
+  const openDashboardMenuBtn = document.querySelector(
+    "[data-open-dashboard-menu]"
+  );
+  const closeDashboardMenuBtn = document.querySelector(
+    "[data-close-dashboard-menu]"
+  );
+  const dashboardMenu = document.querySelector("[data-dashboard-menu]");
 
   openDashboardMenuBtn.addEventListener("click", () => {
-    dashboardMenu.showModal()
-  })
+    dashboardMenu.showModal();
+  });
 
   closeDashboardMenuBtn.addEventListener("click", () => {
-    dashboardMenu.close()
-  })
+    dashboardMenu.close();
+  });
 </script>
 
 <style>
-  @import "./modal-styles.css"
+  @import "./modal-styles.css";
 </style>

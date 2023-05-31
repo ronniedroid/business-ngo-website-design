@@ -1,19 +1,152 @@
 ---
 import "../styles/style.css";
 import Title from "./Title.astro";
+import StatsChart from "@components/Charts/StatsChart";
 
 const statsItems = [
   {
     title: "emplyees",
-    value: "+500",
+    value: "+200",
   },
   {
     title: "projects",
-    value: "8",
+    value: "3",
   },
   {
-    title: "partners",
-    value: "13",
+    title: "Doners/Partners",
+    value: "4",
+  },
+];
+
+const categories = ["2017", "2018", "2019", "2020", "2021", "2022"];
+const projects = [
+  {
+    x: "2017",
+    y: "13",
+  },
+  {
+    x: "2018",
+    y: "7",
+  },
+  {
+    x: "2019",
+    y: "8",
+  },
+  {
+    x: "2020",
+    y: "11",
+  },
+  {
+    x: "2021",
+    y: "14",
+  },
+  {
+    x: "2022",
+    y: "13",
+  },
+];
+const partners = [
+  {
+    x: "2017",
+    y: "12",
+  },
+  {
+    x: "2018",
+    y: "9",
+  },
+  {
+    x: "2019",
+    y: "9",
+  },
+  {
+    x: "2020",
+    y: "11",
+  },
+  {
+    x: "2021",
+    y: "15",
+  },
+  {
+    x: "2022",
+    y: "11",
+  },
+];
+const employees = [
+  {
+    x: "2017",
+    y: "700",
+  },
+  {
+    x: "2018",
+    y: "521",
+  },
+  {
+    x: "2019",
+    y: "585",
+  },
+  {
+    x: "2020",
+    y: "508",
+  },
+  {
+    x: "2021",
+    y: "509",
+  },
+  {
+    x: "2022",
+    y: "510",
+  },
+];
+const beneficiaries = [
+  {
+    x: "2017",
+    y: "1046422",
+  },
+  {
+    x: "2018",
+    y: "369850",
+  },
+  {
+    x: "2019",
+    y: "1236505",
+  },
+  {
+    x: "2020",
+    y: "387994",
+  },
+  {
+    x: "2021",
+    y: "269495",
+  },
+  {
+    x: "2022",
+    y: "216322",
+  },
+];
+const budget = [
+  {
+    x: "2017",
+    y: "15368014",
+  },
+  {
+    x: "2018",
+    y: "11917526",
+  },
+  {
+    x: "2019",
+    y: "7977500",
+  },
+  {
+    x: "2020",
+    y: "9495184",
+  },
+  {
+    x: "2021",
+    y: "8500000",
+  },
+  {
+    x: "2022",
+    y: "5608908",
   },
 ];
 ---
@@ -23,21 +156,78 @@ const statsItems = [
     <Title title="About us" left />
   </div>
   <div class="content">
-    <p class="content-title">
-      Through our large capacity we dare to say we are different.
-    </p>
+    <p class="content-title">Programme statistics for the current year. .</p>
     <div class="stats">
       {
         statsItems.map((item) => (
           <div class="stats-item">
             <p class="stats-item--value">{item.value}</p>
+            <div class="divider" />
             <p class="stats-item--title">{item.title}</p>
           </div>
         ))
       }
     </div>
+    <div class="stats-charts">
+      <button data-stats-modal-open class="stats-modal-open-btn"
+        >last six yeras statistics</button
+      >
+    </div>
   </div>
+  <dialog data-stats-modal class="stats-modal">
+    <h2 class="stats-modal-title">Dashboards</h2>
+    <div class="stats-modal-contents">
+      <StatsChart
+        client:only="preact"
+        categories={categories}
+        data={projects}
+        chartName="Projects"
+      />
+      <StatsChart
+        client:only="preact"
+        categories={categories}
+        data={partners}
+        chartName="Partners"
+      />
+      <StatsChart
+        client:only="preact"
+        categories={categories}
+        data={employees}
+        chartName="Employees"
+      />
+      <StatsChart
+        client:only="preact"
+        categories={categories}
+        data={beneficiaries}
+        chartName="Beneficiaries"
+        orient="vertical"
+      />
+      <StatsChart
+        client:only="preact"
+        categories={categories}
+        data={budget}
+        chartName="Budget"
+        orient="vertical"
+        budget="true"
+      />
+    </div>
+    <button data-stats-modal-close class="stats-modal-close-btn">Close</button>
+  </dialog>
 </div>
+
+<script lang="js">
+  const openStatsBtn = document.querySelector("[data-stats-modal-open]");
+  const closeStatsBtn = document.querySelector("[data-stats-modal-close]");
+  const stats = document.querySelector("[data-stats-modal]");
+
+  openStatsBtn.addEventListener("click", () => {
+    stats.showModal();
+  });
+
+  closeStatsBtn.addEventListener("click", () => {
+    stats.close();
+  });
+</script>
 
 <style>
   .main-wrap {
@@ -93,14 +283,14 @@ const statsItems = [
   .stats {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .stats-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--size-6);
+    gap: var(--size-3);
   }
   .stats-item--title {
     font-size: var(--font-size-fluid-1);
@@ -109,19 +299,100 @@ const statsItems = [
     text-transform: capitalize;
     position: relative;
   }
-  .stats-item--title:before {
-    content: "";
-    position: absolute;
-    top: -1.2rem;
-    left: 25%;
-    right: 0;
+  .divider {
     border-top: var(--border-size-3) solid var(--brand);
-    width: 50%;
+    width: 80px;
     border-radius: var(--radius-2);
   }
   .stats-item--value {
     font-size: var(--font-size-fluid-2);
     font-weight: var(--font-weight-7);
     align-self: center;
+  }
+
+  .stats-charts {
+    display: grid;
+    justify-content: end;
+  }
+
+  .stats-modal-open-btn {
+    --link-visited: var(--brand);
+    font-size: var(--font-size-0);
+    padding-inline: var(--size-fluid-2);
+    padding-block: var(--size-fluid-1);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
+    background: var(--surface5);
+    color: var(--brand);
+    font-weight: var(--font-weight-8);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: var(--size-3);
+    transition: all 150ms var(--ease-out-1);
+    text-decoration: none;
+  }
+
+  .stats-modal-open-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-2);
+  }
+
+  .stats-modal[open] {
+    display: grid;
+    background: var(--surface1);
+    color: inherit;
+    /* safari */
+    max-inline-size: 100%
+    min-inline-size: 100%;
+    max-block-size: min(80vh, 100%);
+    max-block-size: min(80dvb, 100%);
+    margin: auto;
+    padding: 0;
+    inset: 0;
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-6);
+    z-index: var(--layer-important);
+    overflow: auto;
+    width: 100%;
+  }
+
+  @media (min-width: 750px) {
+    .stats-modal[open] {
+      max-inline-size: 70%;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    .stats-modal[open] {
+      max-inline-size: 50%;
+    }
+  }
+
+  .stats-modal-title {
+    display: grid;
+    place-content: center;
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-3);
+    color: var(--text2);
+    padding-block: var(--size-2);
+    padding-inline: var(--size-3);
+    background-color: var(--surface5);
+    min-width: 100%;
+  }
+
+  .stats-modal-contents {
+    padding-block: var(--size-4);
+    padding-inline: var(--size-2);
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .stats-modal-close-btn {
+    font-weight: var(--font-weight-6);
+    color: var(--text2);
+    padding-block: var(--size-2);
+    font-size: var(--font-size-3);
   }
 </style>
