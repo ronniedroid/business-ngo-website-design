@@ -34,10 +34,7 @@ export function setCurrentCluster(cluster) {
 }
 
 export async function fetchYearData(year) {
-  const url =
-    year < 2023
-      ? `https://harikar-reports-api.cyclic.app/v2/dashboard/${year}`
-      : `https://harikar-reports-api.cyclic.app/v3/dashboard/${year}`;
+  const url = `https://harikar-reports-api.cyclic.app/v3/dashboard/${year}`;
   const response = await fetch(url);
   if (!response.ok) {
     console.log(response.statues);

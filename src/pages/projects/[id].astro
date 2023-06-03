@@ -7,24 +7,20 @@ import harikarLogo from "../../assets/images/harikar-logo.svg";
 export function getStaticPaths() {
   return [
     { params: { id: "12" } },
-    { params: { id: "16" } },
-    { params: { id: "17" } },
-    { params: { id: "20" } },
-    { params: { id: "21" } },
-    { params: { id: "22" } },
+    { params: { id: "23" } },
+    { params: { id: "24" } },
   ];
 }
 
 const { id } = Astro.params;
 
 const request = await fetch(
-  `https://harikar-reports-api.cyclic.app/v2/projects/${id}`
+  `https://harikar-reports-api.cyclic.app/v3/projects/${id}`
 );
 const project = await request.json();
 
-// const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
-const projectImg =
-  "url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)";
+const projectImg = `url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp)`;
+// const projectImg = "url(https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/articles/article-1/group-working-on-body-language.webp)";
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });
 function formatDate(date) {
