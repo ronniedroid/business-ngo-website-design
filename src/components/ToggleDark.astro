@@ -13,40 +13,32 @@
 </div>
 
 <script lang="js">
-  const toggleButton = document.getElementById("toggleButton");
+const toggleButton = document.getElementById("toggleButton");
+const storageKey = "theme-preference";
 
-  let userTheme = "light";
-  const setTheme = (theme) => {
-    localStorage.setItem("user-mode", theme);
-    userTheme = theme;
-    document.documentElement.setAttribute("color-scheme", userTheme);
-  };
-  const toggleTheme = () => {
-    const activeTheme = localStorage.getItem("user-mode");
-    if (activeTheme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-  const getMediaPreference = () => {
-    const hasDarkPreference = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    if (hasDarkPreference) {
-      return "dark";
-    } else {
-      return "light";
-    }
-  };
-  const getTheme = () => {
-    return localStorage.getItem("user-mode");
-  };
+const getColorPreference = () => {
+  let preference = localStorage.getItem(storageKey);
 
-  toggleButton.addEventListener("change", () => toggleTheme());
+  if (!preference) {
+    preference = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
 
-  const initUserTheme = getTheme() || getMediaPreference();
-  setTheme(initUserTheme);
+  return preference;
+};
+
+const setPreference = (themeName) => {
+  localStorage.setItem(storageKey, themeName);
+
+  document.firstElementChild.setAttribute("color-scheme", themeName);
+};
+
+const togglePreference = () => {
+  setPreference(getColorPreference() === "dark" ? "light" : "dark");
+};
+
+toggleButton.addEventListener("change", () => togglePreference());
 </script>
 
 <style scoped>
