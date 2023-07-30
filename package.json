@@ -18,6 +18,8 @@
     "apexcharts": "^3.40.0",
     "astro": "^2.4.2",
     "astro-icon": "^0.8.0",
+    "gridjs": "^6.0.6",
+    "gridjs-react": "^6.0.1",
     "nanostores": "^0.8.1",
     "open-props": "^1.5.8",
     "preact": "^10.11.3",

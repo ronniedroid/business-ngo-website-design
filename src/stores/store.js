@@ -11,6 +11,8 @@ export const months = atom([]);
 export const jobs = atom([]);
 export const currentJobs = atom([]);
 
+export const allActivities = atom([])
+
 function clusterSelected(list, name) {
   const clusters = list.map((i) => i.abbr);
   const clusterExists = clusters.includes(name);
@@ -56,5 +58,16 @@ export async function fetchCurrentJobs() {
     const data = await response.json();
     jobs.set(data);
     currentJobs.set(data.filter((item) => item.isActive === "active"));
+  }
+}
+
+export async function fetchActivities() {
+  const url = "https://harikar-reports-api.cyclic.app/v3/data/years";
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.log(response.status);
+  } else {
+    const data = await response.json();
+    allActivities.set(data);
   }
 }

@@ -1,0 +1,20 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import ActivitiesData from "@components/Data/ActivitiesData";
+
+const items = [
+  {
+    name: "home",
+    link: "/",
+    disabled: false,
+  },
+  {
+    name: "Activities data",
+    disabled: true,
+  },
+];
+---
+
+<MainLayout title="Executive board members" crumbs={items}>
+<ActivitiesData client:only="preact">
+</MainLayout>
