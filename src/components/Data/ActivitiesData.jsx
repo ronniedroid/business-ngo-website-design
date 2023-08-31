@@ -17,7 +17,7 @@ function ActivitiesData() {
     <div>
       <Grid
         data={$allActivities}
-        columns={[{id:'nameOfProject', name: 'Name'}, {id: 'male', name: 'Male'}, {id: 'female', name: 'Female'}, {id: 'total', name: 'Total'}, {id: 'month', name: 'Month'}, {id: 'year', name: 'Year'}]}
+        columns={[{id:'nameOfProject', name: 'Name'}, {id: 'male', name: 'Male'}, {id: 'female', name: 'Female'}, {id: 'total', name: 'Total'}, {id: 'typeOfBeneficiaries', name: 'Type'}, {id: 'district', name: 'District'}, {id: 'province', name: 'Province'}, {id: 'nameOfCamp', name: 'Camp'}, {id: 'month', name: 'Month'}, {id: 'year', name: 'Year'}]}
         search={true}
         sort={true}
         pagination={{
