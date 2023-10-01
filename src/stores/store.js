@@ -50,7 +50,7 @@ export async function fetchYearData(year) {
 }
 
 export async function fetchCurrentJobs() {
-  const url = "http://212.237.126.116:8080/harikarngo/jobs_api.php";
+  const url = "https://homes.harikar.org/jobs_api.php";
   const response = await fetch(url);
   if (!response.ok) {
     console.log(response.status);

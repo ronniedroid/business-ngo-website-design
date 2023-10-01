@@ -39,6 +39,8 @@ const togglePreference = () => {
 };
 
 toggleButton.addEventListener("change", () => togglePreference());
+
+document.firstElementChild.setAttribute("color-scheme", getColorPreference());
 </script>
 
 <style scoped>

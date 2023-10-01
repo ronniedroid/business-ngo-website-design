@@ -10,18 +10,6 @@ function JobsList() {
     fetchCurrentJobs();
   }, []);
 
-  const getTime = (dl) => {
-    const currentDate = new Date();
-    const deadLine = new Date(dl);
-    deadLine.setHours(deadLine.getHours() + 15);
-    deadLine.setMinutes(deadLine.getMinutes() + 30);
-    deadLine.setSeconds(deadLine.getSeconds() + 59);
-    deadLine.setMilliseconds(deadLine.getMilliseconds() + 59);
-    const difference = deadLine.getTime() - currentDate.getTime();
-    const daysLeft = Math.ceil(difference / (1000 * 3600 * 24));
-    return daysLeft;
-  };
-
   const $currentJobs = useStore(currentJobs);
 
   return (

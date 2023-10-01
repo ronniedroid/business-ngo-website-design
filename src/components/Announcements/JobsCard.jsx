@@ -7,12 +7,26 @@ function JobsCard(props) {
       dl > 7
         ? "var(--blue-7)"
         : dl >= 3
-        ? "var(--green-7)"
-        : dl < 3 && dl > 0
-        ? "var(--red-7)"
-        : "var(--gray-7)";
+          ? "var(--green-7)"
+          : dl < 3 && dl > 0
+            ? "var(--red-7)"
+            : "var(--gray-7)";
     return color;
   };
+
+  const getTime = (dl) => {
+    const currentDate = new Date();
+    const deadLine = new Date(dl);
+    deadLine.setHours(deadLine.getHours() + 15);
+    deadLine.setMinutes(deadLine.getMinutes() + 30);
+    deadLine.setSeconds(deadLine.getSeconds() + 59);
+    deadLine.setMilliseconds(deadLine.getMilliseconds() + 59);
+    const difference = deadLine.getTime() - currentDate.getTime();
+    const daysLeft = Math.ceil(difference / (1000 * 3600 * 24));
+    return daysLeft;
+  };
+
+  const isDisabled = getTime(props.deadline) <= 0 ? true : false;
 
   const backgroundColor = setColor(props.deadline);
 
@@ -75,7 +89,7 @@ function JobsCard(props) {
       </div>
       <div class="buttons">
         <button class="button">Read more</button>
-        <button class="button">Apply</button>
+        <button class="button" disabled={isDisabled}>Apply</button>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@
   box-shadow: var(--shadow-2);
   max-height: max-content;
 }
+
 .title {
   padding: var(--size-2);
   font-weight: var(--font-weight-6);
@@ -13,12 +14,14 @@
   border-radius: var(--radius-3) var(--radius-3) 0 0;
   color: var(--text1-dark);
 }
+
 .content {
   padding-block: var(--size-3);
   padding-inline: var(--size-4);
   display: grid;
   gap: var(--size-2);
 }
+
 .dates {
   align-self: end;
   padding-block: var(--size-2);
@@ -37,6 +40,7 @@
   min-height: var(--size-8);
   max-height: var(--size-8);
 }
+
 .button {
   background-color: transparent;
   padding: var(--size-2);
@@ -44,6 +48,16 @@
 
 .button:hover {
   color: var(--brand);
+}
+
+.button:disabled {
+  cursor: default;
+  color: var(--gray-6);
+}
+
+.button:disabled:hover {
+  color: inherit;
+  color: var(--gray-6);
 }
 
 .content-wrap {
