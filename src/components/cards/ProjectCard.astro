@@ -32,16 +32,17 @@ const { id, name } = Astro.props;
     text-decoration: none;
   }
   .project-card {
-    --border-color: var(--text1);
-    background: var(--surface2);
+    --border-color: var(--outline);
+    background-color: var(--surface-container);
     border-radius: var(--radius-3);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
     display: grid;
     grid-template-columns: 5rem 10rem 5rem;
     min-height: 12rem;
     isolation: isolate;
     transition: all 1s linear;
     animation-iteration-count: infinite;
+    border: var(--border-size-1) solid var(--outline-variant);
   }
 
   .project-card__content,
@@ -56,14 +57,14 @@ const { id, name } = Astro.props;
     padding-inline: var(--size-1);
     padding-block-end: var(--size-1);
     gap: var(--size-2);
-    background-color: var(--surface1);
+    background-color: var(--surface-container);
     border-radius: var(--radius-3) 0 0 var(--radius-3);
   }
 
   .project-card__content > p {
     font-size: var(--font-size-0);
     font-weight: var(--font-weight-6);
-    color: var(--text1);
+    color: var(--on-surface);
     text-align: center;
   }
 

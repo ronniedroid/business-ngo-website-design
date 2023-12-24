@@ -151,7 +151,7 @@ const budget = [
 ];
 ---
 
-<div class="main-wrap surface1">
+<div class="main-wrap surface">
   <div class="section-title">
     <Title title="About us" left />
   </div>
@@ -300,7 +300,7 @@ const budget = [
     position: relative;
   }
   .divider {
-    border-top: var(--border-size-3) solid var(--brand);
+    border-top: var(--border-size-3) solid var(--primary);
     width: 80px;
     border-radius: var(--radius-2);
   }
@@ -316,14 +316,14 @@ const budget = [
   }
 
   .stats-modal-open-btn {
-    --link-visited: var(--brand);
+    --link-visited: var(--tertiary);
     font-size: var(--font-size-0);
     padding-inline: var(--size-fluid-2);
     padding-block: var(--size-fluid-1);
     border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background: var(--surface5);
-    color: var(--brand);
+    box-shadow: var(--shadow);
+    background: var(--tertiary-container);
+    color: var(--on-tertiary-container);
     font-weight: var(--font-weight-8);
     text-transform: uppercase;
     display: flex;
@@ -331,17 +331,18 @@ const budget = [
     gap: var(--size-3);
     transition: all 150ms var(--ease-out-1);
     text-decoration: none;
+    border: var(--border-size-1) solid var(--on-tertiary-container);
   }
 
   .stats-modal-open-btn:hover {
     transform: scale(1.1);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
   }
 
   .stats-modal[open] {
     display: grid;
-    background: var(--surface1);
-    color: inherit;
+    background: var(--surface);
+    color: inherit;,
     /* safari */
     max-inline-size: 100%
     min-inline-size: 100%;
@@ -351,7 +352,7 @@ const budget = [
     padding: 0;
     inset: 0;
     border-radius: var(--radius-3);
-    box-shadow: var(--shadow-6);
+    box-shadow: var(--shadow);
     z-index: var(--layer-important);
     overflow: auto;
     width: 100%;
@@ -374,10 +375,10 @@ const budget = [
     place-content: center;
     font-weight: var(--font-weight-6);
     font-size: var(--font-size-3);
-    color: var(--text2);
+    color: var(--on-surface-container);
     padding-block: var(--size-2);
     padding-inline: var(--size-3);
-    background-color: var(--surface5);
+    background-color: var(--surface-container);
     min-width: 100%;
   }
 
@@ -391,7 +392,8 @@ const budget = [
 
   .stats-modal-close-btn {
     font-weight: var(--font-weight-6);
-    color: var(--text2);
+    color: var(--on-secondary-container);
+    background-color: var(--secondary-container);
     padding-block: var(--size-2);
     font-size: var(--font-size-3);
   }

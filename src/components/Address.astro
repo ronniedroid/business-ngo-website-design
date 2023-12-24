@@ -4,7 +4,7 @@ import Title from "./Title.astro";
 import LocationMap from "./LocationMap.jsx";
 ---
 
-<div class="main-wrap surface3">
+<div class="main-wrap surface">
   <div class="section-title">
     <Title title="Our Office" left />
   </div>
@@ -83,7 +83,7 @@ import LocationMap from "./LocationMap.jsx";
     grid-area: address;
     display: grid;
     gap: var(--size-3);
-    background-color: var(--surface1);
+    background-color: var(--surface-container);
     padding: var(--size-3);
     box-shadow: var(--shadow-2);
     border-radius: var(--radius-3);
@@ -91,21 +91,21 @@ import LocationMap from "./LocationMap.jsx";
   }
 
   .address-title {
-    color: var(--text1);
+    color: var(--on-surface);
     font-size: var(--font-size-fluid-1);
     font-weight: var(--font-weight-6);
   }
 
   .address-item {
     font-size: var(--font-size-fluid-0);
-    color: var(--text2);
+    color: var(--on-surface);
     display: flex;
     gap: var(--size-3);
     align-items: center;
   }
 
   .address-item > img {
-    color: var(--text1);
+    color: var(--on-surface);
   }
 
   .map {
@@ -114,7 +114,7 @@ import LocationMap from "./LocationMap.jsx";
     height: 100%;
     border-radius: var(--radius-3);
     box-shadow: var(--shadow-2);
-    background-color: var(--surface1);
+    background-color: var(--surface-container);
   }
 
   @media (min-width: 850px) {
@@ -126,5 +126,6 @@ import LocationMap from "./LocationMap.jsx";
   [astro-icon] {
     width: 20px;
     height: 20px;
+    color: var(--primary)
   }
 </style>

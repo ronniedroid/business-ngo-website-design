@@ -108,11 +108,11 @@ const navItems = [
     align-items: center;
     justify-content: space-between;
     padding-block: var(--size-fluid-1);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: var(--layer-4);
-    background: var(--surface1);
+    background: var(--surface-container);
     opacity: 0.96;
     height: 6rem;
   }
@@ -138,11 +138,11 @@ const navItems = [
   .main-nav li a {
     font-weight: var(--font-weight-6);
     text-decoration: none;
-    color: var(--text2);
+    color: var(--on-surface);
   }
 
   .main-nav li a:hover {
-    color: var(--brand);
+    color: var(--primary);
   }
 
   .logo {
@@ -153,7 +153,7 @@ const navItems = [
 
   @media (max-width: 950px) {
     .main-nav {
-      background: var(--surface3);
+      background: var(--surface-container);
       flex-direction: column;
       position: fixed;
       top: 0;
@@ -161,7 +161,7 @@ const navItems = [
       right: 70%;
       bottom: 0;
       z-index: var(--layer-4);
-      box-shadow: var(--shadow-3);
+      box-shadow: var(--shadow);
       padding-block: var(--size-fluid-7);
       padding-inline-start: var(--size-7);
       transform: translateX(-100%);
@@ -200,11 +200,11 @@ const navItems = [
   .btn {
     font-size: var(--font-size-5);
     background: transparent;
-    color: var(--text2);
+    color: var(--on-surface);
   }
 
   .btn:hover {
-    color: var(--brand);
+    color: var(--primary);
   }
 
   .menu {
@@ -212,7 +212,7 @@ const navItems = [
     border: none;
     cursor: pointer;
     padding: 0;
-    color: var(--text2);
+    color: var(--on-surface);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -220,11 +220,11 @@ const navItems = [
     z-index: var(--layer-important);
   }
   .menu > svg {
-    stroke: var(--text2);
+    stroke: var(--on-surface);
     stroke-width: 6;
   }
   .menu > svg:hover {
-    stroke: var(--text1);
+    stroke: var(--on-surface);
     stroke-width: 8;
   }
 

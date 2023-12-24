@@ -85,7 +85,7 @@ import { Image } from 'astro:assets'
     display: grid;
     padding-block: var(--size-6);
     padding-inline: var(--size-4);
-    background: var(--surface1);
+    background: var(--surface-container);
     grid-template:
       "info"
       "links"
@@ -95,7 +95,7 @@ import { Image } from 'astro:assets'
     justify-items: center;
     align-items: start;
     justify-content: center;
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
     clip-path: inset(-15px 0px 0px 0px);
     /* border-top: var(--border-size-1) solid var(--text1); */
   }
@@ -193,7 +193,7 @@ import { Image } from 'astro:assets'
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-6);
     text-transform: uppercase;
-    color: var(--brand);
+    color: var(--primary);
   }
 
   .list-items {
@@ -217,12 +217,12 @@ import { Image } from 'astro:assets'
   }
 
   .list-item > a {
-    color: var(--text2);
+    color: var(--on-surface);
     text-decoration: none;
   }
 
   .list-item > a:hover {
-    color: var(--brand);
+    color: var(--primary);
   }
 
   .ref {

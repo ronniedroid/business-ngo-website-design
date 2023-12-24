@@ -1,6 +1,5 @@
 ---
 import Title from "./Title.astro";
-import Tint from "./Tint.astro";
 import ProjectCard from "./cards/ProjectCard.astro";
 import MediaScroller from "./MediaScroller.astro";
 
@@ -16,7 +15,7 @@ if (!response.ok) {
 }
 ---
 
-<div class="main-wrap surface3">
+<div class="main-wrap surface">
   <div class="section-title">
     <Title title="Our Projects" right />
   </div>
@@ -31,7 +30,6 @@ if (!response.ok) {
       }
     </MediaScroller>
   </div>
-  <Tint white />
 </div>
 
 <style>

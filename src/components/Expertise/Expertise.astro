@@ -1,11 +1,10 @@
 ---
-import Tint from "@components/Tint.astro";
 import Title from "@components/Title.astro";
 import ExpertiseList from "@components/Expertise/Expertise-list"
 
 ---
 
-<div class="expertise-main-wrap surface1">
+<div class="expertise-main-wrap surface">
   <div class="expertise-section-title">
     <Title title="Our Expertise" left />
   </div>
@@ -16,7 +15,6 @@ import ExpertiseList from "@components/Expertise/Expertise-list"
     </p>
     <ExpertiseList client:only="preact" />
   </div>
-  <Tint flipped gray />
 </div>
 
 <style>

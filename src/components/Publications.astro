@@ -1,7 +1,6 @@
 ---
 import ArticleCard from "./cards/ArticleCard.astro";
 import Title from "./Title.astro";
-import Tint from "./Tint.astro";
 import MediaScroller from "./MediaScroller.astro";
 
 const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
@@ -91,7 +90,7 @@ function reportsAndArticles() {
 const combinedPosts = reportsAndArticles();
 ---
 
-<div class="main-wrap surface1">
+<div class="main-wrap surface">
   <div class="section-title">
     <Title title="Reports/ Publications" left />
   </div>
@@ -106,7 +105,6 @@ const combinedPosts = reportsAndArticles();
       }
     </MediaScroller>
   </div>
-  <Tint white />
 </div>
 
 <style>

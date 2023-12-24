@@ -68,9 +68,9 @@
     padding-block: var(--size-1);
     padding-inline: var(--size-1);
     background: transparent;
-    border: var(--border-size-1) solid var(--text1);
+    border: var(--border-size-1) solid var(--outline);
     border-radius: var(--radius-2);
-    color: var(--text1);
+    color: var(--on-surface);
     font-weight: var(--font-weight-6);
     font-size: var(--font-size-fluid-0);
     cursor: pointer;
@@ -79,8 +79,8 @@
 }
 
 .expertise-item:hover {
-    background-color: var(--surface5);
-    color: var(--text2);
+    background-color: var(--tertiary-container);
+    color: var(--on-tertiary-container);
 }
 
 @media (min-width: 450px) {
@@ -92,8 +92,8 @@
 
 .expertise-menu[open] {
     display: grid;
-    background: var(--surface1);
-    color: inherit;
+    background: var(--surface);
+    color: var(--on-surface);
     /* safari */
     max-inline-size: min(90vw, var(--size-content-3));
     max-block-size: min(80vh, 100%);
@@ -112,10 +112,10 @@
     place-content: center;
     font-weight: var(--font-weight-6);
     font-size: var(--font-size-3);
-    color: var(--text2);
+    color: var(--on-surface);
     padding-block: var(--size-2);
     padding-inline: var(--size-3);
-    background-color: var(--surface5);
+    background-color: var(--surface-container);
     min-width: 100%;
 }
 
@@ -126,7 +126,8 @@
 
 .expertise-close-btn {
     font-weight: var(--font-weight-6);
-    color: var(--text2);
+    color: var(--on-primary-container);
+    background-color: var(--primary-container);
     padding-block: var(--size-2);
     font-size: var(--font-size-3);
 }

@@ -1,5 +1,5 @@
 ---
-const { flipped, gray, white } = Astro.props;
+const { flipped } = Astro.props;
 ---
 
 <div class:list={["tint", { flipped }]}>
@@ -10,8 +10,7 @@ const { flipped, gray, white } = Astro.props;
     preserveAspectRatio="none"
   >
     <path
-      d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
-      class:list={[{ white, gray }]}></path>
+      d="M1200 120L0 16.48 0 0 1200 0 1200 120z"></path>
   </svg>
 
   <style>
@@ -29,6 +28,8 @@ const { flipped, gray, white } = Astro.props;
         overflow: hidden;
         line-height: 0;
         transform: rotate(180deg);
+        fill: var(--surface);
+        stroke: var(--surface);
       }
 
       .tint svg {
@@ -40,15 +41,6 @@ const { flipped, gray, white } = Astro.props;
 
       .flipped svg {
         transform: rotateY(180deg);
-      }
-
-      .tint .white {
-        fill: var(--surface1);
-        stroke: var(--surface1);
-      }
-      .tint .gray {
-        fill: var(--surface3);
-        stroke: var(--surface3);
       }
     }
   </style>

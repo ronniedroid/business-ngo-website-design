@@ -13,7 +13,7 @@ const { title, left, right } = Astro.props;
   }
   .title h2 {
     font-size: var(--font-size-fluid-2);
-    color: var(--text1);
+    color: var(--on-surface);
   }
   @media (min-width: 950px) {
     .title {
@@ -23,7 +23,7 @@ const { title, left, right } = Astro.props;
     }
     .title h2 {
       width: 5ch;
-      color: var(--brand);
+      color: var(--on-primary-container);
     }
     .left::before,
     .left::after,
@@ -33,15 +33,15 @@ const { title, left, right } = Astro.props;
       position: absolute;
       z-index: -1;
       border-radius: var(--radius-3);
-      border: var(--border-size-1) solid var(--gray-2);
+      border: var(--border-size-1) solid var(--on-primary-container);
     }
     .left::before,
     .right::before {
       left: -2em;
-      background: var(--surface5);
+      background: var(--primary-container);
       width: 15em;
       height: 15em;
-      box-shadow: var(--shadow-2);
+      box-shadow: var(--shadow);
     }
     .left::before {
       top: -4em;
@@ -54,7 +54,7 @@ const { title, left, right } = Astro.props;
     .left::after,
     .right::after {
       left: -3em;
-      border: var(--border-size-1) solid var(--brand);
+      border: var(--border-size-1) solid var(--primary);
       width: 17em;
       height: 17em;
     }

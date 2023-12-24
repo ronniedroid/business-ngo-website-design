@@ -27,14 +27,14 @@ import Tint from "./Tint.astro";
   .hero-wrap {
     display: grid;
     align-items: center;
-    background: var(--surface3);
+    background: var(--surface);
     position: relative;
     overflow-x: hidden;
   }
 
   .hero {
     --bg-filter-color: var(--gray-8);
-    --bg-filter-opacity: 0.8;
+    --bg-filter-opacity: 0.5;
     display: grid;
     align-content: center;
     justify-content: center;
@@ -69,13 +69,13 @@ import Tint from "./Tint.astro";
     display: grid;
     grid-template-columns: max-content;
     line-height: var(--font-lineheight-0);
-    color: var(--surface5-light);
+    color: var(--on-primary-light);
     font-size: var(--font-size-fluid-3);
     width: var(--size-content-1);
   }
 
   .under-hero {
-    color: var(--gray-3);
+    color: var(--on-primary-light);
     font-size: var(--font-size-fluid-1);
     margin-block-end: var(--size-3);
     font-weight: var(--font-weight-6);
@@ -117,14 +117,14 @@ import Tint from "./Tint.astro";
   }
 
   .send-button {
-    --link-visited: var(--brand);
+    --link-visited: var(--tretiary);
     font-size: var(--font-size-0);
     padding-inline: var(--size-fluid-2);
     padding-block: var(--size-fluid-1);
     border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background: var(--surface5);
-    color: var(--brand);
+    box-shadow: var(--shadow);
+    background: var(--primary-container);
+    color: var(--on-primary-container);
     font-weight: var(--font-weight-8);
     text-transform: uppercase;
     display: flex;
@@ -132,16 +132,17 @@ import Tint from "./Tint.astro";
     gap: var(--size-3);
     transition: all 150ms var(--ease-out-1);
     text-decoration: none;
+    border: var(--border-size-1) solid var(--outline);
   }
 
   .send-button:hover {
     transform: scale(1.1);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
   }
 
   [astro-icon] {
     width: 20px;
     height: 20px;
-    color: var(--brand)
+    color: var(--on-primary-container)
   }
 </style>
