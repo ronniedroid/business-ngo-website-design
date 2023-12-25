@@ -123,8 +123,8 @@ import Tint from "./Tint.astro";
     padding-block: var(--size-fluid-1);
     border-radius: var(--radius-2);
     box-shadow: var(--shadow);
-    background: var(--primary-container);
-    color: var(--on-primary-container);
+    background: var(--primary);
+    color: var(--on-primary);
     font-weight: var(--font-weight-8);
     text-transform: uppercase;
     display: flex;
@@ -132,7 +132,7 @@ import Tint from "./Tint.astro";
     gap: var(--size-3);
     transition: all 150ms var(--ease-out-1);
     text-decoration: none;
-    border: var(--border-size-1) solid var(--outline);
+    border: var(--border-size-1) solid var(--on-primary);
   }
 
   .send-button:hover {
@@ -143,6 +143,6 @@ import Tint from "./Tint.astro";
   [astro-icon] {
     width: 20px;
     height: 20px;
-    color: var(--on-primary-container)
+    color: var(--on-primary)
   }
 </style>
