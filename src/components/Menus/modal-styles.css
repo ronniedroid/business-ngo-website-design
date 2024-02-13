@@ -1,129 +1,90 @@
-.modal-menu[open] {
-    display: grid;
-    background: var(--surface1);
-    color: inherit;
-    /* safari */
-    max-inline-size: min(90vw, var(--size-content-3));
-    max-block-size: min(80vh, 100%);
-    max-block-size: min(80dvb, 100%);
-    margin: auto;
+.header-details {
+    grid-area: menu;
+    background-color: transparent;
     padding: 0;
-    inset: 0;
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-6);
-    z-index: var(--layer-important);
-    overflow: hidden;
+    position: relative;
 }
 
-.modal-menu-options[open] {
-    display: grid;
-    align-items: start;
-    background: var(--surface1);
-    color: inherit;
-    width: 100%;
-    /* height: 100%; */
-    margin: auto;
+.header-details>summary {
+    background-color: transparent;
+    list-style: none;
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--on-surface);
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 0;
     padding: 0;
-    inset: 0;
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-6);
-    z-index: var(--layer-important);
-    overflow: hidden;
 }
 
-.menu-options {
-    padding-block-start: var(--size-8);
-    padding-block-end: var(--size-4);
-    display: grid;
+.news-summary {
+    display: flex;
     place-content: center;
     place-items: center;
-    max-height: var(--size-16);
-    overflow: scroll;
+    gap: 0.2rem;
 }
 
-.modal-open-btn {
-    font-weight: var(--font-weight-6);
-    color: var(--text2);
-    background-color: transparent;
+.news-summary>p {
+    font-size: var(--fs-sm);
+    font-weight: 600;
 }
 
-.modal-open-btn:hover {
-    color: var(--brand);
+.news-summary>p:hover,
+.header-details>summary:hover {
+    color: var(--primary);
 }
 
-.modal-close-btn {
-    font-weight: var(--font-weight-6);
-    color: var(--text2);
-    padding-block: var(--size-1);
-    font-size: var(--font-size-1);
-}
-
-.options-close-btn {
-    font-weight: var(--font-weight-6);
-    color: var(--text2);
-    padding-block: var(--size-4);
-    font-size: var(--font-size-2);
-}
-
-.modal-menu-title {
+.header-details>.content {
+    background: var(--surface-container-high);
+    z-index: 4;
+    padding-block: 2em;
+    padding-inline: 2em;
+    cursor: auto;
+    max-width: max-content;
+    position: absolute;
+    top: 4em;
+    border-radius: 1rem;
+    list-style: none;
     display: grid;
-    place-content: center;
-    font-weight: var(--font-weight-6);
-    font-size: var(--font-size-3);
-    color: var(--text2);
-    padding-block: var(--size-2);
-    padding-inline: var(--size-3);
-    background-color: var(--surface5);
+    place-items: center;
 }
 
-.options-menu-title {
-    display: grid;
-    place-content: center;
-    font-size: var(--font-size-4);
-    font-weight: var(--font-weight-6);
-    color: var(--text2);
-    padding-block: var(--size-3);
-    padding-inline: var(--size-3);
-    background-color: var(--surface5);
-    min-width: 100%;
+.content-news {
+    left: -2em;
 }
 
-.modal-menu-items {
+.header-details>.content>ul {
     display: grid;
     gap: var(--size-1);
     place-content: center;
-    padding: var(--size-2);
-    border-radius: var(--radius-2);
+    place-items: center;
     list-style: none;
-    overflow: scroll;
-    max-height: var(--size-14);
+    padding: 0;
 }
 
-.modal-menu-item>a {
+.header-details>.content>ul>li>a {
     display: flex;
-    gap: var(--size-3);
-    color: var(--text2);
+    justify-content: center;
+    text-wrap: nowrap;
+    place-content: center;
+    place-items: center;
+    min-width: 100%;
+    gap: 2rem;
+    color: var(--on-surface);
     text-decoration: none;
-    font-size: var(--font-size-4);
-    font-weight: var(--font-weight-5);
-    padding-inline: var(--size-8);
+    font-size: var(--fs-sm);
+    font-weight: 500;
 }
 
-.modal-menu-item>a:hover {
-    color: var(--brand);
+.header-details>.content>ul>li>a:hover {
+    color: var(--primary);
 }
 
-[astro-icon] {
-    color: var(--brand);
-    width: 1.5rem;
-}
-
-sup {
-    font-size: var(--font-size-0);
-    background-color: var(--red-6);
-    padding-block: var(--size-1);
-    padding-inline: var(--size-2);
-    border-radius: var(--radius-round);
-    color: var(--text2-dark);
-
+.number {
+    font-size: var(--fs-sm);
+    background-color: var(--tertiary-container);
+    padding-block: 0.2rem;
+    padding-inline: 0.7rem;
+    border-radius: 50%;
+    color: var(--on-tertiary-container);
 }

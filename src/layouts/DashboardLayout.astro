@@ -6,7 +6,6 @@ import BenCards from "@components/DashboardCards/BenCards/BenCards";
 import TypeCards from "@components/DashboardCards/TypeCards/TypeCards";
 import MainLayout from "@layouts/MainLayout.astro";
 import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/TrendsOrActivities";
-import DashboardOptions from "@components/Menus/DashboardOptions.astro"
 const { year = "" } = Astro.props;
 ---
 
@@ -16,9 +15,6 @@ const { year = "" } = Astro.props;
       <div class="side">
         <Calendar client:only="preact" year={year} />
         <Clusters client:load year={year} />
-      </div>
-      <div class="options">
-        <DashboardOptions year={year} />
       </div>
       <div class="main">
         <div class="types section">
