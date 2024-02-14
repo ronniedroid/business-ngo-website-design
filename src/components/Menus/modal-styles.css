@@ -83,8 +83,10 @@
 .number {
     font-size: var(--fs-sm);
     background-color: var(--tertiary-container);
-    padding-block: 0.2rem;
-    padding-inline: 0.7rem;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
     border-radius: 50%;
     color: var(--on-tertiary-container);
+    display: grid;
+    place-content: center;
 }

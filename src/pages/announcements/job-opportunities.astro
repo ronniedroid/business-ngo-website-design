@@ -21,7 +21,7 @@ const items = [
 
 <MainLayout title="Job Opportunities" crumbs={items}>
   <div class="main-wrap">
-    <JobsList client:only="preact"/>
+    <JobsList client:only="preact" />
   </div>
   <ul class="legend">
     <li class="mt7">More than 7 days left</li>
@@ -32,19 +32,19 @@ const items = [
 
 <style>
   .main-wrap {
-    padding-block-start: var(--size-8);
-    padding-block-end: var(--size-12);
-    padding-inline: var(--size-4);
+    padding-block-start: 3rem;
+    padding-block-end: 10rem;
+    padding-inline: 1.25rem;
   }
 
   @media (min-width: 950px) {
     .main-wrap {
-      padding-inline: var(--size-12);
-      gap: var(--size-10);
+      padding-inline: 10rem;
+      gap: 5rem;
     }
     .breadcrumbs {
-      margin-left: var(--size-8);
-      margin-top: var(--size-3);
+      margin-left: 3rem;
+      margin-top: 1rem;
     }
   }
 
@@ -52,12 +52,12 @@ const items = [
     list-style: none;
     display: flex;
     flex-direction: column;
-    padding-inline: var(--size-10);
-    padding-block: var(--size-4);
+    padding-inline: 5rem;
+    padding-block: 1.25rem;
     place-items: center;
   }
   .legend li {
-    font-weight: var(--font-weight-6);
+    font-weight: 600;
   }
 
   .mt7 {

@@ -38,27 +38,27 @@ const articles = await Astro.glob("./*.mdx");
 
 <style>
   .main-wrap {
-    padding-block-start: var(--size-8);
-    padding-block-end: var(--size-12);
-    padding-inline: var(--size-4);
+    padding-block-start: 3rem;
+    padding-block-end: 5rem;
+    padding-inline: 1.25rem;
   }
   .content-wrap {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--size-14), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     grid-template-rows: masonry;
     align-items: center;
     masonry-auto-flow: next;
-    gap: var(--size-5);
+    gap: 1.5rem;
   }
 
   @media (min-width: 950px) {
     .main-wrap {
-      padding-inline: var(--size-12);
-      gap: var(--size-10);
+      padding-inline: 10rem;
+      gap: 5rem;
     }
     .breadcrumbs {
-      margin-left: var(--size-8);
-      margin-top: var(--size-3);
+      margin-left: 3rem;
+      margin-top: 1rem;
     }
   }
 

@@ -5,13 +5,14 @@ import Tint from "./Tint.astro";
 
 <div class="hero-wrap">
   <div class="hero">
-    <h1 class="hero-message animate-top-down">
+    <h1 class="hero-message">
       <div>Harikar NGO</div>
     </h1>
-    <p class="under-hero animate-top-down">
-      Harikar NGO is a neutral, non-governmental,<br /> non-profit humanitarian organization.
+    <p class="under-hero">
+      Harikar NGO is a neutral, non-governmental,<br /> non-profit humanitarian
+      organization.
     </p>
-    <div class="button-list animate-top-down">
+    <div class="button-list">
       <a href="#feed" class="send-button">
         Latest Updates
         <span>
@@ -25,23 +26,17 @@ import Tint from "./Tint.astro";
 
 <style>
   .hero-wrap {
-    display: grid;
-    align-items: center;
     background: var(--surface);
     position: relative;
     overflow-x: hidden;
   }
 
   .hero {
-    --bg-filter-color: var(--gray-8);
+    --bg-filter-color: var(--neutral20);
     --bg-filter-opacity: 0.5;
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    gap: var(--size-5);
     max-width: 100%;
-    padding-inline: var(--size-4);
-    padding-block: var(--size-11);
+    padding-inline: 1.25rem;
+    padding-block: 7.5rem;
     background-image: url("../assets/images/hero.webp");
     background-size: cover;
     background-position: center;
@@ -50,9 +45,8 @@ import Tint from "./Tint.astro";
 
   @media (min-width: 950px) {
     .hero {
-      justify-content: left;
-      padding-block: var(--size-12);
-      padding-inline-start: var(--size-12);
+      padding-block: 10rem;
+      padding-inline-start: 10rem;
     }
   }
 
@@ -66,83 +60,49 @@ import Tint from "./Tint.astro";
   }
 
   .hero-message {
-    display: grid;
-    grid-template-columns: max-content;
-    line-height: var(--font-lineheight-0);
+    line-height: 2;
     color: var(--on-primary-light);
-    font-size: var(--font-size-fluid-3);
-    width: var(--size-content-1);
+    font-size: var(--fs-fl-lg);
+    width: 20ch;
   }
 
   .under-hero {
     color: var(--on-primary-light);
-    font-size: var(--font-size-fluid-1);
-    margin-block-end: var(--size-3);
-    font-weight: var(--font-weight-6);
+    font-size: var(--fs-fl-sm);
+    margin-block-end: 1rem;
+    font-weight: 600;
   }
 
   .button-list {
+    margin-top: 2rem;
     display: flex;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .animate-top-down {
-      animation: var(--animation-slide-in-down);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-top-down {
-      animation: none;
-    }
-  }
-
-  .promo-art {
-    align-self: stretch;
-    grid-area: image;
-    max-width: 100%;
-  }
-
-  .promo-art > img {
-    block-size: 100%;
-    object-fit: cover;
-    width: 100%;
-  }
-
-  @media (min-width: 950px) {
-    .promo-art > img {
-      max-width: 100%;
-      height: auto;
-    }
   }
 
   .send-button {
     --link-visited: var(--tretiary);
-    font-size: var(--font-size-0);
-    padding-inline: var(--size-fluid-2);
-    padding-block: var(--size-fluid-1);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow);
-    background: var(--primary);
-    color: var(--on-primary);
-    font-weight: var(--font-weight-8);
+    font-size: var(--fs-xs);
+    padding-inline: 1rem;
+    padding-block: 0.7rem;
+    border-radius: 0.5rem;
+    background: var(--tertiary-container);
+    color: var(--on-tertiary-container);
+    font-weight: 600;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: var(--size-3);
-    transition: all 150ms var(--ease-out-1);
+    transition: transform 150ms ease-out;
     text-decoration: none;
-    border: var(--border-size-1) solid var(--on-primary);
+    border: 1px solid var(--on-tertiary-container);
   }
 
   .send-button:hover {
     transform: scale(1.1);
-    box-shadow: var(--shadow);
   }
 
   [astro-icon] {
     width: 20px;
     height: 20px;
-    color: var(--on-primary)
+    color: var(--on-tertiary-container);
   }
 </style>

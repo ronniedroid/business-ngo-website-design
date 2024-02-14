@@ -24,16 +24,16 @@ function Governorates() {
         return new Intl.NumberFormat("en", { notation: "compact" }).format(val);
       },
       style: {
-        fontSize: "var(--font-size-1)",
+        fontSize: "var(--fs-xs)",
         fontWeight: 500,
-        colors: ["var(--surface2)"],
+        colors: ["var(--surface-container-highest)"],
       },
       background: {
         enabled: true,
         opacity: 1,
         borderWidth: 0,
         borderRadius: 5,
-        foreColor: "var(--text1)",
+        foreColor: "var(--on-surface)",
         dropShadow: {
           enabled: true,
           top: 1,
@@ -67,8 +67,8 @@ function Governorates() {
       ],
       labels: {
         style: {
-          fontSize: "var(--font-size-1)",
-          colors: "var(--text1)",
+          fontSize: "var(--fs-xs)",
+          colors: "var(--on-surface)",
         },
       },
     },

@@ -1,70 +1,85 @@
 .card {
   display: grid;
-  gap: var(--size-1);
-  background-color: var(--surface3);
-  border-radius: var(--radius-3);
-  box-shadow: var(--shadow-2);
+  gap: 0.25rem;
+  background-color: var(--surface-container-high);
+  border-radius: 1rem;
   max-height: max-content;
+  max-width: 35ch;
 }
 
-.title {
-  padding: var(--size-2);
-  font-weight: var(--font-weight-6);
+.card .title {
+  padding: 0.5rem;
+  font-weight: 600;
   text-align: center;
-  border-radius: var(--radius-3) var(--radius-3) 0 0;
-  color: var(--text1-dark);
-}
-
-.content {
-  padding-block: var(--size-3);
-  padding-inline: var(--size-4);
+  border-radius: 1rem 1rem 0 0;
+  color: var(--on-surface);
+  height: 4rem;
   display: grid;
-  gap: var(--size-2);
+  place-content: center;
 }
 
-.dates {
+.card .content {
+  padding-block: 1rem;
+  padding-inline: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.card .dates {
   align-self: end;
-  padding-block: var(--size-2);
-  padding-inline: var(--size-3);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
 }
 
-.buttons {
+.card .buttons {
   display: flex;
   justify-content: space-around;
   align-self: end;
-  gap: var(--size-3);
-  background-color: var(--surface5);
+  gap: 1rem;
   padding: 0;
   margin: 0;
-  border-radius: 0 0 var(--radius-3) var(--radius-3);
-  min-height: var(--size-8);
-  max-height: var(--size-8);
+  border-radius: 0 0 1rem 1rem;
+  min-height: 4rem;
+  max-height: 4rem;
 }
 
-.button {
-  background-color: transparent;
-  padding: var(--size-2);
+.card .button {
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  margin-block: 1rem;
+  cursor: pointer;
+  color: var(--on-tertiary-container);
+  background: var(--tertiary-container);
+  border: 1px solid var(--on-tertiary-container);
+  border-radius: 0.5rem;
+  transition: transform 150ms ease-out;
 }
 
-.button:hover {
-  color: var(--brand);
+.card .button:hover {
+  transform: scale(1.1);
 }
 
-.button:disabled {
-  cursor: default;
-  color: var(--gray-6);
+.card .button:disabled {
+  cursor: not-allowed;
+  background-color: var(--secondary-container);
+  color: var(--on-secondary-container);
+  border: 1px solid var(--on-secondary-container);
 }
 
-.button:disabled:hover {
-  color: inherit;
-  color: var(--gray-6);
+.card .button:disabled:hover {
+  transform: none;
 }
 
-.content-wrap {
+.jobs-content-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--size-14), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-template-rows: masonry;
   align-items: start;
   masonry-auto-flow: next;
-  gap: var(--size-3);
+  gap: 1rem;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
 }

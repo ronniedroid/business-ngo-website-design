@@ -5,10 +5,10 @@ const setColor = (dl) => {
     dl > 7
       ? "var(--blue-7)"
       : dl >= 3
-      ? "var(--green-7)"
-      : dl < 3 && dl > 0
-      ? "var(--red-7)"
-      : "var(--gray-7)";
+        ? "var(--green-7)"
+        : dl < 3 && dl > 0
+          ? "var(--red-7)"
+          : "var(--gray-7)";
   return color;
 };
 
@@ -55,6 +55,6 @@ const borderColor = setColor(dl);
   @import "./announcements-styles.css";
 
   .dynamic-border {
-    border-top: var(--border-size-3) solid var(--borderColor);
+    border-top: 3px solid var(--borderColor);
   }
 </style>

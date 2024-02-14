@@ -16,46 +16,46 @@ const items = [
 
 <MainLayout title="Jobs and Bids announcements" crumbs={items}>
   <div class="main-wrap">
-      <a href="/announcements/job-opportunities" class="card jobs">
-        <h2>Job Announcements</h2>
-        <p>0 Jobs vacancies available</p>
-      </a>
-      <a href="/announcements/bids" class="card bids">
-        <h2>Bid Announcements</h2>
-        <p>0 Jobs vacancies available</p>
-      </a>
+    <a href="/announcements/job-opportunities" class="card jobs">
+      <h2>Job Announcements</h2>
+      <p>0 Jobs vacancies available</p>
+    </a>
+    <a href="/announcements/bids" class="card bids">
+      <h2>Bid Announcements</h2>
+      <p>0 Jobs vacancies available</p>
+    </a>
   </div>
 </MainLayout>
 
 <style>
-    .main-wrap {
-        height: 100%;
-        display: grid;
-        align-content: start;
-        justify-content: center;
-        gap: var(--size-6);
-        padding-inline: var(--size-4);
-        padding-block-start: var(--size-8);
-        padding-block-end: var(--size-10);
-    }
+  .main-wrap {
+    height: 100%;
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    gap: var(--size-6);
+    padding-inline: 1.25rem;
+    padding-block-start: 3rem;
+    padding-block-end: 5rem;
+  }
 
-    .card {
-        text-decoration: none;
-        display: grid;
-        min-height: var(--size-10);
-        max-width: 100%;
-        padding: var(--size-6);
-        gap: var(--size-6);
-        border-left: var(--border-size-4) solid var(--brand);
-        border-radius: var(--radius-3);
-        background-color: var(--surface2);
-    }
+  .card {
+    text-decoration: none;
+    display: grid;
+    min-height: 5rem;
+    max-width: 100%;
+    padding: 1.75rem;
+    gap: 1.75rem;
+    border-left: 4px solid var(--brand);
+    border-radius: 1rem;
+    background-color: var(--surface-container);
+  }
 
-    .card:hover {
-        background-color: var(--surface3);
-    }
+  .card:hover {
+    background-color: var(--surface-container-highest);
+  }
 
-    .card > h2 {
-        font-size: var(--font-size-fluid-2);
-    }
+  .card > h2 {
+    font-size: var(--fs-fl-sm);
+  }
 </style>

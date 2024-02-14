@@ -28,30 +28,38 @@ const StatsChart = ({ categories, data, chartName, orient, loga, budget }) => {
     },
     dataLabels: budget
       ? {
-          enabled: true,
-          formatter(val, opts) {
-            return new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              notation: "compact",
-            }).format(opts.w.globals.series[0][opts.dataPointIndex]);
-          },
-        }
-      : {
-          enabled: true,
-          formatter(val, opts) {
-            return new Intl.NumberFormat("en-US", {
-              notation: "compact",
-            }).format(opts.w.globals.series[0][opts.dataPointIndex]);
-          },
+        enabled: true,
+        style: {
+          colors: ["var(--surface-container-highest)"],
+          fontSize: "var(--fs-xs)",
         },
-    colors: ["var(--text1)"],
+        formatter(val, opts) {
+          return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            notation: "compact",
+          }).format(opts.w.globals.series[0][opts.dataPointIndex]);
+        },
+      }
+      : {
+        enabled: true,
+        style: {
+          colors: ["var(--surface-container-highest)"],
+          fontSize: "var(--fs-xs)",
+        },
+        formatter(val, opts) {
+          return new Intl.NumberFormat("en-US", {
+            notation: "compact",
+          }).format(opts.w.globals.series[0][opts.dataPointIndex]);
+        },
+      },
+    colors: ["var(--on-surface)"],
     xaxis: {
       categories: categories,
       labels: {
         style: {
-          colors: "var(--text1)",
-          fontSize: "var(--font-size-1)",
+          colors: "var(--on-surface)",
+          fontSize: "var(--fs-xs)",
         },
       },
     },
@@ -64,38 +72,40 @@ const StatsChart = ({ categories, data, chartName, orient, loga, budget }) => {
       align: "top",
       margin: 0,
       style: {
+        color: "var(--on-surface)",
         fontSize: "16px",
-        fontWeight: "300",
+        fontWeight: "600",
       },
     },
     grid: {
       show: true,
-      borderColor: "var(--text1)",
+      borderColor: "var(--on-surface)",
       strokeDashArray: 2,
     },
     tooltip: {
       enabled: true,
+      theme: false,
       x: {
         show: true,
         format: "dd MMM",
       },
       y: budget
         ? {
-            formatter(val, opts) {
-              return new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-                notation: "compact",
-              }).format(opts.w.globals.series[0][opts.dataPointIndex]);
-            },
-          }
-        : {
-            formatter(val, opts) {
-              return new Intl.NumberFormat("en-US", {
-                notation: "compact",
-              }).format(opts.w.globals.series[0][opts.dataPointIndex]);
-            },
+          formatter(val, opts) {
+            return new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+              notation: "compact",
+            }).format(opts.w.globals.series[0][opts.dataPointIndex]);
           },
+        }
+        : {
+          formatter(val, opts) {
+            return new Intl.NumberFormat("en-US", {
+              notation: "compact",
+            }).format(opts.w.globals.series[0][opts.dataPointIndex]);
+          },
+        },
     },
   };
   const dataSeries = [

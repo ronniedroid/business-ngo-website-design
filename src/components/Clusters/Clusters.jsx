@@ -32,7 +32,7 @@ function Clusters(props) {
     <div class="clusters">
       <ul class="clusters__list">
         <div class="clusters__icon">
-          <ClusterIcon width={36} height={36} />
+          <ClusterIcon width={36} height={36} fill="var(--on-primary-container)" />
         </div>
         <div class="cluster__title">
           <p>list of clusters</p>
@@ -46,50 +46,50 @@ function Clusters(props) {
         >
           <button id="general" onClick={() => handleClick("general")}>
             <div class="cluster__icon cluster__icon-general">
-              <GeneralIcon />
+              <GeneralIcon fill="var(--on-surface)" />
             </div>
             All Clusters
           </button>
         </li>
         {clusters
           ? clusters.map((cluster) => (
-              <li
-                class={
-                  "cluster " +
-                  `cluster--${cluster.abbr.toLowerCase()} ` +
-                  (active === cluster.abbr ? `cluster--selected` : "")
-                }
+            <li
+              class={
+                "cluster " +
+                `cluster--${cluster.abbr.toLowerCase()} ` +
+                (active === cluster.abbr ? `cluster--selected` : "")
+              }
+            >
+              <button
+                id="protection"
+                onClick={() => handleClick(cluster.abbr)}
               >
-                <button
-                  id="protection"
-                  onClick={() => handleClick(cluster.abbr)}
+                <div
+                  class={
+                    "cluster__icon " +
+                    `cluster__icon-${cluster.abbr.toLowerCase()}`
+                  }
                 >
-                  <div
-                    class={
-                      "cluster__icon " +
-                      `cluster__icon-${cluster.abbr.toLowerCase()}`
-                    }
-                  >
-                    {cluster.abbr === "Protection" ? (
-                      <ProtectionIcon />
-                    ) : cluster.abbr === "GBV" ? (
-                      <GBVIcon />
-                    ) : cluster.abbr === "Health" ? (
-                      <HealthIcon />
-                    ) : cluster.abbr === "CP" ? (
-                      <CPIcon />
-                    ) : cluster.abbr === "Livelihood" ? (
-                      <LivelihoodIcon />
-                    ) : cluster.abbr === "WASH" ? (
-                      <WASHIcon />
-                    ) : (
-                      "Cluster is unknown"
-                    )}
-                  </div>
-                  {cluster.name}
-                </button>
-              </li>
-            ))
+                  {cluster.abbr === "Protection" ? (
+                    <ProtectionIcon fill="var(--on-surface)" />
+                  ) : cluster.abbr === "GBV" ? (
+                    <GBVIcon fill="var(--on-surface)" />
+                  ) : cluster.abbr === "Health" ? (
+                    <HealthIcon fill="var(--on-surface)" />
+                  ) : cluster.abbr === "CP" ? (
+                    <CPIcon fill="var(--on-surface)" />
+                  ) : cluster.abbr === "Livelihood" ? (
+                    <LivelihoodIcon fill="var(--on-surface)" />
+                  ) : cluster.abbr === "WASH" ? (
+                    <WASHIcon fill="var(--on-surface)" />
+                  ) : (
+                    "Cluster is unknown"
+                  )}
+                </div>
+                {cluster.name}
+              </button>
+            </li>
+          ))
           : ""}
       </ul>
     </div>

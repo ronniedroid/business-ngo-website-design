@@ -13,16 +13,6 @@ function AnnouncementsMenu() {
   const $currentJobs = useStore(currentJobs)
   const numberOfJobs = $currentJobs.length
 
-  const modal = useRef(null);
-
-  function openModal() {
-    modal.current.showModal();
-  }
-
-  function closeModal() {
-    modal.current.close();
-  }
-
   return (
     <>
       <details class="header-details">

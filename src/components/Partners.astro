@@ -128,7 +128,7 @@ const partners = [
 
 <style>
   .main-wrap {
-    padding-block: var(--size-8);
+    padding-block: 3rem;
     display: grid;
     grid-template:
       "title" 0.2fr
@@ -136,21 +136,21 @@ const partners = [
     place-items: start;
     overflow: hidden;
     position: relative;
-    gap: var(--size-4);
+    gap: 1.25;
   }
   @media (min-width: 950px) {
     .main-wrap {
       grid-template: "content title" / 2fr 1fr;
-      padding-block: var(--size-12);
-      padding-end: var(--size-10);
-      gap: var(--size-8);
+      padding-block: 10rem;
+      padding-inline-end: 5rem;
+      gap: 3rem;
       place-items: center;
     }
   }
 
   .section-title {
     grid-area: title;
-    padding-inline: var(--size-4);
+    padding-inline: 1.25rem;
   }
 
   .partners-slider {

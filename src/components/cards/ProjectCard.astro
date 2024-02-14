@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 const getImg = (id) => {
   return `https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp`;
 };
@@ -34,15 +34,14 @@ const { id, name } = Astro.props;
   .project-card {
     --border-color: var(--outline);
     background-color: var(--surface-container);
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow);
+    border-radius: 1rem;
     display: grid;
     grid-template-columns: 5rem 10rem 5rem;
     min-height: 12rem;
     isolation: isolate;
     transition: all 1s linear;
     animation-iteration-count: infinite;
-    border: var(--border-size-1) solid var(--outline-variant);
+    border: 1px solid var(--outline-variant);
   }
 
   .project-card__content,
@@ -54,23 +53,23 @@ const { id, name } = Astro.props;
     grid-column: 1/3;
     display: grid;
     place-content: center;
-    padding-inline: var(--size-1);
-    padding-block-end: var(--size-1);
-    gap: var(--size-2);
+    padding-inline: 0.25rem;
+    padding-block-end: 0.25rem;
+    gap: 0.5rem;
     background-color: var(--surface-container);
-    border-radius: var(--radius-3) 0 0 var(--radius-3);
+    border-radius: 1rem 0 0 1rem;
   }
 
   .project-card__content > p {
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-6);
+    font-size: var(--fs-xs);
+    font-weight: 600;
     color: var(--on-surface);
     text-align: center;
   }
 
   .project-card__img {
     grid-column: 2/-1;
-    border-radius: var(--radius-3);
+    border-radius: 1rem;
     border-left: none;
     z-index: -1;
   }
@@ -93,7 +92,7 @@ const { id, name } = Astro.props;
     object-fit: cover;
     width: 100%;
     height: 200px;
-    border-radius: 0 var(--radius-3) var(--radius-3) 0;
+    border-radius: 0 1rem 1rem 0;
   }
 
   @keyframes start {

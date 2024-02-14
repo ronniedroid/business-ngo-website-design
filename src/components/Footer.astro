@@ -3,22 +3,22 @@ import facebookLogo from "../assets/images/facebook.svg";
 import instagramLogo from "../assets/images/instagram.svg";
 import youtubeLogo from "../assets/images/youtube.svg";
 import harikarLogo from "../assets/images/harikar-logo.svg";
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 ---
 
 <footer>
   <div class="info">
     <div class="brand">
-      <Image alt="Harikar NGOs logo" src={harikarLogo} width=40 height=80 />
+      <Image alt="Harikar NGOs logo" src={harikarLogo} width="40" height="80" />
       <p>Harikar NGO</p>
     </div>
     <p class="info-text">
       We have been working in the humanitarian sector for more than a decade,
       helping people is in our name.
     </p>
-  </div>
-  <div class="copyright">
-    <p>© Harikar NGO - All Rights Reserved 2021</p>
+    <div class="copyright">
+      <p>© Harikar NGO - All Rights Reserved 2021</p>
+    </div>
   </div>
   <div class="links">
     <div class="list harikar">
@@ -54,8 +54,8 @@ import { Image } from 'astro:assets'
       <Image
         alt="link to harikar's facebook page"
         src={facebookLogo}
-        width=35
-        height=35
+        width="35"
+        height="35"
       />
     </a>
     <a
@@ -65,16 +65,16 @@ import { Image } from 'astro:assets'
       <Image
         alt="link to harikar's youtube channel"
         src={youtubeLogo}
-        width=35
-        height=35
+        width="35"
+        height="35"
       />
     </a>
     <a href="https://www.instagram.com/harikarngo/" target="__blank">
       <Image
         alt="link to harikar's instagram page"
         src={instagramLogo}
-        width=35
-        height=35
+        width="35"
+        height="35"
       />
     </a>
   </div>
@@ -83,27 +83,25 @@ import { Image } from 'astro:assets'
 <style>
   footer {
     display: grid;
-    padding-block: var(--size-6);
-    padding-inline: var(--size-4);
+    padding-block: 1.75rem;
+    padding-inline: 1.25rem;
     background: var(--surface-container);
     grid-template:
       "info"
       "links"
-      "social"
-      "copy" / 1fr;
-    gap: var(--size-8);
+      "social"/ 1fr;
+    gap: 3rem;
     justify-items: center;
     align-items: start;
     justify-content: center;
-    box-shadow: var(--shadow);
     clip-path: inset(-15px 0px 0px 0px);
     /* border-top: var(--border-size-1) solid var(--text1); */
   }
 
   @media (min-width: 950px) {
     footer {
-      gap: var(--size-6);
-      padding-inline: var(--size-10);
+      gap: 1.75rem;
+      padding-inline: 5rem;
       grid-template:
         "info links social"
         "copy links social"/ 1fr 2fr 1fr;
@@ -112,31 +110,31 @@ import { Image } from 'astro:assets'
 
   @media (min-width: 1400px) {
     footer {
-      padding-inline: var(--size-13);
+      padding-inline: 15rem;
     }
   }
 
   .info {
     grid-area: info;
     display: grid;
-    gap: var(--size-3);
+    gap: 1rem;
     place-items: center;
   }
 
   .brand {
     display: flex;
     place-items: center;
-    gap: var(--size-4);
+    gap: 1.25rem;
   }
 
   .brand > p {
-    font-size: var(--font-size-3);
-    font-weight: var(--font-weight-6);
+    font-size: var(--fs-sm);
+    font-weight: 600;
   }
 
   .info-text {
-    font-size: var(--font-size-0);
-    max-width: var(--size-content-2);
+    font-size: var(--fs-xs);
+    max-width: 60ch;
     text-align: justify;
     text-justify: inter-word;
   }
@@ -145,34 +143,25 @@ import { Image } from 'astro:assets'
     .info {
       place-items: start;
     }
-    .info-text {
-      max-width: 35;
-    }
-  }
-
-  @media (min-width: 950px) {
-    .copyright {
-      justify-self: start;
-    }
   }
 
   .copyright > p {
-    grid-area: copy;
-    font-size: var(--font-size-0);
+    max-width: 60ch;
+    font-size: var(--fs-xs);
   }
 
   .links {
     grid-area: links;
     display: grid;
     grid-template: "harikar" "ref" "other";
-    grid-gap: var(--size-4);
+    grid-gap: 1.25rem;
     align-items: start;
   }
 
   @media (min-width: 450px) {
     .links {
       grid-template: "harikar ref other";
-      grid-gap: var(--size-8);
+      grid-gap: 3rem;
     }
   }
 
@@ -186,12 +175,12 @@ import { Image } from 'astro:assets'
 
   .list {
     display: grid;
-    gap: var(--size-3);
+    gap: 1rem;
   }
 
   .list-title {
-    font-size: var(--font-size-1);
-    font-weight: var(--font-weight-6);
+    font-size: var(--fs-sm);
+    font-weight: 600;
     text-transform: uppercase;
     color: var(--primary);
   }
@@ -200,9 +189,9 @@ import { Image } from 'astro:assets'
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: var(--font-size-1);
+    font-size: var(--fs-sm);
     display: flex;
-    gap: var(--size-3);
+    gap: 1rem;
     text-transform: capitalize;
   }
 
@@ -214,6 +203,8 @@ import { Image } from 'astro:assets'
 
   .list-item {
     flex: 1 1 0px;
+    min-width: max-content;
+    white-space: nowrap;
   }
 
   .list-item > a {

@@ -1,14 +1,14 @@
 ---
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import MainLayout from "./MainLayout.astro";
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 import MediaScroller from "../components/MediaScroller.astro";
 
 const { title, desc, date, author, language, location, slug } =
   Astro.props.frontmatter;
 
 const response = await fetch(
-  `https://api.github.com/repos/Harikar-NGO/harikar-website-files/contents/articles/${slug}`
+  `https://api.github.com/repos/Harikar-NGO/harikar-website-files/contents/articles/${slug}`,
 );
 const data = await response.json();
 const articlePhotos = await data.map((item) => item.download_url);
@@ -78,18 +78,18 @@ const items = [
 <style>
   .main-wrap {
     place-items: center;
-    padding-inline: var(--size-4);
-    padding-block-start: var(--size-4);
-    padding-block-end: var(--size-10);
+    padding-inline: 1.25rem;
+    padding-block-start: 1.25rem;
+    padding-block-end: 5rem;
   }
   .content-wrap {
   }
 
   @media (min-width: 480px) {
     .main-wrap {
-      padding-inline: var(--size-8);
-      padding-block-start: var(--size-8);
-      padding-block-end: var(--size-12);
+      padding-inline: 3rem;
+      padding-block-start: 3rem;
+      padding-block-end: 10rem;
     }
   }
 
@@ -98,31 +98,32 @@ const items = [
       display: flex;
       flex-direction: column;
       place-items: center;
-      padding-inline: var(--size-12);
-      padding-block-start: var(--size-8);
-      padding-block-end: var(--size-12);
+      padding-inline: 10rem;
+      padding-block-start: 3rem;
+      padding-block-end: 10rem;
     }
     .breadcrumbs {
-      margin-left: var(--size-8);
-      margin-top: var(--size-3);
+      margin-left: 3rem;
+      margin-top: 1rem;
     }
   }
 
   .title {
-    font-size: var(--size-fluid-3);
-    max-width: var(--size-content-2);
+    font-size: var(--fs-fl-md);
+    max-width: 25ch;
   }
 
   .desc {
-    padding-block-start: var(--size-2);
-    font-size: var(--size-fluid-2);
+    padding-block-start: 1.25rem;
+    font-size: var(--fs-fl-sm);
+    max-width: 60ch;
   }
 
   .meta {
-    font-weight: var(--font-weight-6);
-    font-size: var(--font-size-0);
-    max-width: var(--size-content-2);
-    padding-block-start: var(--size-2);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    max-width: 25ch;
+    padding-block-start: 1.25rem;
   }
 
   .photos-slider {
@@ -156,11 +157,11 @@ const items = [
   }
 
   .media-element__title {
-    font-size: var(--font-size-0);
-    color: var(--text1);
-    font-weight: var(--font-weight-4);
+    font-size: var(--fs-xs);
+    color: var(--on-surface);
+    font-weight: 400;
     place-self: center;
-    padding: var(--size-1);
+    padding: 0.25rem;
     width: 100%;
     display: grid;
     place-content: center;
@@ -170,8 +171,8 @@ const items = [
   .article {
     text-align: justify;
     display: grid;
-    gap: var(--size-4);
-    padding-top: var(--size-1);
+    gap: 1.25rem;
+    padding-top: 0.25rem;
   }
 
   .article :global(p) {
@@ -179,7 +180,7 @@ const items = [
   }
 
   .article :global(ul) {
-    padding-left: var(--size-4);
+    padding-left: 1.25rem;
   }
 
   .article :global(ul > li) {

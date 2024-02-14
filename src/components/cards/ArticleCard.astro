@@ -1,11 +1,18 @@
 ---
 const { img, title, desc, date } = Astro.props;
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 ---
 
 <div class="article-card">
   <figure>
-    <Image src={img} alt={title} width="350" height="400" loading="lazy" format="webp" />
+    <Image
+      src={img}
+      alt={title}
+      width="350"
+      height="400"
+      loading="lazy"
+      format="webp"
+    />
   </figure>
   <div class="text">
     <p class="title">
@@ -23,28 +30,26 @@ import { Image } from 'astro:assets'
     grid-template-rows: 1fr 1fr;
     justify-content: center;
     align-content: start;
-    gap: var(--size-2);
-    padding: var(--size-3);
-    border-radius: var(--radius-3);
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
     width: 20rem;
     height: 25rem;
     background-color: var(--surface-container);
-    box-shadow: var(--shadow);
-    border: var(--border-size-1) solid var(--outline-variant);
+    border: 1px solid var(--outline-variant);
   }
 
   img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
-    border-radius: var(--radius-3);
-    border: var(--border-size-1) solid var(--outline-variant);
+    object-fit: contain;
+    border-radius: 1rem;
   }
 
   .text {
     display: grid;
     grid-template-rows: 2fr 1fr;
-    gap: var(--size-1);
+    gap: 0.25rem;
     color: var(--on-surface);
   }
 

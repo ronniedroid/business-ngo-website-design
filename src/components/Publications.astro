@@ -109,30 +109,30 @@ const combinedPosts = reportsAndArticles();
 
 <style>
   .main-wrap {
-    padding-block: var(--size-8);
+    padding-block: 3rem;
     display: grid;
     grid-template:
       "title" 0.2fr
       "content" 2fr / 1fr;
     place-items: start;
     position: relative;
-    gap: var(--size-4);
+    gap: 1.25rem;
   }
 
   @media (min-width: 950px) {
     .main-wrap {
       grid-template: "title content" / 1fr 2fr;
-      padding-block-start: var(--size-8);
-      padding-block-end: var(--size-12);
-      padding-end: var(--size-10);
-      gap: var(--size-8);
+      padding-block-start: 3rem;
+      padding-block-end: 10rem;
+      padding-inline-end: 5rem;
+      gap: 3rem;
       place-items: center;
     }
   }
 
   .section-title {
     grid-area: title;
-    padding-left: var(--size-4);
+    padding-left: 1.25rem;
   }
 
   .container {
@@ -142,7 +142,7 @@ const combinedPosts = reportsAndArticles();
   }
 
   .media-scroller {
-    --_spacer: var(--size-3);
+    --_spacer: 1rem;
     display: grid;
     grid-auto-flow: column;
     gap: var(--_spacer);

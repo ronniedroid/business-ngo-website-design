@@ -25,16 +25,14 @@ const { title, img, link } = Astro.props;
     min-height: 10rem;
     max-height: 10rem;
     min-width: 10rem;
-    box-shadow: var(--shadow);
     background: var(--surface-container-light);
-    transition: all 100ms var(--ease-in-1);
-    border-radius: var(--radius-3);
-    border: var(--border-size-1) solid var(--outline-variant);
+    transition: transform 100ms ease-in;
+    border-radius: 1rem;
+    border: 1px solid var(--outline-variant);
   }
 
   .partner-card:hover {
     transform: scale(1.05);
-    box-shadow: var(--shadow);
   }
 
   .partner-logo {

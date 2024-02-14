@@ -1,30 +1,30 @@
 @import "../../styles/style.css";
 
 .expertise-main-wrap {
-    padding-block: var(--size-8);
-    padding-inline: var(--size-4);
+    padding-block: 3rem;
+    padding-inline: 1.25rem;
     display: grid;
     grid-template:
         "title" 0.2fr
         "content" 2fr / 1fr;
     place-items: center;
     position: relative;
-    gap: var(--size-4);
+    gap: 1.25rem;
 }
 
 @media (min-width: 950px) {
     .expertise-main-wrap {
         grid-template: "title content" / 1fr 2fr;
-        padding-block: var(--size-10);
-        padding-inline: var(--size-8);
-        gap: var(--size-8);
+        padding-block: 5rem;
+        padding-inline: 3rem;
+        gap: 3rem;
         place-items: center;
     }
 }
 
 @media (min-width: 1600px) {
     .expertise-main-wrap {
-        padding-inline: var(--size-13);
+        padding-inline: 15rem;
     }
 }
 
@@ -43,14 +43,14 @@
     grid-area: content;
     display: flex;
     flex-direction: column;
-    gap: var(--size-5);
+    gap: 1.5rem;
     justify-items: center;
 }
 
 .expertise-content-title {
-    font-size: var(--font-size-fluid-1);
-    font-weight: var(--font-weight-6);
-    max-inline-size: var(--size-content-2);
+    font-size: var(--fs-fl-sm);
+    font-weight: 600;
+    max-inline-size: 25ch;
 }
 
 .expertise-container {
@@ -59,20 +59,20 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: start;
-    gap: var(--size-2);
+    gap: 0.5rem;
     position: relative;
-    max-width: var(--size-15);
+    max-width: 35rem;
 }
 
 .expertise-item {
-    padding-block: var(--size-1);
-    padding-inline: var(--size-1);
+    padding-block: 0.25rem;
+    padding-inline: 0.25rem;
     background: transparent;
-    border: var(--border-size-1) solid var(--outline);
-    border-radius: var(--radius-2);
+    border: 1px solid var(--outline);
+    border-radius: 0.5rem;
     color: var(--on-surface);
-    font-weight: var(--font-weight-6);
-    font-size: var(--font-size-fluid-0);
+    font-weight: 600;
+    font-size: var(--fs-sm);
     cursor: pointer;
     min-width: min-content;
     flex: 0 1 max-content;
@@ -85,8 +85,8 @@
 
 @media (min-width: 450px) {
     .expertise-item {
-        padding-block: var(--size-2);
-        padding-inline: var(--size-2);
+        padding-block: 0.5rem;
+        padding-inline: 0.5rem;
     }
 }
 
@@ -95,39 +95,44 @@
     background: var(--surface);
     color: var(--on-surface);
     /* safari */
-    max-inline-size: min(90vw, var(--size-content-3));
+    max-inline-size: min(90vw, 60ch);
     max-block-size: min(80vh, 100%);
     max-block-size: min(80dvb, 100%);
     margin: auto;
     padding: 0;
     inset: 0;
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-6);
-    z-index: var(--layer-important);
+    border-radius: 0.5rem;
+    z-index: 999999;
     overflow: hidden;
 }
 
 .expertise-menu-title {
     display: grid;
     place-content: center;
-    font-weight: var(--font-weight-6);
-    font-size: var(--font-size-3);
-    color: var(--on-surface);
-    padding-block: var(--size-2);
-    padding-inline: var(--size-3);
-    background-color: var(--surface-container);
+    font-weight: 600;
+    font-size: var(--fs-md);
+    color: var(--on-primary-container);
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    background-color: var(--primary-container);
     min-width: 100%;
 }
 
 .expertise-menu-content {
-    padding-block: var(--size-4);
-    padding-inline: var(--size-4);
+    padding-block: 1.25rem;
+    padding-inline: 1.25rem;
 }
 
 .expertise-close-btn {
-    font-weight: var(--font-weight-6);
-    color: var(--on-primary-container);
-    background-color: var(--primary-container);
-    padding-block: var(--size-2);
-    font-size: var(--font-size-3);
+    font-weight: 600;
+    color: var(--on-tertiary-container);
+    background-color: var(--tertiary-container);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    font-size: var(--fs-sm);
+    justify-self: end;
+    margin-inline: 2rem;
+    margin-block: 2rem;
+    border: 1px solid var(--on-primary-container);
+    border-radius: 0.5rem;
 }

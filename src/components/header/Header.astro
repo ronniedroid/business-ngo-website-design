@@ -1,27 +1,9 @@
 ---
-import harikarLogo from "../assets/images/harikar-logo.svg";
+import harikarLogo from "@assets/images/harikar-logo.svg";
 import { Image } from "astro:assets";
 import DashboardMenu from "@components/Menus/DashboardMenu.astro";
 import AnnouncementsMenu from "@components/Menus/AnnouncementsMenu";
-
-const navItems = [
-  {
-    name: "Reports/Articles",
-    link: "/#publications",
-  },
-  {
-    name: "projects",
-    link: "/#projects",
-  },
-  {
-    name: "expertise",
-    link: "/#expertise",
-  },
-  {
-    name: "partners",
-    link: "/#partners",
-  },
-];
+import NavItems from "./nav-items.astro";
 ---
 
 <header>
@@ -42,31 +24,15 @@ const navItems = [
           </svg>
         </p>
       </summary>
-      <ul class="mobile-nav-items nav-items">
-        {
-          navItems.map((item) => (
-            <li>
-              <a href={item.link}>{item.name}</a>
-            </li>
-          ))
-        }
-      </ul>
+      <NavItems classp="mobile-nav-items" />
     </details>
   </nav>
-  <a href="/#home" class="logo">
+  <div class="logo">
     <Image alt="Harikar NGO's logo" src={harikarLogo} width="40" height="60" />
     <h1 class="logo-text">Harikar</h1>
-  </a>
+  </div>
   <nav class="main-nav">
-    <ul class="main-nav-items nav-items">
-      {
-        navItems.map((item) => (
-          <li>
-            <a href={item.link}>{item.name}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <NavItems classp="main-nav-items" />
   </nav>
   <ul class="buttons">
     <li>
@@ -94,31 +60,6 @@ const navItems = [
   .main-nav {
     grid-area: nav;
     justify-self: end;
-  }
-
-  .main-nav-items {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    box-shadow: none;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
-    text-transform: capitalize;
-    max-width: max-content;
-  }
-
-  .nav-items li a {
-    font-weight: 600;
-    font-size: var(--fs-sm);
-    text-decoration: none;
-    color: var(--on-surface);
-    white-space: nowrap;
-  }
-
-  .nav-items li a:hover {
-    color: var(--primary);
   }
 
   .logo {
@@ -208,24 +149,6 @@ const navItems = [
       padding: 0;
       font-size: var(--fs-sm);
     }
-
-    .mobile-nav-items {
-      background: var(--surface-container-high);
-      flex-direction: column;
-      z-index: 4;
-      padding-block: 2rem;
-      padding-inline: 2rem;
-      cursor: auto;
-      width: max-content;
-      position: absolute;
-      left: 0;
-      top: 5.4em;
-      right: 0;
-      border-radius: 0 0 1rem 0;
-      list-style: none;
-      display: grid;
-      gap: 1rem;
-    }
   }
 
   .menu {
@@ -236,6 +159,7 @@ const navItems = [
     z-index: 9999;
     width: 30px;
     height: 30px;
+    margin-inline-start: 1rem;
   }
   .menu > svg {
     stroke: var(--on-surface);

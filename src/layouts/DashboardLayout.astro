@@ -7,9 +7,26 @@ import TypeCards from "@components/DashboardCards/TypeCards/TypeCards";
 import MainLayout from "@layouts/MainLayout.astro";
 import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/TrendsOrActivities";
 const { year = "" } = Astro.props;
+
+const items = [
+  {
+    name: "home",
+    link: "/",
+    disabled: false,
+  },
+  {
+    name: "Dashboards",
+    link: "/dashboards",
+    disabled: false,
+  },
+  {
+    name: year,
+    disabled: true,
+  },
+];
 ---
 
-<MainLayout title="Project Activity Dashboard 2022">
+<MainLayout title="Project Activity Dashboard 2022" crumbs={items}>
   <div class="main-wrap">
     <div class="content-wrap" id="content-wrap">
       <div class="side">
@@ -37,52 +54,50 @@ const { year = "" } = Astro.props;
 
 <style>
   .main-wrap {
-    background-color: var(--surface4);
+    background-color: var(--surface);
   }
   .content-wrap {
     display: grid;
     grid-template: "side" "main" / 1fr;
     position: relative;
-    background-color: var(--surface1);
+    background-color: var(--surface);
   }
 
   .side {
     grid-area: side;
-    padding-block: var(--size-4);
-    background-color: var(--surface4);
-    box-shadow: var(--shadow-2);
+    padding-block: 1.25rem;
+    background-color: var(--surface-container);
     clip-path: inset(0px 0px -15px 0px);
     display: none;
-    padding-block-start: var(--size-8);
-    padding-block-end: var(--size-4);
+    padding-block-start: 3rem;
+    padding-block-end: 1.25rem);
     justify-content: center;
     align-content: start;
   }
 
   .options {
     grid-area: side;
-    background-color: var(--surface4);
-    box-shadow: var(--shadow-2);
+    background-color: var(--surface-container);
     display: grid;
-    padding-block-start: var(--size-4);
-    padding-block-end: var(--size-4);
+    padding-block-start: 1.25rem;
+    padding-block-end: 1.25rem;
     place-content: center;
-    font-size: var(--font-size-3);
+    font-size: var(--fs-sm);
     max-width: 100%;
   }
 
   .main {
     grid-area: main;
-    background-color: var(--surface1);
-    padding-block: var(--size-8);
-    padding-inline: var(--size-4);
+    background-color: var(--surface);
+    padding-block: 3rem;
+    padding-inline: 1.25rem;
     display: grid;
     grid-template:
       "types"
       "locations" 400px
       "cards"
       "trends" / 1fr;
-    gap: var(--size-4);
+    gap: 1.25rem;
   }
 
   @media (min-width: 1200px) {
@@ -96,20 +111,21 @@ const { year = "" } = Astro.props;
       z-index: unset;
       width: 100%;
       display: grid;
-      padding-inline: var(--size-4);
-      padding-block-start: var(--size-12);
-      padding-block-end: var(--size-8);
+      padding-inline: 1.25rem;
+      padding-block-start: 10rem;
+      padding-block-end: 3rem;
+      border-radius: 0 1rem 0 0;
     }
     .content-wrap {
       display: grid;
       grid-template: "side main" / 1fr 5fr;
       position: relative;
-      background-color: var(--surface1);
-      max-height: 100vh;
+      background-color: var(--surface);
+      max-height: 100svh;
     }
 
     .main {
-      max-height: 100vh;
+      max-height: 100svh;
       overflow-y: auto;
       grid-template:
         "types locations" 1fr
@@ -120,18 +136,16 @@ const { year = "" } = Astro.props;
 
   @media (min-width: 1600px) {
     .main {
-      padding-inline-end: var(--size-15);
+      padding-inline-end: 30rem;
     }
   }
 
   .section {
-    border-radius: var(--radius-3);
+    border-radius: 1rem;
   }
 
   .types {
     grid-area: types;
-    background-color: var(--surface6);
-    box-shadow: var(--shadow-1);
   }
 
   @media (min-width: 1200px) {
@@ -142,14 +156,10 @@ const { year = "" } = Astro.props;
 
   .trends {
     grid-area: trends;
-    background-color: var(--surface2);
-    box-shadow: var(--shadow-1);
   }
 
   .cards {
     grid-area: cards;
-    background-color: var(--surface5);
-    box-shadow: var(--shadow-1);
   }
 
   .locations {

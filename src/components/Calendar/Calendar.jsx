@@ -51,7 +51,7 @@ function Calendar({ year }) {
     <div class="calendar">
       <ul class="calendar__list">
         <div class="calendar__icon" onClick={() => handleClick("year")}>
-          <CalendarIcon width={36} height={36} />
+          <CalendarIcon width={36} height={36} fill="var(--on-primary-container)" />
           <span class="tooltip">Unselect month</span>
         </div>
         <div class="calendar__title">

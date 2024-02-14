@@ -1,27 +1,30 @@
 .container {
     width: 100%;
     display: grid;
-    padding-inline: var(--size-4);
-    padding-block: var(--size-4);
-    gap: var(--size-4);
+    padding-inline: 1.25rem;
+    padding-block: 1.25rem;
+    gap: 1.25rem;
+    background-color: var(--surface-container);
+    color: var(--on-surface);
+    border-radius: 1rem;
 }
 
 .container__title>h2 {
-    font-size: var(--font-size-4);
+    font-size: var(--fs-md);
     padding-bottom: 1rem;
 }
 
 @media (min-width: 1200px) {}
 
 .container__title>p {
-    max-width: var(--size-content-2);
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-6);
+    max-width: 25ch;
+    font-size: var(--fs-xs);
+    font-weight: 600;
 }
 
 @media (min-width: 1200px) {
     .container__title>p {
-        max-width: var(--size-content-1);
+        max-width: 20ch;
     }
 }
 
@@ -30,21 +33,16 @@
     text-transform: capitalize;
 }
 
+.governorate,
 .gender {
-    background-color: var(--surface3);
-    padding-block-end: var(--size-2);
-    padding-inline: var(--size-8);
-    border-radius: var(--radius-3);
-    margin-bottom: var(--size-3);
-    box-shadow: var(--shadow-3);
+    background-color: var(--surface-container-highest);
+    padding-block-end: 0.5rem;
+    padding-inline: 3rem;
+    border-radius: 1rem;
 }
 
-.governorate {
-    background-color: var(--surface3);
-    padding-block-end: var(--size-2);
-    padding-inline: var(--size-8);
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-3);
+.gender {
+    margin-bottom: 1rem;
 }
 
 .container__cards {
@@ -56,7 +54,7 @@
     .container {
         display: grid;
         place-content: center;
-        padding-inline: var(--size-4);
+        padding-inline: 1.25rem;
     }
 
     .container__cards {
@@ -75,9 +73,9 @@
         grid-template-columns: 1fr 3fr;
         align-content: start;
         justify-content: start;
-        padding-inline: var(--size-8);
-        padding-block: var(--size-4);
-        gap: var(--size-4);
+        padding-inline: 3rem;
+        padding-block: 1.25rem;
+        gap: 1.25rem;
     }
 }
 

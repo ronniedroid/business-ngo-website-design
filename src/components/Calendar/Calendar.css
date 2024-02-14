@@ -13,13 +13,13 @@
   place-items: center;
   place-content: center;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--size-2);
+  gap: 0.5rem;
   background-color: transparent;
   padding-inline-start: 0;
-  padding-inline-end: var(--size-4);
-  padding-block-end: var(--size-4);
-  padding-block-start: var(--size-6);
-  border-radius: var(--radius-3);
+  padding-inline-end: 1.25rem;
+  padding-block-end: 1.25rem;
+  padding-block-start: 1.75rem;
+  border-radius: 1rem;
   position: relative;
 }
 
@@ -27,26 +27,25 @@
   display: grid;
   place-items: center;
   place-content: center;
-  background-color: var(--brand);
-  padding: var(--size-2);
-  color: var(--brand);
-  border-radius: var(--radius-2);
+  background-color: var(--primary-container);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   position: absolute;
   top: -1.2em;
   left: 0.8em;
   width: 36px;
   height: 36px;
-  box-shadow: var(--shadow-2);
   cursor: pointer;
+  border: 1px solid var(--outline-variant);
 }
 
 .calendar__icon .tooltip {
   visibility: hidden;
-  background-color: var(--surface1);
-  color: var(--text1);
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface);
   text-align: center;
-  padding-inline: var(--size-2);
-  border-radius: var(--radius-2);
+  padding-inline: 0.5rem;
+  border-radius: 0.5rem;
   /* Position the tooltip text - see examples below! */
   position: absolute;
   right: -9rem;
@@ -70,8 +69,8 @@
 }
 
 .calendar__title>p {
-  font-size: var(--font-size-0);
-  font-weight: var(--font-weight-6);
+  font-size: var(--fs-sm);
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -81,37 +80,30 @@
 }
 
 .calendar__item>button {
-  color: var(--text1);
-  padding-block: var(--size-1);
-  padding-inline: var(--size-2);
+  color: var(--on-surface);
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
   background-color: transparent;
   width: 100%;
-  font-size: var(--font-size-0);
-  font-weight: var(--font-weight-6);
+  font-size: var(--fs-xs);
+  font-weight: 600;
   display: grid;
-  border: var(--border-size-1) solid var(--text1);
-  border-radius: var(--radius-2);
+  border: 1px solid var(--surface-container-highest);
+  border-radius: 0.5rem;
 }
 
 .calendar__item>button:disabled {
-  color: var(--gray-5);
+  color: var(--neutral25);
   cursor: not-allowed;
 }
 
+.calendar__item-selected>button,
 .calendar__item:hover>button {
-  background-color: var(--brand);
-  color: var(--gray-0);
-  border-radius: var(--radius-2);
-  box-shadow: var(--shadow-2);
-}
-
-.calendar__item-selected>button {
-  background-color: var(--brand);
-  color: var(--gray-0);
-  border-radius: var(--radius-2);
-  box-shadow: var(--shadow-2);
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface-container);
+  border-radius: 0.5rem;
 }
 
 .calendar__item:hover>button {
-  color: var(--gray-0);
+  color: var(--on-surface);
 }

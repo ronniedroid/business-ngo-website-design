@@ -31,8 +31,8 @@ const Districts = () => {
       enabled: true,
       offsetY: -30,
       style: {
-        colors: ["var(--text1)"],
-        fontSize: "var(--font-size-1)",
+        colors: ["var(--on-surface)"],
+        fontSize: "var(--fs-xs)",
       },
       formatter(val, opts) {
         return new Intl.NumberFormat("en", { notation: "compact" }).format(
@@ -40,7 +40,7 @@ const Districts = () => {
         );
       },
     },
-    colors: ["var(--text1)"],
+    colors: ["var(--on-surface)"],
     xaxis: {
       categories: $currentCluster.districts
         ? $currentCluster.districts.map((item) => item.name)
@@ -48,8 +48,8 @@ const Districts = () => {
       labels: {
         rotate: -20,
         style: {
-          colors: "var(--text1)",
-          fontSize: "var(--font-size-1)",
+          colors: "var(--on-surface)",
+          fontSize: "var(--fs-xs)",
         },
       },
     },
@@ -59,7 +59,7 @@ const Districts = () => {
     },
     grid: {
       show: true,
-      borderColor: "var(--text1)",
+      borderColor: "var(--on-surface)",
       strokeDashArray: 2,
     },
     tooltip: {
