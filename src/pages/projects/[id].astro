@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon";
 import "../../styles/style.css";
-import ToggleDark from "../../components/ToggleDark.astro";
 import harikarLogo from "../../assets/images/harikar-logo.svg";
 
 export function getStaticPaths() {
@@ -15,7 +14,7 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 
 const request = await fetch(
-  `https://harikar-reports-api.cyclic.app/v3/projects/${id}`
+  `https://harikar-reports-api.cyclic.app/v3/projects/${id}`,
 );
 const project = await request.json();
 
@@ -43,9 +42,6 @@ function formatDate(date) {
     <div class="main-wrap">
       <div class="content-wrap" id="content-wrap">
         <div class="pane info">
-          <div class="theme">
-            <ToggleDark />
-          </div>
           <a href="/" class="logo">
             <img src={harikarLogo} alt="Harikar-logo" width="40" height="70" />
           </a>
@@ -309,13 +305,6 @@ function formatDate(date) {
 
       .info > * {
         color: var(--text2);
-      }
-
-      .info .theme {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: var(--size-4);
       }
 
       .info .logo {
