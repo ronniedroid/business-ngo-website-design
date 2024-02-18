@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useStore } from "@nanostores/preact";
 import { useRef, useEffect } from "preact/hooks";
 import { fetchCurrentJobs, currentJobs } from "@stores/store";
-import "./modal-styles.css";
+import "./menus-styles.css";
 
 function AnnouncementsMenu() {
 

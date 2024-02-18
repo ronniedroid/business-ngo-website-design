@@ -51,6 +51,7 @@
 
 .content-news {
     left: -2em;
+    white-space: nowrap;
 }
 
 .header-details>.content>ul {
