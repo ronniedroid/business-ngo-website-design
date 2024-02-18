@@ -3,11 +3,6 @@ import ArticleCard from "./cards/ArticleCard.astro";
 import Title from "./Title.astro";
 import MediaScroller from "./MediaScroller.astro";
 
-const articles = await Astro.glob("../pages/events-and-stories/*.mdx");
-const cleanedArticles = await articles.map((article) => {
-  return { url: article.url, ...article.frontmatter };
-});
-
 const annualReportLink =
   "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/annual-reports/harikar-annual-report-";
 
@@ -71,7 +66,7 @@ const reports = [
   },
 ];
 function reportsAndArticles() {
-  const posts = [...cleanedArticles, ...reports]
+  const posts = [...reports]
     .sort(function compare(a, b) {
       const dateA = a.createdAt;
       const dateB = b.createdAt;

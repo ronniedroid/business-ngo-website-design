@@ -371,6 +371,11 @@ html {
   accent-color: var(--tertiary);
 }
 
+body {
+  font-family: Montserrat, system-ui, sans-serif;
+  font-weight: normal;
+}
+
 h1,
 h2,
 h3,

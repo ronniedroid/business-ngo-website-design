@@ -53,72 +53,65 @@ const items = [
     display: grid;
     justify-items: center;
     align-content: start;
-    gap: var(--size-8);
-    padding-block: var(--size-10);
-    padding-inline: var(--size-4);
+    gap: 3rem;
+    padding-block: 5rem;
+    padding-inline: 1.25rem;
     overflow-x: hidden;
   }
 
   p {
-    max-width: var(--size-content-2);
+    max-width: 60ch;
     text-align: center;
   }
 
   form {
     display: grid;
-    gap: var(--size-4);
+    gap: 1.25rem;
   }
 
   label {
-    color: var(--text1);
-    font-weight: var(--font-weight-6);
+    color: var(--on-surface);
+    font-weight: 600;
   }
 
- input {
-   max-width: 100%;
-   box-shadow: var(--shadow-2);
-   border: var(--border-size-1) solid var(--text2);
-   padding: var(--size-2);
-   color: var(--text2);
-   background: var(--surface3);
-   border-radius: var(--radius-2);
- }
+  textarea,
+  input {
+    width: 100%;
+    border: 1px solid var(--on-surface);
+    padding: 0.5rem;
+    color: var(--on-surface);
+    background: var(--surface-container-high);
+    border-radius: 0.5rem;
+  }
 
- textarea {
-   width: 100%;
-   box-shadow: var(--shadow-2);
-   border: var(--border-size-1) solid var(--text2);
-   padding: var(--size-2);
-   color: var(--text2);
-   background: var(--surface3);
-   border-radius: var(--radius-2);
- }
+  textarea {
+    max-width: 100%;
+  }
 
   h2 {
-    color: var(--brand);
+    color: var(--primary);
   }
 
- .button {
-   font-size: var(--font-size-0);
-   padding-inline: var(--size-fluid-2);
-   padding-block: var(--size-fluid-1);
-   border-radius: var(--radius-2);
-   box-shadow: var(--shadow-2);
-   background: var(--brand);
-   color: var(--gray-1);
-   font-weight: var(--font-weight-6);
-   text-transform: uppercase;
-   display: flex;
-   align-items: center;
-   gap: var(--size-3);
-   transition: all 150ms var(--ease-out-1);
-   max-width: max-content;
-   justify-self: center;
- }
+  .button {
+    text-decoration: none;
+    font-size: var(--fs-xs);
+    padding-inline: 1rem;
+    padding-block: 0.7rem;
+    border-radius: 0.5rem;
+    background: var(--tertiary-container);
+    color: var(--on-tertiary-container);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    transition: transform 150ms ease-out;
+    max-width: max-content;
+    justify-self: center;
+  }
 
   .button:hover {
     transform: scale(1.1);
-    box-shadow: var(--shadow-2);
   }
 
   [astro-icon] {

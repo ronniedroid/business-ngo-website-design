@@ -41,44 +41,46 @@ const items = [
 
 <style>
   .main-wrap {
-    padding-block-start: var(--size-8);
-    padding-block-end: var(--size-12);
-    padding-inline: var(--size-4);
+    padding-block-start: 3rem;
+    padding-block-end: 10rem;
+    padding-inline: 1.25rem;
     display: grid;
-    gap: var(--size-8);
+    gap: 3rem;
     place-content: center;
   }
 
   .content-wrap {
     display: flex;
     flex-direction: column;
-    gap: var(--size-4);
+    gap: 1.25rem;
   }
-
- .cert {
-   box-shadow: var(--shadow-2);
- }
 
   .cert p {
     text-align: center;
-    font-size: var(--size-3);
-    padding-block: var(--size-2);
-    background-color: var(--surface3);
-    color: var(--text2);
-    font-weight: var(--font-weight-6);
+    font-size: 1rem;
+    padding-block: 0.5rem;
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    font-weight: 600;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .cert > img {
+    max-width: 100%;
+    height: auto;
   }
 
   @media (min-width: 950px) {
     .main-wrap {
-      padding-inline: var(--size-12);
-      gap: var(--size-10);
+      padding-inline: 10rem;
+      gap: 5rem;
     }
     .content-wrap {
       flex-direction: row;
     }
     .breadcrumbs {
-      margin-left: var(--size-8);
-      margin-top: var(--size-3);
+      margin-left: 3rem;
+      margin-top: 1rem;
     }
   }
 </style>
