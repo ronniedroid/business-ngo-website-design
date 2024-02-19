@@ -354,6 +354,29 @@ html {
   --surface-container-highest: var(--surface-container-highest-dark);
 }
 
+/* makes sizing simpler */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+/* improves punctuation in supported browsers */
+html {
+  color-scheme: dark light;
+  hanging-punctuation: first last;
+  scroll-padding-top: 6rem;
+}
+
 html {
   --protection: var(--blue-8);
   --gbv: var(--orange-7);
@@ -374,6 +397,12 @@ html {
 body {
   font-family: Montserrat, system-ui, sans-serif;
   font-weight: normal;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 h1,
