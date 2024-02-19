@@ -2,12 +2,12 @@
 
 .expertise-main-wrap {
     padding-block: 3rem;
-    padding-inline: 1.25rem;
+    padding-inline: 1rem;
     display: grid;
     grid-template:
         "title" 0.2fr
         "content" 2fr / 1fr;
-    place-items: center;
+    place-items: start;
     position: relative;
     gap: 1.25rem;
 }
@@ -75,7 +75,7 @@
     font-size: var(--fs-sm);
     cursor: pointer;
     min-width: min-content;
-    flex: 0 1 max-content;
+    /* flex: 0 1 max-content; */
 }
 
 .expertise-item:hover {
