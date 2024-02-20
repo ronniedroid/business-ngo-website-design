@@ -1,7 +1,7 @@
 .ben-cards {
     display: grid;
     gap: 3rem;
-    width: 100%;
+    max-width: min-content;
     justify-content: center;
     align-items: end;
     padding-block: 1.75rem;
@@ -17,15 +17,9 @@
 }
 
 .ben-cards__title>p {
-    max-width: 25ch;
+    max-width: 65ch;
     font-size: var(--fs-xs);
     font-weight: 600;
-}
-
-@media (min-width: 1200px) {
-    .ben-cards__title>p {
-        max-width: 20ch;
-    }
 }
 
 .ben-cards__cards {
@@ -59,15 +53,15 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
     .ben-cards {
         display: flex;
-        gap: 3rem;
-        width: 100%;
+        gap: 1rem;
+        max-width: 100%;
         justify-content: start;
         align-items: end;
         padding-block: 3rem;
-        padding-inline-start: 3rem;
+        margin-inline-start: 2rem;
     }
 
     .ben-cards__title>h2 {
@@ -75,16 +69,9 @@
         padding-bottom: 1rem;
     }
 
-    .ben-cards__title>p {
-        max-width: 20ch;
-        min-width: 20ch;
-        font-size: var(--fs-xs);
-        font-weight: 600;
-    }
-
     .ben-cards__cards {
         display: flex;
-        gap: 1.25rem;
+        gap: 1rem;
     }
 }
 

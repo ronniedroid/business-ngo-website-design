@@ -1,6 +1,3 @@
-@import "open-props/style";
-@import "open-props/normalize";
-
 .clusters {
   display: grid;
   align-content: start;
@@ -27,28 +24,11 @@
   .clusters {
     margin-top: 3rem;
   }
-
-  .clusters__list {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 @media (min-width: 1200px) {
   .clusters__list {
-    list-style: none;
-    height: auto;
     max-width: 10em;
-    display: grid;
-    grid-template-columns: unset;
-    place-items: center;
-    place-content: center;
-    gap: 0.5rem;
-    background-color: transparent;
-    padding-inline: 0.5rem;
-    padding-block-end: 0.5rem;
-    padding-block-start: 1.75rem;
-    border-radius: 1rem;
-    position: relative;
   }
 }
 

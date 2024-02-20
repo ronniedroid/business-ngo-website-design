@@ -375,15 +375,8 @@ html {
 }
 
 html {
-  --protection: var(--blue-8);
-  --gbv: var(--orange-7);
-  --cp: var(--red-8);
-  --health: var(--green-8);
-  --livelihood: var(--lime-7);
-  --wash: var(--blue-4);
-  --general: var(--brand);
-  --male: var(--blue-6);
-  --female: var(--purple-6);
+  --male: #4c4cff;
+  --female: #a64ca6;
   --camp: #9aa38c;
   --urban: #a26549;
   background-color: var(--surface);

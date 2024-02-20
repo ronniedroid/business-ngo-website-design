@@ -32,7 +32,7 @@ function Clusters(props) {
     <div class="clusters">
       <ul class="clusters__list">
         <div class="clusters__icon">
-          <ClusterIcon width={36} height={36} fill="var(--on-primary-container)" />
+          <ClusterIcon width={24} height={24} fill="var(--on-primary-container)" />
         </div>
         <div class="cluster__title">
           <p>list of clusters</p>

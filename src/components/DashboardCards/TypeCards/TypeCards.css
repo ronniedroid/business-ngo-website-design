@@ -1,10 +1,11 @@
 .type-cards {
-  width: 100%;
+  margin: auto;
+  max-width: min-content;
   display: grid;
   align-content: start;
   padding-inline: 1.75rem;
   padding-block: 1.25rem;
-  gap: var(--size-4);
+  gap: 1rem;
   background-color: var(--primary-container);
   border-radius: 1rem;
 }
@@ -15,16 +16,9 @@
 }
 
 .type-cards__title>p {
-  max-width: 25ch;
+  max-width: 65ch;
   font-size: var(--fs-xs);
   font-weight: 600;
-}
-
-
-@media (min-width: 1200px) {
-  .type-cards__title>p {
-    max-width: 20ch;
-  }
 }
 
 .type-cards__cards {

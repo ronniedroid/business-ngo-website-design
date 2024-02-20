@@ -17,7 +17,7 @@ const items = [
   {
     name: "Dashboards",
     link: "/dashboards",
-    disabled: false,
+    disabled: true,
   },
   {
     name: year,
@@ -27,116 +27,147 @@ const items = [
 ---
 
 <MainLayout title="Project Activity Dashboard 2022" crumbs={items}>
-  <div class="main-wrap">
-    <div class="content-wrap" id="content-wrap">
-      <div class="side">
-        <Calendar client:only="preact" year={year} />
-        <Clusters client:load year={year} />
+  <div class="content-wrap" id="content-wrap">
+    <p class="hint">
+      Please view this page on a large screen for best viewing experiense
+    </p>
+    <div class="side">
+      <Calendar client:only="preact" year={year} />
+      <Clusters client:load year={year} />
+    </div>
+    <div class="options">
+      <details>
+        <summary>Dashboard options</summary>
+        <div class="options-content">
+          <Calendar client:only="preact" year={year} />
+          <Clusters client:load year={year} />
+        </div>
+      </details>
+    </div>
+    <div class="main">
+      <div class="types section">
+        <TypeCards client:only="preact" />
       </div>
-      <div class="main">
-        <div class="types section">
-          <TypeCards client:only="preact" />
-        </div>
-        <div class="locations section">
-          <Districts client:only="preact" />
-        </div>
-        <div class="cards section">
-          <BenCards client:only="preact" />
-        </div>
-        <div class="trends section">
-          <TrendsOrActivities client:only="preact" />
-        </div>
-        <div class="activities"></div>
+      <div class="locations section">
+        <Districts client:only="preact" />
       </div>
+      <div class="cards section">
+        <BenCards client:only="preact" />
+      </div>
+      <div class="trends section">
+        <TrendsOrActivities client:only="preact" />
+      </div>
+      <div class="activities"></div>
     </div>
   </div>
 </MainLayout>
 
 <style>
-  .main-wrap {
-    background-color: var(--surface);
-  }
   .content-wrap {
     display: grid;
-    grid-template: "side" "main" / 1fr;
-    position: relative;
-    background-color: var(--surface);
   }
 
   .side {
-    grid-area: side;
-    padding-block: 1.25rem;
-    background-color: var(--surface-container);
-    clip-path: inset(0px 0px -15px 0px);
     display: none;
-    padding-block-start: 3rem;
-    padding-block-end: 1.25rem);
-    justify-content: center;
-    align-content: start;
-  }
-
-  .options {
-    grid-area: side;
-    background-color: var(--surface-container);
-    display: grid;
-    padding-block-start: 1.25rem;
-    padding-block-end: 1.25rem;
-    place-content: center;
-    font-size: var(--fs-sm);
-    max-width: 100%;
   }
 
   .main {
-    grid-area: main;
-    background-color: var(--surface);
-    padding-block: 3rem;
-    padding-inline: 1.25rem;
+    display: none;
+  }
+
+  .hint {
     display: grid;
-    grid-template:
-      "types"
-      "locations" 400px
-      "cards"
-      "trends" / 1fr;
-    gap: 1.25rem;
+    place-content: center;
+    height: 50svh;
+  }
+
+  @media (min-width: 700px) {
+    .content-wrap {
+      display: grid;
+      grid-template: "options" "main" / 1fr;
+    }
+
+    .options {
+      grid-area: options;
+      padding-inline: 2rem;
+      padding-block: 1rem;
+      background-color: var(--surface-container);
+      display: grid;
+      justify-content: center;
+    }
+
+    .options summary {
+      max-width: max-content;
+    }
+
+    .options-content {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
+      max-width: max-content;
+    }
+
+    .main {
+      grid-area: main;
+      background-color: var(--surface);
+      padding-block: 3rem;
+      padding-inline: 2rem;
+      display: grid;
+      grid-template:
+        "types locations"
+        "cards cards"
+        "trends trends" / 1fr 5fr;
+      gap: 1.25rem;
+    }
+
+    .hint {
+      display: none;
+    }
+
+    .cards {
+      justify-self: center;
+    }
+
+    .trends {
+      justify-self: center;
+    }
   }
 
   @media (min-width: 1200px) {
-    .options {
-      display: none;
-    }
-    .side {
-      clip-path: inset(0px -15px 0 0px);
-      position: unset;
-      top: unset;
-      z-index: unset;
-      width: 100%;
-      display: grid;
-      padding-inline: 1.25rem;
-      padding-block-start: 10rem;
-      padding-block-end: 3rem;
-      border-radius: 0 1rem 0 0;
-    }
     .content-wrap {
       display: grid;
       grid-template: "side main" / 1fr 5fr;
       position: relative;
       background-color: var(--surface);
-      max-height: 100svh;
+    }
+
+    .side {
+      position: sticky;
+      z-index: unset;
+      top: 10rem;
+      width: 20rem;
+      height: max-content;
+      display: grid;
+      align-items: start;
+      padding-inline: 1.25rem;
+      padding-block: 5rem;
+      border-radius: 0 1rem 1rem 0;
+      grid-area: side;
+      padding-block: 1.25rem;
+      background-color: var(--surface-container);
+      padding-block-start: 3rem;
+      padding-block-end: 1.25rem;
+      justify-content: center;
+      align-content: start;
     }
 
     .main {
-      max-height: 100svh;
-      overflow-y: auto;
       grid-template:
-        "types locations" 1fr
-        "cards cards" 1fr
-        "trends trends" 1fr / 1fr 5fr;
-    }
-  }
-
-  @media (min-width: 1600px) {
-    .main {
-      padding-inline-end: 30rem;
+        "types locations"
+        "cards cards"
+        "trends trends" / 1fr 3fr;
+      max-width: 62rem;
+      justify-items: unset;
     }
   }
 
