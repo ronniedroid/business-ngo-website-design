@@ -15,7 +15,7 @@ function AnnouncementsMenu() {
 
   return (
     <>
-      <details class="header-details">
+      <details class="header-details news-details">
         <summary class="news-summary">
           <p>News</p> <p class="number">{numberOfJobs}</p>
         </summary>

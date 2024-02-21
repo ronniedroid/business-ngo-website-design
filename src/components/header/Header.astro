@@ -8,7 +8,7 @@ import NavItems from "./nav-items.astro";
 
 <header>
   <nav class="mobile-nav">
-    <details>
+    <details class="menu-detail">
       <summary>
         <p class="menu" aria-label="toggle navigation drawer">
           <svg width="30" height="30" viewBox="0 0 100 100">
@@ -41,6 +41,34 @@ import NavItems from "./nav-items.astro";
     <li><AnnouncementsMenu client:idle /></li>
   </ul>
 </header>
+
+<script>
+  // Fetch all the details element.
+  const details = document.querySelectorAll("details");
+
+  // Add the onclick listeners.
+  details.forEach((detail) => {
+    detail.addEventListener("toggle", () => {
+      if (detail.open) setTargetDetail(detail);
+    });
+  });
+
+  // Add the onclick listeners.
+  details.forEach((detail) => {
+    document.addEventListener("click", (e) => {
+      if (detail.open && !detail.contains(e.target)) detail.open = false;
+    });
+  });
+
+  // Close all the details that are not targetDetail.
+  function setTargetDetail(targetDetail) {
+    details.forEach((detail) => {
+      if (detail !== targetDetail) {
+        detail.open = false;
+      }
+    });
+  }
+</script>
 
 <style>
   header {

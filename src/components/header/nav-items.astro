@@ -31,6 +31,17 @@ const { classp } = Astro.props;
     }
 </ul>
 
+<script>
+    const navItems = document.querySelectorAll("a");
+
+    // Add the onclick listeners.
+    navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            console.log((item.parentNode.parentNode.parentNode.open = false));
+        });
+    });
+</script>
+
 <style>
     .main-nav-items {
         display: flex;
