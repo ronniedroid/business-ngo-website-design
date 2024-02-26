@@ -1,6 +1,11 @@
 ---
 import Title from "@components/Title.astro";
-import ExpertiseList from "@components/Expertise/Expertise-list";
+import Experty from "@components/Expertise/Experty.astro";
+
+import "./expertise-styles.css";
+import { getCollection, getEntry } from "astro:content";
+
+const expertise = await getCollection("expertise");
 ---
 
 <div class="expertise-main-wrap">
@@ -12,7 +17,9 @@ import ExpertiseList from "@components/Expertise/Expertise-list";
       We have expertise in a wide range of humanitarian and technical
       departments.
     </p>
-    <ExpertiseList client:only="preact" />
+    <div class="expertise-container">
+      {expertise.map((item) => <Experty experty={item} />)}
+    </div>
   </div>
 </div>
 

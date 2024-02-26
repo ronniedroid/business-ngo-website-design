@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import "./expertise-styles.css";
+import type { CollectionEntry } from "astro:content";
+
+const expertiseCollection = await getCollection("expertise");
+
+const expertiseIDs = expertiseCollection.map((item) => item.slug);
+
+type Props = {
+  experty: CollectionEntry<"expertise">;
+};
+
+const { experty } = Astro.props;
+const { Content } = await experty.render();
+---
+
+<div>
+  <dialog id={`dialog-${experty.slug}`} class="expertise-dialog">
+    <h2>{experty.data.title}</h2>
+    <div class="content">
+      <Content />
+    </div>
+    <button id={`close-${experty.slug}`}> Close </button>
+  </dialog>
+  <button class="expertise-item" id={`open-${experty.slug}`}
+    >{experty.data.title}</button
+  >
+</div>
+
+<style>
+  @import "./expertise-styles.css";
+</style>
+
+<script define:vars={{ expertiseIDs }}>
+  const expertise = expertiseIDs.map((id) => {
+    return {
+      dialog: document.getElementById(`dialog-${id}`),
+      close: document.getElementById(`close-${id}`),
+      open: document.getElementById(`open-${id}`),
+    };
+  });
+
+  expertise.forEach((experty) => {
+    experty.open?.addEventListener("click", () => {
+      experty.dialog?.showModal();
+    });
+    experty.close?.addEventListener("click", () => {
+      experty.dialog?.close();
+    });
+  });
+</script>
