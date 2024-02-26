@@ -13,7 +13,7 @@ function JobsList() {
   const $currentJobs = useStore(currentJobs);
 
   return (
-    <div class="jobs-content-wrap">
+    <div class="announcement-content-wrap">
       {$currentJobs.length > 0 ? (
         $currentJobs.map((job) => (
           <JobsCard

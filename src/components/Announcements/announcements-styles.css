@@ -4,7 +4,7 @@
   background-color: var(--surface-container-high);
   border-radius: 1rem;
   max-height: max-content;
-  max-width: 75ch;
+  max-width: 65ch;
 }
 
 .card .title {
@@ -113,10 +113,11 @@
 
 .card .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
   align-self: end;
   gap: 1rem;
   padding: 0;
+  padding-inline: 2rem;
   margin: 0;
   border-radius: 0 0 1rem 1rem;
   min-height: 4rem;
@@ -130,7 +131,7 @@
   cursor: pointer;
   color: var(--on-tertiary-container);
   background: var(--tertiary-container);
-  border: 1px solid var(--on-tertiary-container);
+  border: 1px solid var(--outline);
   border-radius: 0.5rem;
   transition: transform 150ms ease-out;
   display: grid;
@@ -145,18 +146,16 @@
   cursor: not-allowed;
   background-color: var(--secondary-container);
   color: var(--on-secondary-container);
-  border: 1px solid var(--on-secondary-container);
 }
 
 .card .button:disabled:hover {
   transform: none;
 }
 
-.jobs-content-wrap {
+.announcement-content-wrap {
   display: grid;
   justify-items: center;
   align-items: start;
-  masonry-auto-flow: next;
   gap: 2rem;
 }
 
