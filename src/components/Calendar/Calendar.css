@@ -93,6 +93,7 @@
   display: grid;
   border: 1px solid var(--surface-container-highest);
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .calendar__item>button:disabled {

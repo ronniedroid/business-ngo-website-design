@@ -1,5 +1,5 @@
 ---
-title: wash
+title: WASH
 ---
 
 Harikar has successfully implemented six Water, Sanitation, and Hygiene (WASH) projects since 2017, with a primary focus on internally displaced persons (IDPs), returnees, and host communities. These projects have been dedicated to enhancing access to safe water and sanitation facilities, promoting hygiene practices, and reinforcing water conservation efforts.
