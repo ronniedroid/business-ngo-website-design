@@ -4,7 +4,7 @@
   background-color: var(--surface-container-high);
   border-radius: 1rem;
   max-height: max-content;
-  max-width: 35ch;
+  max-width: 75ch;
 }
 
 .card .title {
@@ -12,23 +12,103 @@
   font-weight: 600;
   text-align: center;
   border-radius: 1rem 1rem 0 0;
-  color: var(--on-surface);
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
   height: 4rem;
   display: grid;
   place-content: center;
 }
 
 .card .content {
-  padding-block: 1rem;
-  padding-inline: 1.25rem;
+  padding-block: 2rem;
+  padding-inline: 2rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
+  column-gap: 2rem;
+  grid-template-areas: "tpname pname" "tvac vac" "tduty duty" "tresidence residence" "tgender gender" "tcontract contract" "tstarting starting" "tdeadline deadline";
+  grid-template-columns: 1fr 2fr;
+}
+
+.content-title {
+  font-weight: 600;
+}
+
+.tpname {
+  grid-area: tpname;
+}
+
+.pname {
+  grid-area: pname;
+  align-self: end;
+}
+
+.tvac {
+  grid-area: tvac;
+}
+
+.vac {
+  grid-area: vac;
+  align-self: end;
+}
+
+.tduty {
+  grid-area: tduty;
+}
+
+.duty {
+  grid-area: duty;
+  align-self: end;
+}
+
+.tresidence {
+  grid-area: tresidence;
+}
+
+.residence {
+  grid-area: residence;
+  align-self: end;
+}
+
+.tgender {
+  grid-area: tgender;
+}
+
+.gender {
+  grid-area: gender;
+  align-self: end;
+}
+
+.tcontract {
+  grid-area: tcontract;
+}
+
+.contract {
+  grid-area: contract;
+  align-self: end;
+}
+
+.tstarting {
+  grid-area: tstarting
+}
+
+.starting {
+  grid-area: starting;
+  align-self: end;
+}
+
+.tdeadline {
+  grid-area: tdeadline;
+}
+
+.deadline {
+  grid-area: deadline;
+  align-self: end;
 }
 
 .card .dates {
   align-self: end;
   padding-block: 0.5rem;
-  padding-inline: 1rem;
+  padding-inline: 2rem;
 }
 
 .card .buttons {
@@ -44,7 +124,7 @@
 }
 
 .card .button {
-  padding-block: 0.5rem;
+  padding-block: 0.7rem;
   padding-inline: 1rem;
   margin-block: 1rem;
   cursor: pointer;
@@ -53,6 +133,8 @@
   border: 1px solid var(--on-tertiary-container);
   border-radius: 0.5rem;
   transition: transform 150ms ease-out;
+  display: grid;
+  place-content: center;
 }
 
 .card .button:hover {
@@ -72,11 +154,10 @@
 
 .jobs-content-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  grid-template-rows: masonry;
+  justify-items: center;
   align-items: start;
   masonry-auto-flow: next;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .card a {
