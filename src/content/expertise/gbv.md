@@ -1,0 +1,9 @@
+---
+title: GBV
+---
+
+Harikar has implemented 18 Gender-Based Violence (GBV) projects since 2017, with a focus on Syrian and non-Syrian refugees, internally displaced individuals (IDPs), and vulnerable women and girls. These projects have aimed to reduce the risk of GBV, improve the quality of GBV response services, and strengthen the capacity of government and civil society institutions to prevent and respond to GBV.
+
+Harikar's GBV projects included a range of activities, such as providing case management, counseling, and psychosocial support structures for GBV survivors and their families, raising awareness on GBV issues, and promoting community engagement and mobilization to prevent and respond to GBV. They also offered vocational training and income-generating projects to empower women, men, boys, and girls economically and reduce their vulnerability to GBV. The projects strengthened the referral pathway for GBV survivors to ensure they had access to the services they needed, conducted safety audits and other GBV assessments to identify gaps, needs, and risks related to GBV, provided training on GBV prevention and response for various actors, including community members and leaders, and organized international events related to GBV.
+
+Harikar's GBV projects have made a significant impact on the lives of refugees, IDPs, and vulnerable women, men, boys and girls in need. By reducing the risk of GBV, improving the quality of GBV response services, and empowering women, men, boys and girls, Harikar NGO is helping to create a safer and more equitable society for all. Additionally, Harikar is a co-chair of the GBV working group in Duhok, and a member of the PSEA Iraq network and of the GBVIMS taskforce since 2017.
