@@ -24,7 +24,11 @@ if (!response.ok) {
       {
         projects.map((project) => (
           <div class="media-element">
-            <ProjectCard id={project.id} name={project.name} />
+            <ProjectCard
+              id={project.id}
+              name={project.name}
+              partners={project.partners}
+            />
           </div>
         ))
       }

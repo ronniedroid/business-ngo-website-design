@@ -4,26 +4,22 @@ const getImg = (id) => {
   return `https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp`;
 };
 
-const { id, name } = Astro.props;
+const { id, name, partners } = Astro.props;
 ---
 
 <a href={`/projects/${id}`}>
   <div class="project-card">
-    <div class="project-card__content">
-      <p>
-        {name}
-      </p>
-    </div>
-    <div class="project-card__img">
-      <Image
-        loading="lazy"
-        alt=""
-        src={getImg(id)}
-        width="208"
-        height="200"
-        format="webp"
-      />
-    </div>
+    <Image
+      loading="lazy"
+      alt=""
+      src={getImg(id)}
+      width="300"
+      height="300"
+      format="webp"
+    />
+    <h2>
+      {name}
+    </h2>
   </div>
 </a>
 
@@ -32,98 +28,41 @@ const { id, name } = Astro.props;
     text-decoration: none;
   }
   .project-card {
-    --border-color: var(--outline);
-    background-color: var(--surface-container);
+    --title-color: var(--on-surface);
+    --img-scale: 1.001;
+    position: relative;
     border-radius: 1rem;
+    background-color: var(--surface-container);
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    width: 300px;
+    height: 350px;
     display: grid;
-    grid-template-columns: 5rem 10rem 5rem;
-    min-height: 12rem;
-    isolation: isolate;
-    transition: all 1s linear;
-    animation-iteration-count: infinite;
-    border: 1px solid var(--outline-variant);
+    grid-template-rows: 1fr 1fr;
   }
 
-  .project-card__content,
-  .project-card__img {
-    grid-row: 1/2;
+  img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
   }
 
-  .project-card__content {
-    grid-column: 1/3;
+  h2 {
+    padding: 1rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--title-color);
     display: grid;
     place-content: center;
-    padding-inline: 0.25rem;
-    padding-block-end: 0.25rem;
-    gap: 0.5rem;
-    background-color: var(--surface-container);
-    border-radius: 1rem 0 0 1rem;
-  }
-
-  .project-card__content > p {
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    color: var(--on-surface);
     text-align: center;
   }
 
-  .project-card__img {
-    grid-column: 2/-1;
-    border-radius: 1rem;
-    border-left: none;
-    z-index: -1;
-  }
-
-  @media (min-width: 1200px) {
-    .project-card:hover > .project-card__img {
-      animation-name: start;
-      animation-duration: 600ms;
-      animation-fill-mode: forwards;
-    }
-
-    .project-card:not(:hover) > .project-card__img {
-      animation-name: end;
-      animation-duration: 500ms;
-      animation-fill-mode: forwards;
-    }
-  }
-
-  .project-card__img > img {
-    object-fit: cover;
-    width: 100%;
-    height: 200px;
-    border-radius: 0 1rem 1rem 0;
-  }
-
-  @keyframes start {
-    from {
-      transform: translate(0);
-    }
-    33% {
-      transform: translate(50%);
-    }
-    66% {
-      transform: rotate(100%);
-    }
-    to {
-      transform: translate(0);
-      z-index: 1;
-    }
-  }
-
-  @keyframes end {
-    from {
-      transform: translate(0);
-    }
-    33% {
-      transform: translate(50%);
-    }
-    66% {
-      transform: rotate(100%);
-    }
-    to {
-      transform: translate(0);
-      z-index: -1;
-    }
+  .project-card:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: var(--primary);
   }
 </style>
