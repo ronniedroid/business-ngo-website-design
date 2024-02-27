@@ -20,7 +20,9 @@ const { Content } = await experty.render();
     <div class="content">
       <Content />
     </div>
-    <button id={`close-${experty.slug}`}> Close </button>
+    <div class="buttons">
+      <button id={`close-${experty.slug}`}> Close </button>
+    </div>
   </dialog>
   <button class="expertise-item" id={`open-${experty.slug}`}
     >{experty.data.title}</button
@@ -74,7 +76,7 @@ const { Content } = await experty.render();
 
   .expertise-dialog[open] {
     display: grid;
-    grid-template-rows: 4rem 1fr 6rem;
+    grid-template-rows: 4rem 1fr 4rem;
     background: var(--surface);
     color: var(--on-surface);
     /* safari */
@@ -85,7 +87,6 @@ const { Content } = await experty.render();
     padding: 0;
     inset: 0;
     border-radius: 0.5rem;
-    max-height: 65ch;
     overflow: hidden;
   }
 
@@ -109,21 +110,26 @@ const { Content } = await experty.render();
     display: grid;
     gap: 1rem;
     font-size: var(--fs-sm);
+    max-height: min-content;
   }
 
-  .expertise-dialog > button {
+  .buttons {
+    display: grid;
+    align-items: center;
+    justify-items: end;
+    padding-inline: 1.25rem;
+  }
+
+  .buttons > button {
     font-weight: 600;
     color: var(--on-tertiary-container);
     background-color: var(--tertiary-container);
-    padding-block: 0.5rem;
     padding-inline: 1rem;
     font-size: var(--fs-sm);
     justify-self: end;
-    margin-inline: 2rem;
-    margin-block: 2rem;
     border: 1px solid var(--outline-variant);
     border-radius: 0.5rem;
-    display: grid;
-    place-content: center;
+    max-width: max-content;
+    height: 2rem;
   }
 </style>
