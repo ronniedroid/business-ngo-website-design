@@ -340,29 +340,18 @@ const budget = [
   .stats-modal[open] {
     display: grid;
     background: var(--surface);
-    color: inherit;
+    color: var(--on-surface);
     /* safari */
-    max-inline-size: 100%;
-    max-block-size: min(80vh, 100%);
+    max-inline-size: min(90vw, 60ch);
+    max-block-size: min(50vh, 100%);
+    max-block-size: min(50dvb, 100%);
     margin: auto;
     padding: 0;
     inset: 0;
     border-radius: 0.5rem;
-    z-index: 999999;
-    overflow: auto;
-    width: 100%;
-  }
-
-  @media (min-width: 750px) {
-    .stats-modal[open] {
-      max-inline-size: 70%;
-    }
-  }
-
-  @media (min-width: 1700px) {
-    .stats-modal[open] {
-      max-inline-size: 50%;
-    }
+    overflow: hidden;
+    max-height: 65ch;
+    min-width: 75%;
   }
 
   .stats-modal-title {
@@ -383,6 +372,8 @@ const budget = [
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height: 50ch;
+    overflow: scroll;
   }
 
   .stats-modal-close-btn {
