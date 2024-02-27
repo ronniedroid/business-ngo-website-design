@@ -1,6 +1,4 @@
 ---
-import harikarLogo from "@assets/images/harikar-logo.svg";
-import { Image } from "astro:assets";
 import DashboardMenu from "@components/Menus/DashboardMenu.astro";
 import AnnouncementsMenu from "@components/Menus/AnnouncementsMenu";
 import NavItems from "./nav-items.astro";
@@ -10,7 +8,7 @@ import NavItems from "./nav-items.astro";
   <nav class="mobile-nav">
     <details class="menu-detail">
       <summary>
-        <p class="menu" aria-label="toggle navigation drawer">
+        <p class="menu">
           <svg width="30" height="30" viewBox="0 0 100 100">
             <path
               class="line line1"
@@ -28,7 +26,12 @@ import NavItems from "./nav-items.astro";
     </details>
   </nav>
   <a href="/#home" class="logo">
-    <Image alt="Harikar NGO's logo" src={harikarLogo} width="40" height="60" />
+    <img
+      alt="Harikar NGO's logo"
+      src="/logos/harikar-logo.svg"
+      width="40"
+      height="60"
+    />
     <h1 class="logo-text">Harikar</h1>
   </a>
   <nav class="main-nav">

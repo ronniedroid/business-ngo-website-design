@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import "./expertise-styles.css";
 import type { CollectionEntry } from "astro:content";
 
 const expertiseCollection = await getCollection("expertise");
@@ -28,10 +27,6 @@ const { Content } = await experty.render();
   >
 </div>
 
-<style>
-  @import "./expertise-styles.css";
-</style>
-
 <script define:vars={{ expertiseIDs }}>
   const expertise = expertiseIDs.map((id) => {
     return {
@@ -50,3 +45,84 @@ const { Content } = await experty.render();
     });
   });
 </script>
+
+<style>
+  .expertise-item {
+    padding-block: 0.25rem;
+    padding-inline: 0.25rem;
+    background: transparent;
+    border: 1px solid var(--outline);
+    border-radius: 0.5rem;
+    color: var(--on-surface);
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    cursor: pointer;
+    min-width: min-content;
+  }
+
+  .expertise-item:hover {
+    background-color: var(--tertiary-container);
+    color: var(--on-tertiary-container);
+  }
+
+  @media (min-width: 450px) {
+    .expertise-item {
+      padding-block: 0.5rem;
+      padding-inline: 0.5rem;
+    }
+  }
+
+  .expertise-dialog[open] {
+    display: grid;
+    background: var(--surface);
+    color: var(--on-surface);
+    /* safari */
+    max-inline-size: min(90vw, 60ch);
+    max-block-size: min(50vh, 100%);
+    max-block-size: min(50dvb, 100%);
+    margin: auto;
+    padding: 0;
+    inset: 0;
+    border-radius: 0.5rem;
+    max-height: 65ch;
+    overflow: hidden;
+  }
+
+  .expertise-dialog > h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--fs-md);
+    color: var(--on-primary-container);
+    padding-block: 2rem;
+    padding-inline: 1rem;
+    background-color: var(--primary-container);
+    min-width: 100%;
+    height: 4rem;
+    display: grid;
+    place-content: center;
+  }
+
+  .expertise-dialog > .content {
+    padding-block: 1.25rem;
+    padding-inline: 1.25rem;
+    max-height: 50ch;
+    overflow: scroll;
+    display: grid;
+    gap: 1rem;
+    font-size: var(--fs-sm);
+  }
+
+  .expertise-dialog > button {
+    font-weight: 600;
+    color: var(--on-tertiary-container);
+    background-color: var(--tertiary-container);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    font-size: var(--fs-sm);
+    justify-self: end;
+    margin-inline: 2rem;
+    margin-block: 2rem;
+    border: 1px solid var(--on-primary-container);
+    border-radius: 0.5rem;
+  }
+</style>
