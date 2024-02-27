@@ -6,6 +6,7 @@ import Tint from "./Tint.astro";
 <div class="hero-wrap">
   <img
     alt="girls flying baloons"
+    src="/images/hero_400.webp"
     srcset="
     /images/hero_400.webp
     400w,
@@ -16,6 +17,7 @@ import Tint from "./Tint.astro";
     /images/hero.webp
     1400w"
     sizes="100vmin"
+    width="2000"
   />
   <div class="hero">
     <h1 class="hero-message">Harikar NGO</h1>
@@ -53,7 +55,7 @@ import Tint from "./Tint.astro";
 
   img {
     grid-column: 1 / -1;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
   }

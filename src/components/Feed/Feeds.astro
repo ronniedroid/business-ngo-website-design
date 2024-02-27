@@ -1,5 +1,6 @@
 ---
 import Title from "@components/Title.astro";
+import Feed from "@components/Feed/Feed";
 ---
 
 <div class="feeds-main-wrap surface">
@@ -7,96 +8,10 @@ import Title from "@components/Title.astro";
     <Title title="Feeds" right />
   </div>
   <div class="feeds-content">
-    <div class="smAndUp">
-      <iframe
-        title="facebook feed"
-        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHarikar2004%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-        width="500"
-        height="500"
-        style="border:none;overflow:hidden"
-        frameborder="0"
-        allowfullscreen="true"
-        loading="lazy"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-      ></iframe>
-    </div>
-    <div class="smAndDown">
-      <iframe
-        title="facebook feed"
-        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHarikar2004%2F&width=350&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-        width="350"
-        height="200"
-        style="border:none;overflow:hidden"
-        frameborder="0"
-        allowfullscreen="true"
-        loading="lazy"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-      ></iframe>
-    </div>
+    <Feed client:visible />
   </div>
 </div>
 
 <style>
-  .feeds-main-wrap {
-    padding-block: 3rem;
-    padding-inline: 1.25rem;
-    display: grid;
-    grid-template:
-      "title" 0.2fr
-      "content" 2fr / 1fr;
-    place-items: center;
-    place-content: center;
-    position: relative;
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 950px) {
-    .feeds-main-wrap {
-      grid-template: "content title" / 2fr 1fr;
-      padding-block: 5rem;
-      padding-inline: 3rem;
-      gap: 3rem;
-      place-items: center;
-    }
-  }
-
-  @media (min-width: 1600px) {
-    .feeds-main-wrap {
-      padding-inline: 15rem;
-    }
-  }
-
-  .feeds-section-title {
-    grid-area: title;
-    place-self: start;
-  }
-
-  @media (min-width: 950px) {
-    .feeds-section-title {
-      place-self: center;
-    }
-  }
-
-  .feeds-content-title {
-    max-width: 25ch;
-  }
-
-  .feeds-content {
-    display: grid;
-    place-content: center;
-  }
-
-  .smAndUp {
-    display: none;
-  }
-
-  @media (min-width: 550px) {
-    .smAndUp {
-      display: block;
-    }
-
-    .smAndDown {
-      display: none;
-    }
-  }
+  @import "./feed-styles.css";
 </style>
