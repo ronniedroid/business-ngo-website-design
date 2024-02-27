@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon";
-import Tint from "./Tint.astro";
 ---
 
 <div class="hero-wrap">
@@ -33,19 +32,20 @@ import Tint from "./Tint.astro";
       </a>
     </div>
   </div>
-  <Tint white flipped />
 </div>
 
 <style>
   .hero-wrap {
+    --bg-filter-color: var(--neutral20);
+    --bg-filter-opacity: 0.5;
     background: var(--surface);
-    position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 100%;
-    height: 30rem;
+    position: relative;
+    isolation: isolate;
   }
 
   img,
@@ -56,21 +56,19 @@ import Tint from "./Tint.astro";
   img {
     grid-column: 1 / -1;
     max-width: 100%;
-    height: 100%;
+    height: 40rem;
     object-fit: cover;
   }
 
   .hero {
     grid-column: 1 / -1;
-    --bg-filter-color: var(--neutral20);
-    --bg-filter-opacity: 0.5;
     max-width: 100%;
     padding-inline: 2rem;
     padding-block: 7.5rem;
-    isolation: isolate;
     display: grid;
     align-content: center;
     justify-items: start;
+    z-index: 1;
   }
 
   @media (min-width: 950px) {
@@ -83,10 +81,9 @@ import Tint from "./Tint.astro";
     }
   }
 
-  .hero::after {
+  .hero-wrap::after {
     content: "";
     position: absolute;
-    z-index: -1;
     inset: 0;
     background: var(--bg-filter-color);
     opacity: var(--bg-filter-opacity);
