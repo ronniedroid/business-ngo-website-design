@@ -1,0 +1,105 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import DateFormat from "../../components/DateFormat.astro";
+import Image from "astro/components/Image.astro";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+type Props = {
+  article: CollectionEntry<"articles">;
+};
+
+const { article } = Astro.props;
+
+const { title, desc, author, location, date, language, cover } = article.data;
+const { Content } = await article.render();
+
+const images = await Astro.glob("../../content/articles/*/*.webp");
+
+const articleImages = images
+  .map((item) => item.default)
+  .filter((item) => item.src.includes(article.slug));
+
+const items = [
+  {
+    name: "home",
+    link: "/",
+    disabled: false,
+  },
+  {
+    name: "articles",
+    disabled: true,
+  },
+  {
+    name: title,
+    disabled: true,
+  },
+];
+---
+
+<MainLayout title={`articles | ${title}`} crumbs={items} dir="ltr">
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <h2>{desc}</h2>
+      <p><strong>Author: </strong>{author}</p>
+      <p><strong>Location: </strong>{location}</p>
+      <p><strong>Language: </strong>{language}</p>
+      <p><strong>Date: </strong><DateFormat date={date} /></p>
+      <Image src={cover} width="700" height="500" alt={title} />
+    </header>
+    <main>
+      <Content />
+    </main>
+  </article>
+</MainLayout>
+
+<style>
+  article {
+    max-width: 65ch;
+    margin: 0 auto;
+    margin-block-start: 3rem;
+    margin-block-end: 10rem;
+    padding-inline: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-block: 1rem;
+  }
+
+  h1 {
+    font-size: var(--fs-fl-md);
+    margin-block-end: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: var(--fs-fl-sm);
+  }
+
+  article > header > p {
+    margin-bottom: 0.5rem;
+    font-size: var(--fs-sm);
+    text-transform: capitalize;
+  }
+
+  article > main {
+    display: grid;
+    gap: 1rem;
+    font-size: var(--fs-sm);
+    /* font-weight: 500; */
+  }
+</style>

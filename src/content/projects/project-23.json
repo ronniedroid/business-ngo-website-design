@@ -1,0 +1,83 @@
+{
+    "contact": {
+        "name": "Nareen Abbas",
+        "email": "parc@harikar.org"
+    },
+    "name": "Protection and Assistance program for refugees and IDPs in Duhok-Iraq",
+    "start": "2022-01-01",
+    "end": "2023-12-30",
+    "budget": 4331056080,
+    "summary": "Harikar NGO in partnership with UNHCR is implementing a project in cooperation with Directorate of Residency, DCVOW, DMCR and other concerned local authorities. This project concentrates on the sectors of protection and GBV to ensure that POCs (Syrian, non-Syrian refugees and IDPs) in and out of camps have access to free legal aid, protection, basic services and GBV response services.",
+    "partners": [
+        "UNHCR"
+    ],
+    "clusters": [
+        "Protection",
+        "GBV"
+    ],
+    "locations": {
+        "type": [
+            "camp",
+            "urban"
+        ],
+        "urban": [
+            "Amedi",
+            "Duhok",
+            "Sumel",
+            "Zakho",
+            "Akre",
+            "Shekhan",
+            "Bardarash"
+        ],
+        "camp": [
+            "Bajid Kandala",
+            "Berseve 1",
+            "Berseve 2",
+            "Chamishko",
+            "Darkar",
+            "Dawodiya",
+            "Essiyan",
+            "Kabarto 1",
+            "Kabarto 2",
+            "Khanke",
+            "Mamilian",
+            "Mamrashan",
+            "Rwanga Community",
+            "Shariya",
+            "Shekhan",
+            "Domiz 1",
+            "Domiz 2",
+            "Bardarash",
+            "Gewilan",
+            "Akre Settlement"
+        ]
+    },
+    "beneficiaries": {
+        "type": [
+            "IDPs",
+            "Refugees",
+            "Returnees"
+        ],
+        "target": 95455
+    },
+    "objectives": [
+        "Access to legal assistance and legal remedies supported",
+        "Quality service provision and community mechanisms for GBV prevention, mitigation and response are strengthened",
+        "Profiling of Refugees and IDPs planned and undertaken",
+        "Access to civil registration and documentation supported"
+    ],
+    "activities": [
+        "PSS counselling, Case management, GBV awareness raising, GBV capacity building",
+        "Legal representation, Legal counselling, Legal awareness raising, Detention monitoring",
+        "Protection monitoring (PMT, ASSIST, PMS,other tools as per required)",
+        "Implementation of Mol exercise"
+    ],
+    "state": "onGoing",
+    "employees": {
+        "male": 100,
+        "female": 79,
+        "total": 179
+    },
+    "thumb": "./images/project-23-thumb.webp",
+    "cover": "./images/project-23.webp"
+}

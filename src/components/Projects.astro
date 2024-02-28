@@ -2,17 +2,9 @@
 import Title from "./Title.astro";
 import ProjectCard from "./cards/ProjectCard.astro";
 import MediaScroller from "./MediaScroller.astro";
+import { getCollection } from "astro:content";
 
-const response = await fetch(
-  "https://harikar-reports-api.cyclic.app/v3/projects",
-);
-let projects = [];
-if (!response.ok) {
-  projects = [];
-} else {
-  const data = await response.json();
-  projects = data.projects.filter((project) => project.state === "onGoing");
-}
+const projects = await getCollection("projects");
 ---
 
 <div class="main-wrap surface">
@@ -24,11 +16,7 @@ if (!response.ok) {
       {
         projects.map((project) => (
           <div class="media-element">
-            <ProjectCard
-              id={project.id}
-              name={project.name}
-              partners={project.partners}
-            />
+            <ProjectCard project={project} />
           </div>
         ))
       }

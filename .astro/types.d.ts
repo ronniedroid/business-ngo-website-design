@@ -135,7 +135,93 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"expertise": {
+		"articles": {
+"article-1.md": {
+	id: "article-1.md";
+  slug: "article-1";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-10.md": {
+	id: "article-10.md";
+  slug: "article-10";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-11.md": {
+	id: "article-11.md";
+  slug: "article-11";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-12.md": {
+	id: "article-12.md";
+  slug: "article-12";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-2.md": {
+	id: "article-2.md";
+  slug: "article-2";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-3.md": {
+	id: "article-3.md";
+  slug: "article-3";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-4.md": {
+	id: "article-4.md";
+  slug: "article-4";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-5.md": {
+	id: "article-5.md";
+  slug: "article-5";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-6.md": {
+	id: "article-6.md";
+  slug: "article-6";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-7.md": {
+	id: "article-7.md";
+  slug: "article-7";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-8.md": {
+	id: "article-8.md";
+  slug: "article-8";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"article-9.md": {
+	id: "article-9.md";
+  slug: "article-9";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+};
+"expertise": {
 "awareness-raising.md": {
 	id: "awareness-raising.md";
   slug: "awareness-raising";
@@ -218,7 +304,111 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		
+		"projects": {
+"project-23": {
+	id: "project-23";
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+};
+"project-24": {
+	id: "project-24";
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+};
+};
+"reports": {
+"annual-report-2017": {
+	id: "annual-report-2017";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"annual-report-2018": {
+	id: "annual-report-2018";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"annual-report-2019": {
+	id: "annual-report-2019";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"annual-report-2020": {
+	id: "annual-report-2020";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"annual-report-2021": {
+	id: "annual-report-2021";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"annual-report-2022": {
+	id: "annual-report-2022";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"open-space-event": {
+	id: "open-space-event";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-april": {
+	id: "outreach-report-23-april";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-august": {
+	id: "outreach-report-23-august";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-july": {
+	id: "outreach-report-23-july";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-june": {
+	id: "outreach-report-23-june";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-march": {
+	id: "outreach-report-23-march";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-may": {
+	id: "outreach-report-23-may";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-november": {
+	id: "outreach-report-23-november";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-october": {
+	id: "outreach-report-23-october";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"outreach-report-23-september": {
+	id: "outreach-report-23-september";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"sixteen-days-of-activisim-2023": {
+	id: "sixteen-days-of-activisim-2023";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+"unicef-juvenile-justice-quarter-three-narrative-progress-report": {
+	id: "unicef-juvenile-justice-quarter-three-narrative-progress-report";
+  collection: "reports";
+  data: InferEntrySchema<"reports">
+};
+};
+
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;

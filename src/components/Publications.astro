@@ -2,74 +2,16 @@
 import ArticleCard from "./cards/ArticleCard.astro";
 import Title from "./Title.astro";
 import MediaScroller from "./MediaScroller.astro";
+import { getCollection } from "astro:content";
 
-const annualReportLink =
-  "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/annual-reports/harikar-annual-report-";
+const articles = await getCollection("articles");
+const reports = await getCollection("reports");
 
-const reports = [
-  {
-    title: "Harikar/UNHCR World Refugee Day Open Space Event",
-    project:
-      "Protection and Assistance Program for Refugees and IDPs in Duhok Iraq",
-    createdAt: "2022-10-27",
-    date: "27th Oct, 2022",
-    img: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/protection-and-assistance-program-for-refugees-and-idps-in-duhok-iraq/harikar-unhcr-world-refugee-day-open-space-event.webp",
-    url: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/protection-and-assistance-program-for-refugees-and-idps-in-duhok-iraq/harikar-unhcr-world-refugee-day-open-space-event.pdf",
-  },
-  {
-    title:
-      "Harikar/Unicef Juvenile Justice Quarter Three Narrative Progress Report",
-    createdAt: "2022-10-05",
-    date: "5th Oct, 2022",
-    img: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/enhance-justice-for-children-system-and-services-in-duhok-and-erbil-governorates-kr-iraq/harikar-unicef-juvenile-justice-quarter-three-narrative-progress-report.webp",
-    url: "https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/reports/other-reports/enhance-justice-for-children-system-and-services-in-duhok-and-erbil-governorates-kr-iraq/harikar-unicef-juvenile-justice-quarter-three-narrative-progress-report.pdf",
-  },
-  {
-    title: "Harikar Annual Report 2017",
-    createdAt: "2018-02-25",
-    date: "25th Feb, 2018",
-    isAnnual: true,
-    img: annualReportLink + "2017.webp",
-    url: annualReportLink + "2017.pdf",
-  },
-  {
-    title: "Harikar Annual Report 2018",
-    createdAt: "2019-02-25",
-    date: "25th Feb, 2019",
-    isAnnual: true,
-    img: annualReportLink + "2018.webp",
-    url: annualReportLink + "2018.pdf",
-  },
-  {
-    title: "Harikar Annual Report 2019",
-    createdAt: "2020-03-02",
-    date: "2nd Mar, 2020",
-    isAnnual: true,
-    img: annualReportLink + "2019.webp",
-    url: annualReportLink + "2019.pdf",
-  },
-  {
-    title: "Harikar Annual Report 2020",
-    createdAt: "2021-03-03",
-    date: "3rd Mar, 2021",
-    isAnnual: true,
-    img: annualReportLink + "2020.webp",
-    url: annualReportLink + "2020.pdf",
-  },
-  {
-    title: "Harikar Annual Report 2021",
-    createdAt: "2022-02-20",
-    date: "20th Feb, 2022",
-    isAnnual: true,
-    img: annualReportLink + "2021.webp",
-    url: annualReportLink + "2021.pdf",
-  },
-];
 function reportsAndArticles() {
-  const posts = [...reports]
+  const posts = [...reports, ...articles]
     .sort(function compare(a, b) {
-      const dateA = a.createdAt;
-      const dateB = b.createdAt;
+      const dateA = a.data.createdAt;
+      const dateB = b.data.createdAt;
       if (dateA < dateB) {
         return -1;
       }
@@ -93,8 +35,8 @@ const combinedPosts = reportsAndArticles();
     <MediaScroller>
       {
         combinedPosts.map((post) => (
-          <a class="link" href={post.url}>
-            <ArticleCard title={post.title} img={post.img} date={post.date} />
+          <a class="link" href={post.data.link}>
+            <ArticleCard article={post} />
           </a>
         ))
       }

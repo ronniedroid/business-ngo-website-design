@@ -1,10 +1,15 @@
 ---
 import { Image } from "astro:assets";
-const getImg = (id) => {
-  return `https://raw.githubusercontent.com/Harikar-NGO/harikar-website-files/main/images/projects/project-${id}.webp`;
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  project: CollectionEntry<"projects">;
 };
 
-const { id, name, partners } = Astro.props;
+const { project } = Astro.props;
+
+const id = project.id;
+const { name, thumb } = project.data;
 ---
 
 <a href={`/projects/${id}`}>
@@ -12,7 +17,7 @@ const { id, name, partners } = Astro.props;
     <Image
       loading="lazy"
       alt=""
-      src={getImg(id)}
+      src={thumb}
       width="300"
       height="300"
       format="webp"

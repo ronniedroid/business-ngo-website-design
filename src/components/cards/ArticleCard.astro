@@ -1,12 +1,16 @@
 ---
-const { img, title, desc, date } = Astro.props;
 import { Image } from "astro:assets";
+import DateFormat from "../DateFormat.astro";
+
+const { article } = Astro.props;
+
+const { title, cover, date } = article.data;
 ---
 
 <div class="article-card">
   <figure>
     <Image
-      src={img}
+      src={cover}
       alt={title}
       width="350"
       height="400"
@@ -16,11 +20,9 @@ import { Image } from "astro:assets";
   </figure>
   <div class="text">
     <p class="title">
-      {title}
+      {title.length > 90 ? `${title.substring(0, 90)}...` : title}
     </p>
-    <p>
-      {date}
-    </p>
+    <DateFormat date={date} />
   </div>
 </div>
 
@@ -34,7 +36,7 @@ import { Image } from "astro:assets";
     padding: 1rem;
     border-radius: 1rem;
     width: 20rem;
-    height: 25rem;
+    height: 26rem;
     background-color: var(--surface-container);
     border: 1px solid var(--outline-variant);
   }

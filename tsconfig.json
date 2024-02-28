@@ -6,19 +6,19 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "./src/assets/*"
       ],
       "@layouts/*": [
-        "src/layouts/*"
+        "./src/layouts/*"
       ],
       "@stores/*": [
-        "src/stores/*"
+        "./src/stores/*"
       ],
       "@icons/*": [
-        "src/icons/*"
+        "./src/icons/*"
       ]
     }
   }
