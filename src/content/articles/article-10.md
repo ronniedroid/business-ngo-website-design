@@ -7,6 +7,11 @@ date: 2023-11-14
 language: english
 cover: ./article-10/International-Diabetes-Day-|-Teaching-the-participants-how-to-use-the-devices.webp
 createdAt: 2023-11-15
+images:
+- ./article-10/International-Diabetes-Day-|-Explaining-the-use-of-the-device.webp
+- ./article-10/International-Diabetes-Day-|-Giving-away-glucose-meter-devices.webp
+- ./article-10/International-Diabetes-Day-|-Session-on-diabetes.webp
+- ./article-10/International-Diabetes-Day-|-Teaching-the-participants-how-to-use-the-devices.webp
 ---
 
 In commemoration of International Diabetes Day, Harikar NGO took a
@@ -26,7 +31,7 @@ health awareness and empowerment within the communities we serve.
   members to learn the proper use of the device.
 - Accessible Tools: Giving away glucose meter devices to enable
   individuals to monitoring their own health.
- 
+
 ### Impact:
 
 The session proved to be a pivotal moment in the lives of the

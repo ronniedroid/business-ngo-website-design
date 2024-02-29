@@ -7,6 +7,12 @@ date: 2022-10-12
 language: english
 cover: ./article-3/celebrating-IDG-in-Mosul.webp
 createdAt: 2022-10-12
+images:
+- ./article-3/awareness-on-protection-from-harassment-in-Mosul.webp
+- ./article-3/celebrating-IDG-in-Mosul.webp
+- ./article-3/intro-to-IDG-in-Shikhan.webp
+- ./article-3/recreational-activities-in-Shikhan(1).webp
+- ./article-3/recreational-activities-in-Zummar.webp
 ---
 
 International Day of the Girl is an international observance day

@@ -7,6 +7,24 @@ date: 2023-08-10
 language: english
 cover: ./article-7/International-Youth-Day-1.webp
 createdAt: 2023-08-14
+images:
+- ./article-7/International-Youth-Day-11.webp
+- ./article-7/International-Youth-Day-12.webp
+- ./article-7/International-Youth-Day-13.webp
+- ./article-7/International-Youth-Day-14.webp
+- ./article-7/International-Youth-Day-15.webp
+- ./article-7/International-Youth-Day-16.webp
+- ./article-7/International-Youth-Day-17.webp
+- ./article-7/International-Youth-Day-18.webp
+- ./article-7/International-Youth-Day-1.webp
+- ./article-7/International-Youth-Day-2.webp
+- ./article-7/International-Youth-Day-3.webp
+- ./article-7/International-Youth-Day-4.webp
+- ./article-7/International-Youth-Day-5.webp
+- ./article-7/International-Youth-Day-6.webp
+- ./article-7/International-Youth-Day-7.webp
+- ./article-7/International-Youth-Day-8.webp
+- ./article-7/International-Youth-Day-9.webp
 ---
 
 On August 10th and 13th, 2023, Harikar Outreach team, in collaboration

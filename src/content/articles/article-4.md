@@ -7,6 +7,17 @@ date: 2022-12-01
 language: english
 cover: ./article-4/cp-team.webp
 createdAt: 2022-12-01
+images:
+- ./article-4/child-resilience2.webp
+- ./article-4/child-resilience.webp
+- ./article-4/cp-team.webp
+- ./article-4/donor-visit.webp
+- ./article-4/home-based-mhpss-session.webp
+- ./article-4/life-skill-training.webp
+- ./article-4/parents-meeting.webp
+- ./article-4/parents-without-violence2.webp
+- ./article-4/parents-without-violence.webp
+- ./article-4/youth-resilience.webp
 ---
 
 Harikar in partnership with SCI and under SIDA has been delivering
@@ -42,7 +53,7 @@ allows the project to
 
 > "I wish you came here 8 years ago when we have displaced from Sinjar to
 > the camp. We would have not experienced severe psychological distress if
-> you have offered us this service." 
+> you have offered us this service."
 >
 > -- <cite>A mother from the camp</cite>
 

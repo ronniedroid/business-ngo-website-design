@@ -7,6 +7,14 @@ date: 2023-10-05
 language: english
 cover: ./article-9/1-Tourism-Day-Celebration-|-Colorful-Staircase.webp
 createdAt: 2023-10-12
+images:
+- ./article-9/1-Tourism-Day-Celebration-|-Colorful-Staircase.webp
+- ./article-9/2-Tourism-Day-Celebration-|-Group-Photo.webp
+- ./article-9/3-Tourism-Day-Celebration-|-Top-of-Akre-hill.webp
+- ./article-9/4-Tourism-Day-Celebration-|-Entertainment-Activity.webp
+- ./article-9/6-Tourism-Day-Celebration-|-Distribution-of-Gifts.webp
+- ./article-9/7-Tourism-Day-Celebration-|-Distribution-of-Gifts.webp
+- ./article-9/8-Tourism-Day-Celebration-|-Distribution-of-Gifts.webp
 ---
 
 Harikar Outreach, in collaboration with UNHCR, organized a vibrant

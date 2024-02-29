@@ -7,6 +7,14 @@ date: 2022-09-04
 language: english
 cover: ./article-1/presenting-group-working-results.webp
 createdAt: 2022-09-04
+images:
+- ./article-1/distribution-of-certificate-of-participation.webp
+- ./article-1/end-of-training-group-picture.webp
+- ./article-1/group-working-on-body-language.webp
+- ./article-1/group-working-on-communication-techniques.webp
+- ./article-1/opening-speech-delevered-by-project-manager.webp
+- ./article-1/presenting-group-working-results.webp
+- ./article-1/role-play-on-investegation-techniques.webp
 ---
 
 Within the general framework agreement of Harikar and UNICEF "enhance

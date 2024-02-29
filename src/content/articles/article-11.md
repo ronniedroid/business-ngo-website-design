@@ -1,12 +1,15 @@
 ---
 title: Harikar NGO’s Success in C4JR Board Member Election
-desc: Harikar NGO, represented by our legal coordinator, participated in the crucial general meeting of the Coalition for Joint Responsibility (C4JR) and was elected as a board member by the vote 15 NGOs. 
+desc: Harikar NGO, represented by our legal coordinator, participated in the crucial general meeting of the Coalition for Joint Responsibility (C4JR) and was elected as a board member by the vote 15 NGOs.
 author: Ahmed Iskan Kokhi
 location: Erbil
 date: 2023-10-22
 language: english
 cover: ./article-11/C4JR-General-Meeting-|-Harikar-Presentation-1.webp
 createdAt: 2023-12-06
+images:
+- ./article-11/C4JR-General-Meeting-|-1.webp
+- ./article-11/C4JR-General-Meeting-|-Harikar-Presentation-1.webp
 ---
 
 On the 22nd of October 2023, Harikar NGO, represented by our legal

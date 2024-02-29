@@ -7,6 +7,15 @@ date: 2023-06-01
 language: arabic
 cover: ./article-5/harikar-picnic-2023-photo-1.webp
 createdAt: 2023-06-01
+images:
+- ./article-5/harikar-picnic-2023-photo-1.webp
+- ./article-5/harikar-picnic-2023-photo-2.webp
+- ./article-5/harikar-picnic-2023-photo-8.webp
+- ./article-5/harikar-picnic-2023-photos-3.webp
+- ./article-5/harikar-picnic-2023-photos-4.webp
+- ./article-5/harikar-picnic-2023-photos-5.webp
+- ./article-5/harikar-picnic-2023-photos-6.webp
+- ./article-5/harikar-picnic-2023-photos-7.webp
 ---
 
 <article dir="rtl">

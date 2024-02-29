@@ -7,6 +7,19 @@ date: 2023-09-21
 language: english
 cover: ./article-8/02-Planting-Trees-|-Internation-Day-of-Peace.webp
 createdAt: 2023-09-26
+images:
+- ./article-8/01-March-|-Internation-Day-of-Peace.webp
+- ./article-8/02-Planting-Trees-|-Internation-Day-of-Peace.webp
+- ./article-8/03-Planting-Trees-|-Internation-Day-of-Peace.webp
+- ./article-8/04-Planting-Trees-|-Internation-Day-of-Peace.webp
+- ./article-8/05-Planting-Trees-|-Internation-Day-of-Peace.webp
+- ./article-8/06-Planting-Trees-|-Internation-Day-of-Peace.webp
+- ./article-8/07-Awarness-Session-on-The-Importance-of-Peace-|-Internation-Day-of-Peace.webp
+- ./article-8/08-Awarness-Session-on-The-Importance-of-Peace-|-Internation-Day-of-Peace.webp
+- ./article-8/09-Distribution-of-Gifts-|-Internation-Day-of-Peace.webp.webp
+- ./article-8/10-Moment-of-Celebration-|-Internation-Day-of-Peace.webp.webp
+- ./article-8/11-Celebratioon-Cake-|-Internation-Day-of-Peace.webp.webp
+- ./article-8/12-Group-Photo-|-Internation-Day-of-Peace.webp
 ---
 
 ### Introduction:

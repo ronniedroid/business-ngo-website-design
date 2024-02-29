@@ -7,6 +7,15 @@ date: 2023-08-03
 language: "english"
 cover: ./article-6/GBV-CC,-CM-training-8.webp
 createdAt: 2023-08-03
+images:
+- ./article-6/GBV-CC,-CM-training-1.webp
+- ./article-6/GBV-CC,-CM-training-2.webp
+- ./article-6/GBV-CC,-CM-training-3.webp
+- ./article-6/GBV-CC,-CM-training-4.webp
+- ./article-6/GBV-CC,-CM-training-5.webp
+- ./article-6/GBV-CC,-CM-training-6.webp
+- ./article-6/GBV-CC,-CM-training-7.webp
+- ./article-6/GBV-CC,-CM-training-8.webp
 ---
 
 ## Introduction

@@ -5,8 +5,15 @@ author: Diana Kako
 location: Duhok
 date: 2022-09-13
 language: english
-cover: ./article-2/Dr-Hatim-sharing-good-practices-of-Tunisia-and-France.opti.webp
+cover: ./article-2/Dr-Hatim-sharing-good-practices-of-Tunisia-and-France.webp
 createdAt: 2022-09-13
+images:
+- ./article-2/Dr-Hatim-sharing-good-practices-of-Tunisia-and-France.webp
+- ./article-2/Judge-Zirek-Mohemmed-recommendation-for-enhancing-children-justice-system.webp
+- ./article-2/Mr-Akram-Zada-giving-recommendation-for-enhancing-children-justice-system.webp
+- ./article-2/participants-descussion-on-alternatives-to-detintion.webp
+- ./article-2/Presentation-by-Dr-Hatim.webp
+- ./article-2/Round-table-descussion-on-diversion-system.webp
 ---
 
 Childhood and adolescence are sensitive periods of life, being in

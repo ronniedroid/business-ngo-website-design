@@ -1,12 +1,17 @@
 ---
 title: Harikar NGO’s Executive Director participated in Global Refugee Forum - 2023 in Geneva, Switzerland
-desc: Harikar NGO's Executive Director, invited by SCI, Presented a keynote in the Global Refugee Forum - 2023 in Geneva, Switzerland, representing the Child Protection and Humanitarian Action (CHPA) alliance. 
+desc: Harikar NGO's Executive Director, invited by SCI, Presented a keynote in the Global Refugee Forum - 2023 in Geneva, Switzerland, representing the Child Protection and Humanitarian Action (CHPA) alliance.
 author: "Ronnie Nissan"
 location: "Geneva, Switzerland"
 date: 2023-12-14
 language: english
 cover: ./article-12/1-Global-Refugee-Forum-2023-|-Salah-Y-Majid-Harikar-NGO-Executive-Director.webp
 createdAt: 2023-12-19
+images:
+- ./article-12/1-Global-Refugee-Forum-2023-|-Salah-Y-Majid-Harikar-NGO-Executive-Director.webp
+- ./article-12/2-Global-Refugee-Forum-2023-|-Salah-Y-Majid-with-CEO-of-SCI.webp
+- ./article-12/3-Global-Refugee-Forum-2023-|-Salah-Y-Majid-with-SCI-Senior-Advisor.webp.webp
+- ./article-12/4-Global-Refugee-Forum-2023-|-Salah-Y-Majid-with-SCI-group-participating-in-GRF-2023.webp
 ---
 
 The Global Refugee Forum, held every four years in Geneva, is a vital

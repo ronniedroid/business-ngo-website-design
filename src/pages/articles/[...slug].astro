@@ -20,14 +20,9 @@ interface Props {
 
 const { article } = Astro.props;
 
-const { title, desc, author, location, date, language } = article.data;
+const { title, desc, author, location, date, language, cover, images } =
+  article.data;
 const { Content } = await article.render();
-
-const images = await Astro.glob("../../content/articles/*/*.webp");
-
-const articleImages = images
-  .map((item) => item.default)
-  .filter((item) => item.src.includes(article.slug));
 
 const extractName = (path) => {
   const arrayFromPath = path.split("/");
@@ -55,7 +50,7 @@ const items = [
 
 <MainLayout title={`articles | ${title}`} crumbs={items} dir="ltr">
   <article>
-    <header>
+    <div class="meta">
       <h1>{title}</h1>
       <h2>{desc}</h2>
       <p><strong>Author: </strong>{author}</p>
@@ -63,101 +58,121 @@ const items = [
       <p><strong>Language: </strong>{language}</p>
       <p><strong>Date: </strong><DateFormat date={date} /></p>
       <div class="photos-slider">
-        <MediaScroller>
-          {
-            articleImages.map((i) => (
-              <div class="media-element">
-                <Image
-                  src={i}
-                  height="500"
-                  alt={title}
-                  class="media-element__img"
-                  format="webp"
-                />
-                <p class="media-element__text">{extractName(i.src)}</p>
-              </div>
-            ))
-          }
-        </MediaScroller>
+        {
+          images ? (
+            <MediaScroller>
+              {images.map((i) => (
+                <div class="media-element">
+                  <Image
+                    src={i}
+                    height="500"
+                    alt={title}
+                    class="media-element__img"
+                    format="webp"
+                  />
+                  <p class="media-element__text">{extractName(i.src)}</p>
+                </div>
+              ))}
+            </MediaScroller>
+          ) : (
+            <Image
+              src={cover}
+              height="500"
+              alt={extractName(cover.src)}
+              format="webp"
+              class="cover"
+            />
+          )
+        }
       </div>
-    </header>
-    <main>
+    </div>
+    <div class="content">
       <Content />
-    </main>
+    </div>
   </article>
-</MainLayout>
 
-<style>
-  article {
-    max-width: 65ch;
-    margin: 0 auto;
-    margin-block-start: 3rem;
-    margin-block-end: 10rem;
-    padding-inline: 1rem;
-  }
-
-  .photos-slider {
-    overflow-x: hidden;
-    max-width: 65ch;
-  }
-
-  .media-element {
-    display: grid;
-    justify-items: center;
-    position: relative;
-    max-width: 100%;
-  }
-
-  .media-element__img {
-    object-fit: cover;
-    max-width: 30ch;
-    height: auto;
-    aspect-ratio: 4/3;
-  }
-
-  @media (min-width: 480px) {
-    .media-element__img {
-      max-width: 35ch;
+  <style>
+    article {
+      max-width: 65ch;
+      margin: 0 auto;
+      margin-block-start: 3rem;
+      margin-block-end: 10rem;
+      padding-inline: 1rem;
     }
-  }
 
-  .media-element__text {
-    font-size: var(--fs-xs);
-    font-weight: 400;
-    place-self: center;
-    padding: 0.5rem;
-    width: 100%;
-    display: grid;
-    place-content: center;
-  }
+    .photos-slider {
+      overflow-x: hidden;
+      max-width: 65ch;
+      margin-block: 1rem;
+      display: grid;
+      place-content: center;
+    }
 
-  h1 {
-    font-size: var(--fs-fl-md);
-    margin-block-end: 1.1rem;
-    font-weight: 600;
-    color: var(--primary);
-  }
+    .media-element {
+      display: grid;
+      justify-items: center;
+      position: relative;
+      max-width: 100%;
+    }
 
-  h2 {
-    margin-bottom: 1rem;
-    font-size: var(--fs-fl-sm);
-  }
+    .media-element__img {
+      object-fit: cover;
+      max-width: 30ch;
+      height: auto;
+      aspect-ratio: 4/3;
+    }
 
-  article > header > p {
-    margin-bottom: 0.5rem;
-    font-size: var(--fs-sm);
-    text-transform: capitalize;
-  }
+    .cover {
+      object-fit: cover;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+    }
 
-  article > main {
-    display: grid;
-    gap: 1rem;
-    font-size: var(--fs-sm);
-  }
+    @media (min-width: 480px) {
+      .media-element__img {
+        max-width: 35ch;
+      }
+    }
 
-  article > main :global(blockquote) {
-    padding-block: 1rem;
-    border-inline-start: 2px solid var(--primary);
-    padding-inline-start: 2rem;
-  }
-</style>
+    .media-element__text {
+      font-size: var(--fs-xs);
+      font-weight: 400;
+      place-self: center;
+      padding: 0.5rem;
+      width: 100%;
+      display: grid;
+      place-content: center;
+    }
+
+    h1 {
+      font-size: var(--fs-fl-md);
+      margin-block-end: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: var(--fs-fl-sm);
+    }
+
+    .meta > p {
+      margin-bottom: 0.5rem;
+      font-size: var(--fs-sm);
+      text-transform: capitalize;
+    }
+
+    .content {
+      display: grid;
+      gap: 1rem;
+      font-size: var(--fs-sm);
+    }
+
+    .content :global(blockquote) {
+      padding-block: 1rem;
+      border-inline-start: 2px solid var(--primary);
+      padding-inline-start: 2rem;
+    }
+  </style>
+</MainLayout>
