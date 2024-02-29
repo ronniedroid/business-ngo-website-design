@@ -8,6 +8,9 @@ export const currentCluster = atom({});
 
 export const months = atom([]);
 
+export const dashboardData = map({})
+export const currentProject = map({})
+
 export const jobs = atom([]);
 export const currentJobs = atom([]);
 
@@ -34,6 +37,40 @@ export function setCurrentMonth(month) {
 export function setCurrentCluster(cluster) {
   currentCluster.set({ ...currentMonth.get()[cluster], name: cluster });
 }
+
+export function setCurrrentProject(project) {
+  currentProject.set(dashboardData.filter((item) => item.nameOfProject === project))
+}
+
+export async function fetchGeneralData(year, month) {
+  const url = month
+    ? `http://localhost:8000/v4/dashboard/${year}/${month}`
+    : `http://localhost:8000/v4/dashboard/${year}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.log(response.statues);
+  } else {
+    const data = await response.json();
+    store.set(data);
+    dashboardData.set(data)
+  }
+}
+
+export async function fetchProjectsData(year, month) {
+  const url = month
+    ? `http://localhost:8000/v4/projects-data/${year}/${month}`
+    : `http://localhost:8000/v4/projects-data/${year}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.log(response.statues);
+  } else {
+    const data = await response.json();
+    store.set(data);
+    dashboardData.set(data)
+  }
+}
+
+
 
 export async function fetchYearData(year) {
   const url = `https://harikar-reports-api.cyclic.app/v3/dashboard/${year}`;
