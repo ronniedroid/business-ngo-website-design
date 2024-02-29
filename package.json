@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.2",
     "@astrojs/preact": "^3.0.1",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@nanostores/preact": "^0.4.1",
