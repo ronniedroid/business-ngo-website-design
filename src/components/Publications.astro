@@ -35,7 +35,10 @@ const combinedPosts = reportsAndArticles();
     <MediaScroller>
       {
         combinedPosts.map((post) => (
-          <a class="link" href={post.data.link}>
+          <a
+            class="link"
+            href={post.data.link ? post.data.link : `articles/${post.slug}`}
+          >
             <ArticleCard article={post} />
           </a>
         ))
