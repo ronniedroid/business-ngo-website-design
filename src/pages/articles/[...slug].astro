@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import DateFormat from "../../components/DateFormat.astro";
 import Image from "astro/components/Image.astro";
+import MediaScroller from "@components/MediaScroller.astro";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles");
@@ -13,13 +14,13 @@ export async function getStaticPaths() {
   }));
 }
 
-type Props = {
+interface Props {
   article: CollectionEntry<"articles">;
-};
+}
 
 const { article } = Astro.props;
 
-const { title, desc, author, location, date, language, cover } = article.data;
+const { title, desc, author, location, date, language } = article.data;
 const { Content } = await article.render();
 
 const images = await Astro.glob("../../content/articles/*/*.webp");
@@ -27,6 +28,13 @@ const images = await Astro.glob("../../content/articles/*/*.webp");
 const articleImages = images
   .map((item) => item.default)
   .filter((item) => item.src.includes(article.slug));
+
+const extractName = (path) => {
+  const arrayFromPath = path.split("/");
+  const unEditedName = arrayFromPath[arrayFromPath.length - 1].split(".")[0];
+  const name = unEditedName.split("-").join(" ");
+  return name;
+};
 
 const items = [
   {
@@ -54,7 +62,24 @@ const items = [
       <p><strong>Location: </strong>{location}</p>
       <p><strong>Language: </strong>{language}</p>
       <p><strong>Date: </strong><DateFormat date={date} /></p>
-      <Image src={cover} width="700" height="500" alt={title} />
+      <div class="photos-slider">
+        <MediaScroller>
+          {
+            articleImages.map((i) => (
+              <div class="media-element">
+                <Image
+                  src={i}
+                  height="500"
+                  alt={title}
+                  class="media-element__img"
+                  format="webp"
+                />
+                <p class="media-element__text">{extractName(i.src)}</p>
+              </div>
+            ))
+          }
+        </MediaScroller>
+      </div>
     </header>
     <main>
       <Content />
@@ -71,11 +96,39 @@ const items = [
     padding-inline: 1rem;
   }
 
-  img {
+  .photos-slider {
+    overflow-x: hidden;
+    max-width: 65ch;
+  }
+
+  .media-element {
+    display: grid;
+    justify-items: center;
+    position: relative;
     max-width: 100%;
-    height: auto;
+  }
+
+  .media-element__img {
     object-fit: cover;
-    margin-block: 1rem;
+    max-width: 30ch;
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+
+  @media (min-width: 480px) {
+    .media-element__img {
+      max-width: 35ch;
+    }
+  }
+
+  .media-element__text {
+    font-size: var(--fs-xs);
+    font-weight: 400;
+    place-self: center;
+    padding: 0.5rem;
+    width: 100%;
+    display: grid;
+    place-content: center;
   }
 
   h1 {
@@ -100,6 +153,11 @@ const items = [
     display: grid;
     gap: 1rem;
     font-size: var(--fs-sm);
-    /* font-weight: 500; */
+  }
+
+  article > main :global(blockquote) {
+    padding-block: 1rem;
+    border-inline-start: 2px solid var(--primary);
+    padding-inline-start: 2rem;
   }
 </style>

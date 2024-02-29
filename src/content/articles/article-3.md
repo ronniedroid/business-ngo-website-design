@@ -55,7 +55,7 @@ Zummar, west Mosul, and Shikhan camp. The celebration in Shikhan camp
 was attended by the camp manager and other organizations such as Sweedo,
 LWF, VOP, and BCF. The activities in the three locations included:
 
-- introduction to IGD.
-- awareness of the role of girls in the community and how to protect yourself from harassment.
-- recreational activities such as singing, dancing, and stories telling.
-- challenges and competitions such as building towers from cardboard cups, Questions and answers on psycho-social support for girls, etc...
+- Introduction to IGD.
+- Awareness of the role of girls in the community and how to protect yourself from harassment.
+- Recreational activities such as singing, dancing, and stories telling.
+- Challenges and competitions such as building towers from cardboard cups, Questions and answers on psycho-social support for girls, etc...
