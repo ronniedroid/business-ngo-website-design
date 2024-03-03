@@ -1,38 +1,36 @@
-.clusters {
+.projects {
   display: grid;
   align-content: start;
   margin-top: 3rem;
 }
 
-.clusters__list {
+.projects__list {
   list-style: none;
   height: auto;
   display: grid;
-  place-items: center;
-  place-content: center;
+  place-content: start;
   gap: 0.5rem;
   background-color: transparent;
-  padding-inline: 0.5rem;
   padding-block-end: 0.5rem;
   padding-block-start: 1.75rem;
   border-radius: 1rem;
   position: relative;
-  max-width: 10em;
+  max-width: max-content;
 }
 
 @media (min-width: 700px) {
-  .clusters {
+  .projects {
     margin-top: 3rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .clusters__list {
-    max-width: 10em;
+  .projects__list {
+    padding-inline: 1rem;
   }
 }
 
-.clusters__icon {
+.projects__icon {
   display: grid;
   place-items: center;
   place-content: center;
@@ -47,7 +45,27 @@
   border: 1px solid var(--outline-variant);
 }
 
-.cluster__title {
+.projects__icon .tooltip {
+  visibility: hidden;
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface);
+  text-align: center;
+  padding-inline: 0.5rem;
+  border-radius: 0.5rem;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  right: -9rem;
+  z-index: 1;
+  opacity: 0;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
+.projects__icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.project__title {
   position: absolute;
   top: -1.2em;
   left: 3.3em;
@@ -56,41 +74,26 @@
   align-items: center;
 }
 
-.cluster__title>p {
+.project__title>p {
   font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.cluster>button {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-items: start;
+.project>button {
   text-align: start;
-  min-width: 10rem;
+  max-width: max-content;
   font-size: var(--fs-xs);
   font-weight: 700;
   background-color: transparent;
   border-radius: 0.5rem;
-  height: 3em;
   border: 1px solid var(--outline-variant);
   cursor: pointer;
-}
-
-.cluster--selected>button,
-.cluster:hover>button {
-  background-color: var(--surface-container-high);
-  color: var(--on-surface);
-}
-
-.cluster__icon {
   padding: 0.5rem;
+}
+
+.project--selected>button,
+.project:hover>button {
   background-color: var(--surface-container-high);
   color: var(--on-surface);
-  border-radius: 0.5rem 0 0 0.5rem;
-  height: 100%;
-  min-width: 3em;
-  display: grid;
-  place-content: center;
 }

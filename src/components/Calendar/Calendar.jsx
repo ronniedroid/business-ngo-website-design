@@ -1,12 +1,12 @@
 import { h } from "preact";
 import "./Calendar.css";
-import { setCurrentMonth } from "@stores/store";
+import { setCurrentMonth, currentMonths, fetchCurrentMonths } from "@stores/store";
 import { useStore } from "@nanostores/preact";
-import { currentMonth, months } from "@stores/store";
+import { currentMonth } from "@stores/store";
 import CalendarIcon from "@components/Icons/CalendarIcon";
 import { useEffect } from "preact/hooks";
 
-function Calendar({ year }) {
+function Calendarnew({ year }) {
   const allMonths = [
     { name: "january", abbr: "Jan", isDisabled: false },
     { name: "february", abbr: "Feb", isDisabled: false },
@@ -22,8 +22,13 @@ function Calendar({ year }) {
     { name: "december", abbr: "Dec", isDisabled: false },
   ];
 
+
+  useEffect(() => {
+    fetchCurrentMonths(year);
+  }, []);
+
   const $currentMonth = useStore(currentMonth);
-  const $months = useStore(months);
+  const $months = useStore(currentMonths);
   const filteredMonths = allMonths.map((item) =>
     $months.includes(item.name) ? item : { ...item, isDisabled: true }
   );
@@ -31,9 +36,9 @@ function Calendar({ year }) {
   useEffect(() => {
     let params = new URLSearchParams(document.location.search);
     let monthp = params.get("month");
-    if ($currentMonth.name != undefined) {
+    if ($currentMonth != undefined) {
       if (!$months.includes(monthp)) {
-        setCurrentMonth("year");
+        setCurrentMonth(null);
       } else {
         setCurrentMonth(monthp);
       }
@@ -50,7 +55,7 @@ function Calendar({ year }) {
   return (
     <div class="calendar">
       <ul class="calendar__list">
-        <div class="calendar__icon" onClick={() => handleClick("year")}>
+        <div class="calendar__icon" onClick={() => handleClick(null)}>
           <CalendarIcon width={24} height={24} fill="var(--on-primary-container)" />
           <span class="tooltip">Unselect month</span>
         </div>
@@ -61,7 +66,7 @@ function Calendar({ year }) {
           <li
             class={
               "calendar__item " +
-              (month.name === $currentMonth?.name
+              (month.name === $currentMonth
                 ? "calendar__item-selected"
                 : "")
             }
@@ -79,4 +84,4 @@ function Calendar({ year }) {
   );
 }
 
-export default Calendar;
+export default Calendarnew;

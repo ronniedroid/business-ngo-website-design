@@ -37,7 +37,12 @@ const combinedPosts = reportsAndArticles();
         combinedPosts.map((post) => (
           <a
             class="link"
-            href={post.data.link ? post.data.link : `articles/${post.slug}`}
+            href={
+              post.data.link == "false"
+                ? `articles/${post.slug}`
+                : post.data.link
+            }
+            target={post.data.link == "false" ? `_self` : "_blank"}
           >
             <ArticleCard article={post} />
           </a>

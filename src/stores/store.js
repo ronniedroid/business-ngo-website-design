@@ -1,88 +1,72 @@
 import { map, atom } from "nanostores";
 
-export const store = map({});
-
-export const currentMonth = map({});
-
-export const currentCluster = atom({});
-
 export const months = atom([]);
 
 export const dashboardData = map({})
-export const currentProject = map({})
-
+export const currentProject = atom(null)
+export const currentProjects = map({})
+export const currentMonth = atom(null)
+export const currentMonths = map([])
 export const jobs = atom([]);
 export const currentJobs = atom([]);
 
-export const allActivities = atom([])
-
-function clusterSelected(list, name) {
-  const clusters = list.map((i) => i.abbr);
-  const clusterExists = clusters.includes(name);
-  return clusterExists ? name : "general";
+export function setCurrrentProject(project) {
+  currentProject.set(project)
+  console.log("curennttttProject", currentProject.get())
 }
 
 export function setCurrentMonth(month) {
-  currentMonth.set({ ...store.get()[month], name: month });
-  const cluster = currentCluster.get().name;
-  currentCluster.set({
-    ...currentMonth.get()[cluster],
-    name: clusterSelected(
-      currentMonth.get().clusters,
-      currentCluster.get().name
-    ),
-  });
+  currentMonth.set(month)
 }
 
-export function setCurrentCluster(cluster) {
-  currentCluster.set({ ...currentMonth.get()[cluster], name: cluster });
+export async function fetchCurrentProjects(year) {
+  const url = currentMonth.get() != null
+    ? `http://localhost:8000/v4/currentprojects/${year}/${currentMonth.get()}`
+    : `http://localhost:8000/v4/currentprojects/${year}`
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.log(response.statues);
+  } else {
+    const data = await response.json();
+    currentProjects.set(data)
+  }
 }
 
-export function setCurrrentProject(project) {
-  currentProject.set(dashboardData.filter((item) => item.nameOfProject === project))
+export async function fetchCurrentMonths(year) {
+  const url = `http://localhost:8000/v4/currentmonths/${year}`
+  const response = await fetch(url);
+  if (!response.ok) {
+    console.log(response.statues);
+  } else {
+    const data = await response.json();
+    currentMonths.set(data)
+  }
 }
 
-export async function fetchGeneralData(year, month) {
-  const url = month
-    ? `http://localhost:8000/v4/dashboard/${year}/${month}`
+export async function fetchGeneralData(year) {
+  const url = currentMonth.get() != null
+    ? `http://localhost:8000/v4/dashboard/${year}/${currentMonth.get()}`
     : `http://localhost:8000/v4/dashboard/${year}`;
   const response = await fetch(url);
   if (!response.ok) {
     console.log(response.statues);
   } else {
     const data = await response.json();
-    store.set(data);
     dashboardData.set(data)
   }
 }
 
-export async function fetchProjectsData(year, month) {
-  const url = month
-    ? `http://localhost:8000/v4/projects-data/${year}/${month}`
+export async function fetchProjectsData(year) {
+  const url = currentMonth.get() != null
+    ? `http://localhost:8000/v4/projects-data/${year}/${currentMonth.get()}`
     : `http://localhost:8000/v4/projects-data/${year}`;
   const response = await fetch(url);
   if (!response.ok) {
     console.log(response.statues);
   } else {
     const data = await response.json();
-    store.set(data);
-    dashboardData.set(data)
-  }
-}
-
-
-
-export async function fetchYearData(year) {
-  const url = `https://harikar-reports-api.cyclic.app/v3/dashboard/${year}`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    console.log(response.statues);
-  } else {
-    const data = await response.json();
-    store.set(data);
-    months.set([...data.months]);
-    currentMonth.set({ ...data.year, name: "year" });
-    currentCluster.set({ ...currentMonth.get().general, name: "general" });
+    const projectData = data.filter((project) => project.nameOfProject === currentProject.get())[0]
+    dashboardData.set(projectData)
   }
 }
 
@@ -95,16 +79,5 @@ export async function fetchCurrentJobs() {
     const data = await response.json();
     jobs.set(data);
     currentJobs.set(data.filter((item) => item.isActive === "active"));
-  }
-}
-
-export async function fetchActivities() {
-  const url = "https://harikar-reports-api.cyclic.app/v3/data/years";
-  const response = await fetch(url);
-  if (!response.ok) {
-    console.log(response.status);
-  } else {
-    const data = await response.json();
-    allActivities.set(data);
   }
 }

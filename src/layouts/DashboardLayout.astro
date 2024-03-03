@@ -1,6 +1,6 @@
 ---
 import Districts from "@components/Charts/Districts";
-import Clusters from "@components/Clusters/Clusters";
+import Projects from "@components/Projects/Projects";
 import Calendar from "@components/Calendar/Calendar";
 import BenCards from "@components/DashboardCards/BenCards/BenCards";
 import TypeCards from "@components/DashboardCards/TypeCards/TypeCards";
@@ -33,29 +33,29 @@ const items = [
     </p>
     <div class="side">
       <Calendar client:only="preact" year={year} />
-      <Clusters client:load year={year} />
+      <Projects client:only="preact" year={year} />
     </div>
     <div class="options">
       <details>
         <summary>Dashboard options</summary>
         <div class="options-content">
           <Calendar client:only="preact" year={year} />
-          <Clusters client:load year={year} />
+          <Projects client:load year={year} />
         </div>
       </details>
     </div>
     <div class="main">
       <div class="types section">
-        <TypeCards client:only="preact" />
+        <!-- <TypeCards client:only="preact" / -->
       </div>
       <div class="locations section">
-        <Districts client:only="preact" />
+        <!-- <Districts client:only="preact" /> -->
       </div>
       <div class="cards section">
-        <BenCards client:only="preact" />
+        <!-- <BenCards client:only="preact" /> -->
       </div>
       <div class="trends section">
-        <TrendsOrActivities client:only="preact" />
+        <!-- <TrendsOrActivities client:only="preact" /> -->
       </div>
       <div class="activities"></div>
     </div>
@@ -79,6 +79,10 @@ const items = [
     display: grid;
     place-content: center;
     height: 50svh;
+  }
+
+  .options {
+    display: none;
   }
 
   @media (min-width: 700px) {
@@ -135,6 +139,9 @@ const items = [
   }
 
   @media (min-width: 1200px) {
+    .options {
+      display: none;
+    }
     .content-wrap {
       display: grid;
       grid-template: "side main" / 1fr 5fr;
@@ -150,7 +157,7 @@ const items = [
       height: max-content;
       display: grid;
       align-items: start;
-      padding-inline: 1.25rem;
+      padding-inline: 2rem;
       padding-block: 5rem;
       border-radius: 0 1rem 1rem 0;
       grid-area: side;
@@ -158,7 +165,6 @@ const items = [
       background-color: var(--surface-container);
       padding-block-start: 3rem;
       padding-block-end: 1.25rem;
-      justify-content: center;
       align-content: start;
     }
 
@@ -198,3 +204,4 @@ const items = [
     grid-area: locations;
   }
 </style>
+@components/Projects/Clusters

@@ -19,17 +19,15 @@ const { title = "page", crumbs = false } = Astro.props;
     <main>
       {!crumbs ? "" : <Breadcrumbs class="breadcrumbs" items={crumbs} />}
       <slot />
-      <!-- your content is injected here -->
     </main>
     <Footer />
+    <style>
+      body {
+        font-family: "Montserrat Variable", sans-serif;
+      }
+      main {
+        overflow: hidden;
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  body {
-    font-family: "Montserrat Variable", sans-serif;
-  }
-  main {
-    overflow: hidden;
-  }
-</style>
