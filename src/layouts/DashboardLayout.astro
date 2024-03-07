@@ -87,7 +87,6 @@ const items = [
 
   @media (min-width: 700px) {
     .content-wrap {
-      display: grid;
       grid-template: "options" "main" / 1fr;
     }
 
@@ -143,25 +142,18 @@ const items = [
       display: none;
     }
     .content-wrap {
-      display: grid;
       grid-template: "side main" / 1fr 5fr;
-      position: relative;
       background-color: var(--surface);
     }
 
     .side {
-      position: sticky;
-      z-index: unset;
-      top: 10rem;
       width: 20rem;
       height: max-content;
       display: grid;
       align-items: start;
       padding-inline: 2rem;
-      padding-block: 5rem;
       border-radius: 0 1rem 1rem 0;
       grid-area: side;
-      padding-block: 1.25rem;
       background-color: var(--surface-container);
       padding-block-start: 3rem;
       padding-block-end: 1.25rem;

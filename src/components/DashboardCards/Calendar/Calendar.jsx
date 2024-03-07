@@ -41,7 +41,6 @@ function Calendar({ year }) {
   const $projectMonths = useStore(projectMonths)
   const $currentMonths = useStore(currentMonths);
   const months = $currentProject != null ? $currentMonths.filter((item) => $projectMonths.includes(item)) : $currentMonths
-  console.log(months);
   const filteredMonths = allMonths.map((item) =>
     months.includes(item.name) ? item : { ...item, isDisabled: true }
   );

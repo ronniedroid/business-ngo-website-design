@@ -84,7 +84,7 @@
   text-align: start;
   max-width: max-content;
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   background-color: transparent;
   border-radius: 0.5rem;
   border: 1px solid var(--outline-variant);
