@@ -29,7 +29,7 @@
   grid-template-columns: 1fr 2fr;
 }
 
-.content-title {
+.contenttitle {
   font-weight: 600;
 }
 
@@ -152,7 +152,7 @@
   transform: none;
 }
 
-.announcement-content-wrap {
+.contentwrap {
   display: grid;
   justify-items: center;
   align-items: start;

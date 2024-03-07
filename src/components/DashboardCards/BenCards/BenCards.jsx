@@ -2,41 +2,41 @@ import { h } from "preact";
 import { useStore } from "@nanostores/preact";
 import { dashboardData } from "@stores/store";
 import BenCard from "./BenCard";
-import "./BenCards.css";
+import styles from "./styles.module.css"
 
 function BenCards() {
   const $dashboardData = useStore(dashboardData)
   const items = [
     {
-      name: "total",
+      title: "total",
       num: $dashboardData?.total,
     },
     {
-      name: "male",
+      title: "male",
       num: $dashboardData?.male,
     },
     {
-      name: "female",
+      title: "female",
       num: $dashboardData?.female,
     },
     {
-      name: "camp",
+      title: "camp",
       num: $dashboardData?.camp,
     },
     {
-      name: "urban",
+      title: "urban",
       num: $dashboardData?.urban,
     },
   ];
   return (
-    <div class="ben-cards">
-      <div class="ben-cards__title">
+    <div class={styles.cards}>
+      <div class={styles.cardstitle}>
         <h2>Benefeciaries</h2>
         <p>General Statistics of beneficiaties based on gender and locations</p>
       </div>
-      <div class="ben-cards__cards">
+      <div class={styles.cardslist}>
         {items
-          ? items.map((item) => <BenCard name={item.name} num={item.num} />)
+          ? items.map((item) => <BenCard title={item.title} num={item.num} />)
           : ""}
       </div>
     </div>

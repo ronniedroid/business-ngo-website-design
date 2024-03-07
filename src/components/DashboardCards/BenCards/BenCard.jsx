@@ -4,31 +4,31 @@ import MaleIcon from "@components/Icons/MaleIcon";
 import FemaleIcon from "@components/Icons/FemaleIcon";
 import CampIcon from "@components/Icons/CampIcon";
 import UrbanIcon from "@components/Icons/UrbanIcon";
-import "./BenCards.css";
+import styles from "./styles.module.css"
 
-function BenCard({ name, num }) {
+function BenCard({ title, num }) {
   const width = 20;
   const height = 20;
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
   return (
-    <div class="ben-card">
-      <div class={"ben-card__icon " + name}>
-        {name === "total" ? (
+    <div class={styles.card}>
+      <div class={`${styles.cardicon} ${styles[title]}`}>
+        {title === "total" ? (
           <TotalIcon width={width} height={height} />
-        ) : name === "male" ? (
+        ) : title === "male" ? (
           <MaleIcon width={width} height={height} />
-        ) : name === "female" ? (
+        ) : title === "female" ? (
           <FemaleIcon width={width} height={height} />
-        ) : name === "camp" ? (
+        ) : title === "camp" ? (
           <CampIcon width={width} height={height} />
-        ) : name === "urban" ? (
+        ) : title === "urban" ? (
           <UrbanIcon width={width} height={height} />
         ) : (
           ""
         )}
       </div>
-      <div class="ben-card__name">{name}</div>
-      <div class="ben-card__num">{formatter.format(num)}</div>
+      <div class={styles.cardtitle}>{title}</div>
+      <div class={styles.cardnum}>{formatter.format(num)}</div>
     </div>
   );
 }

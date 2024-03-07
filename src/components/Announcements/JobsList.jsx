@@ -3,7 +3,7 @@ import { useEffect } from "preact/hooks";
 import { useStore } from "@nanostores/preact";
 import { fetchCurrentJobs, currentJobs } from "@stores/store";
 import JobsCard from "./JobsCard";
-import "./announcements-styles.css";
+import styles from "./styles.module.css"
 
 function JobsList() {
   useEffect(() => {
@@ -13,7 +13,7 @@ function JobsList() {
   const $currentJobs = useStore(currentJobs);
 
   return (
-    <div class="announcement-content-wrap">
+    <div class={styles.contentwrap}>
       {$currentJobs.length > 0 ? (
         $currentJobs.map((job) => (
           <JobsCard
@@ -30,7 +30,7 @@ function JobsList() {
           />
         ))
       ) : (
-        <div class="emptyList">No Jobs are Available</div>
+        <div class={styles.emptyList}>No Jobs are Available</div>
       )}
     </div>
   );

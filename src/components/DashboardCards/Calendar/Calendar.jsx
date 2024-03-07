@@ -1,13 +1,10 @@
 import { h } from "preact";
-import "./Calendar.css";
+import styles from "./styles.module.css"
 import {
   setCurrentMonth,
   currentMonths,
   currentMonth,
-  fetchGeneralData,
-  fetchProjectsData,
   currentProject,
-  fetchCurrentProjects,
   fetchCurrentMonths,
   projectMonths
 } from "@stores/store";
@@ -66,20 +63,20 @@ function Calendar({ year }) {
 
   return (
     <div class="calendar">
-      <ul class="calendar__list">
-        <div class="calendar__icon" onClick={() => handleClick(null)}>
+      <ul class={styles.calendarlist}>
+        <div class={styles.calendaricon} onClick={() => handleClick(null)}>
           <CalendarIcon width={24} height={24} fill="var(--on-primary-container)" />
-          <span class="tooltip">Unselect month</span>
+          <span class={styles.tooltip}>Unselect month</span>
         </div>
-        <div class="calendar__title">
+        <div class={styles.calendartitle}>
           <p>{year}</p>
         </div>
         {filteredMonths.map((month) => (
           <li
             class={
-              "calendar__item " +
+              styles.calendaritem +
               (month.name === $currentMonth
-                ? "calendar__item-selected"
+                ? styles.calendaritemselected
                 : "")
             }
           >

@@ -1,4 +1,4 @@
-.ben-cards {
+.cards {
     display: grid;
     gap: 3rem;
     max-width: min-content;
@@ -11,24 +11,24 @@
     border-radius: 1rem;
 }
 
-.ben-cards__title>h2 {
+.cardstitle>h2 {
     font-size: var(--fs-lg);
     padding-bottom: 1rem;
 }
 
-.ben-cards__title>p {
+.cardstitle>p {
     max-width: 65ch;
     font-size: var(--fs-xs);
     font-weight: 600;
 }
 
-.ben-cards__cards {
+.cardslist {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
 }
 
-.ben-card {
+.card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -41,20 +41,20 @@
 }
 
 @media (min-width: 700px) {
-    .ben-cards {
+    .cards {
         padding-inline: 1.25rem;
         place-content: center;
         align-items: start;
     }
 
-    .ben-cards__cards {
+    .cardslist {
         gap: 0.5rem;
         grid-template-columns: repeat(5, 1fr);
     }
 }
 
 @media (min-width: 1300px) {
-    .ben-cards {
+    .cards {
         display: flex;
         gap: 1rem;
         max-width: 100%;
@@ -64,54 +64,56 @@
         margin-inline-start: 2rem;
     }
 
-    .ben-cards__title>h2 {
+    .cardstitle>h2 {
         font-size: var(--fs-md);
         padding-bottom: 1rem;
     }
 
-    .ben-cards__cards {
+    .cardslist {
         display: flex;
         gap: 1rem;
     }
 }
 
-.ben-card__icon {
+.cardicon {
+    --icon-bg: #ffffff;
     position: absolute;
     padding: 0.5rem;
     border-radius: 0.7rem;
     top: 0;
     left: 1em;
     transform: translateY(-50%);
+    background-color: var(--icon-bg);
 }
 
 .total {
-    background-color: var(--primary-light);
+    --icon-bg: var(--primary-light);
 }
 
 .male {
-    background-color: var(--male);
+    --icon-bg: var(--male);
 }
 
 .female {
-    background-color: var(--female);
+    --icon-bg: var(--female);
 }
 
 .camp {
-    background-color: var(--camp);
+    --icon-bg: var(--camp);
 }
 
 .urban {
-    background-color: var(--urban);
+    --icon-bg: var(--urban);
 }
 
-.ben-card__name {
+.cardtitle {
     text-transform: capitalize;
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--on-surface);
 }
 
-.ben-card__num {
+.cardnum {
     font-size: var(--fs-md);
     font-weight: 800;
     color: var(--on-surface);

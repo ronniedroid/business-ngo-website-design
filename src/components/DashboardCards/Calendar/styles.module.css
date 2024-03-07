@@ -10,7 +10,7 @@
   }
 }
 
-.calendar__list {
+.calendarlist {
   list-style: none;
   display: grid;
   place-items: center;
@@ -25,7 +25,7 @@
   position: relative;
 }
 
-.calendar__icon {
+.calendaricon {
   display: grid;
   place-items: center;
   place-content: center;
@@ -41,7 +41,7 @@
   border: 1px solid var(--outline-variant);
 }
 
-.calendar__icon .tooltip {
+.calendaricon .tooltip {
   visibility: hidden;
   background-color: var(--surface-container-highest);
   color: var(--on-surface);
@@ -56,12 +56,12 @@
   transition: visibility 0.2s linear, opacity 0.2s linear;
 }
 
-.calendar__icon:hover .tooltip {
+.calendaricon:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
-.calendar__title {
+.calendartitle {
   position: absolute;
   top: -1.2em;
   left: 3.3em;
@@ -70,18 +70,18 @@
   align-items: center;
 }
 
-.calendar__title>p {
+.calendartitle>p {
   font-size: var(--fs-sm);
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.calendar__item {
+.calendaritem {
   width: 100%;
   display: grid;
 }
 
-.calendar__item>button {
+.calendaritem>button {
   color: var(--on-surface);
   padding-block: 0.25rem;
   padding-inline: 0.5rem;
@@ -95,18 +95,18 @@
   cursor: pointer;
 }
 
-.calendar__item>button:disabled {
+.calendaritem>button:disabled {
   color: var(--neutral25);
   cursor: not-allowed;
 }
 
-.calendar__item-selected>button,
-.calendar__item:hover>button {
+.calendaritemselected>button,
+.calendaritem:hover>button {
   background-color: var(--surface-container-highest);
   color: var(--on-surface-container);
   border-radius: 0.5rem;
 }
 
-.calendar__item:hover>button {
+.calendaritem:hover>button {
   color: var(--on-surface);
 }

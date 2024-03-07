@@ -1,36 +1,21 @@
 ---
-const { eng, ara, kurd, date, deadline, link, dl, refNum } = Astro.props;
-const setColor = (dl) => {
-  const color =
-    dl > 7
-      ? "var(--blue-7)"
-      : dl >= 3
-        ? "var(--green-7)"
-        : dl < 3 && dl > 0
-          ? "var(--red-7)"
-          : "var(--gray-7)";
-  return color;
-};
-
-const borderColor = setColor(dl);
+const { eng, date, deadline, refNum, projectname } = Astro.props;
 ---
 
-<div class="card dynamic-border">
+<div class="card">
+  <p class="title">
+    {eng}
+  </p>
   <div class="content">
-    <p class="eng" lang="eng" dir="ltr">
-      {eng}
-    </p>
-    <p class="ara" lang="ar" dir="rtl">{ara}</p>
-    <p class="kurd" lang="ku" dir="rtl">
-      {kurd}
-    </p>
-  </div>
-  <div class="dates">
-    <p class="announcement-data">
-      <span><strong>Announced at:</strong></span>{date}
+    {projectname ? <p class="tpname content-title">Project name:</p> : ""}
+    <p class="tstaring content-title">Starting:</p>
+    <p class="tdeadline content-title">Deadline:</p>
+    {projectname ? <p class="pname">project name</p> : ""}
+    <p class="staring">
+      {date}
     </p>
     <p class="deadline">
-      <span><strong>Deadline:</strong></span>{deadline}
+      {deadline}
     </p>
   </div>
   <div class="buttons">
@@ -51,10 +36,111 @@ const borderColor = setColor(dl);
   </div>
 </div>
 
-<style define:vars={{ borderColor }}>
-  @import "./announcements-styles.css";
+<style>
+  .card {
+    display: grid;
+    gap: 0.25rem;
+    background-color: var(--surface-container-high);
+    border-radius: 1rem;
+    max-height: max-content;
+    max-width: 65ch;
+  }
 
-  .dynamic-border {
-    border-top: 3px solid var(--borderColor);
+  .card .title {
+    padding: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    height: 4rem;
+    display: grid;
+    place-content: center;
+  }
+
+  .card .content {
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    display: grid;
+    gap: 1rem;
+    column-gap: 2rem;
+    grid-template-areas: "tpname pname" "tstarting starting" "tdeadline deadline";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .content-title {
+    font-weight: 600;
+  }
+
+  .tpname {
+    grid-area: tpname;
+  }
+
+  .pname {
+    grid-area: pname;
+    align-self: end;
+  }
+
+  .tstarting {
+    grid-area: tstarting;
+  }
+
+  .starting {
+    grid-area: starting;
+    align-self: end;
+  }
+
+  .tdeadline {
+    grid-area: tdeadline;
+  }
+
+  .deadline {
+    grid-area: deadline;
+    align-self: end;
+  }
+
+  .card .buttons {
+    display: flex;
+    justify-content: end;
+    align-self: end;
+    gap: 1rem;
+    padding: 0;
+    padding-inline: 2rem;
+    margin: 0;
+    border-radius: 0 0 1rem 1rem;
+    min-height: 4rem;
+    max-height: 4rem;
+  }
+
+  .card .button {
+    padding-block: 0.7rem;
+    padding-inline: 1rem;
+    margin-block: 1rem;
+    cursor: pointer;
+    color: var(--on-tertiary-container);
+    background: var(--tertiary-container);
+    border: 1px solid var(--outline);
+    border-radius: 0.5rem;
+    transition: transform 150ms ease-out;
+    display: grid;
+    place-content: center;
+  }
+
+  .card .button:hover {
+    transform: scale(1.1);
+  }
+
+  .card .button:disabled {
+    cursor: not-allowed;
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+  }
+
+  .card .button:disabled:hover {
+    transform: none;
+  }
+  .card a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>

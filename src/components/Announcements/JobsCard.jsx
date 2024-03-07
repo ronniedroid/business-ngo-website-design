@@ -1,5 +1,5 @@
 import { h } from "preact";
-import "./announcements-styles.css";
+import styles from "./styles.module.css"
 
 function JobsCard(props) {
   const getTime = (dl) => {
@@ -17,61 +17,61 @@ function JobsCard(props) {
   const isDisabled = getTime(props.deadline) <= 0 ? true : false;
 
   return (
-    <div class="card">
-      <p class="title">
+    <div class={styles.card}>
+      <p class={styles.title}>
         {props.title}
       </p>
-      <div class="content">
-        <p class="tpname content-title">
+      <div class={styles.content}>
+        <p class={`${styles.tpname} ${styles.contenttitle}`}>
           Project name:
         </p>
-        <p class="tvac content-title">
+        <p class={`${styles.tvac} ${styles.contenttitle}`}>
           Number of vacancies:
         </p>
-        <p class="tduty content-title">
+        <p class={`${styles.tduty} ${styles.contenttitle}`}>
           Duty Station:
         </p>
-        <p class="tresidence content-title">
+        <p class={`${styles.tresidence} ${styles.contenttitle}`}>
           Applicant's residence:
         </p>
-        <p class="tgender content-title">
+        <p class={`${styles.tgender} ${styles.contenttitle}`}>
           Preferable gender:
         </p>
-        <p class="tcontract content-title">
+        <p class={`${styles.tcontract} ${styles.contenttitle}`}>
           Type of contract:
         </p>
-        <p class="tstaring content-title">
+        <p class={`${styles.tstaring} ${styles.contenttitle}`}>
           Expected starting date:
         </p>
-        <p class="tdeadline content-title">
+        <p class={`${styles.tdeadline} ${styles.contenttitle}`}>
           Deadline:
         </p>
-        <p class="pname">{props.project}</p>
-        <p class="vac">
+        <p class={styles.pname}>{props.project}</p>
+        <p class={styles.vac}>
           {props.vacancies}
         </p>
-        <p class="duty">
+        <p class={styles.duty}>
           {props.projectArea}
         </p>
-        <p class="residence">
+        <p class={styles.residence}>
           {props.residence}
         </p>
-        <p class="gender">
+        <p class={styles.gender}>
           {props.gender}
         </p>
-        <p class="contract">
+        <p class={styles.contract}>
           {props.typeOfContract}
         </p>
-        <p class="staring">
+        <p class={styles.starting}>
           {props.starting}
         </p>
-        <p class="deadline">
+        <p class={styles.deadline}>
           {props.deadline}
         </p>
       </div >
-      <div class="buttons">
-        <button class="button">Read more</button>
-        <button class="button" disabled={isDisabled}>Apply</button>
+      <div class={styles.buttons}>
+        <button class={styles.button}>Read more</button>
+        <button class={styles.button} disabled={isDisabled}>Apply</button>
       </div>
     </div >
   );
