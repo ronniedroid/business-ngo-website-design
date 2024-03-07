@@ -1,14 +1,13 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
-import { currentCluster, currentMonth } from "@stores/store";
+import { dashboardData } from "@stores/store";
 import "./Charts.css";
 
 function Gender() {
-  const $currentCluster = useStore(currentCluster);
-  const $currentMonth = useStore(currentMonth)
-  const maleSeries = $currentMonth.name != undefined ? $currentCluster?.gender?.male : [];
-  const femaleSeries = $currentMonth.name != undefined ? $currentCluster?.gender?.female : [];
+  const { gender } = useStore(dashboardData);
+  const maleSeries = gender ? gender?.male : [];
+  const femaleSeries = gender ? gender?.female : [];
   const options = {
     chart: {
       fontFamily: "Roboto, sans-serif",

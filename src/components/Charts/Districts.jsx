@@ -1,11 +1,11 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
-import { currentCluster } from "@stores/store";
+import { dashboardData } from "@stores/store";
 import "./Charts.css";
 
 const Districts = () => {
-  const $currentCluster = useStore(currentCluster);
+  const { districts } = useStore(dashboardData);
   const options = {
     chart: {
       stacked: false,
@@ -42,8 +42,8 @@ const Districts = () => {
     },
     colors: ["var(--on-surface)"],
     xaxis: {
-      categories: $currentCluster.districts
-        ? $currentCluster.districts.map((item) => item.name)
+      categories: districts
+        ? districts.map((item) => item.name)
         : [],
       labels: {
         rotate: -20,
@@ -77,8 +77,8 @@ const Districts = () => {
   const dataSeries = [
     {
       name: "Benefciaries",
-      data: $currentCluster.districts
-        ? $currentCluster.districts.map((item) => item.total)
+      data: districts
+        ? districts.map((item) => item.total)
         : [],
     },
   ];

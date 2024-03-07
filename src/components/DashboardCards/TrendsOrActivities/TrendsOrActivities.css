@@ -1,4 +1,4 @@
-.container {
+.activities-container {
     max-width: max-content;
     display: grid;
     padding-inline: 1.25rem;
@@ -9,19 +9,19 @@
     border-radius: 1rem;
 }
 
-.container__title>h2 {
+.activities-container__title>h2 {
     font-size: var(--fs-md);
     padding-bottom: 1rem;
 }
 
-.container__title>p {
-    max-width: 65ch;
+.activities-container__title>p {
+    max-width: 35ch;
     font-size: var(--fs-xs);
     font-weight: 600;
 }
 
 
-.container__title>p>span {
+.activities-container__title>p>span {
     text-transform: capitalize;
 }
 
@@ -37,26 +37,26 @@
     margin-bottom: 1rem;
 }
 
-.container__cards {
+.activities-container__cards {
     max-width: 340px;
 }
 
 @media (min-width: 700px) {
-    .container {
+    .activities-container {
         display: grid;
         place-content: center;
         padding-inline: 1.25rem;
     }
 
-    .container__cards {
+    .activities-container__cards {
         max-width: 650px;
     }
 }
 
 @media (min-width: 1300px) {
-    .container {
+    .activities-container {
         display: grid;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 5fr;
         align-content: start;
         justify-content: start;
         padding-inline: 3rem;

@@ -1,26 +1,27 @@
 import { h } from "preact";
 import "./TrendsOrActivities.css";
 import { useStore } from "@nanostores/preact";
-import { currentMonth } from "@stores/store";
+import { currentMonth, currentProject } from "@stores/store";
 import Gender from "@components/Charts/Gender";
 import Governorates from "@components/Charts/Governorate";
 import Activities from "@components/DashboardCards/TrendsOrActivities/Activities";
 
 function TrendsOrActivities() {
-  const $currentMonth = useStore(currentMonth);
-  const month = $currentMonth.name;
-  const isYear = month === "year" ? true : false;
-  if (isYear) {
+  const month = useStore(currentMonth);
+  const project = useStore(currentProject)
+  const isYear = month === null ? true : false;
+  const isProject = project === null ? false : true;
+  if (isYear && !isProject) {
     return (
-      <div class="container">
-        <div class="container__title">
+      <div class="activities-container">
+        <div class="activities-container__title">
           <h2>Monthly segregation</h2>
           <p>
             Distriution of beneficiaries based on gender and governorates for
             the passed months
           </p>
         </div>
-        <div class="container__cards">
+        <div class="activities-container__cards">
           <div class="gender">
             <Gender />
           </div>
@@ -32,16 +33,16 @@ function TrendsOrActivities() {
     );
   } else {
     return (
-      <div class="container">
-        <div class="container__title">
+      <div class="activities-container">
+        <div class="activities-container__title">
           <h2>Activities</h2>
           <p>
             List of activities carried out by Harikar's project's for the month
             of <span>{month}</span>
           </p>
         </div>
-        <div class="container__table">
-          <Activities month={month} />
+        <div class="activities-container__table">
+          <Activities />
         </div>
       </div>
     );

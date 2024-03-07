@@ -1,21 +1,17 @@
 import { h } from "preact";
 import { useStore } from "@nanostores/preact";
-import { currentCluster } from "@stores/store";
+import { dashboardData } from "@stores/store";
 import "./TrendsOrActivities.css";
 
-function Activities({ month }) {
-  const $currentCluster = useStore(currentCluster);
-  const activities = month === "year" ? [] : $currentCluster?.activities;
-  const hasNameOfProject =
-    activities && activities[0]?.nameOfProject ? true : false;
+function Activities() {
+  const { activities } = useStore(dashboardData);
 
   return (
     <table>
       <thead>
         <tr>
-          {hasNameOfProject ? <th scope="col">Project</th> : ""}
+          {activities ? <th scope="col">Project</th> : ""}
           <th scope="col">Activity</th>
-          <th scope="col">Cluster</th>
           <th scope="col">Male</th>
           <th scope="col">Female</th>
           <th scope="col">Total</th>
@@ -24,31 +20,24 @@ function Activities({ month }) {
       <tbody>
         {activities
           ? activities.map((item) => (
-              <tr>
-                {hasNameOfProject ? (
-                  <td data-label="Project" scope="row">
-                    {item?.nameOfProject}
-                  </td>
-                ) : (
-                  ""
-                )}
-                <td data-label="Activity" scope="row">
-                  {item?.name}
-                </td>
-                <td data-label="Cluster" scope="row">
-                  {item?.cluster}
-                </td>
-                <td data-label="Male" scope="row">
-                  {item?.male}
-                </td>
-                <td data-label="Female" scope="row">
-                  {item?.female}
-                </td>
-                <td data-label="Total" scope="row">
-                  {item?.total}
-                </td>
-              </tr>
-            ))
+            <tr>
+              <td data-label="Project" scope="row">
+                {item.nameOfProject}
+              </td>
+              <td data-label="Activity" scope="row">
+                {item?.name}
+              </td>
+              <td data-label="Male" scope="row">
+                {item?.male}
+              </td>
+              <td data-label="Female" scope="row">
+                {item?.female}
+              </td>
+              <td data-label="Total" scope="row">
+                {item?.total}
+              </td>
+            </tr>
+          ))
           : ""}
       </tbody>
     </table>

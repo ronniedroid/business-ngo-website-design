@@ -1,31 +1,31 @@
 import { h } from "preact";
 import { useStore } from "@nanostores/preact";
-import { currentCluster } from "@stores/store";
+import { dashboardData } from "@stores/store";
 import BenCard from "./BenCard";
 import "./BenCards.css";
 
 function BenCards() {
-  const $currentCluster = useStore(currentCluster);
+  const $dashboardData = useStore(dashboardData)
   const items = [
     {
       name: "total",
-      num: $currentCluster?.bens?.total,
+      num: $dashboardData?.total,
     },
     {
       name: "male",
-      num: $currentCluster?.bens?.male,
+      num: $dashboardData?.male,
     },
     {
       name: "female",
-      num: $currentCluster?.bens?.female,
+      num: $dashboardData?.female,
     },
     {
       name: "camp",
-      num: $currentCluster?.locations?.camp,
+      num: $dashboardData?.camp,
     },
     {
       name: "urban",
-      num: $currentCluster?.locations?.nonCamp,
+      num: $dashboardData?.urban,
     },
   ];
   return (

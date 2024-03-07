@@ -1,11 +1,11 @@
 ---
+import Projects from "@components/DashboardCards/Projects/Projects";
+import Calendar from "@components/DashboardCards/Calendar/Calendar";
 import Districts from "@components/Charts/Districts";
-import Projects from "@components/Projects/Projects";
-import Calendar from "@components/Calendar/Calendar";
 import BenCards from "@components/DashboardCards/BenCards/BenCards";
 import TypeCards from "@components/DashboardCards/TypeCards/TypeCards";
-import MainLayout from "@layouts/MainLayout.astro";
 import TrendsOrActivities from "@components/DashboardCards/TrendsOrActivities/TrendsOrActivities";
+import MainLayout from "@layouts/MainLayout.astro";
 const { year = "" } = Astro.props;
 
 const items = [
@@ -46,16 +46,16 @@ const items = [
     </div>
     <div class="main">
       <div class="types section">
-        <!-- <TypeCards client:only="preact" / -->
+        <TypeCards client:only="preact" />
       </div>
       <div class="locations section">
-        <!-- <Districts client:only="preact" /> -->
+        <Districts client:only="preact" />
       </div>
       <div class="cards section">
-        <!-- <BenCards client:only="preact" /> -->
+        <BenCards client:only="preact" />
       </div>
       <div class="trends section">
-        <!-- <TrendsOrActivities client:only="preact" /> -->
+        <TrendsOrActivities client:only="preact" />
       </div>
       <div class="activities"></div>
     </div>
@@ -204,4 +204,3 @@ const items = [
     grid-area: locations;
   }
 </style>
-@components/Projects/Clusters

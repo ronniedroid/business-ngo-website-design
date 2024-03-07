@@ -1,29 +1,11 @@
 import { h } from "preact";
 import { useStore } from "@nanostores/preact";
-import { currentCluster } from "@stores/store";
+import { dashboardData } from "@stores/store";
 import TypeCard from "./TypeCard";
 import "./TypeCards.css";
 
 function TypeCards() {
-  const $currentCluster = useStore(currentCluster);
-  const items = [
-    {
-      name: "IDPs",
-      num: $currentCluster?.types?.idps,
-    },
-    {
-      name: "Refugees",
-      num: $currentCluster?.types?.refugees,
-    },
-    {
-      name: "Returnees",
-      num: $currentCluster?.types?.returnees,
-    },
-    {
-      name: "Host Community",
-      num: $currentCluster?.types?.host,
-    },
-  ];
+  const { beneficiaries } = useStore(dashboardData);
   return (
     <div className="type-cards">
       <div className="type-cards__title">
@@ -33,8 +15,8 @@ function TypeCards() {
         </p>
       </div>
       <div class="type-cards__cards">
-        {items
-          ? items.map((item) => <TypeCard name={item.name} num={item.num} />)
+        {beneficiaries
+          ? beneficiaries.map((item) => <TypeCard name={item.name} num={item.total} />)
           : ""}
       </div>
     </div>

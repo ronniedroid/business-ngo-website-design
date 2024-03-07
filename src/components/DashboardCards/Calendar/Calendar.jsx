@@ -1,12 +1,21 @@
 import { h } from "preact";
 import "./Calendar.css";
-import { setCurrentMonth, currentMonths, fetchCurrentMonths } from "@stores/store";
+import {
+  setCurrentMonth,
+  currentMonths,
+  currentMonth,
+  fetchGeneralData,
+  fetchProjectsData,
+  currentProject,
+  fetchCurrentProjects,
+  fetchCurrentMonths,
+  projectMonths
+} from "@stores/store";
 import { useStore } from "@nanostores/preact";
-import { currentMonth } from "@stores/store";
 import CalendarIcon from "@components/Icons/CalendarIcon";
 import { useEffect } from "preact/hooks";
 
-function Calendarnew({ year }) {
+function Calendar({ year }) {
   const allMonths = [
     { name: "january", abbr: "Jan", isDisabled: false },
     { name: "february", abbr: "Feb", isDisabled: false },
@@ -22,28 +31,32 @@ function Calendarnew({ year }) {
     { name: "december", abbr: "Dec", isDisabled: false },
   ];
 
+  const $currentMonth = useStore(currentMonth);
+  const $currentProject = useStore(currentProject)
 
   useEffect(() => {
-    fetchCurrentMonths(year);
-  }, []);
+    fetchCurrentMonths(year)
+  }, [])
 
-  const $currentMonth = useStore(currentMonth);
-  const $months = useStore(currentMonths);
+  const $projectMonths = useStore(projectMonths)
+  const $currentMonths = useStore(currentMonths);
+  const months = $currentProject != null ? $currentMonths.filter((item) => $projectMonths.includes(item)) : $currentMonths
+  console.log(months);
   const filteredMonths = allMonths.map((item) =>
-    $months.includes(item.name) ? item : { ...item, isDisabled: true }
+    months.includes(item.name) ? item : { ...item, isDisabled: true }
   );
 
   useEffect(() => {
     let params = new URLSearchParams(document.location.search);
     let monthp = params.get("month");
-    if ($currentMonth != undefined) {
-      if (!$months.includes(monthp)) {
+    if ($currentMonth != null) {
+      if (!months.includes(monthp)) {
         setCurrentMonth(null);
       } else {
         setCurrentMonth(monthp);
       }
     }
-  }, [$months]);
+  }, []);
 
   function handleClick(month) {
     let params = new URLSearchParams(document.location.search);
@@ -84,4 +97,4 @@ function Calendarnew({ year }) {
   );
 }
 
-export default Calendarnew;
+export default Calendar;

@@ -15,7 +15,7 @@ function TypeCard({ name, num }) {
       <div class="type-card__icon">
         {name === "IDPs" ? (
           <IDPIcon width={width} height={height} fill={fill} />
-        ) : name === "Refugees" ? (
+        ) : name === "Refugee" ? (
           <RefugeeIcon width={width} height={height} fill={fill} />
         ) : name === "Returnees" ? (
           <ReturneeIcon width={width} height={height} fill={fill} />
