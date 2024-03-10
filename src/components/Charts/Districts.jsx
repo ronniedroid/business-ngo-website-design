@@ -8,7 +8,7 @@ const Districts = () => {
   const { districts } = useStore(dashboardData);
   const $filter = useStore(dataFilter)
   const title = $filter == "idps" ? "IDPs" : $filter == "host" ? "Host Community" : $filter
-  const capitalizedTitle = title.split("").map((item, index) => index == 0 ? item.toUpperCase() : item).join("")
+  const capitalizedTitle = title ? title.split("").map((item, index) => index == 0 ? item.toUpperCase() : item).join("") : ""
   const options = {
     chart: {
       stacked: false,
@@ -44,7 +44,7 @@ const Districts = () => {
       },
     },
     title: {
-      text: `${capitalizedTitle} Beneficiaries Based on District`,
+      text: capitalizedTitle ? `${capitalizedTitle} Beneficiaries Based on District` : "Total Beneficiareis Based on District",
       align: 'left',
       style: { color: "var(--on-surface)" },
     },
