@@ -1,11 +1,14 @@
 import { h } from "preact";
 import Chart from "react-apexcharts";
 import { useStore } from "@nanostores/preact";
-import { dashboardData } from "@stores/store";
+import { dashboardData, dataFilter } from "@stores/store";
 import "./Charts.css";
 
 const Districts = () => {
   const { districts } = useStore(dashboardData);
+  const $filter = useStore(dataFilter)
+  const title = $filter == "idps" ? "IDPs" : $filter == "host" ? "Host Community" : $filter
+  const capitalizedTitle = title.split("").map((item, index) => index == 0 ? item.toUpperCase() : item).join("")
   const options = {
     chart: {
       stacked: false,
@@ -39,6 +42,11 @@ const Districts = () => {
           opts.w.globals.series[0][opts.dataPointIndex]
         );
       },
+    },
+    title: {
+      text: `${capitalizedTitle} Beneficiaries Based on District`,
+      align: 'left',
+      style: { color: "var(--on-surface)" },
     },
     colors: ["var(--on-surface)"],
     xaxis: {
@@ -76,9 +84,9 @@ const Districts = () => {
   };
   const dataSeries = [
     {
-      name: "Benefciaries",
+      name: capitalizedTitle,
       data: districts
-        ? districts.map((item) => item.total)
+        ? districts.map((item) => $filter != null ? item[$filter] : item.total)
         : [],
     },
   ];

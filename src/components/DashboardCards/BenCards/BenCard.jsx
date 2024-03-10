@@ -5,13 +5,17 @@ import FemaleIcon from "@components/Icons/FemaleIcon";
 import CampIcon from "@components/Icons/CampIcon";
 import UrbanIcon from "@components/Icons/UrbanIcon";
 import styles from "./styles.module.css"
+import { setDataFilter } from "@stores/store";
 
 function BenCard({ title, num }) {
   const width = 20;
   const height = 20;
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
+  function handleClick(item) {
+    setDataFilter(item)
+  }
   return (
-    <div class={styles.card}>
+    <div class={styles.card} onClick={() => handleClick(title)}>
       <div class={`${styles.icon} ${styles[title]}`}>
         {title === "total" ? (
           <TotalIcon width={width} height={height} />

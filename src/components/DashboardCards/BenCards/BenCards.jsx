@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { useStore } from "@nanostores/preact";
-import { dashboardData } from "@stores/store";
+import { dashboardData, setDataFilter } from "@stores/store";
 import BenCard from "./BenCard";
 import styles from "./styles.module.css"
 
@@ -28,6 +28,7 @@ function BenCards() {
       num: $dashboardData?.urban,
     },
   ];
+
   return (
     <div class={styles.cards}>
       <div class={styles.title}>

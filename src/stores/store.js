@@ -10,6 +10,7 @@ export const currentMonths = map([])
 export const projectMonths = map([])
 export const jobs = atom([]);
 export const currentJobs = atom([]);
+export const dataFilter = atom(null)
 
 export function setCurrrentProject(project) {
   currentProject.set(project)
@@ -21,6 +22,10 @@ export function setCurrentMonth(month) {
 
 export function setProjectMonths(payload) {
   projectMonths.set(payload)
+}
+
+export function setDataFilter(payload) {
+  dataFilter.set(payload)
 }
 
 export async function fetchCurrentMonths(year) {

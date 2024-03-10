@@ -37,6 +37,7 @@
   border-radius: 1rem;
   align-items: center;
   border: 1px solid var(--outline-variant);
+  cursor: pointer;
 }
 
 .cardtitle {
