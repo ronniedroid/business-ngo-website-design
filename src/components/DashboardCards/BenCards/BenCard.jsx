@@ -12,7 +12,7 @@ function BenCard({ title, num }) {
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
   return (
     <div class={styles.card}>
-      <div class={`${styles.cardicon} ${styles[title]}`}>
+      <div class={`${styles.icon} ${styles[title]}`}>
         {title === "total" ? (
           <TotalIcon width={width} height={height} />
         ) : title === "male" ? (

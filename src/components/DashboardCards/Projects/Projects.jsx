@@ -45,8 +45,8 @@ function Projects({ year }) {
 
   return (
     <div class={styles.projects}>
-      <ul class={styles.projectslist}>
-        <div class={styles.projectsicon} onClick={() => handleGeneralClick()}>
+      <ul class={styles.list}>
+        <div class={styles.icon} onClick={() => handleGeneralClick()}>
           <ClusterIcon width={24} height={24} fill="var(--on-primary-container)" />
           <span class={styles.tooltip}>Unselect project</span>
           <p>Projects</p>
@@ -56,7 +56,7 @@ function Projects({ year }) {
             <li
               class={
                 styles.project + " " +
-                (active === project ? styles.projectselected : "")
+                (active === project ? styles.selected : "")
               }>
               <button
                 onClick={() => handleClick(project)}

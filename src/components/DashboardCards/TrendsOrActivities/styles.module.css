@@ -1,4 +1,4 @@
-.activities-container {
+.container {
     max-width: max-content;
     display: grid;
     padding-inline: 1.25rem;
@@ -9,19 +9,19 @@
     border-radius: 1rem;
 }
 
-.activities-container__title>h2 {
+.title>h2 {
     font-size: var(--fs-md);
     padding-bottom: 1rem;
 }
 
-.activities-container__title>p {
+.title>p {
     max-width: 35ch;
     font-size: var(--fs-xs);
     font-weight: 600;
 }
 
 
-.activities-container__title>p>span {
+.title>p>span {
     text-transform: capitalize;
 }
 
@@ -37,24 +37,24 @@
     margin-bottom: 1rem;
 }
 
-.activities-container__cards {
+.cards {
     max-width: 340px;
 }
 
 @media (min-width: 700px) {
-    .activities-container {
+    .container {
         display: grid;
         place-content: center;
         padding-inline: 1.25rem;
     }
 
-    .activities-container__cards {
+    .cards {
         max-width: 650px;
     }
 }
 
 @media (min-width: 1300px) {
-    .activities-container {
+    .container {
         display: grid;
         grid-template-columns: 1fr 5fr;
         align-content: start;

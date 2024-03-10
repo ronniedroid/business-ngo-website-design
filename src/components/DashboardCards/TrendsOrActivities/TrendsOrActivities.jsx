@@ -1,10 +1,10 @@
 import { h } from "preact";
-import "./TrendsOrActivities.css";
 import { useStore } from "@nanostores/preact";
 import { currentMonth, currentProject } from "@stores/store";
 import Gender from "@components/Charts/Gender";
 import Governorates from "@components/Charts/Governorate";
 import Activities from "@components/DashboardCards/TrendsOrActivities/Activities";
+import styles from "./styles.module.css"
 
 function TrendsOrActivities() {
   const month = useStore(currentMonth);
@@ -13,19 +13,19 @@ function TrendsOrActivities() {
   const isProject = project === null ? false : true;
   if (isYear && !isProject) {
     return (
-      <div class="activities-container">
-        <div class="activities-container__title">
+      <div class={styles.container}>
+        <div class={styles.title}>
           <h2>Monthly segregation</h2>
           <p>
             Distriution of beneficiaries based on gender and governorates for
             the passed months
           </p>
         </div>
-        <div class="activities-container__cards">
-          <div class="gender">
+        <div class={styles.cards}>
+          <div class={styles.gender}>
             <Gender />
           </div>
-          <div class="governorate">
+          <div class={styles.governorate}>
             <Governorates />
           </div>
         </div>
@@ -33,15 +33,15 @@ function TrendsOrActivities() {
     );
   } else {
     return (
-      <div class="activities-container">
-        <div class="activities-container__title">
+      <div class={styles.container}>
+        <div class={styles.title}>
           <h2>Activities</h2>
           <p>
             List of activities carried out by Harikar's project's for the month
             of <span>{month}</span>
           </p>
         </div>
-        <div class="activities-container__table">
+        <div class={styles.table}>
           <Activities />
         </div>
       </div>

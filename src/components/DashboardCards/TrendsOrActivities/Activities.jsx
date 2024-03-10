@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useStore } from "@nanostores/preact";
 import { dashboardData } from "@stores/store";
-import "./TrendsOrActivities.css";
+import styles from "./styles.module.css"
 
 function Activities() {
   const { activities } = useStore(dashboardData);

@@ -58,32 +58,30 @@ function Calendar({ year }) {
   }
 
   return (
-    <div class="calendar">
-      <ul class={styles.calendarlist}>
-        <div class={styles.calendaricon} onClick={() => handleClick(null)}>
-          <CalendarIcon width={24} height={24} fill="var(--on-primary-container)" />
-          <span class={styles.tooltip}>Unselect month</span>
-          <p>{year}</p>
-        </div>
-        {filteredMonths.map((month) => (
-          <li
-            class={
-              styles.calendaritem + " " +
-              (month.name === $currentMonth
-                ? styles.calendaritemselected
-                : "")
-            }
+    <ul class={styles.list}>
+      <div class={styles.icon} onClick={() => handleClick(null)}>
+        <CalendarIcon width={24} height={24} fill="var(--on-primary-container)" />
+        <span class={styles.tooltip}>Unselect month</span>
+        <p>{year}</p>
+      </div>
+      {filteredMonths.map((month) => (
+        <li
+          class={
+            styles.item + " " +
+            (month.name === $currentMonth
+              ? styles.selected
+              : "")
+          }
+        >
+          <button
+            disabled={month.isDisabled}
+            onClick={() => handleClick(month.name)}
           >
-            <button
-              disabled={month.isDisabled}
-              onClick={() => handleClick(month.name)}
-            >
-              {month.abbr}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+            {month.abbr}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }
 

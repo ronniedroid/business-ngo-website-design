@@ -30,11 +30,11 @@ function BenCards() {
   ];
   return (
     <div class={styles.cards}>
-      <div class={styles.cardstitle}>
+      <div class={styles.title}>
         <h2>Benefeciaries</h2>
         <p>General Statistics of beneficiaties based on gender and locations</p>
       </div>
-      <div class={styles.cardslist}>
+      <div class={styles.list}>
         {items
           ? items.map((item) => <BenCard title={item.title} num={item.num} />)
           : ""}

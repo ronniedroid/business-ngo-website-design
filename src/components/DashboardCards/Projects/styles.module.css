@@ -3,7 +3,7 @@
   align-content: start;
 }
 
-.projectslist {
+.list {
   list-style: none;
   height: auto;
   display: grid;
@@ -17,12 +17,12 @@
 }
 
 @media (min-width: 1200px) {
-  .projectslist {
+  .list {
     padding-inline: 1rem;
   }
 }
 
-.projectsicon {
+.icon {
   grid-row: 1/2;
   grid-column: 1/-1;
   display: flex;
@@ -33,7 +33,7 @@
 
 }
 
-.projectsicon>svg {
+.icon>svg {
   background-color: var(--primary-container);
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -42,7 +42,7 @@
   border: 1px solid var(--outline-variant);
 }
 
-.projectsicon .tooltip {
+.icon .tooltip {
   visibility: hidden;
   background-color: var(--surface-container-highest);
   color: var(--on-surface);
@@ -57,12 +57,12 @@
   transition: visibility 0.2s linear, opacity 0.2s linear;
 }
 
-.projectsicon:hover .tooltip {
+.icon:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
-.projecttitle {
+.title {
   position: absolute;
   top: -1.2em;
   left: 3.3em;
@@ -71,7 +71,7 @@
   align-items: center;
 }
 
-.projecttitle>p {
+.title>p {
   font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
   padding: 0.5rem;
 }
 
-.projectselected>button,
+.selected>button,
 .project:hover>button {
   background-color: var(--surface-container-high);
   color: var(--on-surface);

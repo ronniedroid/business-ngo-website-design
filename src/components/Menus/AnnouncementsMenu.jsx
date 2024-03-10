@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useStore } from "@nanostores/preact";
 import { useRef, useEffect } from "preact/hooks";
 import { fetchCurrentJobs, currentJobs } from "@stores/store";
-import "./menus-styles.css";
+import styles from "./styles.module.css"
 
 function AnnouncementsMenu() {
 
@@ -15,11 +15,11 @@ function AnnouncementsMenu() {
 
   return (
     <>
-      <details class="header-details news-details">
-        <summary class="news-summary">
-          <p>News</p> <p class="number">{numberOfJobs}</p>
+      <details>
+        <summary>
+          <p>News</p> <p class={styles.number}>{numberOfJobs}</p>
         </summary>
-        <div className="content content-news">
+        <div class={styles.content}>
           <ul>
             <li>
               <a href="/announcements/job-opportunities">

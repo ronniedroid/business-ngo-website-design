@@ -1,10 +1,4 @@
-.calendar {
-  display: grid;
-  justify-items: start;
-  align-content: start;
-}
-
-.calendarlist {
+.list {
   list-style: none;
   display: grid;
   justify-content: start;
@@ -18,7 +12,7 @@
   border-radius: 1rem;
 }
 
-.calendaricon {
+.icon {
   display: flex;
   grid-row: 1/2;
   grid-column: 1/-1;
@@ -28,7 +22,7 @@
   position: relative;
 }
 
-.calendaricon>svg {
+.icon>svg {
   border-radius: 0.5rem;
   height: 36px;
   width: 36px;
@@ -37,7 +31,7 @@
   border: 1px solid var(--outline-variant);
 }
 
-.calendaricon .tooltip {
+.icon .tooltip {
   visibility: hidden;
   background-color: var(--surface-container-highest);
   color: var(--on-surface);
@@ -52,24 +46,24 @@
   transition: visibility 0.2s linear, opacity 0.2s linear;
 }
 
-.calendaricon:hover .tooltip {
+.icon:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
-.calendartitle>p {
+.title>p {
   font-size: var(--fs-sm);
   font-weight: 600;
   text-transform: uppercase;
 }
 
 
-.calendaritem {
+.item {
   width: 100%;
   display: grid;
 }
 
-.calendaritem>button {
+.item>button {
   color: var(--on-surface);
   padding-block: 0.25rem;
   padding-inline: 0.5rem;
@@ -83,13 +77,13 @@
   cursor: pointer;
 }
 
-.calendaritem>button:disabled {
+.item>button:disabled {
   color: var(--neutral25);
   cursor: not-allowed;
 }
 
-.calendaritemselected>button,
-.calendaritem:hover>button {
+.selected>button,
+.item:hover>button {
   background-color: var(--surface-container-highest);
   color: var(--on-surface-container);
 }

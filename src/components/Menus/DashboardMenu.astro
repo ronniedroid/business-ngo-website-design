@@ -2,7 +2,7 @@
 
 ---
 
-<details class="header-details dash-details">
+<details class="header-details">
   <summary>Dashboards</summary>
   <div class="content content-dash">
     <ul>
@@ -23,5 +23,64 @@
 </details>
 
 <style>
-  @import "./menus-styles.css";
+  .header-details {
+    grid-area: menu;
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+  }
+
+  .header-details > summary {
+    background-color: transparent;
+    list-style: none;
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--on-surface);
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-details > .content {
+    background: var(--surface-container-high);
+    z-index: 4;
+    padding-block: 2em;
+    padding-inline: 2em;
+    cursor: auto;
+    max-width: max-content;
+    position: absolute;
+    top: 4em;
+    border-radius: 1rem;
+    list-style: none;
+    display: grid;
+    place-items: center;
+  }
+
+  .header-details > .content > ul {
+    display: grid;
+    gap: var(--size-1);
+    place-content: center;
+    place-items: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  .header-details > .content > ul > li > a {
+    display: flex;
+    justify-content: center;
+    text-wrap: nowrap;
+    place-content: center;
+    place-items: center;
+    min-width: 100%;
+    gap: 2rem;
+    color: var(--on-surface);
+    text-decoration: none;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+  }
+
+  .header-details > .content > ul > li > a:hover {
+    color: var(--primary);
+  }
 </style>

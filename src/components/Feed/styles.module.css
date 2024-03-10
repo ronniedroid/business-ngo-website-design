@@ -1,0 +1,22 @@
+.feeds-content-title {
+  max-width: 25ch;
+}
+
+.feeds-content {
+  display: grid;
+  place-content: center;
+}
+
+.smAndUp {
+  display: none;
+}
+
+@media (min-width: 550px) {
+  .smAndUp {
+    display: block;
+  }
+
+  .smAndDown {
+    display: none;
+  }
+}

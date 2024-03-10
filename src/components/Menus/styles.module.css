@@ -1,11 +1,11 @@
-.header-details {
+details {
     grid-area: menu;
     background-color: transparent;
     padding: 0;
     position: relative;
 }
 
-.header-details>summary {
+details>summary {
     background-color: transparent;
     list-style: none;
     font-weight: 600;
@@ -17,24 +17,24 @@
     padding: 0;
 }
 
-.news-summary {
+summary {
     display: flex;
     place-content: center;
     place-items: center;
     gap: 0.2rem;
 }
 
-.news-summary>p {
+summary>p {
     font-size: var(--fs-sm);
     font-weight: 600;
 }
 
-.news-summary>p:hover,
-.header-details>summary:hover {
+summary>p:hover,
+details>summary:hover {
     color: var(--primary);
 }
 
-.header-details>.content {
+details>.content {
     background: var(--surface-container-high);
     z-index: 4;
     padding-block: 2em;
@@ -49,12 +49,12 @@
     place-items: center;
 }
 
-.content-news {
+.content {
     left: -2em;
     white-space: nowrap;
 }
 
-.header-details>.content>ul {
+details>.content>ul {
     display: grid;
     gap: var(--size-1);
     place-content: center;
@@ -63,7 +63,7 @@
     padding: 0;
 }
 
-.header-details>.content>ul>li>a {
+details>.content>ul>li>a {
     display: flex;
     justify-content: center;
     text-wrap: nowrap;
@@ -77,7 +77,7 @@
     font-weight: 500;
 }
 
-.header-details>.content>ul>li>a:hover {
+details>.content>ul>li>a:hover {
     color: var(--primary);
 }
 
