@@ -45,14 +45,10 @@ function Calendar({ year }) {
   useEffect(() => {
     let params = new URLSearchParams(document.location.search);
     let monthp = params.get("month");
-    if ($currentMonth != null) {
-      if (!months.includes(monthp)) {
-        setCurrentMonth(null);
-      } else {
-        setCurrentMonth(monthp);
-      }
+    if (months.includes(monthp)) {
+      setCurrentMonth(monthp)
     }
-  }, []);
+  }, [months]);
 
   function handleClick(month) {
     let params = new URLSearchParams(document.location.search);
@@ -67,14 +63,12 @@ function Calendar({ year }) {
         <div class={styles.calendaricon} onClick={() => handleClick(null)}>
           <CalendarIcon width={24} height={24} fill="var(--on-primary-container)" />
           <span class={styles.tooltip}>Unselect month</span>
-        </div>
-        <div class={styles.calendartitle}>
           <p>{year}</p>
         </div>
         {filteredMonths.map((month) => (
           <li
             class={
-              styles.calendaritem +
+              styles.calendaritem + " " +
               (month.name === $currentMonth
                 ? styles.calendaritemselected
                 : "")

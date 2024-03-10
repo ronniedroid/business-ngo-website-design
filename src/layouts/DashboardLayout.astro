@@ -97,6 +97,7 @@ const items = [
       background-color: var(--surface-container);
       display: grid;
       justify-content: center;
+      align-content: center;
     }
 
     .options summary {
@@ -109,6 +110,9 @@ const items = [
       grid-auto-flow: column;
       grid-template-columns: 1fr 1fr;
       max-width: max-content;
+      align-items: start;
+      gap: 1rem;
+      padding-block: 1rem;
     }
 
     .main {
@@ -155,7 +159,7 @@ const items = [
       border-radius: 0 1rem 1rem 0;
       grid-area: side;
       background-color: var(--surface-container);
-      padding-block-start: 3rem;
+      padding-block-start: 2rem;
       padding-block-end: 1.25rem;
       align-content: start;
     }
