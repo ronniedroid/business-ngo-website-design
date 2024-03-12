@@ -32,7 +32,7 @@ function TypeCard({ title, num, male, female, urban, camp }) {
             ""
           )}
         </div>
-        <div class={styles.cardtitle}>{title}</div>
+        <div class={styles.cardtitle}>{title == "Host Community" ? "Host" : title}</div>
         <div class={styles.cardnum}>{formatter.format(num)}</div>
       </div>
       <ul class={styles.breakdown}>
