@@ -6,8 +6,8 @@
     "name": "Protection and Assistance program for refugees and IDPs in Duhok-Iraq",
     "start": "2022-01-01",
     "end": "2023-12-30",
-    "budget": 4331056080,
-    "summary": "Harikar NGO in partnership with UNHCR is implementing a project in cooperation with Directorate of Residency, DCVOW, DMCR and other concerned local authorities. This project concentrates on the sectors of protection and GBV to ensure that POCs (Syrian, non-Syrian refugees and IDPs) in and out of camps have access to free legal aid, protection, basic services and GBV response services.",
+    "budget": 5051963160,
+    "summary": "Ensure that POCs (Syrian, non-Syrian refugees and IDPs) in and out of camps have access to free legal aid, protection, basic services and GBV response services, and\nempower the community by providing assistance to community representation structures with information dissemination and managing and leading activities.",
     "partners": [
         "UNHCR"
     ],
@@ -58,26 +58,30 @@
             "Refugees",
             "Returnees"
         ],
-        "target": 95455
+        "target": 95455,
+        "reached": 155640
     },
     "objectives": [
         "Access to legal assistance and legal remedies supported",
         "Quality service provision and community mechanisms for GBV prevention, mitigation and response are strengthened",
         "Profiling of Refugees and IDPs planned and undertaken",
-        "Access to civil registration and documentation supported"
+        "Access to civil registration and documentation supported",
+        "Strengthening community feedback mechanism and two-way communication between communities and service providers to enhance accountability (Communication with Communities)",
+        "Support community-led protection response and social cohesion initiatives"
     ],
     "activities": [
         "PSS counselling, Case management, GBV awareness raising, GBV capacity building",
         "Legal representation, Legal counselling, Legal awareness raising, Detention monitoring",
         "Protection monitoring (PMT, ASSIST, PMS,other tools as per required)",
-        "Implementation of Mol exercise"
+        "Implementation of Mol exercise",
+        "Two-way communication with the community via community assessments (Focus Group Discussions)"
     ],
-    "state": "onGoing",
+    "state": "done",
     "employees": {
         "male": 100,
         "female": 79,
         "total": 179
     },
-    "thumb": "./images/project-23-thumb.webp",
-    "cover": "./images/project-23.webp"
+    "thumb": "./images/project-23-1-thumb.webp",
+    "cover": "./images/project-23-1.webp"
 }

@@ -16,7 +16,7 @@ function TypeCards() {
       </div>
       <div class={styles.list}>
         {beneficiaries
-          ? beneficiaries.map((item) => <TypeCard title={item.name} num={item.total} />)
+          ? beneficiaries.map((item) => <TypeCard title={item.name} num={item.total} male={item.male} female={item.female} urban={item.urban} camp={item.camp} />)
           : ""}
       </div>
     </div>

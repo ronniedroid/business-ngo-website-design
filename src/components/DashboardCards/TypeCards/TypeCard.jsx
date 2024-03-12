@@ -6,7 +6,7 @@ import HostIcon from "@components/Icons/HostIcon";
 import styles from "./styles.module.css"
 import { setDataFilter } from "@stores/store";
 
-function TypeCard({ title, num }) {
+function TypeCard({ title, num, male, female, urban, camp }) {
   const width = 24;
   const height = 24;
   const fill = "var(--on-surface)";
@@ -18,21 +18,29 @@ function TypeCard({ title, num }) {
   }
   return (
     <div class={styles.card} onClick={() => handleClick(title.toLowerCase())}>
-      <div class={styles.cardicon}>
-        {title === "IDPs" ? (
-          <IDPIcon width={width} height={height} fill={fill} />
-        ) : title === "Refugee" ? (
-          <RefugeeIcon width={width} height={height} fill={fill} />
-        ) : title === "Returnees" ? (
-          <ReturneeIcon width={width} height={height} fill={fill} />
-        ) : title === "Host Community" ? (
-          <HostIcon width={width} height={height} fill={fill} />
-        ) : (
-          ""
-        )}
+      <div class={styles.general}>
+        <div class={styles.cardicon}>
+          {title === "IDPs" ? (
+            <IDPIcon width={width} height={height} fill={fill} />
+          ) : title === "Refugee" ? (
+            <RefugeeIcon width={width} height={height} fill={fill} />
+          ) : title === "Returnees" ? (
+            <ReturneeIcon width={width} height={height} fill={fill} />
+          ) : title === "Host Community" ? (
+            <HostIcon width={width} height={height} fill={fill} />
+          ) : (
+            ""
+          )}
+        </div>
+        <div class={styles.cardtitle}>{title}</div>
+        <div class={styles.cardnum}>{formatter.format(num)}</div>
       </div>
-      <div class={styles.cardtitle}>{title}</div>
-      <div class={styles.cardnum}>{formatter.format(num)}</div>
+      <ul class={styles.breakdown}>
+        <li><span>Male</span>{formatter.format(male)}</li>
+        <li><span>Female</span>{formatter.format(female)}</li>
+        <li><span>Urab</span>{formatter.format(urban)}</li>
+        <li><span>Camp</span>{formatter.format(camp)}</li>
+      </ul>
     </div>
   );
 }

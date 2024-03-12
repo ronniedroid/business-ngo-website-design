@@ -47,12 +47,12 @@
         "Cash for protection",
         "Home based MHPSS awarness sessions"
     ],
-    "state": "onGoing",
+    "state": "done",
     "employees": {
         "male": 3,
         "female": 6,
         "total": 9
     },
-    "thumb": "./images/project-24-thumb.webp",
-    "cover": "./images/project-24.webp"
+    "thumb": "./images/project-23-2-thumb.webp",
+    "cover": "./images/project-23-2.webp"
 }

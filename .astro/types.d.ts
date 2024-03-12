@@ -295,13 +295,13 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"projects": {
-"project-23": {
-	id: "project-23";
+"project-23-1": {
+	id: "project-23-1";
   collection: "projects";
   data: InferEntrySchema<"projects">
 };
-"project-24": {
-	id: "project-24";
+"project-23-2": {
+	id: "project-23-2";
   collection: "projects";
   data: InferEntrySchema<"projects">
 };
