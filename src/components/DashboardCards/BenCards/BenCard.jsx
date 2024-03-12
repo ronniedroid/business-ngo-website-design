@@ -5,17 +5,19 @@ import FemaleIcon from "@components/Icons/FemaleIcon";
 import CampIcon from "@components/Icons/CampIcon";
 import UrbanIcon from "@components/Icons/UrbanIcon";
 import styles from "./styles.module.css"
-import { setDataFilter } from "@stores/store";
+import { dataFilter, setDataFilter } from "@stores/store";
+import { useStore } from "@nanostores/preact";
 
 function BenCard({ title, num }) {
   const width = 20;
   const height = 20;
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
+  const $dataFilter = useStore(dataFilter)
   function handleClick(item) {
     setDataFilter(item)
   }
   return (
-    <div class={styles.card} onClick={() => handleClick(title)}>
+    <div class={styles.card + " " + (title === $dataFilter ? styles.selected : '')} onClick={() => handleClick(title)}>
       <div class={`${styles.icon} ${styles[title]}`}>
         {title === "total" ? (
           <TotalIcon width={width} height={height} />

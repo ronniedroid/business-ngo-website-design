@@ -4,20 +4,22 @@ import RefugeeIcon from "@components/Icons/RefugeeIcon";
 import ReturneeIcon from "@components/Icons/ReturneeIcon";
 import HostIcon from "@components/Icons/HostIcon";
 import styles from "./styles.module.css"
-import { setDataFilter } from "@stores/store";
+import { setDataFilter, dataFilter } from "@stores/store";
+import { useStore } from "@nanostores/preact";
 
 function TypeCard({ title, num, male, female, urban, camp }) {
   const width = 24;
   const height = 24;
   const fill = "var(--on-surface)";
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
+  const $dataFilter = useStore(dataFilter)
+  const titleLower = title.toLowerCase()
+  const titleModified = titleLower == 'idps' ? 'idps' : titleLower == 'refugee' ? 'refugees' : titleLower == 'returnees' ? 'returnees' : titleLower == 'host community' ? 'host' : ''
   function handleClick(item) {
-    const result = item == 'idps' ? 'idps' : item == 'refugee' ? 'refugees' : item == 'returnees' ? 'returnees' : item == 'host community' ? 'host' : ''
-    // console.log(item, result)
-    setDataFilter(result)
+    setDataFilter(item)
   }
   return (
-    <div class={styles.card} onClick={() => handleClick(title.toLowerCase())}>
+    <div class={styles.card + " " + (titleModified == $dataFilter ? styles.selected : '')} onClick={() => handleClick(titleModified)}>
       <div class={styles.general}>
         <div class={styles.cardicon}>
           {title === "IDPs" ? (
@@ -32,7 +34,7 @@ function TypeCard({ title, num, male, female, urban, camp }) {
             ""
           )}
         </div>
-        <div class={styles.cardtitle}>{title == "Host Community" ? "Host" : title}</div>
+        <div class={styles.cardtitle}>{titleModified}</div>
         <div class={styles.cardnum}>{formatter.format(num)}</div>
       </div>
       <ul class={styles.breakdown}>

@@ -39,6 +39,11 @@
     padding: 1.25rem;
     border-radius: 1rem;
     cursor: pointer;
+    border: 1px solid var(--outline-variant)
+}
+
+.selected {
+    border: 1px solid var(--outline)
 }
 
 @media (min-width: 700px) {

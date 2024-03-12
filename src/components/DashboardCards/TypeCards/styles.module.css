@@ -1,6 +1,7 @@
 .cards {
   margin: auto;
   max-width: max-content;
+  height: 500px;
   display: grid;
   align-content: start;
   padding-inline: 1.75rem;
@@ -39,6 +40,10 @@
   cursor: pointer;
 }
 
+.selected {
+  border: 1px solid var(--outline);
+}
+
 .general {
   display: grid;
   grid-template-columns: 24px 1fr 5fr;
@@ -63,6 +68,7 @@
 .cardtitle {
   font-size: var(--fs-xs);
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .cardnum {

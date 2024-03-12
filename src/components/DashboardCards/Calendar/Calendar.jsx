@@ -6,7 +6,8 @@ import {
   currentMonth,
   currentProject,
   fetchCurrentMonths,
-  projectMonths
+  projectMonths,
+  setDataFilter
 } from "@stores/store";
 import { useStore } from "@nanostores/preact";
 import CalendarIcon from "@components/Icons/CalendarIcon";
@@ -54,6 +55,7 @@ function Calendar({ year }) {
     let params = new URLSearchParams(document.location.search);
     params.set("month", month);
     window.history.replaceState({}, "", `${location.pathname}?${params}`);
+    setDataFilter("total")
     setCurrentMonth(month);
   }
 

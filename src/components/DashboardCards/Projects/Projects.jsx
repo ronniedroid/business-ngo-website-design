@@ -8,7 +8,8 @@ import {
   currentProjects,
   currentMonth,
   fetchGeneralData,
-  setProjectMonths
+  setProjectMonths,
+  setDataFilter
 } from "@stores/store";
 import styles from "./styles.module.css"
 import ClusterIcon from "@components/Icons/ClusterIcon";
@@ -35,9 +36,11 @@ function Projects({ year }) {
   function handleClick(project) {
     setCurrrentProject(project);
     fetchProjectsData(year)
+    setDataFilter(null)
   }
 
   function handleGeneralClick() {
+    setDataFilter("total")
     setProjectMonths([])
     setCurrrentProject(null);
     fetchGeneralData(year)
