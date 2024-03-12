@@ -1,7 +1,7 @@
 .cards {
     display: grid;
     gap: 3rem;
-    max-width: min-content;
+    max-width: 100%;
     justify-content: center;
     align-items: end;
     padding-block: 1.75rem;
@@ -12,7 +12,7 @@
 }
 
 .title>h2 {
-    font-size: var(--fs-lg);
+    font-size: var(--fs-md);
     padding-bottom: 1rem;
 }
 
@@ -60,14 +60,8 @@
         gap: 1rem;
         max-width: 100%;
         justify-content: start;
-        align-items: end;
+        align-items: start;
         padding-block: 3rem;
-        margin-inline-start: 2rem;
-    }
-
-    .title>h2 {
-        font-size: var(--fs-md);
-        padding-bottom: 1rem;
     }
 
     .list {

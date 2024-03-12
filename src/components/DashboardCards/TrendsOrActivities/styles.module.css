@@ -1,5 +1,5 @@
 .container {
-    max-width: max-content;
+    max-width: 100%;
     display: grid;
     padding-inline: 1.25rem;
     padding-block: 1.25rem;
