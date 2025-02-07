@@ -1,0 +1,42 @@
+{
+  "$ref": "#/definitions/reports",
+  "definitions": {
+    "reports": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string",
+          "format": "uri"
+        },
+        "slug": {
+          "type": "string",
+          "default": ""
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "createdAt",
+        "date",
+        "cover",
+        "link"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
